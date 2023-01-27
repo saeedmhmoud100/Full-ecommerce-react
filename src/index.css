@@ -30,7 +30,7 @@ body {
 }
 .sub-tile {
   color: #272727;
-  font-family: Almarai;
+  font-family: Almarai,'sans-serif';
   font-size: 21px;
   font-weight: bold;
   letter-spacing: 0;
@@ -39,27 +39,27 @@ body {
 
 .slider-background {
   background: linear-gradient(173.68deg, #ffedf5 0%, #ffd5e7 100%);
-  height: "296px";
+  height: 296px;
   width: 294.26px;
 }
 .slider-background2 {
   background: linear-gradient(174.76deg, #d3deff 0%, #a8baff 100%);
-  height: "296px";
+  height: 296px;
   width: 294.26px;
 }
 .slider-background3 {
   background: linear-gradient(176.69deg, #f8f0d5 0%, #efdcab 100%);
-  height: "296px";
+  height: 296px;
   width: 294.26px;
 }
 .slider-background4 {
   background: linear-gradient(175.24deg, #b2e8f0 0%, #7bccdc 100%);
-  height: "296px";
+  height: 296px;
   width: 294.26px;
 }
 .slider-title {
   color: #915970;
-  font-family: Almarai;
+  font-family: Almarai,'sans-serif';
   font-size: 24px;
   letter-spacing: 0;
   line-height: 32px;
@@ -67,7 +67,7 @@ body {
 }
 .slider-text {
   color: #915970;
-  font-family: Almarai;
+  font-family: Almarai,'sans-serif';
   font-size: 30px;
   font-weight: 800;
   letter-spacing: 0;
@@ -95,7 +95,7 @@ body {
 }
 .categoty-card-text {
   color: #555550;
-  font-family: Almarai;
+  font-family: Almarai,'sans-serif';
   font-size: 18px;
   font-weight: bold;
   text-align: center;
@@ -105,7 +105,7 @@ body {
 
 .card-title {
   color: #555550;
-  font-family: Almarai;
+  font-family: Almarai,'sans-serif';
   font-size: 16px;
   letter-spacing: 0;
   line-height: 20px;
@@ -113,7 +113,7 @@ body {
 }
 .card-price {
   color: #272727;
-  font-family: Almarai;
+  font-family: Almarai,'sans-serif';
   font-size: 21px;
   font-weight: bold;
   letter-spacing: 0;
@@ -121,14 +121,14 @@ body {
 }
 .card-currency {
   color: #555550;
-  font-family: Almarai;
+  font-family: Almarai,'sans-serif';
   font-size: 18px;
   letter-spacing: 0;
   line-height: 24px;
 }
 .card-rate {
   color: #ffc107;
-  font-family: Almarai;
+  font-family: Almarai,'sans-serif';
   font-size: 14px;
   font-weight: bold;
   letter-spacing: 0;
@@ -162,7 +162,7 @@ body {
 }
 .discount-title {
   color: #ffffff;
-  font-family: Cairo;
+  font-family: Cairo,'sans-serif';
   font-size: 21px;
   font-weight: bold;
   letter-spacing: 0;
@@ -184,7 +184,7 @@ body {
 }
 .footer-shroot {
   color: #979797;
-  font-family: Almarai;
+  font-family: Almarai,'sans-serif';
   font-size: 13px;
   font-weight: bold;
   letter-spacing: 0;
@@ -194,7 +194,7 @@ body {
 
 .footer-phone {
   color: #979797;
-  font-family: "Almarai";
+  font-family: "Almarai",'sans-serif';
   font-size: 13px;
   font-weight: bold;
   text-align: right;
@@ -205,7 +205,7 @@ body {
 /* card filter style */
 .search-count-text {
   color: #979797;
-  font-family: Almarai;
+  font-family: Almarai,'sans-serif';
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 0;
@@ -241,7 +241,7 @@ body {
 
 .cat-text {
   color: #979797;
-  font-family: "Almarai";
+  font-family: "Almarai",'sans-serif';
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 0;
@@ -251,7 +251,7 @@ body {
 
 .cat-title {
   color: #555550;
-  font-family: Almarai;
+  font-family: Almarai,'sans-serif';
   font-size: 14px;
   font-weight: normal;
   text-align: right;
@@ -259,7 +259,7 @@ body {
 
 .cat-rate {
   color: #ffc107;
-  font-family: "Almarai";
+  font-family: "Almarai",'sans-serif';
   font-size: 14px;
   font-weight: bold;
   letter-spacing: 0;
@@ -269,7 +269,7 @@ body {
 
 .barnd-text {
   color: #555550;
-  font-family: "Almarai";
+  font-family: "Almarai",'sans-serif';
   font-size: 18px;
   font-weight: bold;
   letter-spacing: 0;
@@ -284,7 +284,7 @@ body {
 }
 .product-description {
   color: #555550;
-  font-family: Cairo;
+  font-family: Cairo,'sans-serif';
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0;
@@ -299,7 +299,7 @@ body {
   padding-bottom: 10px;
   border-radius: 9px;
   color: #555550;
-  font-family: "Almarai";
+  font-family: "Almarai",'sans-serif';
   font-size: 12px;
   font-weight: bold;
   background-color: #ffffff;
@@ -313,7 +313,7 @@ body {
   border: none;
   background-color: #272727;
   color: #ffffff;
-  font-family: "Almarai";
+  font-family: "Almarai",'sans-serif';
   font-size: 14px;
   font-weight: normal;
 }
@@ -334,12 +334,12 @@ body {
   background-color: #f9f9f9 !important;
   color: #272727 !important;
   border-radius: 10px !important;
-  border: solid 1px 272727 !important;
+  border: solid 1px #272727 !important;
 }
 .page-link:hover {
   background-color: #272727 !important;
   color: white !important;
-  border: solid 1px 272727 !important;
+  border: solid 1px #272727 !important;
 }
 /* end pagination */
 
@@ -351,7 +351,7 @@ body {
 
 .cat-text-header {
   color: #979797;
-  font-family: "Almarai";
+  font-family: "Almarai",'sans-serif';
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 0;
@@ -377,7 +377,7 @@ body {
 }
 .title-login {
   color: #555550;
-  font-family: Almarai;
+  font-family: Almarai,'sans-serif';
   font-size: 21px;
   font-weight: 800;
   letter-spacing: 0;
@@ -401,7 +401,7 @@ body {
 /* cart page */
 .cart-title {
   color: #555550;
-  font-family: Almarai;
+  font-family: Almarai,'sans-serif';
   font-size: 21px;
   font-weight: 800;
   letter-spacing: 0;
@@ -419,7 +419,7 @@ body {
   height: 46px;
   width: 90%;
   border: 1px solid #979797;
-  font-family: "Almarai";
+  font-family: "Almarai",'sans-serif';
   font-size: 12px;
   font-weight: normal;
 }
@@ -435,7 +435,7 @@ body {
   border-radius: 0 !important;
   background-color: #272727;
   color: #ffff !important;
-  font-family: "Almarai";
+  font-family: "Almarai",'sans-serif';
   font-size: 12px;
   font-weight: normal;
 }
@@ -459,7 +459,7 @@ body {
 
 .admin-side-text {
   color: #272727;
-  font-family: "Almarai";
+  font-family: "Almarai",'sans-serif';
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 0;
@@ -477,7 +477,7 @@ body {
 }
 .admin-content-text {
   color: #555550;
-  font-family: Almarai;
+  font-family: Almarai,'sans-serif';
   font-size: 21px;
   font-weight: 800;
   letter-spacing: 0;
@@ -486,7 +486,7 @@ body {
 }
 .item-delete-edit {
   color: #979797;
-  font-family: "Almarai";
+  font-family: "Almarai",'sans-serif';
   font-size: 16px;
   letter-spacing: 0;
   line-height: 30px;
@@ -496,7 +496,7 @@ body {
 
 .text-form {
   color: #979797;
-  font-family: "Almarai";
+  font-family: "Almarai",'sans-serif';
   font-size: 16px;
   letter-spacing: 0;
   line-height: 20px;
@@ -558,14 +558,14 @@ body {
 }
 .rate-count {
   color: #979797;
-  font-family: "Almarai";
+  font-family: "Almarai",'sans-serif';
   font-size: 12px;
   letter-spacing: 0;
   line-height: 23px;
 }
 .rate-name {
   color: #555550;
-  font-family: "Almarai";
+  font-family: "Almarai",'sans-serif';
   font-size: 14px;
   font-weight: bold;
   letter-spacing: 0;
@@ -573,7 +573,7 @@ body {
 }
 .rate-description {
   color: #555550;
-  font-family: "Almarai";
+  font-family: "Almarai",'sans-serif';
   font-size: 14px;
   letter-spacing: 0;
   line-height: 19px;
@@ -591,14 +591,14 @@ body {
 }
 .order-title {
   color: #272727;
-  font-family: "Almarai";
+  font-family: "Almarai",'sans-serif';
   font-size: 16px;
   font-weight: bold;
 }
 
 .stat {
   color: #979797;
-  font-family: Cairo;
+  font-family: Cairo,'sans-serif';
   font-size: 16px;
   letter-spacing: 0;
   line-height: 30px;
@@ -630,7 +630,7 @@ body {
 /* user card data */
 .user-data {
   height: 270px;
-  width: 100% i !important;
+  width: 100% !important;
   border-radius: 7px;
   background-color: #ffffff;
   box-shadow: 0 1px 2px 0 rgba(151, 151, 151, 0.5);
@@ -640,19 +640,34 @@ body {
 /* filter side style */
 .filter-title {
   color: #555550;
-  font-family: "Almarai";
+  font-family: "Almarai",'sans-serif';
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 0;
   line-height: 20px;
-  text-align: right;
+  text-align: left;
 }
 .filter-sub {
   color: #555550;
-  font-family: "Almarai";
+  font-family: "Almarai",'sans-serif';
   font-size: 12px;
   letter-spacing: 0;
   line-height: 17px;
   text-align: center;
 }
 /* end filter */
+
+
+
+.xm-flex-dir-column{
+  flex-direction: row;
+}
+@media (max-width: 345px){
+  .xm-flex-dir-column{
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items: center;
+    justify-content: center;
+  flex-direction: column !important ;
+}
+}
