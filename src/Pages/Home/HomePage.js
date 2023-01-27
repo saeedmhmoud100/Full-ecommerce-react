@@ -6,6 +6,7 @@ import CardProductContainer from "../../Components/Products/CardProductsContaine
 import DiscountSection from "../../Components/Home/DiscountSection";
 import BrandFeature from "../../Components/Brand/BrandFeatured";
 import '../../Assets/Style/HomePage.scss'
+import Footer from "../../Components/Uitily/Footer";
 function HomePage(){
     return(
         <div className={'font'} style={{minHeight:'670px'}}>
@@ -16,6 +17,7 @@ function HomePage(){
             <DiscountSection />
             <CardProductContainer title={"Top Rated" } btntitle={'More'}/>
             <BrandFeature title={"Famous Brands" } btntitle={'More'} />
+            <Footer/>
         </div>
 
 
