@@ -7,10 +7,10 @@ import labtop from "../../Assets/images/labtop.png";
 import sale from "../../Assets/images/sale.png";
 import ProductCard from "./ProductCard";
 
-const CardProductContainer = ({title,btntitle}) => {
+const CardProductContainer = ({title,btntitle,pathText}) => {
     return (
         <Container>
-            <SubTiltle title={title} btntitle={btntitle} pathText="/allcategory" />
+            <SubTiltle title={title} btntitle={btntitle} pathText={pathText} />
             <Row className='my-2 d-flex justify-sm-content-center'>
                 <ProductCard title="machines" img={clothe} background="#F4DBA4" />
                 <ProductCard title="machines" img={cat2} background="#F4DBA4" />

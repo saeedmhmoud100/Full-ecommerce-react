@@ -7,6 +7,7 @@ import LoginPage from "./Pages/Auth/LoginPage";
 import RegisterPage from "./Pages/Auth/RegisterPage";
 import AllCategoryPage from "./Pages/Category/AllCategoryPage";
 import AllBrandPage from "./Pages/Brand/AllBrandPage";
+import ShopProductsPage from "./Pages/Products/ShopProductsPage";
 
 function App() {
     // Go to in the top when go to another page
@@ -25,6 +26,7 @@ function App() {
             <Route path={'/register'} element={<RegisterPage />} />
             <Route path={'/allcategory'} element={<AllCategoryPage />} />
             <Route path={'/allbrand'} element={<AllBrandPage />} />
+            <Route path={'/products'} element={<ShopProductsPage />} />
         </Routes>
         <Footer/>
     </div>

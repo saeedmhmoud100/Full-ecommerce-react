@@ -10,9 +10,9 @@ function HomePage(){
         <div className={'font'}>
             <Slider />
             <HomeCategory />
-            <CardProductContainer title={"Best Sellers" } btntitle={'More'}/>
+            <CardProductContainer title={"Best Sellers" } btntitle={'More'} pathText="/products"/>
             <DiscountSection />
-            <CardProductContainer title={"Top Rated" } btntitle={'More'}/>
+            <CardProductContainer title={"Top Rated" } btntitle={'More'} pathText="/products"/>
             <BrandFeature title={"Famous Brands" } btntitle={'More'} />
         </div>
 
