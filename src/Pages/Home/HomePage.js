@@ -7,7 +7,7 @@ import BrandFeature from "../../Components/Brand/BrandFeatured";
 import '../../Assets/Style/HomePage.scss'
 function HomePage(){
     return(
-        <div className={'font'} style={{minHeight:'670px'}}>
+        <div className={'font'}>
             <Slider />
             <HomeCategory />
             <CardProductContainer title={"Best Sellers" } btntitle={'More'}/>

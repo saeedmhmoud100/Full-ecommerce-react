@@ -1,14 +1,22 @@
-import React from "react";
+import React, {useEffect} from "react";
 import HomePage from "./Pages/Home/HomePage";
-import {Routes,Route} from "react-router-dom";
+import {Routes, Route, useLocation} from "react-router-dom";
 import NavBarLogin from "./Components/Uitily/NavBarLogin";
 import Footer from "./Components/Uitily/Footer";
 import LoginPage from "./Pages/Auth/LoginPage";
 import RegisterPage from "./Pages/Auth/RegisterPage";
 import AllCategoryPage from "./Pages/Category/AllCategoryPage";
+import AllBrandPage from "./Pages/Brand/AllBrandPage";
 
 function App() {
-  return (
+    // Go to in the top when go to another page
+    const routePath = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [routePath]);
+    //
+
+    return (
     <div className="text-center font">
         <NavBarLogin />
         <Routes>
@@ -16,6 +24,7 @@ function App() {
             <Route path={'/login'} element={<LoginPage />} />
             <Route path={'/register'} element={<RegisterPage />} />
             <Route path={'/allcategory'} element={<AllCategoryPage />} />
+            <Route path={'/allbrand'} element={<AllBrandPage />} />
         </Routes>
         <Footer/>
     </div>

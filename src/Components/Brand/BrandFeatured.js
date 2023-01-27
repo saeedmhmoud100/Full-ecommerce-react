@@ -10,7 +10,7 @@ import brand3 from "../../Assets/images/brand3.png";
 const BrandFeature = ({title,btntitle}) => {
     return (
         <Container>
-            <SubTiltle title={title} btntitle={btntitle} pathText="/allcategory" />
+            <SubTiltle title={title} btntitle={btntitle} pathText="/allbrand" />
             <Row className='my-2 d-flex justify-sm-content-center'>
                 <BrandCard img={brand1}/>
                 <BrandCard img={brand2} />
