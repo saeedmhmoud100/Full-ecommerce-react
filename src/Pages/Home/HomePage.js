@@ -3,6 +3,7 @@ import NavBarLogin from "../../Components/Uitily/NavBarLogin";
 import Slider from "../../Components/Home/Slider";
 import HomeCategory from "../../Components/Home/HomeCategory";
 import CardProductContainer from "../../Components/Products/CardProductsContainer";
+import DiscountSection from "../../Components/Home/DiscountSection";
 
 function HomePage(){
     return(
@@ -11,6 +12,7 @@ function HomePage(){
             <Slider />
             <HomeCategory />
             <CardProductContainer title={"Best Sellers" } btntitle={'More'}/>
+            <DiscountSection />
             <CardProductContainer title={"Top Rated" } btntitle={'More'}/>
         </div>
 
