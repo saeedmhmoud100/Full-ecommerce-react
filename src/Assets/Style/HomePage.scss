@@ -1,0 +1,5 @@
+.justify-sm-content-center{
+  @media (max-width: 576px){
+    justify-content: center !important;
+  }
+}

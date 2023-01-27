@@ -11,7 +11,7 @@ const CardProductContainer = ({title,btntitle}) => {
     return (
         <Container>
             <SubTiltle title={title} btntitle={btntitle} pathText="/allcategory" />
-            <Row className='my-2 d-flex'>
+            <Row className='my-2 d-flex justify-sm-content-center'>
                 <ProductCard title="machines" img={clothe} background="#F4DBA4" />
                 <ProductCard title="machines" img={cat2} background="#F4DBA4" />
                 <ProductCard title="machines" img={labtop} background="#0034FF" />
