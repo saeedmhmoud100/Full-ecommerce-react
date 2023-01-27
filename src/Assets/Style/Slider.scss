@@ -1,0 +1,10 @@
+
+.slider_container{
+  flex-direction: row;
+
+
+  @media (max-width: 576px){
+    margin-top: 15px;
+      flex-direction: column-reverse ;
+    }
+}
