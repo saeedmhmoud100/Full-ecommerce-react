@@ -9,6 +9,7 @@ import AllCategoryPage from "./Pages/Category/AllCategoryPage";
 import AllBrandPage from "./Pages/Brand/AllBrandPage";
 import ShopProductsPage from "./Pages/Products/ShopProductsPage";
 import ProductDetailsPage from "./Pages/Products/ProductDetailsPage";
+import CartPage from "./Pages/Cart/CartPage";
 
 function App() {
     // Go to in the top when go to another page
@@ -29,6 +30,8 @@ function App() {
             <Route path={'/allbrand'} element={<AllBrandPage />} />
             <Route path={'/products'} element={<ShopProductsPage />} />
             <Route path={'/products/:id'} element={<ProductDetailsPage />} />
+            <Route path={'/cart'} element={<CartPage />} />
+
 
         </Routes>
         <Footer/>
