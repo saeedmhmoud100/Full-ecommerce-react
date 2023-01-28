@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import rate from '../../Assets/images/rate.png'
 import RateItem from "./RateItem";
 import RatePost from "./RatePost";
+import Pagination from "../Uitily/Pagination";
 
 const RateContainer = () => {
     return (
@@ -22,6 +23,7 @@ const RateContainer = () => {
             <RateItem />
             <RateItem />
             <RateItem />
+            <Pagination />
 
         </Container>
     )
