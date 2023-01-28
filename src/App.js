@@ -19,7 +19,7 @@ function App() {
     //
 
     return (
-    <div className="text-center font">
+    <div className="font">
         <NavBarLogin />
         <Routes>
             <Route index element={<HomePage />} />

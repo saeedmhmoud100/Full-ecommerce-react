@@ -1,0 +1,11 @@
+.med-screen-padding{
+  @media (min-width: 992px) and (max-width: 1200px){
+    padding-left: 30px !important;
+  }
+}
+
+@media (max-width: 300px) {
+  .product-gallary-card{
+    width: 100%;
+  }
+}
