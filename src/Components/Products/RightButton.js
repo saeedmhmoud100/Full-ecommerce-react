@@ -7,7 +7,7 @@ const RightButton = ( onClick, onDisable ) => {
             alt=""
             width="35px"
             onClick={onClick}
-            onDisable={onDisable}
+            disabled={onDisable}
             height="35px"
             style={{ float: "right", marginTop: "220px", cursor: "pointer" }}
         />
