@@ -11,7 +11,7 @@ import ShopProductsPage from "./Pages/Products/ShopProductsPage";
 import ProductDetailsPage from "./Pages/Products/ProductDetailsPage";
 import CartPage from "./Pages/Cart/CartPage";
 import ChoosePayMethoudPage from "./Pages/Checkout/ChoosePayMethoudPage";
-import AdminAllProductsPages from "./Pages/Admin/AdminAllProductsPage";
+import AdminRoutes from "./Routes/AdminRouts";
 
 function App() {
     // Go to in the top when go to another page
@@ -34,7 +34,7 @@ function App() {
             <Route path={'/products/:id'} element={<ProductDetailsPage />} />
             <Route path={'/cart'} element={<CartPage />} />
             <Route path={'/order/paymethoud'} element={<ChoosePayMethoudPage />} />
-            <Route path={'/admin/allProducts'} element={<AdminAllProductsPages />} />
+            <Route path={'/admin/*'} element={<AdminRoutes />} />
 
         </Routes>
         <Footer/>
