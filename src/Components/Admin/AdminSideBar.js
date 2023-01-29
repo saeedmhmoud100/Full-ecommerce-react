@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 const AdminSideBar = () => {
     const sideBarData = [
-        {title:'Order Management',url:'/admin/allorders',},
-        {title:'Product Management',url:'/admin/allproducts',},
+        {title:'Orders Management',url:'/admin/allorders',},
+        {title:'Products Management',url:'/admin/allproducts',},
         {title:'Add brand',url:'/admin/addbrand',},
         {title:'Add Category',url:'/admin/addcategory',},
         {title:'Add a subcategory',url:'/admin/addsubcategory',},
