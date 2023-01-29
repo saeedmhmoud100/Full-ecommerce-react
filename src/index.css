@@ -462,6 +462,7 @@ body {
   .sidebar{
     min-height: 280px;
     padding-top: 10px;
+    margin-bottom: 15px;
   }
 }
 

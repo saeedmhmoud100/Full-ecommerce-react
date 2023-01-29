@@ -9,10 +9,10 @@ function AdminAllOrdersPages() {
     return (
         <Container className='py-3'>
             <Row>
-                <Col sm='3' xs='3' md='2'>
+                <Col sm='3' xs='12' md='2'>
                     <AdminSideBar />
                 </Col>
-                <Col sm='9' xs='9' md='10'>
+                <Col sm='9' xs='12' md='10'>
                     <AdminAllOrders />
                     <Pagination />
                 </Col>
