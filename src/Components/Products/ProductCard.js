@@ -12,7 +12,7 @@ const ProductCard = () => {
                 className="my-2"
                 style={{
                     width: "100%",
-                    height: "345px",
+                    minHeight: "345px",
                     borderRadius: "8px",
                     border: "none",
                     backgroundColor: "#FFFFFF",

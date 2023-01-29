@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const UserSideBar = () => {
     const sideBarData = [
         {title:'Orders Management',url:'/user/allorders',},
-        {title:'Favorite Products',url:'/user/allproducts',},
+        {title:'Favorite Products',url:'/user/favoriteproducts',},
         {title:'Personal Addresses',url:'/user/addbrand',},
         {title:'Profile',url:'/user/addcategory',},
     ]

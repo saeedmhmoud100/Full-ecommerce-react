@@ -451,10 +451,18 @@ body {
 
 /* admin style  */
 .sidebar {
-  height: 660px;
+  min-height: 600px;
   width: 100%;
   border-radius: 21px;
   background-color: #ffffff;
+
+}
+
+@media (max-width: 575px) {
+  .sidebar{
+    min-height: 280px;
+    padding-top: 10px;
+  }
 }
 
 .admin-side-text {
