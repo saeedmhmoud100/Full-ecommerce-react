@@ -6,7 +6,7 @@ const UserSideBar = () => {
         {title:'Orders Management',url:'/user/allorders',},
         {title:'Favorite Products',url:'/user/favoriteproducts',},
         {title:'Personal Addresses',url:'/user/addresses',},
-        {title:'Profile',url:'/user/addcategory',},
+        {title:'Profile',url:'/user/profile',},
     ]
     return (
         <div className="sidebar">
