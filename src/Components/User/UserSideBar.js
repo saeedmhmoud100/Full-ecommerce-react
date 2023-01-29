@@ -5,7 +5,7 @@ const UserSideBar = () => {
     const sideBarData = [
         {title:'Orders Management',url:'/user/allorders',},
         {title:'Favorite Products',url:'/user/favoriteproducts',},
-        {title:'Personal Addresses',url:'/user/addbrand',},
+        {title:'Personal Addresses',url:'/user/addresses',},
         {title:'Profile',url:'/user/addcategory',},
     ]
     return (
