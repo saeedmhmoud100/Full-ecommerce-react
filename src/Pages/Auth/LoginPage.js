@@ -33,19 +33,19 @@ const LoginPage = () => {
                 </Col>
 
 
-                {/*<label className="mx-auto my-4">*/}
-                {/*    <Link to="/admin/allproducts" style={{textDecoration:'none'}}>*/}
-                {/*        <span style={{ cursor: "pointer" }} className="text-danger">*/}
-                {/*            الدخول ادمن*/}
-                {/*        </span>*/}
-                {/*    </Link>*/}
-
-                {/*    <Link to="/user/allorders" style={{textDecoration:'none'}}>*/}
-                {/*        <span style={{ cursor: "pointer" }} className="text-danger mx-3">*/}
-                {/*            الدخول مستخدم*/}
-                {/*        </span>*/}
-                {/*    </Link>*/}
-                {/*</label>*/}
+                <label className="my-4">
+                    <Link to="/admin/allproducts" style={{textDecoration:'none'}}>
+                        <span style={{ cursor: "pointer" }} className="text-danger">
+                            Login as an Admin
+                        </span>
+                    </Link>
+                    <br/>
+                    <Link to="/user/allorders" style={{textDecoration:'none'}}>
+                        <span style={{ cursor: "pointer" }} className="text-danger">
+                            Login as a user
+                        </span>
+                    </Link>
+                </label>
             </Row>
         </Container>
     )
