@@ -4,6 +4,7 @@ import AdminAllOrdersPages from "../Pages/Admin/AdminAllOrdersPage";
 import AdminOrderDetailsPage from "../Pages/Admin/AdminOrderDetailsPage";
 import AdminAddBrandPage from "../Pages/Admin/AdminAddBrandPage";
 import AdminAddCategoryPage from "../Pages/Admin/AdminAddCategoryPage";
+import AdminAddSubCategoryPage from "../Pages/Admin/AdminAddSubCategoryPage";
 
 const AdminRoutes = () => ( // URL is: admin/*
     <Routes>
@@ -12,6 +13,7 @@ const AdminRoutes = () => ( // URL is: admin/*
         <Route path={'allorders/:id'} element={<AdminOrderDetailsPage />} />
         <Route path={'addbrand'} element={<AdminAddBrandPage />} />
         <Route path={'addcategory'} element={<AdminAddCategoryPage />} />
+            <Route path={'addsubcategory'} element={<AdminAddSubCategoryPage />} />
     </Routes>
 );
 
