@@ -12,7 +12,7 @@ const NavBarLogin = () => {
             <Container>
                 <Navbar.Brand>
                     <Link to='/'>
-                        <img src={logo} className='logo' />
+                        <img src={logo} className='logo' alt='logo'/>
                     </Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
