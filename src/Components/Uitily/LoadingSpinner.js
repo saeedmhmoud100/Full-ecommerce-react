@@ -1,5 +1,6 @@
 import React from "react";
 import {Spinner} from "react-bootstrap";
+import useRandomNum from "../../hooks/useRandomNum";
 
 function LoadingSpinner({animation, variant}){
     let anim,vari;
@@ -9,13 +10,12 @@ function LoadingSpinner({animation, variant}){
         anim=[animation]
     }
     if(variant === undefined){
-        vari =['primary','secondary','success','danger','warning','info','light','dark',]
+        vari =['primary','secondary','success','danger','warning','info','dark',]
     }else {
         vari=[variant]
     }
-    const rand_num = arr => Math.floor(Math.random()*arr.length)
     return(
-        <Spinner animation={anim[rand_num(anim)]} variant={vari[rand_num(vari)]} className='align-self-center'></Spinner>
+        <Spinner animation={anim[useRandomNum(anim)]} variant={vari[useRandomNum(vari)]} className='align-self-center'></Spinner>
     )
 }
 

@@ -15,7 +15,6 @@ const HomeCategory = () => {
 
     const categoryData = useSelector(state => state.allCategory.category)
     const loading = useSelector(state => state.allCategory.loading)
-    console.log(loading)
     return (
         <Container>
             <SubTiltle title="Categories" btntitle="More" pathText="/allcategory" />
@@ -23,8 +22,8 @@ const HomeCategory = () => {
                 {
                     !loading ?(
                     categoryData.data.length
-                        ? categoryData.data.slice(0,6).map((item,i) => <CategoryCard title={item.name} img={item.image} background={colors[i]} />)
-                        : <h2>There is no category</h2>)
+                        ? categoryData.data.slice(0,6).map((item,i) => <CategoryCard key={i} title={item.name} img={item.image} background={colors[i]} />)
+                        : <h2 className='align-self-center m-auto w-auto'>There is no category</h2>)
                         : <LoadingSpinner animation='border' />
 
                 }
