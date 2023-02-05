@@ -13,6 +13,7 @@ import CartPage from "./Pages/Cart/CartPage";
 import ChoosePayMethoudPage from "./Pages/Checkout/ChoosePayMethoudPage";
 import AdminRoutes from "./Routes/AdminRouts";
 import UserRoutes from "./Routes/UserRouts";
+import {ToastContainer} from "react-toastify";
 
 function App() {
     // Go to in the top when go to another page
@@ -40,6 +41,7 @@ function App() {
 
         </Routes>
         <Footer/>
+        <ToastContainer />
     </div>
   );
 }

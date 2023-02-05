@@ -6,7 +6,7 @@ import {getAllCategory} from "../../Redux/actions/categoryAction";
 const AllCategoryPage = () => {
     const dispatch = useDispatch()
     useEffect(_=>{
-        dispatch(getAllCategory(3))
+        dispatch(getAllCategory(12))
     },[])
 
     const categoryData = useSelector(state => state.allCategory.category)
@@ -16,7 +16,7 @@ const AllCategoryPage = () => {
         pagesCount =categoryData.paginationResult.numberOfPages
     }
     const getPage = (page) =>{
-        dispatch(getAllCategory(3,page))
+        dispatch(getAllCategory(12,page))
     }
 
     return (

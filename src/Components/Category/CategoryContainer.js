@@ -12,7 +12,7 @@ const CategoryContainer = ({data,loading}) => {
     return (
         <Container className={'mt-3'}>
             <div className={'admin-content-text'} >All Categories</div>
-            <Row className={`my-2 d-flex ${!loading ? 'justify-content-between' : 'justify-content-center'}`}>{
+            <Row className={`my-2 d-flex ${!loading ? 'justify-content-start' : 'justify-content-center'}`}>{
                 !loading ?(
                         data.length
                             ? data.map((item,i) => <CategoryCard key={i} itle={item.name} img={item.image} background={colors[randNum(colors)]} />)
