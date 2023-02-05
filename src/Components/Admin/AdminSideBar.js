@@ -13,8 +13,8 @@ const AdminSideBar = () => {
     return (
         <div className="sidebar">
             <div className="d-flex flex-column">
-                {sideBarData.map(e => (
-                    <Link to={e.url} style={{ textDecoration: 'none' }}>
+                {sideBarData.map((e,i) => (
+                    <Link key={i} to={e.url} style={{ textDecoration: 'none' }}>
                         <div className="admin-side-text my-1 border-bottom p-2 mx-auto text-center">
                             {e.title}
                         </div>

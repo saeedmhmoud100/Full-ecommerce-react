@@ -24,22 +24,20 @@ const NavBarLogin = () => {
                         aria-label="Search"
                     />
                     <Nav className="me-auto">
-                        <Link to={'/login'} style={{textDecoration:'none'}}>
-                        <Nav.Link href={'/login'}
-                                  className="nav-text d-flex pb-2 justify-content-center nav_icon_container">
+                        <Link to={'/login'} style={{textDecoration:'none'}} className='nav-text d-flex pb-2 justify-content-center nav_icon_container nav-link'>
+                        {/*<Nav.Link href={'/login'} className="nav-text d-flex pb-2 justify-content-center nav_icon_container">*/}
                             <p style={{ color: "white" }}>Login</p>
                             <img src={login} className="login-img" alt="sfvs" />
 
-                        </Nav.Link>
+                        {/*</Nav.Link>*/}
                         </Link>
-                        <Link to={'/cart'} style={{textDecoration:'none'}}>
-                        <Nav.Link href='/cart'
-                                  className="nav-text d-flex pb-2 justify-content-center nav_icon_container"
-                                  style={{ color: "white" }}>
+                        <Link to={'/cart'} style={{textDecoration:'none'}} className='nav-text d-flex pb-2 justify-content-center nav_icon_container nav-link'>
+                        {/*<Nav.Link href='/cart' className="nav-text d-flex pb-2 justify-content-center nav_icon_container" style={{ color: "white" }}>*/}
+
                             <p style={{ color: "white" }}>Cart</p>
                             <img src={cart} className="login-img" alt="sfvs" />
 
-                        </Nav.Link>
+                        {/*</Nav.Link>*/}
                         </Link>
                     </Nav>
                 </Navbar.Collapse>

@@ -4,7 +4,7 @@ import avatar from '../../Assets/images/avatar.png'
 import {createCategory} from "../../Redux/actions/categoryAction";
 import {useDispatch} from "react-redux";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
-import {toast} from "react-toastify";
+import {Notification} from "../../hooks/useNotification";
 
 function AdminAddCategory(){
     const [image,setImage] =useState(avatar)
@@ -12,7 +12,6 @@ function AdminAddCategory(){
     const [text,settext] =useState('')
     const [loading,setloading] =useState(false)
     const dispatch = useDispatch()
-    const notify = (msg,type) => toast[type](msg);
     const onImageChange = e => {
         setImage(URL.createObjectURL(e.target.files[0]))
         setSelectedFile(e.target.files[0])
@@ -30,10 +29,9 @@ function AdminAddCategory(){
         setSelectedFile(null)
         setloading(true)
         await dispatch(createCategory(formData))
-        notify('Category added successfully','success')
         setloading(false)
         }else{
-            notify('Enter a valid Data!!!','warning')
+            Notification('Enter a valid Data!!!','warning')
         }
     }
     return(
@@ -47,7 +45,7 @@ function AdminAddCategory(){
                         <div className="text-form pb-2">Category Image</div>
                         {/*<img src={avatar} alt="" height="100px" width="120px" />*/}
                         <div>
-                            <label for='upload-photo'>
+                            <label htmlFor='upload-photo'>
                                 <img src={image} alt='fzx' height='100px' width='120px' style={{cursor:'pointer'}}/>
                             </label>
                             <input type='file' id='upload-photo' name='photo' onChange={onImageChange}/>
