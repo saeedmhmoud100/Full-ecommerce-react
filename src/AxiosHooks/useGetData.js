@@ -1,6 +1,6 @@
 import baseURL from "../Api/baseURL";
 
-const useGetData = async (url,params) => {
+const useGetData = async (url) => {
     const res = await baseURL.get(url)
     return res.data
 }
