@@ -1,39 +1,10 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {Col, Row} from "react-bootstrap";
-import avatar from '../../Assets/images/avatar.png'
-import {createCategory} from "../../Redux/actions/categoryAction";
-import {useDispatch} from "react-redux";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
-import {Notification} from "../../hooks/useNotification";
+import AdminAddCategoryHook from "../../hooks/category/Admin-Add-Category-Hook";
 
 function AdminAddCategory(){
-    const [image,setImage] =useState(avatar)
-    const [selectedFile,setSelectedFile] =useState(null)
-    const [text,settext] =useState('')
-    const [loading,setloading] =useState(false)
-    const dispatch = useDispatch()
-    const onImageChange = e => {
-        setImage(URL.createObjectURL(e.target.files[0]))
-        setSelectedFile(e.target.files[0])
-    }
-
-    const onSubmit = async _ =>{
-        //post the data
-        // BaseURL.post('/api/v1/categories',{name:text,image:image}, {headers: {'Content-Type':"multipart/form-data"}})
-        if(image !== avatar && text !== ''){
-        const formData = new FormData()
-        formData.append('name',text)
-        formData.append('image',selectedFile)
-        settext('')
-        setImage(avatar)
-        setSelectedFile(null)
-        setloading(true)
-        await dispatch(createCategory(formData))
-        setloading(false)
-        }else{
-            Notification('Enter a valid Data!!!','warning')
-        }
-    }
+    const [image,text,loading,setTextState,onImageChange,onSubmit] = AdminAddCategoryHook()
     return(
         <div>
             {
@@ -55,7 +26,7 @@ function AdminAddCategory(){
                             className="input-form d-block mt-3 px-3"
                             placeholder="Category Name"
                             value={text}
-                            onChange={e=> settext(e.target.value)}
+                            onChange={setTextState}
                         />
                     </Col>
                 </Row>
