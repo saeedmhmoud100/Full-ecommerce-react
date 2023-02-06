@@ -1,6 +1,6 @@
 import {GET_ALL_CATEGORY, GET_ERROR,CREATE_CATEGORY} from "../types";
-import useGetData from "../../hooks/useGetData";
-import {useInsertDataWithImage} from "../../hooks/useInsertData";
+import {useInsertDataWithImage} from "../../AxiosHooks/useInsertData";
+import useGetData from "../../AxiosHooks/useGetData";
 
 export const getAllCategory = (limit,page=1) => async dispatch => {
     try {

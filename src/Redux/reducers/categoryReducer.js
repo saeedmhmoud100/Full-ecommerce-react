@@ -23,6 +23,7 @@ const categoryReducer = (state=inital,action) => {
             }
         case GET_ERROR:
             Notification('Enter a valid data','error')
+            console.log(action.payload.response.data.message)
             return {
                 loading: true,
                 category: action.payload
