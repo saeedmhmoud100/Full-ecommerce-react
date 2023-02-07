@@ -2,23 +2,33 @@ import React from 'react'
 import { Container, Row } from 'react-bootstrap';
 import SubTiltle from '../Uitily/SubTiltle';
 import BrandCard from "./BrandCard";
-import brand1 from "../../Assets/images/brand1.png";
-import brand2 from "../../Assets/images/brand2.png";
-import brand3 from "../../Assets/images/brand3.png";
+import LoadingSpinner from "../Uitily/LoadingSpinner";
+import HomeBrandHook from "../../hooks/Brand/home-brand-hook";
+// import HomeBrandHook from "../../hooks/category/Home-Category-Hook";
 
 
 const BrandFeature = ({title,btntitle}) => {
+    const [BrandData,loading,BrandDataLength] = HomeBrandHook()
+
     return (
         <Container>
-            <SubTiltle title={title} btntitle={btntitle} pathText="/allbrand" />
-            <Row className='my-2 d-flex justify-sm-content-center'>
-                <BrandCard img={brand1}/>
-                <BrandCard img={brand2} />
-                <BrandCard img={brand1} />
-                <BrandCard img={brand3} />
-                <BrandCard img={brand2} />
-                <BrandCard img={brand3} />
-            </Row>
+            {
+                BrandDataLength > 0 ? (
+                <>
+                    <SubTiltle title={title} btntitle={btntitle} pathText="/allbrand" />
+                    <Row className='my-2 d-flex justify-content-center'>
+                        {
+                            !loading ?(
+                                BrandData.data.slice(0,6).map((item,i) => <BrandCard key={i} img={item.image}/>)
+                            ): <LoadingSpinner />
+
+                        }
+
+                    </Row>
+                </>
+                ) : null
+            }
+
         </Container>
     )
 }
