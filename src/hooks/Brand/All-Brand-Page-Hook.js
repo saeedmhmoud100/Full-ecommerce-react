@@ -5,7 +5,7 @@ import {getAllBrand} from "../../Redux/actions/brandAction";
 const AllBrandPageHook = _ =>{
     const dispatch = useDispatch()
     useEffect(_=>{
-        dispatch(getAllBrand(1))
+        dispatch(getAllBrand(12))
     },[])
 
     const BrandData = useSelector(state => state.allBrand.brands)
@@ -16,7 +16,7 @@ const AllBrandPageHook = _ =>{
         pagesCount =BrandData.paginationResult.numberOfPages
     }
     const getPage = (page) =>{
-        dispatch(getAllBrand(1,page))
+        dispatch(getAllBrand(12,page))
     }
     return [BrandData,loading,pagesCount,getPage]
 }

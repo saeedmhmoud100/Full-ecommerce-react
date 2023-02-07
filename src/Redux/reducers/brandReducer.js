@@ -16,14 +16,14 @@ const brandReducer = (state=inital,action) => {
                 loading: false,
             }
         case CREATE_BRAND:
-            Notification('Category added successfully','success')
+            Notification('The Brant added successfully','success')
             return {
                 brands: action.payload,
                 loading: false,
             }
         case GET_ERROR:
             // Notification('Enter a valid data','error')
-            Notification(action.payload.response.data.message,'error')
+            // Notification(action.payload.response.data.message,'error')
             return {
                 loading: true,
                 brands: action.payload
