@@ -1,4 +1,4 @@
-import {CREATE_CATEGORY, GET_ALL_CATEGORY, GET_ERROR} from "../types";
+import {CREATE_CATEGORY, GET_ALL_CATEGORY, GET_CATEGORY_ERROR} from "../types";
 import {Notification} from "../../hooks/useNotification";
 
 
@@ -21,7 +21,7 @@ const categoryReducer = (state=inital,action) => {
                 category: action.payload,
                 loading: false,
             }
-        case GET_ERROR:
+        case GET_CATEGORY_ERROR:
             // Notification('Enter a valid data','error')
             Notification(action.payload.response.data.message,'error')
             return {

@@ -1,4 +1,4 @@
-import {CREATE_BRAND, GET_ALL_BRAND, GET_ERROR} from "../types";
+import {CREATE_BRAND, GET_ALL_BRAND, GET_BRAND_ERROR} from "../types";
 import {Notification} from "../../hooks/useNotification";
 
 
@@ -21,9 +21,9 @@ const brandReducer = (state=inital,action) => {
                 brands: action.payload,
                 loading: false,
             }
-        case GET_ERROR:
+        case GET_BRAND_ERROR:
             // Notification('Enter a valid data','error')
-            // Notification(action.payload.response.data.message,'error')
+            Notification(action.payload.response.data.message,'error')
             return {
                 loading: true,
                 brands: action.payload

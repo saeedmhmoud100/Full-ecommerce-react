@@ -1,4 +1,4 @@
-import {GET_ALL_CATEGORY, GET_ERROR,CREATE_CATEGORY} from "../types";
+import {GET_ALL_CATEGORY, GET_CATEGORY_ERROR,CREATE_CATEGORY} from "../types";
 import {useInsertDataWithImage} from "../../AxiosHooks/useInsertData";
 import useGetData from "../../AxiosHooks/useGetData";
 
@@ -11,7 +11,7 @@ export const getAllCategory = (limit,page=1) => async dispatch => {
         })
     }catch (e){
         dispatch({
-            type:GET_ERROR,
+            type:GET_CATEGORY_ERROR,
             payload:e
         })
     }
@@ -27,7 +27,7 @@ export const createCategory = (formData) => async dispatch => {
         })
     }catch (e){
         dispatch({
-            type:GET_ERROR,
+            type:GET_CATEGORY_ERROR,
             payload:e
         })
     }
