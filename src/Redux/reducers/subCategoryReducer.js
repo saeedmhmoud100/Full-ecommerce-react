@@ -1,4 +1,4 @@
-import {CREATE_SUBCATEGORY, GET_SUBCATEGORY_ERROR} from "../types";
+import {CREATE_SUBCATEGORY, GET_SUBCATEGORY_ERROR,GET_SUBCATEGORY_BY_CATEGORY} from "../types";
 import {Notification} from "../../hooks/useNotification";
 
 
@@ -11,6 +11,11 @@ const subCategoryReducer = (state=inital,action) => {
     switch (action.type) {
         case CREATE_SUBCATEGORY:
             Notification('the subCategory added successfully','success')
+            return {
+                subCategory: action.payload,
+                loading: false,
+            }
+        case GET_SUBCATEGORY_BY_CATEGORY:
             return {
                 subCategory: action.payload,
                 loading: false,

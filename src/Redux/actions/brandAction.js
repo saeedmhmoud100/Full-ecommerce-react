@@ -5,13 +5,11 @@ import useGetData from "../../AxiosHooks/useGetData";
 export const getAllBrand = (limit,page=1) => async dispatch => {
     try {
         const res = await useGetData(`/api/v1/brands?limit=${limit}&page=${page}`)
-        console.log(res)
         dispatch({
             type:GET_ALL_BRAND,
             payload:res
         })
     }catch (e){
-        console.log(e)
         dispatch({
             type:GET_BRAND_ERROR,
             payload:e
