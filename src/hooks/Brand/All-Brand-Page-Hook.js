@@ -11,7 +11,6 @@ const AllBrandPageHook = _ =>{
     const BrandData = useSelector(state => state.allBrand.brands)
     const loading = useSelector(state => state.allBrand.loading)
     let pagesCount=1
-    console.log(BrandData)
     if(BrandData.paginationResult){
         pagesCount =BrandData.paginationResult.numberOfPages
     }

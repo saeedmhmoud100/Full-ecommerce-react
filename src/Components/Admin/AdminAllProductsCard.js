@@ -1,8 +1,7 @@
 import React from 'react'
 import { Col,Card,Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import prod1 from '../../Assets/images/prod1.png'
-const AdminAllProductsCard = () => {
+const AdminAllProductsCard = ({product}) => {
     return (
         <Col xs="12" sm="6" md="5" lg="4" className="d-flex">
             <Card
@@ -21,19 +20,19 @@ const AdminAllProductsCard = () => {
                     </Col>
                 </Row>
                 <Link to="/products/:id" style={{ textDecoration: "none" }}>
-                    <Card.Img style={{ height: "228px", width: "100%",/*transform: 'scaleX(-1)' */}} src={prod1} />
+                    <Card.Img style={{ height: "228px", width: "100%",/*transform: 'scaleX(-1)' */}} src={product.imageCover} />
                     <Card.Body>
                         <Card.Title>
                             <div className="card-title">
-                                Black Carbon Smart Watch BIP S Black Carbon{" "}
+                                {product.title}
                             </div>
                         </Card.Title>
                         <Card.Text>
                             <div className="d-flex justify-content-between">
-                                <div className="card-rate">4.5</div>
+                                <div className="card-rate">{product.rate}</div>
                                 <div className="d-flex">
                                     <div className="card-currency mx-1">$</div>
-                                    <div className="card-price">880</div>
+                                    <div className="card-price">{product.price}</div>
                                 </div>
                             </div>
                         </Card.Text>

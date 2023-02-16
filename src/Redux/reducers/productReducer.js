@@ -1,9 +1,10 @@
-import {CREATE_PRODUCT, GET_PRODUCT_ERROR} from "../types";
+import {CREATE_PRODUCT,GET_ALL_PRODUCTS, GET_PRODUCT_ERROR} from "../types";
 import {Notification} from "../../hooks/useNotification";
 
 
 const inital={
     products:[],
+    allProducts:[],
     loading:true,
 }
 
@@ -12,7 +13,12 @@ const productReducer = (state=inital,action) => {
         case CREATE_PRODUCT:
             Notification('The Brant added successfully','success')
             return {
-                brands: action.payload,
+                products: action.payload,
+                loading: false,
+            }
+        case GET_ALL_PRODUCTS:
+            return {
+                allProducts: action.payload,
                 loading: false,
             }
         case GET_PRODUCT_ERROR:
@@ -20,7 +26,7 @@ const productReducer = (state=inital,action) => {
             Notification(action.payload.response.data.message,'error')
             return {
                 loading: true,
-                brands: action.payload
+                products: action.payload
             }
         default:
             return state
