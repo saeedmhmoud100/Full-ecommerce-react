@@ -22,7 +22,6 @@ const productReducer = (state=inital,action) => {
                 loading: false,
             }
         case GET_PRODUCT_ERROR:
-            // Notification('Enter a valid data','error')
             Notification(action.payload.response.data.message,'error')
             return {
                 loading: true,

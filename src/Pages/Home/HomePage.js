@@ -5,14 +5,16 @@ import CardProductContainer from "../../Components/Products/CardProductsContaine
 import DiscountSection from "../../Components/Home/DiscountSection";
 import BrandFeature from "../../Components/Brand/BrandFeatured";
 import '../../Assets/Style/HomePage.scss'
+import HomePageProductHook from "../../hooks/product/Home-Page-Product-Hook";
 function HomePage(){
+    const [moreSalesProducts,topRateProducts] = HomePageProductHook()
     return(
         <div className={'font'}>
             <Slider />
             <HomeCategory />
-            <CardProductContainer title={"Best Sellers" } btntitle={'More'} pathText="/products"/>
+            <CardProductContainer products={moreSalesProducts} title={"Best Sellers" } btntitle={'More'} pathText="/products"/>
             <DiscountSection />
-            <CardProductContainer title={"Top Rated" } btntitle={'More'} pathText="/products"/>
+            <CardProductContainer products={topRateProducts} title={"Top Rated" } btntitle={'More'} pathText="/products"/>
             <BrandFeature title={"Famous Brands" } btntitle={'More'} />
         </div>
 

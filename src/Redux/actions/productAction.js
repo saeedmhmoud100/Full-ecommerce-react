@@ -18,7 +18,7 @@ export const createProduct = (formData) => async dispatch => {
     }
 }
 
-export const getAllProduct = (page=1) => async dispatch => {
+export const getAllProducts = (page = 1) => async dispatch => {
     try {
         const res = await useGetData(`/api/v1/products?limit=9&page=${page}`)
         dispatch({
@@ -33,3 +33,4 @@ export const getAllProduct = (page=1) => async dispatch => {
         })
     }
 }
+

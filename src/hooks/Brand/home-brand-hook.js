@@ -14,7 +14,6 @@ const HomeBrandHook = () => {
     if(BrandData.data !== undefined){
         BrandDataLength = BrandData.data.length
     }
-    console.log(BrandDataLength)
     return [BrandData,loading,BrandDataLength]
 }
 

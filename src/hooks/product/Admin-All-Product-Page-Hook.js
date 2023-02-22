@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from "react-redux";
-import {getAllProduct} from "../../Redux/actions/productAction";
+import {getAllProducts} from "../../Redux/actions/productAction";
 
 const AdminAllProductPageHook= _ =>{
     const dispatch = useDispatch()
 
     useEffect(_ =>{
-        dispatch(getAllProduct())
+        dispatch(getAllProducts())
     },[])
     const products = useSelector(state => state.allProduct.allProducts)
     let pagesCount=1
@@ -14,7 +14,7 @@ const AdminAllProductPageHook= _ =>{
         pagesCount =products.paginationResult.numberOfPages
     }
     const getPage = (page) =>{
-        dispatch(getAllProduct(page))
+        dispatch(getAllProducts(page))
     }
 
 

@@ -4,7 +4,7 @@ import prod1 from "../../Assets/images/prod1.png";
 import favoff from "../../Assets/images/fav-off.png";
 import rate from "../../Assets/images/rate.png";
 import {Link} from "react-router-dom";
-const ProductCard = () => {
+const ProductCard = ({product}) => {
     return (
         <Col xs="10" sm="6" md="4" lg="3" className="d-flex">
 
@@ -18,7 +18,7 @@ const ProductCard = () => {
                     backgroundColor: "#FFFFFF",
                     boxShadow: "0 2px 2px 0 rgba(151,151,151,0.5)",
                 }}>
-                   <Link to={`/products/${'5'}`}  style={{textDecoration:'none'}}> <Card.Img style={{ height: "228px", width: "100%" }} src={prod1} /></Link>
+                   <Link to={`/products/${'5'}`}  style={{textDecoration:'none'}}> <Card.Img style={{ height: "228px", width: "100%" }} src={product.imageCover} /></Link>
                 <div className="d-flex justify-content-end mx-2">
                     <img
                         src={favoff}
@@ -34,7 +34,7 @@ const ProductCard = () => {
                     <Link to={`/products/${'5'}`} style={{textDecoration:'none'}}>
                     <Card.Title>
                         <div className="card-title">
-                            Black Carbon Smart Watch BIP S Black Carbon{" "}
+                            {product.title}
                         </div>
                     </Card.Title>
                 </Link>
@@ -51,7 +51,7 @@ const ProductCard = () => {
                                 <div className="card-rate mx-2">4.5</div>
                             </div>
                             <div className="d-flex">
-                                <div className="card-price">880</div>
+                                <div className="card-price">{product.price}</div>
                                 <div className="card-currency mx-1">$</div>
                             </div>
                         </div>
