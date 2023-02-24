@@ -12,7 +12,7 @@ function ProdudtDetails({images,product}){
                     <ProductGallery images={images}/>
                 </Col>
                 <Col lg={8} md={5} sm={12}>
-                    <ProductText product={product}/>
+                    <ProductText product={product && product.data} />
                 </Col>
             </Row>
         </div>

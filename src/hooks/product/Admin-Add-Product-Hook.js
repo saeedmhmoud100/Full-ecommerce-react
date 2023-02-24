@@ -136,6 +136,7 @@ const AdminAddProductHook = _ =>{
             formData.append('quantity',qty)
             formData.append('price',priceBefore)
             formData.append('category',catID)
+            formData.append('brand',brandID)
             selectedColors.map(color => formData.append('availableColors', color))
             formData.append('imageCover',imageCover)
             for (const [key, value] of Object.entries(images)) {

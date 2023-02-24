@@ -1,10 +1,11 @@
-import {CREATE_CATEGORY, GET_ALL_CATEGORY, GET_CATEGORY_ERROR} from "../types";
+import {CREATE_CATEGORY, GET_ALL_CATEGORY, GET_CATEGORY_ERROR,GET_ONE_CATEGORY} from "../types";
 import {Notification} from "../../hooks/useNotification";
 
 
 const inital={
     category:[],
     loading:true,
+    oneCategory:{},
 }
 
 const categoryReducer = (state=inital,action) => {
@@ -13,6 +14,12 @@ const categoryReducer = (state=inital,action) => {
             return {
                 ...state,
                 category: action.payload,
+                loading: false,
+            }
+        case GET_ONE_CATEGORY:
+            return {
+                ...state,
+                oneCategory: action.payload,
                 loading: false,
             }
         case CREATE_CATEGORY:

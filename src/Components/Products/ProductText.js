@@ -1,24 +1,35 @@
 import React from 'react'
 import { Row,Col } from 'react-bootstrap'
 import '../../Assets/Style/Products.scss'
-const ProductText = () => {
+import {useSelector} from "react-redux";
+const ProductText = ({product}) => {
+
+    const category = useSelector(state => state.allCategory.oneCategory.data)
+    const brand = useSelector(state => state.allBrand.brand)
+
+
     return (
         <div className='med-screen-padding'>
             <Row className="mt-2">
-                <div className="cat-text">Electronics :</div>
+                <div className="cat-text">{category && category.name} :</div>
             </Row>
             <Row>
                 <Col md="8">
                     <div className="cat-title d-inline">
-                        iPhone XR 128GB 4G LTE with Face App
-                        Time (Product) Red <div className="cat-rate d-inline mx-3">4.5</div>
+                        {product && product.title} <div className="cat-rate d-inline mx-3">4.5</div>
                     </div>
                 </Col>
             </Row>
             <Row>
                 <Col md="8" className="mt-4">
-                    <div className="cat-text d-inline">Brand: </div>
-                    <div className="barnd-text d-inline mx-1">Samsung </div>
+                    {
+                        brand?
+                            <>
+                                <div className="cat-text d-inline">Brand: </div>
+                                <div className="barnd-text d-inline mx-1">{brand.data && brand.data.name} </div>
+                            </> : null
+                    }
+
                 </Col>
             </Row>
             <Row>

@@ -1,4 +1,4 @@
-import {GET_BRAND_ERROR, CREATE_BRAND, GET_ALL_BRAND} from "../types";
+import {GET_BRAND_ERROR, CREATE_BRAND, GET_ALL_BRAND,GET_ONE_BRAND} from "../types";
 import {useInsertDataWithImage} from "../../AxiosHooks/useInsertData";
 import useGetData from "../../AxiosHooks/useGetData";
 
@@ -16,6 +16,23 @@ export const getAllBrand = (limit,page=1) => async dispatch => {
         })
     }
 }
+
+export const getOneBrand = (id) => async dispatch => {
+        console.log(id)
+    try {
+        const res = await useGetData(`/api/v1/brands/${id}`)
+        dispatch({
+            type:GET_ONE_BRAND,
+            payload:res
+        })
+    }catch (e){
+        dispatch({
+            type:GET_BRAND_ERROR,
+            payload:e
+        })
+    }
+}
+
 
 export const createBrand = (formData) => async dispatch => {
     try {

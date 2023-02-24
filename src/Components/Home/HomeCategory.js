@@ -15,7 +15,7 @@ const HomeCategory = () => {
             <Row className={`my-2 d-flex ${!loading ? 'justify-content-between' : 'justify-content-center'}`}>
                 {
                     !loading ?(
-                    categoryData.data.length
+                    categoryData.data
                         ? categoryData.data.slice(0,6).map((item,i) => <CategoryCard key={i} title={item.name} img={item.image} background={colors[i]} />)
                         : <h2 className='align-self-center m-auto w-auto'>There is no category</h2>)
                         : <LoadingSpinner animation='border' />
