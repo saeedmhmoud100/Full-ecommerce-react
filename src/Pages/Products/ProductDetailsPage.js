@@ -7,13 +7,13 @@ import CardProductContainer from "../../Components/Products/CardProductsContaine
 import ProductDetailsPageHook from "../../hooks/product/Product-Details-Page-Hook";
 
 function ProductDetailsPage(){
-    const [product] = ProductDetailsPageHook()
+    const [product,images] = ProductDetailsPageHook()
 
     return(
         <div style={{minHeight:'670px'}}>
             <CategoryHeader />
             <Container>
-                <ProdudtDetails product={product}/>
+                <ProdudtDetails images={images} product={product}/>
                 <RateContainer />
                 <CardProductContainer title={"Products you may like" } pathText="/products"/>
             </Container>
