@@ -18,7 +18,7 @@ const ProductCard = ({product}) => {
                     backgroundColor: "#FFFFFF",
                     boxShadow: "0 2px 2px 0 rgba(151,151,151,0.5)",
                 }}>
-                   <Link to={`/products/${'5'}`}  style={{textDecoration:'none'}}> <Card.Img style={{ height: "228px", width: "100%" }} src={product.imageCover} /></Link>
+                   <Link to={`/products/${product._id}`}  style={{textDecoration:'none'}}> <Card.Img style={{ height: "228px", width: "100%" }} src={product.imageCover} /></Link>
                 <div className="d-flex justify-content-end mx-2">
                     <img
                         src={favoff}
@@ -31,7 +31,7 @@ const ProductCard = ({product}) => {
                     />
                 </div>
                 <Card.Body>
-                    <Link to={`/products/${'5'}`} style={{textDecoration:'none'}}>
+                    <Link to={`/products/${product._id}`} style={{textDecoration:'none'}}>
                     <Card.Title>
                         <div className="card-title">
                             {product.title}

@@ -6,7 +6,7 @@ const ShopProductsPageHook= _ =>{
     const dispatch = useDispatch()
     useEffect(_=>{
         dispatch(getAllProducts())
-    })
+    },[])
     const allProducts = useSelector(state => state.allProduct.allProducts)
 
     return [allProducts]

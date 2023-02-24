@@ -1,4 +1,4 @@
-import {CREATE_PRODUCT, GET_ALL_PRODUCTS, GET_PRODUCT_ERROR} from "../types";
+import {CREATE_PRODUCT, GET_ALL_PRODUCTS,GET_ONE_PRODUCT, GET_PRODUCT_ERROR} from "../types";
 import {useInsertDataWithImage} from "../../AxiosHooks/useInsertData";
 import useGetData from "../../AxiosHooks/useGetData";
 
@@ -34,3 +34,18 @@ export const getAllProducts = (page = 1) => async dispatch => {
     }
 }
 
+export const getOneProduct = (id) => async dispatch => {
+    try {
+        const res = await useGetData(`/api/v1/products/${id}`)
+        dispatch({
+            type:GET_ONE_PRODUCT,
+            payload:res,
+            loading:true
+        })
+    }catch (e){
+        dispatch({
+            type:GET_PRODUCT_ERROR,
+            payload:e
+        })
+    }
+}
