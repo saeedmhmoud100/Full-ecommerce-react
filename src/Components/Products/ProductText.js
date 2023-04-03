@@ -2,6 +2,7 @@ import React from 'react'
 import { Row,Col } from 'react-bootstrap'
 import '../../Assets/Style/Products.scss'
 import {useSelector} from "react-redux";
+import LoadingSpinner from "../Uitily/LoadingSpinner";
 const ProductText = ({product}) => {
 
     const category = useSelector(state => state.allCategory.oneCategory.data)
@@ -34,15 +35,14 @@ const ProductText = ({product}) => {
             </Row>
             <Row>
                 <Col md="8" className="mt-1 d-flex">
-                    <div
-                        className="color ms-2 border"
-                        style={{ backgroundColor: "#E52C2C" }}></div>
-                    <div
-                        className="color ms-2 border "
-                        style={{ backgroundColor: "white" }}></div>
-                    <div
-                        className="color ms-2 border"
-                        style={{ backgroundColor: "black" }}></div>
+                    {
+                        product?
+                        product.availableColors.map((clr,i)=>
+                            <div key={i} className="color ms-2 border" style={{ backgroundColor: `${clr}` }}></div>)
+                            :null
+                    }
+
+
                 </Col>
             </Row>
 
@@ -52,21 +52,13 @@ const ProductText = ({product}) => {
             <Row className="mt-2">
                 <Col md="10">
                     <div className="product-description d-inline">
-                        Dual SIM features a physical card and an e-SIM card that you can unlock
-                        your iPhone and easily log in to apps, accounts, etc.,
-                        Face ID is the fastest and most secure fingerprint authentication feature
-                        The face features the A12 Bionic chip, which is the smartest and most powerful chip in phones
-                        Smart Cameras The world's most popular camera has ushered in a new era of photography
-                        photography where the innovative sensor is powered by the ISP and the engine
-                        nervous system, enabling you to capture images like never before with a single lens camera
-                        Brings people in front into sharp focus unlike a telescope
-                        Blurred background overview
+                        {product ? product.description: null}
                     </div>
                 </Col>
             </Row>
             <Row className="mt-4">
                 <Col md="12">
-                    <div className="product-price d-inline px-3 py-3 border">34000$</div>
+                    <div className="product-price d-inline px-3 py-3 border">{product ? product.price : <LoadingSpinner className={"d-flex justify-content-center align-items-center"}></LoadingSpinner>}$</div>
                     <div className="product-cart-add px-3 py-3 d-inline mx-3">Add to cart</div>
                 </Col>
             </Row>

@@ -1,4 +1,4 @@
-import {CREATE_PRODUCT,GET_ALL_PRODUCTS, GET_ONE_PRODUCT, GET_PRODUCT_ERROR} from "../types";
+import {CREATE_PRODUCT, GET_ALL_PRODUCTS, GET_ONE_PRODUCT, GET_PRODUCT_ERROR, GET_SPECIFIC_PRODUCTS} from "../types";
 import {Notification} from "../../hooks/useNotification";
 
 
@@ -6,6 +6,7 @@ const inital={
     products:[],
     allProducts:[],
     product:[],
+    specificProducts:[],
     loading:true,
 }
 
@@ -28,6 +29,12 @@ const productReducer = (state=inital,action) => {
             return {
                 ...state,
                 product : action.payload,
+                loading: false,
+            }
+        case GET_SPECIFIC_PRODUCTS:
+            return {
+                ...state,
+                specificProducts : action.payload,
                 loading: false,
             }
         case GET_PRODUCT_ERROR:

@@ -18,7 +18,6 @@ export const getAllBrand = (limit,page=1) => async dispatch => {
 }
 
 export const getOneBrand = (id) => async dispatch => {
-        console.log(id)
     try {
         const res = await useGetData(`/api/v1/brands/${id}`)
         dispatch({
