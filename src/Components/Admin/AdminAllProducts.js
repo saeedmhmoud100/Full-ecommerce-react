@@ -10,7 +10,7 @@ function AdminAllProducts({products}){
             <div className='admin-content-text'>Management all products</div>
         <Row>
             {
-                products.data ? products.data.map(
+                (products && products.data) ? products.data.map(
                     item => <AdminAllProductsCard product={item} />
                 ) : <div className='d-flex justify-content-center my-3'><LoadingSpinner></LoadingSpinner></div>
             }

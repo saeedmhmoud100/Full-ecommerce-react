@@ -1,7 +1,9 @@
 import React from 'react'
 import { Col,Card,Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import AdminAllProductsCardHook from "../../hooks/product/Admin-All-Product-Card-Hook";
 const AdminAllProductsCard = ({product}) => {
+    const [onDeleteProduct] = AdminAllProductsCardHook()
     return (
         <Col xs="12" sm="6" md="5" lg="4" className="d-flex">
             <Card
@@ -15,7 +17,7 @@ const AdminAllProductsCard = ({product}) => {
                 }}>
                 <Row className="d-flex justify-content-center px-2">
                     <Col className=" d-flex justify-content-between">
-                        <div className="d-inline item-delete-edit">Remove</div>
+                        <div className="d-inline item-delete-edit" onClick={_=>onDeleteProduct(product._id)}>Remove</div>
                         <div className="d-inline item-delete-edit">modulation</div>
                     </Col>
                 </Row>

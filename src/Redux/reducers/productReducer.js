@@ -1,4 +1,11 @@
-import {CREATE_PRODUCT, GET_ALL_PRODUCTS, GET_ONE_PRODUCT, GET_PRODUCT_ERROR, GET_SPECIFIC_PRODUCTS} from "../types";
+import {
+    CREATE_PRODUCT,
+    DELETE_PRODUCTS,
+    GET_ALL_PRODUCTS,
+    GET_ONE_PRODUCT,
+    GET_PRODUCT_ERROR,
+    GET_SPECIFIC_PRODUCTS
+} from "../types";
 import {Notification} from "../../hooks/useNotification";
 
 
@@ -7,6 +14,7 @@ const inital={
     allProducts:[],
     product:[],
     specificProducts:[],
+    deleteProduct:[],
     loading:true,
 }
 
@@ -35,6 +43,13 @@ const productReducer = (state=inital,action) => {
             return {
                 ...state,
                 specificProducts : action.payload,
+                loading: false,
+            }
+        case DELETE_PRODUCTS:
+            console.log(action.payload)
+            return {
+                ...state,
+                deleteProduct : action.payload,
                 loading: false,
             }
         case GET_PRODUCT_ERROR:
