@@ -20,6 +20,7 @@ const AdminAllProductsCard = ({product}) => {
                     </Button>
                 </Modal.Footer>
             </Modal>
+
             <Card
                 className="my-2"
                 style={{
@@ -32,7 +33,9 @@ const AdminAllProductsCard = ({product}) => {
                 <Row className="d-flex justify-content-center px-2">
                     <Col className=" d-flex justify-content-between">
                         <div className="d-inline item-delete-edit" onClick={handleShow}>Remove</div>
-                        <div className="d-inline item-delete-edit">modulation</div>
+                        <Link to={`/admin/updateproduct/${product._id}`} className={'text-decoration-none'}>
+                        <div className="d-inline item-delete-edit pointer-event">modulation</div>
+                        </Link>
                     </Col>
                 </Row>
                 <Link to={`/products/${product._id}`} style={{ textDecoration: "none" }}>
