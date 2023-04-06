@@ -1,11 +1,25 @@
 import React from 'react'
-import { Col,Card,Row } from 'react-bootstrap'
+import {Col, Card, Row, Modal, Button} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import AdminAllProductsCardHook from "../../hooks/product/Admin-All-Product-Card-Hook";
 const AdminAllProductsCard = ({product}) => {
-    const [onDeleteProduct] = AdminAllProductsCardHook()
+    const [onDeleteProduct,show,handleShow,handleClose] = AdminAllProductsCardHook()
     return (
         <Col xs="12" sm="6" md="5" lg="4" className="d-flex">
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>The product will be removed</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Are you sure you want to remove({product.title})</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="danger" onClick={_=>onDeleteProduct(product._id)}>
+                        Remove
+                    </Button>
+                </Modal.Footer>
+            </Modal>
             <Card
                 className="my-2"
                 style={{
@@ -17,11 +31,11 @@ const AdminAllProductsCard = ({product}) => {
                 }}>
                 <Row className="d-flex justify-content-center px-2">
                     <Col className=" d-flex justify-content-between">
-                        <div className="d-inline item-delete-edit" onClick={_=>onDeleteProduct(product._id)}>Remove</div>
+                        <div className="d-inline item-delete-edit" onClick={handleShow}>Remove</div>
                         <div className="d-inline item-delete-edit">modulation</div>
                     </Col>
                 </Row>
-                <Link to="/products/:id" style={{ textDecoration: "none" }}>
+                <Link to={`/products/${product._id}`} style={{ textDecoration: "none" }}>
                     <Card.Img style={{ height: "228px", width: "100%",/*transform: 'scaleX(-1)' */}} src={product.imageCover} />
                     <Card.Body>
                         <Card.Title>

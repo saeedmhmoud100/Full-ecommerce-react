@@ -5,7 +5,7 @@ import {useSelector} from "react-redux";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
 const ProductText = ({product}) => {
 
-    const category = useSelector(state => state.allCategory.oneCategory.data)
+    const category = useSelector(state => state.allCategory.oneCategory ? state.allCategory.oneCategory.data:[])
     const brand = useSelector(state => state.allBrand.brand)
 
 

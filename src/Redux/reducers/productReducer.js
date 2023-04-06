@@ -46,7 +46,7 @@ const productReducer = (state=inital,action) => {
                 loading: false,
             }
         case DELETE_PRODUCTS:
-            console.log(action.payload)
+            Notification("the product Deleted successfully",'success')
             return {
                 ...state,
                 deleteProduct : action.payload,

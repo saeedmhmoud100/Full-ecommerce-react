@@ -15,7 +15,7 @@ function ProductDetailsPage(){
                 <ProdudtDetails images={images} product={product}/>
                 <RateContainer />
                 {
-                    specificProducts?
+                    specificProducts.length>0?
                 <CardProductContainer products={specificProducts.slice(0,4)} title={"Products you may like" } pathText="/products"/>:null
                 }
             </Container>

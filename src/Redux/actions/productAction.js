@@ -70,6 +70,7 @@ export const getSpecificProducts = (id) => async dispatch => {
 export const deleteProduct = (id) => async dispatch => {
     try {
         const res = await useDeleteData(`/api/v1/products/${id}`)
+        console.log(res)
         dispatch({
             type:DELETE_PRODUCTS,
             payload:res,
