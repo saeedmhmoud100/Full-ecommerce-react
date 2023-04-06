@@ -51,7 +51,7 @@ const ProductText = ({product}) => {
             </Row>
             <Row className="mt-2">
                 <Col md="10">
-                    <div className="product-description d-inline">
+                    <div style={{wordWrap: 'break-word'}} className="product-description d-inline">
                         {product ? product.description: null}
                     </div>
                 </Col>

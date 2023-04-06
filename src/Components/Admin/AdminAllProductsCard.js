@@ -13,7 +13,7 @@ const AdminAllProductsCard = ({product}) => {
                 <Modal.Body>Are you sure you want to remove({product.title})</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
-                        Close
+                        Cancel
                     </Button>
                     <Button variant="danger" onClick={_=>onDeleteProduct(product._id)}>
                         Remove

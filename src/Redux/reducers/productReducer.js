@@ -21,7 +21,7 @@ const inital={
 const productReducer = (state=inital,action) => {
     switch (action.type) {
         case CREATE_PRODUCT:
-            Notification('The Brant added successfully','success')
+            Notification('The Product added successfully','success')
             return {
                 ...state,
                 products: action.payload,

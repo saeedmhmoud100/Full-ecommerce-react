@@ -194,7 +194,7 @@ function AdminAddProduct(){
                 <Col sm="8" className={` justify-content-end d-flex  `}>
                     {
                         formLoading ? <div className='d-flex justify-content-center'><LoadingSpinner className='mx-5'></LoadingSpinner></div>
-                            : <button className="btn-save d-inline mt-2 " onClick={onSubmit}>Save Changes</button>
+                            : <button className="btn-save d-inline mt-2 " onClick={onSubmit}>Save</button>
                     }
 
                 </Col>
