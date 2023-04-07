@@ -11,4 +11,5 @@ const useInsertDataWithImage = async (url,formData) => {
     const res = await baseURL.post(url,formData, config)
     return res.data
 }
+
 export {useInsertData,useInsertDataWithImage}

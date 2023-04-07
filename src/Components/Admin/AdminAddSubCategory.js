@@ -1,6 +1,6 @@
 import React from 'react'
 import {Col, Row} from "react-bootstrap";
-import AdminAddSubCategoryHook from "../../hooks/subCategory/Admin-Add-SubCategory-Hook";
+import AdminAddSubCategoryHook from "../../hooks/admin/Admin-Add-SubCategory-Hook";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
 
 function AdminAddSubCategory(){

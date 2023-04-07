@@ -4,7 +4,7 @@ import {
     GET_ALL_PRODUCTS,
     GET_ONE_PRODUCT,
     GET_PRODUCT_ERROR,
-    GET_SPECIFIC_PRODUCTS
+    GET_SPECIFIC_PRODUCTS, UPDATE_PRODUCT
 } from "../types";
 import {Notification} from "../../hooks/useNotification";
 
@@ -15,6 +15,7 @@ const inital={
     product:[],
     specificProducts:[],
     deleteProduct:[],
+    updateProduct:[],
     loading:true,
 }
 
@@ -25,6 +26,13 @@ const productReducer = (state=inital,action) => {
             return {
                 ...state,
                 products: action.payload,
+                loading: false,
+            }
+        case UPDATE_PRODUCT:
+            Notification('The Product updated successfully','success')
+            return {
+                ...state,
+                updateProduct: action.payload,
                 loading: false,
             }
         case GET_ALL_PRODUCTS:

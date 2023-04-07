@@ -1,7 +1,7 @@
 import React from 'react'
 import {Col, Row} from "react-bootstrap";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
-import AdminAddCategoryHook from "../../hooks/category/Admin-Add-Category-Hook";
+import AdminAddCategoryHook from "../../hooks/admin/Admin-Add-Category-Hook";
 
 function AdminAddCategory(){
     const [image,text,loading,setTextState,onImageChange,onSubmit] = AdminAddCategoryHook()

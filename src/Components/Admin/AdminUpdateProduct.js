@@ -3,33 +3,38 @@ import {Col, Row} from "react-bootstrap";
 import Multiselect from 'multiselect-react-dropdown';
 import add from '../../Assets/images/add.png'
 import MultiImageInput from "react-multiple-image-input";
-import AdminAddProductHook from "../../hooks/admin/Admin-Add-Product-Hook";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
 import {CompactPicker} from "react-color";
+import AdminUpdateProductHook from "../../hooks/admin/Admin-Update-Product-Hook";
+import {useNavigate} from "react-router-dom";
+function AdminUpdateProduct(){
+    const [images,setImages,crop,prodName,prodDescription,priceBefore,priceAfter,qty,catID,brandID,subCatID,selectedSubCatID,showColors,selectedColors,formLoading,
 
-function AdminAddProduct(){
-   const [images,setImages,crop,prodName,prodDescription,priceBefore,priceAfter,qty,catID,brandID,subCatID,showColors,selectedColors,formLoading,
+        allCategories,
+        subCategoriesLoading,
+        allBrands,
+        allBrandsLoading,
+        id,
+        redirect,
 
-       allCategories,
-       subCategoriesLoading,
-       allBrands,
-       allBrandsLoading,
+        onSelect,
+        onRemove,
+        SetProdName,
+        SetProdDescription,
+        SetPriceBefore,
+        SetPriceAfter,
+        SetQty,
+        SetCatID,
+        SetBrandID,
+        setShowColors,
+        setSelectedColors,
+        handleChangeColor,
+        onSubmit,
+    ] = AdminUpdateProductHook()
 
-       onSelect,
-       onRemove,
-       SetProdName,
-       SetProdDescription,
-       SetPriceBefore,
-       SetPriceAfter,
-       SetQty,
-       SetCatID,
-       SetBrandID,
-       setShowColors,
-       setSelectedColors,
-       handleChangeColor,
-       onSubmit,
-   ] = AdminAddProductHook()
-
+    const navigate = useNavigate()
+    if(redirect)
+        return navigate(`/products/${id}`)
 
     return(
         <div>
@@ -115,28 +120,29 @@ function AdminAddProduct(){
 
                     {
                         allCategories.data ? (
-                    <select
-                        name="cat"
-                        id="lang"
-                        className="select input-form-area mt-3 px-2 "
-                        onChange={SetCatID}
-                        value={catID}
-                    >
-                        <option value="0">Main Categories</option>
-                        {
-                              allCategories.data.map(item => <option key={item._id} value={item._id}>{item.name}</option>)
-                        }
-                    </select>) : <div className='w-100 d-flex justify-content-center mt-2'><LoadingSpinner></LoadingSpinner></div>
+                            <select
+                                name="cat"
+                                id="lang"
+                                className="select input-form-area mt-3 px-2 "
+                                onChange={SetCatID}
+                                value={catID}
+                            >
+                                <option value="0">Main Categories</option>
+                                {
+                                    allCategories.data.map(item => <option key={item._id} value={item._id}>{item.name}</option>)
+                                }
+                            </select>) : <div className='w-100 d-flex justify-content-center mt-2'><LoadingSpinner></LoadingSpinner></div>
                     }
 
 
                     {
                         subCategoriesLoading ?
                             <div className='w-100 d-flex justify-content-center mt-2'><LoadingSpinner></LoadingSpinner></div>
+
                             : subCatID == null ? <Multiselect
                                 className="mt-2"
                                 placeholder="Subcategory "
-                                options={[]}
+                                options={selectedSubCatID}
                                 onSelect={onSelect}
                                 onRemove={onRemove}
                                 displayValue="name"
@@ -158,11 +164,11 @@ function AdminAddProduct(){
                     {
                         !allBrandsLoading ?
                             <select name="brand" id="brand" className="select input-form-area mt-3 px-2 " onChange={SetBrandID} value={brandID}>
-                            <option value="0">Brand</option>
-                            {
-                                allBrands.data.map(item => <option key={item._id} value={item._id}>{item.name}</option>)
-                            }
-                        </select> : <div className='w-100 d-flex justify-content-center mt-2'><LoadingSpinner></LoadingSpinner></div>
+                                <option value="0">Brand</option>
+                                {
+                                    allBrands.data.map(item => <option key={item._id} value={item._id}>{item.name}</option>)
+                                }
+                            </select> : <div className='w-100 d-flex justify-content-center mt-2'><LoadingSpinner></LoadingSpinner></div>
                     }
 
 
@@ -171,13 +177,13 @@ function AdminAddProduct(){
                     <div className="mt-1 d-flex">
                         {
                             selectedColors.map((color,i) => <div
-                                key={i}
-                                className="color ms-2 border  mt-1"
-                                style={{ backgroundColor: color }}
-                                onClick={_ => setSelectedColors([...selectedColors.filter((clr) => clr !== color)])}
+                                    key={i}
+                                    className="color ms-2 border  mt-1"
+                                    style={{ backgroundColor: color }}
+                                    onClick={_ => setSelectedColors([...selectedColors.filter((clr) => clr !== color)])}
                                 >
 
-                            </div>
+                                </div>
                             )
                         }
 
@@ -203,4 +209,4 @@ function AdminAddProduct(){
     )
 }
 
-export default AdminAddProduct
+export default AdminUpdateProduct

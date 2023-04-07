@@ -1,7 +1,7 @@
 import React from 'react'
 import {Col, Card, Row, Modal, Button} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import AdminAllProductsCardHook from "../../hooks/product/Admin-All-Product-Card-Hook";
+import AdminAllProductsCardHook from "../../hooks/admin/Admin-All-Product-Card-Hook";
 const AdminAllProductsCard = ({product}) => {
     const [onDeleteProduct,show,handleShow,handleClose] = AdminAllProductsCardHook()
     return (

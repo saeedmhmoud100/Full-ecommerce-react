@@ -4,9 +4,12 @@ import {getAllCategory} from "../../Redux/actions/categoryAction";
 import {getSubCategoryByCategory} from "../../Redux/actions/subCategoryAction";
 import {getAllBrand} from "../../Redux/actions/brandAction";
 import {Notification} from "../useNotification";
-import {createProduct} from "../../Redux/actions/productAction";
+import {getOneProduct, updateProduct} from "../../Redux/actions/productAction";
+import {useParams} from "react-router-dom";
 
 const AdminAddProductHook = _ =>{
+    const {id}=useParams()
+    const [redirect,setRedirect]=useState(false)
     const [images,setImages] = useState([])
     const crop = {
         unit:'px',
@@ -30,11 +33,43 @@ const AdminAddProductHook = _ =>{
     const [selectedColors,setSelectedColors] = useState([])
     const [formLoading,setFormLoading] = useState(false)
     //when page first load
-    useEffect(_ =>{
-        dispatch(getAllCategory())
-        dispatch(getAllBrand())
-    },[])
+    const product=useSelector(state=> state.allProduct.product)
 
+    useEffect(_ =>{
+        const run = async _=>{
+            await dispatch(getOneProduct(id))
+            await dispatch(getAllCategory())
+            await dispatch(getAllBrand())
+        }
+        run()
+    },[])
+    useEffect(_=>{
+        if(product && product.data){
+            dispatch(getSubCategoryByCategory(product.data.category))
+            setSelectedSubCatID([...product.data.subcategory])
+        }
+    },[product])
+    // useEffect(_=>{
+    //     if(catID){
+    //         dispatch(getSubCategoryByCategory(catID))
+    //         setSubCatID([...subCategory])
+    //     }
+    // },[catID])
+
+    useEffect(_=>{
+        if(product && product.data){
+            setImages([...product.data.images])
+            setProdName(product.data.title)
+            setProdDescription(product.data.description)
+            setPriceBefore(product.data.price)
+            setPriceAfter(product.data.price)
+            setQty(product.data.quantity)
+            setCatID(product.data.category)
+            setBrandID(product.data.brand)
+            setSelectedColors(product.data.availableColors)
+            setSelectedSubCatID(product.data.subcategory)
+        }
+    },[product])
     const allCategories = useSelector(state => state.allCategory.category)
     const subCategories = useSelector(state => state.allSubCategory.subCategory)
     const allBrands = useSelector(state => state.allBrand.brands)
@@ -43,10 +78,13 @@ const AdminAddProductHook = _ =>{
 
 
     const onSelect = (e) => {
-        setSelectedSubCatID(e)
+        const arr=[]
+        e.map(({_id}) => arr.push(_id))
+        setSelectedSubCatID(arr)
+        console.log(selectedSubCatID)
     }
     const onRemove = (e) => {
-        setSelectedSubCatID(e)
+        onSelect(e)
     }
 
     const SetProdName = e =>{
@@ -108,17 +146,37 @@ const AdminAddProductHook = _ =>{
         return new File([uBarr],filename,{type:mime})
     }
 
+    // convert url to base 64
+    const getBase64FromUrl = async (url) => {
+        const data = await fetch(url);
+        const blob = await data.blob();
+        return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(blob);
+            reader.onloadend = () => {
+                const base64data = reader.result;
+                resolve(base64data);
+            }
+        });
+    }
 
+        const updatedProduct=useSelector(state=> state.allProduct.updateProduct)
+
+    useEffect(_=>{
+        if(updatedProduct.status==200){
+        setRedirect(true)
+        }
+    },[updatedProduct])
     const onSubmit = async _ => {
-        if(images.length < 1){
+        if(Object.keys(images).length<1){
             Notification('Product must have at least one image','warning')
         }else if(prodName===''){
             Notification('Product Name is required','warning')
         }else if(prodDescription===''){
             Notification('Product Description is required','warning')
-        }else if(priceBefore===null){
+        }else if(priceBefore===null || priceBefore===0 || !priceBefore){
             Notification('Product Price is required','warning')
-        }else if(qty===null){
+        }else if(qty===null || qty===0 || !qty){
             Notification('Product Quantity is required','warning')
         }else if(catID==='' || catID==='0'){
             Notification('Main Category is required','warning')
@@ -130,37 +188,36 @@ const AdminAddProductHook = _ =>{
 
 
             const formData = new FormData()
-            const imageCover = dataURLToFile(images[0],Math.random()+'.png')
+            let imageCover=images[0];
+            if(images[0].length<1000){
+                imageCover=await getBase64FromUrl(imageCover)
+            }
+            imageCover=dataURLToFile(imageCover, Math.random() + '.png')
+
             formData.append('title',prodName)
             formData.append('description',prodDescription)
             formData.append('quantity',qty)
             formData.append('price',priceBefore)
             formData.append('category',catID)
             formData.append('brand',brandID)
+            selectedSubCatID.map(sub => formData.append('subcategory',sub))
             selectedColors.map(color => formData.append('availableColors', color))
             formData.append('imageCover',imageCover)
             for (const [key, value] of Object.entries(images)) {
-                formData.append('images',dataURLToFile(value,Math.random()+'.png'))
+                let image=value
+
+                if(image.length<1000){
+                    image = await getBase64FromUrl(image)
+                }
+                image=dataURLToFile(image, Math.random() + '.png')
+                formData.append('images',image)
             }
-            selectedSubCatID.map(subCat => formData.append('subcategory',subCat._id))
+                setFormLoading(true)
+                await dispatch(updateProduct(id,formData))
+                setFormLoading(false)
 
 
-            setFormLoading(true)
-            await dispatch(createProduct(formData))
-            setFormLoading(false)
-                setImages({})
-                setProdName('')
-                setProdDescription('')
-                setPriceBefore(null)
-                setPriceAfter(null)
-                setQty(null)
-                setCatID('0')
-                setBrandID('0')
-                setSelectedColors([])
-                setSelectedSubCatID([])
-                setSubCatID([])
-                setSubCategoriesLoading(true)
-                setTimeout(_ => setSubCategoriesLoading(false),50)
+            // window.location.(`/products/${product.data._id}`)
         }
     }
 
@@ -176,6 +233,7 @@ const AdminAddProductHook = _ =>{
         catID,
         brandID,
         subCatID,
+        selectedSubCatID,
         showColors,
         selectedColors,
         formLoading,
@@ -184,6 +242,8 @@ const AdminAddProductHook = _ =>{
         subCategoriesLoading,
         allBrands,
         allBrandsLoading,
+        id,
+        redirect,
 
         onSelect,
         onRemove,

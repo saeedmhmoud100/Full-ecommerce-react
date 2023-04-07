@@ -1,7 +1,7 @@
 import React from 'react'
 import {Col, Row} from "react-bootstrap";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
-import AdminAddBrandHook from "../../hooks/Brand/Admin-Add-Brand-Hook";
+import AdminAddBrandHook from "../../hooks/admin/Admin-Add-Brand-Hook";
 
 function AdminAddBrand(){
     const [image,text,loading,setTextState,onImageChange,onSubmit] = AdminAddBrandHook()

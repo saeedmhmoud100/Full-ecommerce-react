@@ -1,7 +1,8 @@
-import {CREATE_PRODUCT,DELETE_PRODUCTS, GET_ALL_PRODUCTS,GET_ONE_PRODUCT,GET_SPECIFIC_PRODUCTS, GET_PRODUCT_ERROR} from "../types";
+import {CREATE_PRODUCT,UPDATE_PRODUCT,DELETE_PRODUCTS, GET_ALL_PRODUCTS,GET_ONE_PRODUCT,GET_SPECIFIC_PRODUCTS, GET_PRODUCT_ERROR} from "../types";
 import {useInsertDataWithImage} from "../../AxiosHooks/useInsertData";
 import useGetData from "../../AxiosHooks/useGetData";
 import useDeleteData from "../../AxiosHooks/useDeleteData";
+import {useUpdateDataWithImage} from "../../AxiosHooks/useUpdateData";
 
 export const createProduct = (formData) => async dispatch => {
     try {
@@ -18,7 +19,24 @@ export const createProduct = (formData) => async dispatch => {
         })
     }
 }
-
+export const updateProduct = (id,formData) => async dispatch => {
+    try {
+        const res = await useUpdateDataWithImage(`/api/v1/products/${id}`,formData)
+        dispatch({
+            type:UPDATE_PRODUCT,
+            payload:res,
+            loading:true
+        })
+    }catch (e){
+        for(const entry of formData){
+            console.log(entry); // Array: ['entryName', 'entryValue']
+        }
+        dispatch({
+            type:GET_PRODUCT_ERROR,
+            payload:e
+        })
+    }
+}
 export const getAllProducts = (page = 1) => async dispatch => {
     try {
         const res = await useGetData(`/api/v1/products?limit=9&page=${page}`)
