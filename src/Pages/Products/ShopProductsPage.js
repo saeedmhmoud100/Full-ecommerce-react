@@ -1,23 +1,21 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import CategoryHeader from "../../Components/Category/CategoryHeader";
 import SearchCountResult from "../../Components/Uitily/SearchCountResult";
 import {Col, Container, Row} from "react-bootstrap";
 import SideFilter from "../../Components/Uitily/SideFilter";
 import CardProductContainer from "../../Components/Products/CardProductsContainer";
 import Pagination from "../../Components/Uitily/Pagination";
-import {useDispatch, useSelector} from "react-redux";
-import {getAllProducts} from "../../Redux/actions/productAction";
 import ShopProductsPageHook from "../../hooks/product/Shop-Products-Page-Hook";
 
 
 const ShopProductsPage = () => {
-    const [allProducts] = ShopProductsPageHook()
+    const [allProducts,pagination,onPress] = ShopProductsPageHook()
 
     return (
         <div style={{minHeight:'670px'}}>
             <CategoryHeader />
             <Container>
-            <SearchCountResult title={`(${allProducts.data ?allProducts.data.length : 0}) results`}/>
+            <SearchCountResult title={`(${allProducts.data ?allProducts.data.length : 0}) form (${allProducts.results || 0}) results`}/>
 
                 <Row className={'d-flex justify-content-between xm-flex-dir-column'}>
                     <Col sm={1} xs={1} md={1} lg={1} className={'d-flex'}>
@@ -27,7 +25,12 @@ const ShopProductsPage = () => {
                         <CardProductContainer products={allProducts.data ? allProducts.data : []}/>
                     </Col>
                 </Row>
-                <Pagination />
+                {
+                    pagination > 1 ?
+                        <Pagination pagesCount={pagination} onPress={onPress}/>
+                    : null
+                }
+
             </Container>
         </div>
     )

@@ -37,9 +37,25 @@ export const updateProduct = (id,formData) => async dispatch => {
         })
     }
 }
-export const getAllProducts = (page = 1) => async dispatch => {
+export const getAllProducts = (page = 1,limit=9) => async dispatch => {
     try {
-        const res = await useGetData(`/api/v1/products?limit=9&page=${page}`)
+        const res = await useGetData(`/api/v1/products?limit=${limit}&page=${page}`)
+        dispatch({
+            type:GET_ALL_PRODUCTS,
+            payload:res,
+            loading:true
+        })
+    }catch (e){
+        dispatch({
+            type:GET_PRODUCT_ERROR,
+            payload:e
+        })
+    }
+}
+
+export const getProductsSearch = (q) => async dispatch => {
+    try {
+        const res = await useGetData(`/api/v1/products?${q}`)
         dispatch({
             type:GET_ALL_PRODUCTS,
             payload:res,

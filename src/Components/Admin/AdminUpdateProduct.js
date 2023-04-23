@@ -6,7 +6,6 @@ import MultiImageInput from "react-multiple-image-input";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
 import {CompactPicker} from "react-color";
 import AdminUpdateProductHook from "../../hooks/admin/Admin-Update-Product-Hook";
-import {useNavigate} from "react-router-dom";
 function AdminUpdateProduct(){
     const [images,setImages,crop,prodName,prodDescription,priceBefore,priceAfter,qty,catID,brandID,subCatID,selectedSubCatID,showColors,selectedColors,formLoading,
 
@@ -30,16 +29,21 @@ function AdminUpdateProduct(){
         setSelectedColors,
         handleChangeColor,
         onSubmit,
+        setRed
     ] = AdminUpdateProductHook()
 
-    const navigate = useNavigate()
-    if(redirect)
-        return navigate(`/products/${id}`)
+    // if(redirect){
+        // return setRed()
+        // const run = _=> setRedirect(false)
+        // run()
+        // return navigate(`/products/${id}`)
+        // window.location = `/products/${id}`
+    // }
 
     return(
         <div>
             <Row className="justify-content-start ">
-                <div className="admin-content-text pb-4">Add A new Product</div>
+                <div className="admin-content-text pb-4">Update the Product</div>
                 <Col sm="8">
                     <div className="text-form pb-2"> Product's Images</div>
                     <MultiImageInput

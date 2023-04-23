@@ -29,7 +29,7 @@ const productReducer = (state=inital,action) => {
                 loading: false,
             }
         case UPDATE_PRODUCT:
-            Notification('The Product updated successfully','success')
+            Notification('The product has been updated successfully','success')
             return {
                 ...state,
                 updateProduct: action.payload,

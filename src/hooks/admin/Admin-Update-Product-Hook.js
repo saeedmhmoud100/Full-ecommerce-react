@@ -5,7 +5,7 @@ import {getSubCategoryByCategory} from "../../Redux/actions/subCategoryAction";
 import {getAllBrand} from "../../Redux/actions/brandAction";
 import {Notification} from "../useNotification";
 import {getOneProduct, updateProduct} from "../../Redux/actions/productAction";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 const AdminAddProductHook = _ =>{
     const {id}=useParams()
@@ -163,10 +163,21 @@ const AdminAddProductHook = _ =>{
         const updatedProduct=useSelector(state=> state.allProduct.updateProduct)
 
     useEffect(_=>{
-        if(updatedProduct.status==200){
+        if(updatedProduct.status==200 && redirect==false){
         setRedirect(true)
+            setRed()
         }
     },[updatedProduct])
+
+    const navigate = useNavigate()
+
+    const setRed = _=>{
+        setRedirect(false)
+        // return navigate(`/products/${id}`)
+        setTimeout(_=> window.location = `/products/${id}`,1000)
+
+    }
+
     const onSubmit = async _ => {
         if(Object.keys(images).length<1){
             Notification('Product must have at least one image','warning')
@@ -221,6 +232,7 @@ const AdminAddProductHook = _ =>{
         }
     }
 
+
     return [
         images,
         setImages,
@@ -258,6 +270,7 @@ const AdminAddProductHook = _ =>{
         setSelectedColors,
         handleChangeColor,
         onSubmit,
+        setRed
     ]
 
 }

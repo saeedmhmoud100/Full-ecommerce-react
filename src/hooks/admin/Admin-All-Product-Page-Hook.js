@@ -5,7 +5,6 @@ import {getAllProducts} from "../../Redux/actions/productAction";
 const AdminAllProductPageHook= _ =>{
     const dispatch = useDispatch()
     const products = useSelector(state => state.allProduct.allProducts)
-    console.log('yes')
     useEffect(_ =>{
         dispatch(getAllProducts())
     },[])
