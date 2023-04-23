@@ -1,9 +1,21 @@
 import React from 'react'
 import UnopDropdown from "unop-react-dropdown";
 import sort from '../../Assets/images/sort.png'
-const SearchCountResult = ({title}) => {
+const SearchCountResult = ({title,onClick}) => {
+    const queries=[
+        {title:'No sorting',query:''},
+        {title:'Price: Low to High',query:'+price'},
+        {title:'Price: High to Low',query:'-price'},
+        {title:'Best Sellers',query:'-sold'},
+        {title:'Top Rating',query:'-ratingsQuantity'},
+    ]
+
     const handler=()=> {
 
+    }
+    const onSortingClick=q=>{
+        localStorage.setItem('sorting',q)
+        onClick()
     }
     return (
         <div className="d-flex justify-content-between pt-3 px-2">
@@ -28,12 +40,10 @@ const SearchCountResult = ({title}) => {
                     align="CENTER"
                     hover>
                     <div className="card-filter">
-                        <div className="border-bottom card-filter-item">Best Sellers</div>
-                        <div className="border-bottom card-filter-item">Top Rated</div>
-                        <div className="border-bottom card-filter-item">
-                            Price: Low to High
-                        </div>
-                        <div className=" card-filter-item">Price: High to Low</div>
+
+                        {
+                            queries.map((item,i)=> <div onClick={_=> onSortingClick(item.query)} key={i} className="border-bottom card-filter-item">{item.title}</div>)
+                        }
                     </div>
                 </UnopDropdown>
             </div>

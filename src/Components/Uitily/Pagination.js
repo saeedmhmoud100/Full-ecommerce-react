@@ -25,6 +25,7 @@ const Pagination = ({pagesCount,onPress}) => {
             breakClassName={"page-item"}
             breakLinkClassName={"page-link"}
             activeClassName={"active"}
+            initialPage={0}
         />
     )
 }

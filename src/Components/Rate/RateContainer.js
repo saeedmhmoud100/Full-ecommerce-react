@@ -23,7 +23,7 @@ const RateContainer = () => {
             <RateItem />
             <RateItem />
             <RateItem />
-            <Pagination />
+            <Pagination onPress={_=>null}/>
 
         </Container>
     )

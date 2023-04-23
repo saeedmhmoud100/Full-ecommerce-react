@@ -1,26 +1,29 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {getProductsSearch} from "../../Redux/actions/productAction";
 
 const ShopProductsPageHook= _ =>{
-    const limit =9;
-    const searchWord = localStorage.getItem('searchWord') || ''
+    const [selectedPage,setSelectedPage] = useState(1)
     const dispatch = useDispatch()
 
-    const getProduct =async ({page=1})=>{
-        await dispatch(getProductsSearch(`page=${page}&limit=${limit}&keyword=${searchWord}`))
+    const getProduct =async (page=selectedPage)=>{
+        const limit =3;
+        const searchWord = localStorage.getItem('searchWord') || '';
+        const sorting = localStorage.getItem('sorting') || ''
+        await dispatch(getProductsSearch(`page=${page}&limit=${limit}&keyword=${searchWord}&sort=${sorting}`))
     }
 
     useEffect(_=>{
-        getProduct({})
+        getProduct(1)
     },[])
 
     const allProducts = useSelector(state => state.allProduct.allProducts)
     let pagination=[];
     if(allProducts && allProducts.paginationResult)
         pagination=allProducts.paginationResult.numberOfPages;
-    const onPress = async page=>{
-        await getProduct({page})
+    const onPress = page=>{
+        setSelectedPage(page)
+        getProduct(page)
     }
 
 

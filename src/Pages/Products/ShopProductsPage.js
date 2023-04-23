@@ -9,13 +9,13 @@ import ShopProductsPageHook from "../../hooks/product/Shop-Products-Page-Hook";
 
 
 const ShopProductsPage = () => {
-    const [allProducts,pagination,onPress] = ShopProductsPageHook()
+    const [allProducts,pagination,onPress,getProduct] = ShopProductsPageHook()
 
     return (
         <div style={{minHeight:'670px'}}>
             <CategoryHeader />
             <Container>
-            <SearchCountResult title={`(${allProducts.data ?allProducts.data.length : 0}) form (${allProducts.results || 0}) results`}/>
+            <SearchCountResult onClick={getProduct} title={`(${allProducts.data ?allProducts.data.length : 0}) form (${allProducts.results || 0}) results`}/>
 
                 <Row className={'d-flex justify-content-between xm-flex-dir-column'}>
                     <Col sm={1} xs={1} md={1} lg={1} className={'d-flex'}>
