@@ -14,7 +14,7 @@ const NavbarSearchHook = _=>{
         setTimeout(_=>{
         getProduct({searchWord})
 
-        },1000)
+        },100)
     },[searchWord])
 
 

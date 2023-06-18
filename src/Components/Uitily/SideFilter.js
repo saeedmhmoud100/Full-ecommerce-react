@@ -3,7 +3,7 @@ import { Row } from 'react-bootstrap'
 import SideFilterHook from "../../hooks/search/Side-Filter-Hook";
 
 const SideFilter = () => {
-    const [allCat,allBrand]=SideFilterHook()
+    const [allCat,allBrand,categoryClick,brandClick]=SideFilterHook()
 
 
     return (
@@ -11,14 +11,14 @@ const SideFilter = () => {
             <Row>
                 <div className="d-flex flex-column mt-2">
                     <div className="filter-title">Categories</div>
-                    <div className="d-flex mt-3">
-                        <input type="checkbox" value="0" />
-                        <div className="filter-sub me-2 ">All</div>
-                    </div>
+                        <div className="d-flex mt-3">
+                            <input id="All" type="checkbox" value="0" onChange={categoryClick} />
+                            <label htmlFor="All" className="filter-sub me-2 ">All</label>
+                        </div>
                     {
                         allCat.data && allCat.data.map(item =>(
                             <div className="d-flex mt-3">
-                                <input id={item._id} type="checkbox" value={item._id} />
+                                <input id={item._id} type="checkbox" value={item._id} onChange={categoryClick}/>
                                 <label htmlFor={item._id} className="filter-sub me-2 ">{item.name}</label>
                             </div>
                         ))
@@ -28,13 +28,13 @@ const SideFilter = () => {
                 <div className="d-flex flex-column mt-2">
                     <div className="filter-title mt-3">Brands</div>
                     <div className="d-flex mt-3">
-                        <input type="checkbox" value="0" />
-                        <div className="filter-sub me-2 ">All</div>
+                        <input id="AllB" type="checkbox" value="0" onChange={brandClick}/>
+                        <label htmlFor="AllB" className="filter-sub me-2 ">All</label>
                     </div>
                     {
                         allBrand.data && allBrand.data.map(item =>(
                             <div className="d-flex mt-3">
-                                <input id={item._id} type="checkbox" value={item._id} />
+                                <input id={item._id} type="checkbox" value={item._id} onChange={brandClick}/>
                                 <label htmlFor={item._id} className="filter-sub me-2 ">{item.name}</label>
                             </div>
                         ))

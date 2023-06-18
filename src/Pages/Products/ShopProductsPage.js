@@ -23,13 +23,15 @@ const ShopProductsPage = () => {
                     </Col>
                     <Col sm={10} xs={10} md={10}>
                         <CardProductContainer products={allProducts.data ? allProducts.data : []}/>
+                        {
+                        pagination > 1 ?
+                            <Pagination pagesCount={pagination} onPress={onPress}/>
+                            : null
+                    }
                     </Col>
+
                 </Row>
-                {
-                    pagination > 1 ?
-                        <Pagination pagesCount={pagination} onPress={onPress}/>
-                    : null
-                }
+
 
             </Container>
         </div>
