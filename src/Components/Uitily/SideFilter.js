@@ -5,7 +5,6 @@ import SideFilterHook from "../../hooks/search/Side-Filter-Hook";
 const SideFilter = () => {
     const [allCat,allBrand,categorySelected,categoryClick,clearCat,brandSelected,brandClick,clearBrand,priceFrom,priceTo,getProduct]=SideFilterHook()
 
-    console.log(categorySelected.length)
     return (
         <div className="mt-3">
             <Row>
