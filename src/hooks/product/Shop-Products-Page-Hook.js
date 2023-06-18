@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {getProductsSearch} from "../../Redux/actions/productAction";
 
@@ -11,7 +11,7 @@ const ShopProductsPageHook= _ =>{
         const searchWord = localStorage.getItem('searchWord') || '';
         const catSelected = localStorage.getItem('catSelected') || '';
         const sorting = localStorage.getItem('sorting') || ''
-        await dispatch(getProductsSearch(`page=${page}&limit=${limit}&keyword=${searchWord}&sort=${sorting}&${catSelected}`))
+        await dispatch(getProductsSearch(`page=${page}&limit=${limit}&keyword=${searchWord}&sort=${sorting}${catSelected}`))
     }
 
     useEffect(_=>{

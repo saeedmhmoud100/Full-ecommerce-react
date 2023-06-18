@@ -15,7 +15,7 @@ const ShopProductsPage = () => {
         <div style={{minHeight:'670px'}}>
             <CategoryHeader />
             <Container>
-            <SearchCountResult onClick={getProduct} title={`(${allProducts.data ?allProducts.data.length : 0}) form (${allProducts.results || 0}) results`}/>
+            <SearchCountResult onClick={getProduct} title={`(${allProducts && allProducts.data ?allProducts.data.length : 0}) form (${allProducts.results || 0}) results`}/>
 
                 <Row className={'d-flex justify-content-between xm-flex-dir-column'}>
                     <Col sm={1} xs={1} md={1} lg={1} className={'d-flex'}>

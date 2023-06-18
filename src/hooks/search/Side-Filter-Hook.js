@@ -5,11 +5,16 @@ import {getAllBrand} from "../../Redux/actions/brandAction";
 import ShopProductsPageHook from "../product/Shop-Products-Page-Hook";
 
 const SideFilterHook =_ =>{
+    if(!localStorage.getItem('catSelected')){
+    localStorage.setItem('catSelected','');
+    }else{
+        const temp=localStorage.getItem('catSelected');
+        localStorage.setItem('catSelected','');
+        localStorage.setItem('catSelected',temp);
+    }
     const [,,,getProduct] = ShopProductsPageHook()
     const dispatch = useDispatch()
-    const [categorySelected,setCategorySelected] = useState(localStorage.getItem('catSelected') ? ('&'+localStorage.getItem('catSelected')).split("&category[in][]=").shift():[])
-    console.log()
-
+    const [categorySelected,setCategorySelected] = useState(localStorage.getItem('catSelected')&& localStorage.getItem('catSelected')!=='' ? (localStorage.getItem('catSelected').split("&category[in][]=")).splice(1):[])
     const [brandSelected,setBrandSelected] = useState([])
     useEffect(_=>{
         const run =async _=>{
@@ -22,21 +27,25 @@ const SideFilterHook =_ =>{
     const allBrand = useSelector(state => state.allBrand.brands)||[]
     const categoryClick = e =>{
         const val= e.target.value
-        let catVal='';
-        if(val==="0"){
-            catVal=[];
+        let catVal=[];
+        if(e.target.checked && val!==''){
+            catVal=[...categorySelected,val];
         }else{
-            if(e.target.checked){
-                catVal=[...categorySelected,val];
-            }else{
-                catVal=categorySelected.filter(item => item!== val);
-            }
+            console.log('yes')
+            catVal=categorySelected.filter(item => (item!== val&&item!==''));
         }
-        catVal.map(item => "category[in][]="+item).join('&');
-        localStorage.setItem('catSelected',catVal.map(item => "category[in][]="+item).join('&'))
+        localStorage.setItem('catSelected',catVal.map(item => "&category[in][]="+item).join(''))
         setTimeout(async _=>{ await getProduct()},200)
         setCategorySelected(catVal);
+
     }
+
+    const clearCat = _=>{
+        localStorage.setItem('catSelected','')
+        setTimeout(async _=>{ await getProduct()},200)
+        setCategorySelected([]);
+    }
+
     const brandClick = e =>{
         const val= e.target.value
         if(val==="0"){
@@ -49,8 +58,7 @@ const SideFilterHook =_ =>{
             }
         }
     }
-
-    return [allCat,allBrand,categoryClick,brandClick]
+    return [allCat,allBrand,categoryClick,categorySelected,brandClick,clearCat]
 }
 
 export default SideFilterHook
