@@ -3,7 +3,7 @@ import { Row } from 'react-bootstrap'
 import SideFilterHook from "../../hooks/search/Side-Filter-Hook";
 
 const SideFilter = () => {
-    const [allCat,allBrand,categoryClick,categorySelected,brandClick,clearCat]=SideFilterHook()
+    const [allCat,allBrand,categorySelected,categoryClick,clearCat,brandSelected,brandClick,clearBrand]=SideFilterHook()
 
     console.log(categorySelected.length)
     return (
@@ -28,13 +28,13 @@ const SideFilter = () => {
                 <div className="d-flex flex-column mt-2">
                     <div className="filter-title mt-3">Brands</div>
                     <div className="d-flex mt-3">
-                        <input id="AllB" type="checkbox" value="0" onChange={brandClick}/>
+                        <input id="AllB" type="checkbox" value="0" onChange={clearBrand} checked={brandSelected.length===0}/>
                         <label htmlFor="AllB" className="filter-sub me-2 ">All</label>
                     </div>
                     {
                         allBrand.data && allBrand.data.map(item =>(
                             <div className="d-flex mt-3">
-                                <input id={item._id} type="checkbox" value={item._id} onChange={brandClick}/>
+                                <input id={item._id} type="checkbox" value={item._id} onChange={brandClick} checked={brandSelected.indexOf(item._id)!==-1}/>
                                 <label htmlFor={item._id} className="filter-sub me-2 ">{item.name}</label>
                             </div>
                         ))

@@ -10,8 +10,9 @@ const ShopProductsPageHook= _ =>{
         const limit =3;
         const searchWord = localStorage.getItem('searchWord') || '';
         const catSelected = localStorage.getItem('catSelected') || '';
+        const brandSelected = localStorage.getItem('brandSelected') || '';
         const sorting = localStorage.getItem('sorting') || ''
-        await dispatch(getProductsSearch(`page=${page}&limit=${limit}&keyword=${searchWord}&sort=${sorting}${catSelected}`))
+        await dispatch(getProductsSearch(`page=${page}&limit=${limit}&keyword=${searchWord}&sort=${sorting}${catSelected}${brandSelected}`))
     }
 
     useEffect(_=>{
