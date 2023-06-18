@@ -15,7 +15,7 @@ const CategoryContainer = ({data,loading}) => {
             <Row className={`my-2 d-flex ${!loading ? 'justify-content-start' : 'justify-content-center'}`}>{
                 !loading ?(
                         data.length
-                            ? data.map((item,i) => <CategoryCard key={i} itle={item.name} img={item.image} background={colors[randNum(colors)]} />)
+                            ? data.map((item,i) => <CategoryCard key={i} itle={item.name} img={item.image} item={item} background={colors[randNum(colors)]} />)
                             : <h2 className='align-self-center m-auto w-auto'>There is no category</h2>)
                     : <LoadingSpinner animation='border' />
 

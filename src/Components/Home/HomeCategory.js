@@ -16,7 +16,7 @@ const HomeCategory = () => {
                 {
                     !loading ?(
                     categoryData.data
-                        ? categoryData.data.slice(0,6).map((item,i) => <CategoryCard key={i} title={item.name} img={item.image} background={colors[i]} />)
+                        ? categoryData.data.slice(0,6).map((item,i) => <CategoryCard key={i} title={item.name} img={item.image} background={colors[i]} item={item} />)
                         : <h2 className='align-self-center m-auto w-auto'>There is no category</h2>)
                         : <LoadingSpinner animation='border' />
 
