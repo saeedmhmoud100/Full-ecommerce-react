@@ -7,12 +7,14 @@ const ShopProductsPageHook= _ =>{
     const dispatch = useDispatch()
 
     const getProduct =async (page=selectedPage)=>{
-        const limit =3;
+        const limit =9;
         const searchWord = localStorage.getItem('searchWord') || '';
         const catSelected = localStorage.getItem('catSelected') || '';
         const brandSelected = localStorage.getItem('brandSelected') || '';
         const sorting = localStorage.getItem('sorting') || ''
-        await dispatch(getProductsSearch(`page=${page}&limit=${limit}&keyword=${searchWord}&sort=${sorting}${catSelected}${brandSelected}`))
+        const priceFrom = localStorage.getItem('priceFrom') || 0
+        const priceTo = localStorage.getItem('priceTo') || 9999999
+        await dispatch(getProductsSearch(`page=${page}&limit=${limit}&keyword=${searchWord}&sort=${sorting}${catSelected}${brandSelected}&price[gte]=${priceFrom}&price[lte]=${priceTo}`))
     }
 
     useEffect(_=>{

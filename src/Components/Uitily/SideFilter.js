@@ -3,7 +3,7 @@ import { Row } from 'react-bootstrap'
 import SideFilterHook from "../../hooks/search/Side-Filter-Hook";
 
 const SideFilter = () => {
-    const [allCat,allBrand,categorySelected,categoryClick,clearCat,brandSelected,brandClick,clearBrand]=SideFilterHook()
+    const [allCat,allBrand,categorySelected,categoryClick,clearCat,brandSelected,brandClick,clearBrand,priceFrom,priceTo,getProduct]=SideFilterHook()
 
     console.log(categorySelected.length)
     return (
@@ -42,22 +42,29 @@ const SideFilter = () => {
                 </div>
 
                 <div>
-                    <div className="filter-title my-3">Price</div>
+
+                    <div className=" filter-title my-3">Price <span onClick={_=>{localStorage.setItem('priceFrom',0);localStorage.setItem('priceTo',9999999);getProduct()}} className='text-decoration-underline' style={{color:'rgb(9 75 127)',cursor:"pointer",fontSize:'10px'}}>reset</span></div>
                     <div className="d-flex">
                         <p className="filter-sub my-2">From:</p>
                         <input
+                            onChange={priceFrom}
+                            value={localStorage.getItem('priceFrom')}
                             className="m-2 text-center"
                             type="number"
-                            style={{ width: "50px", height: "25px" }}
+                            style={{maxWidth: '77px', height: "25px" ,padding:0}}
+                            min={0}
                         />
                     </div>
                     <div className="d-flex">
                         <p className="filter-sub my-2">To:</p>
                         <p className="filter-sub my-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                         <input
+                            onChange={priceTo}
+                            value={localStorage.getItem('priceTo')}
                             className="m-2 text-center"
                             type="number"
-                            style={{ width: "50px", height: "25px" }}
+                            style={{maxWidth: '77px', height: "25px" ,padding:0}}
+                            min={0}
                         />
                     </div>
                 </div>

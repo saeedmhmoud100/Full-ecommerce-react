@@ -5,20 +5,32 @@ import {getAllBrand} from "../../Redux/actions/brandAction";
 import ShopProductsPageHook from "../product/Shop-Products-Page-Hook";
 
 const SideFilterHook =_ =>{
-    if(!localStorage.getItem('catSelected')){
-    localStorage.setItem('catSelected','');
-    }else{
-        const temp=localStorage.getItem('catSelected');
-        localStorage.setItem('catSelected','');
-        localStorage.setItem('catSelected',temp);
-    }
-    if(!localStorage.getItem('brandSelected')){
-        localStorage.setItem('brandSelected','');
-    }else{
-        const temp=localStorage.getItem('brandSelected');
-        localStorage.setItem('brandSelected','');
-        localStorage.setItem('brandSelected',temp);
-    }
+
+    useEffect(_=>{
+        if(!localStorage.getItem('catSelected')){
+            localStorage.setItem('catSelected','');
+        }else{
+            const temp=localStorage.getItem('catSelected');
+            localStorage.setItem('catSelected','');
+            localStorage.setItem('catSelected',temp);
+        }
+        if(!localStorage.getItem('brandSelected')){
+            localStorage.setItem('brandSelected','');
+        }else{
+            const temp=localStorage.getItem('brandSelected');
+            localStorage.setItem('brandSelected','');
+            localStorage.setItem('brandSelected',temp);
+        }
+        if(!localStorage.getItem('priceFrom')){
+            localStorage.setItem('priceFrom',0);
+        }
+        if(!localStorage.getItem('priceTo')){
+            localStorage.setItem('priceTo',9999999);
+        }
+
+
+    },[])
+
     const [,,,getProduct] = ShopProductsPageHook()
     const dispatch = useDispatch()
     const [categorySelected,setCategorySelected] = useState(localStorage.getItem('catSelected')&& localStorage.getItem('catSelected')!=='' ? (localStorage.getItem('catSelected').split("&category[in][]=")).splice(1):[])
@@ -69,8 +81,31 @@ const SideFilterHook =_ =>{
         setTimeout(async _=>{ await getProduct()},200)
         setBrandSelected([]);
     }
+    const [from,setFrom]=useState(0)
+    const [to,setTo]=useState(0)
+    const priceFrom = e=>{
+        if(e.target.value>=0){
 
-    return [allCat,allBrand,categorySelected,categoryClick,clearCat,brandSelected,brandClick,clearBrand]
+        localStorage.setItem('priceFrom',e.target.value)
+        setFrom(e.target.value)
+        }
+
+
+    }
+    const priceTo = e=>{
+        if(e.target.value>=0){
+
+        localStorage.setItem('priceTo',e.target.value)
+        setTo(e.target.value)
+        }
+    }
+
+    useEffect(_=>{
+        const run = async _=> await getProduct();
+        setTimeout(async _=> await run(),200)
+
+    },[to,from])
+    return [allCat,allBrand,categorySelected,categoryClick,clearCat,brandSelected,brandClick,clearBrand,priceFrom,priceTo,getProduct]
 }
 
 export default SideFilterHook
