@@ -8,6 +8,7 @@ import '../../Assets/Style/HomePage.scss'
 import HomePageProductHook from "../../hooks/product/Home-Page-Product-Hook";
 function HomePage(){
     const [moreSalesProducts,topRateProducts] = HomePageProductHook()
+
     return(
         <div className={'font'}>
             <Slider />

@@ -19,7 +19,7 @@ const BrandFeature = ({title,btntitle}) => {
                     <Row className='my-2 d-flex justify-content-center'>
                         {
                             !loading ?(
-                                BrandData.data.slice(0,6).map((item,i) => <BrandCard key={i} img={item.image}/>)
+                                BrandData.data.slice(0,6).map((item,i) => <BrandCard key={i} img={item.image} item={item}/>)
                             ): <LoadingSpinner />
 
                         }
