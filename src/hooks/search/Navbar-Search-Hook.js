@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 const NavbarSearchHook = _=>{
     const [,,,getProduct] = ShopProductsPageHook()
     const [searchWord,setSearchWord] = useState('')
-    const [prevPage,setPrevPage] = useState('')
+    const [prevPage,setPrevPage] = useState(window.location.pathname)
     const navigate = useNavigate();
 
     const onChangeSearch = e =>{

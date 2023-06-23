@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import RegisterHook from "../../hooks/auth/Register-hook";
 
 const RegisterPage = () => {
-    const [username,email,phone,password,rePassword,onChangeUsername,onChangeEmail,onChangePhone,onChangePassword,onChangeRePassword] = RegisterHook()
+    const [username,email,phone,password,rePassword,onChangeUsername,onChangeEmail,onChangePhone,onChangePassword,onChangeRePassword,onSubmit] = RegisterHook()
     return (
         <Container style={{ minHeight: "680px" }}>
             <Row className="py-5 d-flex justify-content-center hieght-search">
@@ -45,7 +45,7 @@ const RegisterPage = () => {
                         type="password"
                         className="user-input mt-3 text-center mx-auto"
                     />
-                    <button className="btn-login mx-auto mt-4">Register</button>
+                    <button className="btn-login mx-auto mt-4" onClick={onSubmit}>Register</button>
                     <label className="mx-auto my-4">
                         You already have an account?{" "}
                         <Link to="/login" style={{ textDecoration: "none" }}>
