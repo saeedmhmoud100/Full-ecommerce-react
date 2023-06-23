@@ -1,27 +1,49 @@
 import React from 'react'
 import { Container,Row,Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import RegisterHook from "../../hooks/auth/Register-hook";
 
 const RegisterPage = () => {
+    const [username,email,phone,password,rePassword,onChangeUsername,onChangeEmail,onChangePhone,onChangePassword,onChangeRePassword] = RegisterHook()
     return (
         <Container style={{ minHeight: "680px" }}>
             <Row className="py-5 d-flex justify-content-center hieght-search">
                 <Col sm="12" className="d-flex flex-column ">
                     <label className="mx-auto title-login">Register a new account</label>
                     <input
-                        placeholder="username..."
+                        value={username}
+                        onChange={onChangeUsername}
+                        placeholder="Username..."
                         type="text"
                         className="user-input mt-3 text-center mx-auto"
                     />
                     <input
+                        value={email}
+                        onChange={onChangeEmail}
                         placeholder="Email..."
                         type="text"
-                        className="user-input my-3 text-center mx-auto"
+                        className="user-input mt-3 text-center mx-auto"
                     />
                     <input
+                        value={phone}
+                        onChange={onChangePhone}
+                        placeholder="Phone..."
+                        type="text"
+                        className="user-input mt-3 text-center mx-auto"
+                    />
+                    <input
+                        value={password}
+                        onChange={onChangePassword}
                         placeholder="Password..."
                         type="password"
-                        className="user-input text-center mx-auto"
+                        className="user-input mt-3 text-center mx-auto"
+                    />
+                    <input
+                        value={rePassword}
+                        onChange={onChangeRePassword}
+                        placeholder="Repeat Pass..."
+                        type="password"
+                        className="user-input mt-3 text-center mx-auto"
                     />
                     <button className="btn-login mx-auto mt-4">Register</button>
                     <label className="mx-auto my-4">
