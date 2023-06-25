@@ -10,6 +10,7 @@ const LoginHook = _=>{
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
     const [loading,setLoading]=useState(false)
+    const [loggedin,setLoggedin]=useState(false)
     const user= useSelector(state => state.auth.loginUser)
     const onChangeEmail = e=>{
         setEmail(e.target.value)
@@ -34,15 +35,18 @@ const LoginHook = _=>{
                 password
             }))
             localStorage.removeItem('token')
+            setLoggedin(true)
         }
         setLoading(false)
     }
 
     useEffect(_=>{
-        if (!loading && user.token){
+        if (!loading && user.token && loggedin){
             Notification(`welcome back ${user.data.name}`,'success')
             localStorage.setItem('token',user.token)
             navigate('/')
+            setLoggedin(false)
+
         }
     },[loading])
     return [email,password,loading,onChangeEmail,onChangePassword,onSubmit]
