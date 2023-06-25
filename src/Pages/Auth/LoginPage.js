@@ -1,32 +1,45 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import loginHook from "../../hooks/auth/login-hook";
+import LoadingSpinner from "../../Components/Uitily/LoadingSpinner";
 
 const LoginPage = () => {
+    const [email,password,loading,onChangeEmail,onChangePassword,onSubmit] = loginHook()
     return (
         <Container style={{ minHeight: "680px" }}>
             <Row className="py-5 d-flex justify-content-center ">
                 <Col sm="12" className="d-flex flex-column ">
                     <label className="mx-auto title-login">Login</label>
                     <input
+                        value={email}
+                        onChange={onChangeEmail}
                         placeholder="Email..."
-                        type="text"
+                        type="email"
                         className="user-input my-3 text-center mx-auto"
                     />
                     <input
+                        value={password}
+                        onChange={onChangePassword}
                         placeholder="Password..."
                         type="password"
                         className="user-input text-center mx-auto"
                     />
-                    <button className="btn-login mx-auto mt-4">Login</button>
-                    <label className="mx-auto my-4">
-                        You don't have an account?{" "}
-                        <Link to="/register" style={{textDecoration:'none'}}>
-                                <span style={{ cursor: "pointer" }} className="text-danger">
-                                    click here
-                                </span>
-                        </Link>
-                    </label>
+                    {
+                        loading ? <LoadingSpinner className={'mt-3'}></LoadingSpinner>
+                            : (<>
+                                <button className="btn-login mx-auto mt-4" onClick={onSubmit}>Login</button>
+                                <label className="mx-auto my-4">
+                                    You don't have an account?{" "}
+                                    <Link to="/register" style={{textDecoration:'none'}}>
+                                        <span style={{ cursor: "pointer" }} className="text-danger">
+                                            click here
+                                        </span>
+                                    </Link>
+                                </label>
+                            </>)
+                    }
+
 
 
 

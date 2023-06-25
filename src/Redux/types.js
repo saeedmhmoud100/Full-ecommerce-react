@@ -30,3 +30,4 @@ export const DELETE_PRODUCTS = 'DELETE_PRODUCTS'
 // Auth Types
 
 export const CREATE_NEW_USER = 'CREATE_NEW_USER'
+export const LOGIN_USER = 'LOGIN_USER'

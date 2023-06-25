@@ -74,7 +74,7 @@ const RegisterHook = _=>{
     useEffect(_=>{
         if(!loading){
             if(newUser && newUser.data && newUser.token && created){
-                Notification("user has been created successfully",'success')
+                Notification("your account has been created successfully",'success')
                 setUsername('')
                 setEmail('')
                 setPhone('')
