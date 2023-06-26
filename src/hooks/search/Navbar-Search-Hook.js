@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import ShopProductsPageHook from "../product/Shop-Products-Page-Hook";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {getUserData} from "../../Redux/actions/authAction";
+import {getUserData, logoutUser} from "../../Redux/actions/authAction";
 
 const NavbarSearchHook = _=>{
     const [,,,getProduct] = ShopProductsPageHook()
@@ -37,11 +37,13 @@ const NavbarSearchHook = _=>{
     const [isLogged,setIsLogged] = useState(false)
     const loginUserData = useSelector(state => state.auth.getUserData.data)
 
+    // login
     useEffect(_=>{
         if(localStorage.getItem('token')){
             dispatch(getUserData(localStorage.getItem('token')))
         }
     },[])
+
     useEffect(_=>{
         if(loginUserData.status)
             localStorage.removeItem('token')
@@ -50,7 +52,15 @@ const NavbarSearchHook = _=>{
         else
             setIsLogged(false)
     },[loginUserData])
-    return [onChangeSearch,isLogged,loginUserData]
+    //////////////
+
+    // logout
+    const logout =_=>{
+        dispatch(logoutUser())
+        localStorage.removeItem('token')
+    }
+
+    return [onChangeSearch,logout,isLogged,loginUserData]
 }
 
 export default NavbarSearchHook

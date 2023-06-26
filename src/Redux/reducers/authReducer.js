@@ -1,4 +1,4 @@
-import {CREATE_NEW_USER, LOGIN_USER,GET_USER_DATA} from "../types";
+import {CREATE_NEW_USER, LOGIN_USER,GET_USER_DATA,LOGOUT} from "../types";
 
 const inital={
     createUser:[],
@@ -23,6 +23,12 @@ const authReducer = (state=inital,action) => {
             return {
                 ...state,
                 getUserData: action.payload.data,
+            }
+            case LOGOUT:
+            return {
+                ...state,
+                loginUser: [],
+                getUserData: {data: {name: 'anonymous'}},
             }
         default:
                 return state

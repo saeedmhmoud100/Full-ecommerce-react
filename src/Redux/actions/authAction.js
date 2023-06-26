@@ -1,5 +1,5 @@
 import {useInsertData} from "../../AxiosHooks/useInsertData";
-import {CREATE_NEW_USER,LOGIN_USER,GET_USER_DATA} from "../types";
+import {CREATE_NEW_USER,LOGIN_USER,GET_USER_DATA,LOGOUT} from "../types";
 import {Notification} from "../../hooks/useNotification";
 import baseURL from "../../Api/baseURL";
 export const createUser = (data) => async dispatch => {
@@ -62,4 +62,10 @@ export const getUserData = token => async dispatch => {
             payload: res
         })
     }
+}
+
+export const logoutUser = _ => dispatch => {
+        dispatch({
+        type:LOGOUT,
+    })
 }
