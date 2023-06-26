@@ -22,7 +22,7 @@ const authReducer = (state=inital,action) => {
             case GET_USER_DATA:
             return {
                 ...state,
-                getUserData: action.payload.data,
+                getUserData: action.payload,
             }
             case LOGOUT:
             return {

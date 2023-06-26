@@ -36,7 +36,6 @@ const NavbarSearchHook = _=>{
     const dispatch = useDispatch()
     const [isLogged,setIsLogged] = useState(false)
     const loginUserData = useSelector(state => state.auth.getUserData.data)
-
     // login
     useEffect(_=>{
         if(localStorage.getItem('token')){
@@ -45,8 +44,11 @@ const NavbarSearchHook = _=>{
     },[])
 
     useEffect(_=>{
-        if(loginUserData.status)
+        if(loginUserData.data && loginUserData.data.status){
+            console.log(loginUserData)
             localStorage.removeItem('token')
+            setIsLogged(false)
+        }
         else if(loginUserData && loginUserData._id)
             setIsLogged(true)
         else
@@ -58,8 +60,9 @@ const NavbarSearchHook = _=>{
     const logout =_=>{
         dispatch(logoutUser())
         localStorage.removeItem('token')
+        navigate('/')
     }
-
+    ////////////////
     return [onChangeSearch,logout,isLogged,loginUserData]
 }
 

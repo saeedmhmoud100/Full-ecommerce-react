@@ -42,7 +42,7 @@ const LoginHook = _=>{
 
     useEffect(_=>{
         if (!loading && user.token && loggedin){
-            Notification(`welcome back ${user.data.name}`,'success')
+            // Notification(`welcome back ${user.data.name}`,'success')
             localStorage.setItem('token',user.token)
             navigate('/')
             setLoggedin(false)

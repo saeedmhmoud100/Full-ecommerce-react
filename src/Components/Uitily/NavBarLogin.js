@@ -29,8 +29,11 @@ const NavBarLogin = () => {
                     <Nav className="me-auto">
                         {isLogged ?
                             (<NavDropdown title={'welcome '+userData.name} id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2" onClick={logout}>
+
+                                <NavDropdown.Item as={Link} to={'user/profile'}  >Profile</NavDropdown.Item>
+                                {/*<NavDropdown.Item as={Link} to={'user/profile'} /!*onClick={event => event.stopPropagation()}*!/ >Profile</NavDropdown.Item>*/}
+
+                                <NavDropdown.Item onClick={logout}>
                                     logout
                                 </NavDropdown.Item>
                             </NavDropdown>)

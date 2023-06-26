@@ -1,7 +1,7 @@
 import {useInsertData} from "../../AxiosHooks/useInsertData";
 import {CREATE_NEW_USER,LOGIN_USER,GET_USER_DATA,LOGOUT} from "../types";
 import {Notification} from "../../hooks/useNotification";
-import baseURL from "../../Api/baseURL";
+import useGetData from "../../AxiosHooks/useGetData";
 export const createUser = (data) => async dispatch => {
     try {
         const res = await useInsertData(`/api/v1/auth/signup`,data)
@@ -47,9 +47,8 @@ export const loginUser = (data) => async dispatch => {
 export const getUserData = token => async dispatch => {
     let res;
     try {
-    if(token)
-        res = await baseURL.get("/api/v1/users/getMe", { headers: { Authorization:'Bearer '+ token }})
-        .then((response) => response);
+        if(token)
+            res = await useGetData('/api/v1/users/getMe',token)
         dispatch({
             type:GET_USER_DATA,
             payload:res,
