@@ -7,7 +7,7 @@ import '../../Assets/Style/NavBarLogin.scss'
 import {Link} from "react-router-dom";
 import NavbarSearchHook from "../../hooks/search/Navbar-Search-Hook";
 const NavBarLogin = () => {
-    const [searchWord,onChangeSearch] = NavbarSearchHook();
+    const [onChangeSearch,isLogged,userData] = NavbarSearchHook();
     return (
         <Navbar className="sticky-top" bg="dark" variant="dark" expand="sm">
             <Container>
@@ -29,7 +29,7 @@ const NavBarLogin = () => {
                     <Nav className="me-auto">
                         <Link to={'/login'} style={{textDecoration:'none'}} className='nav-text d-flex pb-2 justify-content-center nav_icon_container nav-link'>
                         {/*<Nav.Link href={'/login'} className="nav-text d-flex pb-2 justify-content-center nav_icon_container">*/}
-                            <p style={{ color: "white" }}>Login</p>
+                            <p style={{ color: "white" }}>{!isLogged ? 'Login' : userData.name}</p>
                             <img src={login} className="login-img" alt="sfvs" />
 
                         {/*</Nav.Link>*/}
