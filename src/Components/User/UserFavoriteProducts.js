@@ -8,21 +8,21 @@ const UserFavoriteProducts = () => {
         <div>
             <div className='admin-content-text pb-2'>Favorites Products</div>
             <Row className='justify-content-md-start justify-content-center'>
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
+                {/*<ProductCard />*/}
+                {/*<ProductCard />*/}
+                {/*<ProductCard />*/}
+                {/*<ProductCard />*/}
+                {/*<ProductCard />*/}
+                {/*<ProductCard />*/}
+                {/*<ProductCard />*/}
+                {/*<ProductCard />*/}
+                {/*<ProductCard />*/}
+                {/*<ProductCard />*/}
+                {/*<ProductCard />*/}
+                {/*<ProductCard />*/}
+                {/*<ProductCard />*/}
             </Row>
-            <Pagination />
+            {/*<Pagination />*/}
         </div>
     )
 }

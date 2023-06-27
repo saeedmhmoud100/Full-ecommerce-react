@@ -3,7 +3,7 @@ import {CREATE_NEW_USER, LOGIN_USER,GET_USER_DATA,LOGOUT} from "../types";
 const inital={
     createUser:[],
     loginUser:[],
-    getUserData: {data: {name: 'anonymous'}},
+    getUserData: {data: {name: 'Anonymous User'}},
 }
 
 const authReducer = (state=inital,action) => {

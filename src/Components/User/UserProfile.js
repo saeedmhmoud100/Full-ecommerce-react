@@ -1,8 +1,10 @@
 import React from "react";
 import {Col, Row} from "react-bootstrap";
+import {useSelector} from "react-redux";
 
 function UserProfile() {
-
+    const userData = useSelector(state => state.auth.getUserData.data)
+    console.log(userData)
     return (
         <div>
             <div className="admin-content-text">Profile</div>
@@ -10,7 +12,7 @@ function UserProfile() {
                 <Row className="d-flex justify-content-between pt-2">
                     <Col xs="6" className="d-flex align-items-center">
                         <div className="py-2">Name:</div>
-                        <div className="p-1 item-delete-edit">Ahmed Mahmoud</div>
+                        <div className="p-1 item-delete-edit">{userData.name}</div>
                     </Col>
                     <Col xs="6" className="d-flex justify-content-end">
                         <div className="d-flex mx-2">
@@ -22,13 +24,13 @@ function UserProfile() {
                 <Row className="">
                     <Col xs="12" className="d-flex align-items-center">
                         <div className="py-2">Phone Number:</div>
-                        <div className="p-1 item-delete-edit">0122314324</div>
+                        <div className="p-1 item-delete-edit">{userData.phone || userData.name}</div>
                     </Col>
                 </Row>
                 <Row className="">
                     <Col xs="12" className="d-flex align-items-center">
                         <div className="py-2">Email :</div>
-                        <div className="p-1 item-delete-edit">ahmed@gmail.com</div>
+                        <div className="p-1 item-delete-edit">{userData.phone || userData.name}</div>
                     </Col>
                 </Row>
                 <Row className="mt-5">

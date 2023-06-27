@@ -44,7 +44,7 @@ const LoginHook = _=>{
         if (!loading && user.token && loggedin){
             // Notification(`welcome back ${user.data.name}`,'success')
             localStorage.setItem('token',user.token)
-            navigate('/')
+            navigate('/user/profile')
             setLoggedin(false)
 
         }

@@ -14,8 +14,6 @@ const NavbarSearchHook = _=>{
         setSearchWord(e.target.value)
         localStorage.setItem("searchWord",e.target.value)
     }
-    // useNavigate()
-
 
     useEffect(_=>{
         if(window.location.pathname!=='/products')
