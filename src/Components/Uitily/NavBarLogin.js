@@ -31,6 +31,11 @@ const NavBarLogin = () => {
                             (<NavDropdown title={'welcome '+userData.name} id="basic-nav-dropdown">
 
                                 <NavDropdown.Item as={Link} to={'user/profile'}  >Profile</NavDropdown.Item>
+                                {
+                                    userData.role === 'admin' ?
+                                        <NavDropdown.Item as={Link} to={'admin/allproducts'}  >control panel</NavDropdown.Item>
+                                        : null
+                                }
                                 {/*<NavDropdown.Item as={Link} to={'user/profile'} /!*onClick={event => event.stopPropagation()}*!/ >Profile</NavDropdown.Item>*/}
 
                                 <NavDropdown.Item onClick={logout}>
