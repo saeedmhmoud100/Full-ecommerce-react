@@ -10,6 +10,7 @@ const LoginHook = _=>{
 
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
+    const [confirmPassword,setConfirmPassword]=useState('')
     const [loading,setLoading]=useState(false)
     const [isSuccess,setIsSuccess]=useState(false)
     const onChangeEmail = e=>{
@@ -18,6 +19,9 @@ const LoginHook = _=>{
     const onChangePassword = e=>{
         setPassword(e.target.value)
     }
+    const onChangeConfirmPassword = e=>{
+        setConfirmPassword(e.target.value)
+    }
 
     const validation = _=>{
         if(email === '' ){
@@ -25,6 +29,9 @@ const LoginHook = _=>{
             return false
         }else if(password.length < 6){
             Notification('Password should be grater than 5','warning')
+            return false
+        }else if(password !== confirmPassword){
+            Notification('password confirmation mismatched','warning')
             return false
         }
         return true
@@ -56,7 +63,7 @@ const LoginHook = _=>{
         }
         setIsSuccess(false)
     },[loading])
-    return [email,password,loading,onChangeEmail,onChangePassword,onSubmit]
+    return [email,password,confirmPassword,loading,onChangeEmail,onChangePassword,onChangeConfirmPassword,onSubmit]
 }
 
 export default LoginHook
