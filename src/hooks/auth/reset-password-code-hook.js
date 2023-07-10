@@ -8,14 +8,10 @@ const LoginHook = _=>{
     const dispatch= useDispatch()
     const navigate= useNavigate()
 
-    const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
     const [confirmPassword,setConfirmPassword]=useState('')
     const [loading,setLoading]=useState(false)
     const [isSuccess,setIsSuccess]=useState(false)
-    const onChangeEmail = e=>{
-        setEmail(e.target.value)
-    }
     const onChangePassword = e=>{
         setPassword(e.target.value)
     }
@@ -24,10 +20,7 @@ const LoginHook = _=>{
     }
 
     const validation = _=>{
-        if(email === '' ){
-            Notification('Enater a valid data!!!','warning')
-            return false
-        }else if(password.length < 6){
+        if(password.length < 6){
             Notification('Password should be grater than 5','warning')
             return false
         }else if(password !== confirmPassword){
@@ -37,11 +30,18 @@ const LoginHook = _=>{
         return true
     }
 
+    // check if mail exist
+    useEffect(_=>{
+        if(!localStorage.getItem('reset-password-email')){
+            navigate('/user/forget-password')
+        }
+    },[])
+
     const onSubmit =async _=>{
         if(validation()){
             setLoading(true)
             await dispatch(resetPassword({
-                email,
+                email:localStorage.getItem('reset-password-email'),
                 'newPassword':password
             }))
             setIsSuccess(true)
@@ -54,8 +54,14 @@ const LoginHook = _=>{
         if (Object.keys(resetPasswordData).length>0 && isSuccess){
             if(resetPasswordData.token){
                 Notification(`The password updated successfully`,'success')
+                localStorage.removeItem('reset-password-email')
                 navigate('/login')
             }else if(resetPasswordData.data){
+                if(resetPasswordData.data.message.startsWith('There is no user with this email')){
+                    Notification('enter a valid email','error')
+                    localStorage.removeItem('reset-password-email')
+                    navigate('/user/forget-password')
+                }else
                 Notification(resetPasswordData.data.message,'error')
             }else{
                 Notification('there is an error','error')
@@ -63,7 +69,7 @@ const LoginHook = _=>{
         }
         setIsSuccess(false)
     },[loading])
-    return [email,password,confirmPassword,loading,onChangeEmail,onChangePassword,onChangeConfirmPassword,onSubmit]
+    return [password,confirmPassword,loading,onChangePassword,onChangeConfirmPassword,onSubmit]
 }
 
 export default LoginHook

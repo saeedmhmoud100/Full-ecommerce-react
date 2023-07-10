@@ -4,7 +4,7 @@ import ResetPasswordHook from "../../hooks/auth/reset-password-code-hook";
 import LoadingSpinner from "../../Components/Uitily/LoadingSpinner";
 
 const ResetPasswordPage = () => {
-    const [email,password,confirmPassword,loading,onChangeEmail,onChangePassword,onChangeConfirmPassword,onSubmit] = ResetPasswordHook()
+    const [password,confirmPassword,loading,onChangePassword,onChangeConfirmPassword,onSubmit] = ResetPasswordHook()
 
     return (
         <Container style={{ minHeight: "680px" }}>
@@ -12,18 +12,11 @@ const ResetPasswordPage = () => {
                 <Col sm="12" className="d-flex flex-column ">
                     <label className="mx-auto title-login">Reset Password</label>
                     <input
-                        value={email}
-                        onChange={onChangeEmail}
-                        placeholder="Enter your mail"
-                        type="email"
-                        className="user-input my-3 text-center mx-auto"
-                    />
-                    <input
                         value={confirmPassword}
                         onChange={onChangeConfirmPassword}
                         placeholder="Enter the new password"
                         type="password"
-                        className="user-input text-center mx-auto mb-3"
+                        className="user-input text-center mx-auto my-3"
                     />
                     <input
                         value={password}
