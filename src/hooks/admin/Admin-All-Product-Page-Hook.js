@@ -4,11 +4,11 @@ import {getAllProducts} from "../../Redux/actions/productAction";
 
 const AdminAllProductPageHook= _ =>{
     const dispatch = useDispatch()
-    const products = useSelector(state => state.allProduct.allProducts)
     useEffect(_ =>{
         dispatch(getAllProducts())
+        dispatch(getAllProducts())
     },[])
-
+    const products = useSelector(state => state.allProduct.allProducts)
     let pagesCount=1
     if(products && products.paginationResult){
         pagesCount =products.paginationResult.numberOfPages
