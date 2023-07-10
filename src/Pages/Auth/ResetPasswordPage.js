@@ -1,9 +1,10 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import ResetPasswordHook from "../../hooks/auth/reset-password-code-hook";
+import LoadingSpinner from "../../Components/Uitily/LoadingSpinner";
 
 const ResetPasswordPage = () => {
-    const [email,password,onChangeEmail,onChangePassword,onSubmit] = ResetPasswordHook()
+    const [email,password,loading,onChangeEmail,onChangePassword,onSubmit] = ResetPasswordHook()
 
     return (
         <Container style={{ minHeight: "680px" }}>
@@ -24,7 +25,12 @@ const ResetPasswordPage = () => {
                         type="password"
                         className="user-input text-center mx-auto"
                     />
-                    <button className="btn-login mx-auto mt-4" onClick={onSubmit}>Reset</button>
+
+
+                    {
+                        loading ? <LoadingSpinner className='mt-2'></LoadingSpinner>
+                            :<button className="btn-login mx-auto mt-4" onClick={onSubmit}>Reset</button>
+                    }
                 </Col>
 
             </Row>

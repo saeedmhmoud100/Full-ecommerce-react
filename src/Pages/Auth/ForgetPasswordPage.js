@@ -1,9 +1,10 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import ForgetPasswordHook from "../../hooks/auth/forget-passwor-hook";
+import LoadingSpinner from "../../Components/Uitily/LoadingSpinner";
 
 const ForgetPasswordPage = () => {
-    const [email,onChangeEmail,onSubmit] = ForgetPasswordHook()
+    const [email,loading,onChangeEmail,onSubmit] = ForgetPasswordHook()
 
     return (
         <Container style={{ minHeight: "680px" }}>
@@ -17,7 +18,10 @@ const ForgetPasswordPage = () => {
                         type="email"
                         className="user-input my-3 text-center mx-auto"
                     />
-                    <button className="btn-login mx-auto" onClick={onSubmit}>send the code</button>
+                    {
+                        loading ? <LoadingSpinner></LoadingSpinner>
+                            :<button className="btn-login mx-auto" onClick={onSubmit}>send the code</button>
+                    }
 
 
 

@@ -1,9 +1,10 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import VerifyResetCodeHook from "../../hooks/auth/verify-reset-code-hook";
+import LoadingSpinner from "../../Components/Uitily/LoadingSpinner";
 
 const VerifyResetCodePage = () => {
-    const [code,onChangeCode,onSubmit] = VerifyResetCodeHook()
+    const [code,loading,onChangeCode,onSubmit] = VerifyResetCodeHook()
 
     return (
         <Container style={{ minHeight: "680px" }}>
@@ -17,7 +18,12 @@ const VerifyResetCodePage = () => {
                         type="code"
                         className="user-input my-3 text-center mx-auto"
                     />
-                    <button className="btn-login mx-auto" onClick={onSubmit}>submit the code</button>
+
+                    {
+                        loading ? <LoadingSpinner></LoadingSpinner>
+                            : <button className="btn-login mx-auto" onClick={onSubmit}>submit the code</button>
+                    }
+
 
 
 

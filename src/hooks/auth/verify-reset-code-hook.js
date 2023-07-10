@@ -9,6 +9,7 @@ const VerifyResetCodeHook = _=>{
     const navigate= useNavigate()
     const [code,setCode]=useState('')
     const [loading,setLoading]=useState(false)
+    const [isSuccess,setIsSuccess]=useState(false)
     const onChangeCode = e=>{
         setCode(e.target.value)
     }
@@ -18,22 +19,23 @@ const VerifyResetCodeHook = _=>{
         setLoading(true)
         if(code !== ''){
             await dispatch(verifyCode({'resetCode':code}))
+            setIsSuccess(true)
         }
         setLoading(false)
     }
     const verifyResetCodeData = useSelector(state => state.auth.verifyResetCode)
 
     useEffect(_=>{
-            console.log(verifyResetCodeData)
-        if (!loading && verifyResetCodeData.length!==0){
+        if (!loading && verifyResetCodeData.length!==0 && isSuccess){
             if(verifyResetCodeData.status==='Success'){
                 navigate('/user/reset-password')
             }else{
                 Notification("Reset code is invalid or has expired",'error')
             }
         }
+        setIsSuccess(false)
     },[loading])
-    return [code,onChangeCode,onSubmit]
+    return [code,loading,onChangeCode,onSubmit]
 }
 
 export default VerifyResetCodeHook

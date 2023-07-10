@@ -11,6 +11,7 @@ const LoginHook = _=>{
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
     const [loading,setLoading]=useState(false)
+    const [isSuccess,setIsSuccess]=useState(false)
     const onChangeEmail = e=>{
         setEmail(e.target.value)
     }
@@ -36,14 +37,14 @@ const LoginHook = _=>{
                 email,
                 'newPassword':password
             }))
+            setIsSuccess(true)
             setLoading(false)
         }
     }
 
     const resetPasswordData = useSelector(state => state.auth.resetPassword)
     useEffect(_=>{
-        console.log(resetPasswordData)
-        if (Object.keys(resetPasswordData).length>0){
+        if (Object.keys(resetPasswordData).length>0 && isSuccess){
             if(resetPasswordData.token){
                 Notification(`The password updated successfully`,'success')
                 navigate('/login')
@@ -52,10 +53,10 @@ const LoginHook = _=>{
             }else{
                 Notification('there is an error','error')
             }
-
         }
+        setIsSuccess(false)
     },[loading])
-    return [email,password,onChangeEmail,onChangePassword,onSubmit]
+    return [email,password,loading,onChangeEmail,onChangePassword,onSubmit]
 }
 
 export default LoginHook
