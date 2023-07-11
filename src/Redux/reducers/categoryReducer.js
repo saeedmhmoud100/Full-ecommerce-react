@@ -25,7 +25,7 @@ const categoryReducer = (state=inital,action) => {
         case CREATE_CATEGORY:
             Notification('Category added successfully','success')
             return {
-                category: action.payload,
+                oneCategory: action.payload,
                 loading: false,
             }
         case GET_CATEGORY_ERROR:

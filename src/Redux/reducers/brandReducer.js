@@ -25,7 +25,7 @@ const brandReducer = (state=inital,action) => {
         case CREATE_BRAND:
             Notification('The Brant added successfully','success')
             return {
-                brands: action.payload,
+                brand: action.payload,
                 loading: false,
             }
         case GET_BRAND_ERROR:

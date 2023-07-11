@@ -95,7 +95,7 @@ function AdminAddProduct(){
                             />
                     }
                     {
-                        qty == null ?
+                        !qty ?
                             <input
                                 type="number"
                                 className="input-form d-block mt-3 px-3"
@@ -124,7 +124,7 @@ function AdminAddProduct(){
                     >
                         <option value="0">Main Categories</option>
                         {
-                              allCategories.data.map(item => <option key={item._id} value={item._id}>{item.name}</option>)
+                            allCategories && allCategories.data && allCategories.data.map(item => <option key={item._id} value={item._id}>{item.name}</option>)
                         }
                     </select>) : <div className='w-100 d-flex justify-content-center mt-2'><LoadingSpinner></LoadingSpinner></div>
                     }
@@ -160,7 +160,7 @@ function AdminAddProduct(){
                             <select name="brand" id="brand" className="select input-form-area mt-3 px-2 " onChange={SetBrandID} value={brandID}>
                             <option value="0">Brand</option>
                             {
-                                allBrands.data.map(item => <option key={item._id} value={item._id}>{item.name}</option>)
+                                allBrands && allBrands.data && allBrands.data.map(item => <option key={item._id} value={item._id}>{item.name}</option>)
                             }
                         </select> : <div className='w-100 d-flex justify-content-center mt-2'><LoadingSpinner></LoadingSpinner></div>
                     }

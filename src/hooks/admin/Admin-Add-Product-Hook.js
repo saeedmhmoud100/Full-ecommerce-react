@@ -74,7 +74,7 @@ const AdminAddProductHook = _ =>{
             await dispatch(getSubCategoryByCategory(e.target.value))
             setSubCategoriesLoading(false)
         }
-
+        setSelectedSubCatID([])
     }
 
     const SetBrandID = e =>{
@@ -82,10 +82,10 @@ const AdminAddProductHook = _ =>{
     }
     // set subCategories when update Category
     useEffect( _  => {
-        setSubCatID(subCategories.data)
+        // if(subCategories && subCategories.data)
+            setSubCatID(subCategories.data)
 
     },[subCategories])
-
 
     const handleChangeColor = color =>{
 
@@ -108,7 +108,7 @@ const AdminAddProductHook = _ =>{
         return new File([uBarr],filename,{type:mime})
     }
 
-
+    const productSuccess = useSelector(state => state.allProduct.products)
     const onSubmit = async _ => {
         if(images.length < 1){
             Notification('Product must have at least one image','warning')
@@ -136,34 +136,43 @@ const AdminAddProductHook = _ =>{
             formData.append('quantity',qty)
             formData.append('price',priceBefore)
             formData.append('category',catID)
-            subCatID.map(sub => formData.append('subcategory',sub))
             formData.append('brand',brandID)
             selectedColors.map(color => formData.append('availableColors', color))
             formData.append('imageCover',imageCover)
             for (const [key, value] of Object.entries(images)) {
                 formData.append('images',dataURLToFile(value,Math.random()+'.png'))
             }
-            selectedSubCatID.map(subCat => formData.append('subcategory',subCat._id))
-
+            subCatID.map(sub => formData.append('subcategory',sub._id))
+            // formData.append('subcategory',JSON.stringify(selectedSubCatID))
+            // selectedSubCatID.map(subCat => {
+            //     formData.append('subcategory',JSON.stringify(subCat._id))
+            // })
 
             setFormLoading(true)
             await dispatch(createProduct(formData))
             setFormLoading(false)
-                setImages({})
-                setProdName('')
-                setProdDescription('')
-                setPriceBefore(null)
-                setPriceAfter(null)
-                setQty(null)
-                setCatID('0')
-                setBrandID('0')
-                setSelectedColors([])
-                setSelectedSubCatID([])
-                setSubCatID([])
-                setSubCategoriesLoading(true)
-                setTimeout(_ => setSubCategoriesLoading(false),50)
+
+            setSubCategoriesLoading(true)
+            setTimeout(_ => setSubCategoriesLoading(false),50)
         }
     }
+
+    useEffect(_=>{
+        console.log(productSuccess)
+        if(productSuccess){
+            setImages({})
+            setProdName('')
+            setProdDescription('')
+            setPriceBefore(null)
+            setPriceAfter(null)
+            setQty(null)
+            setCatID('0')
+            setBrandID('0')
+            setSelectedColors([])
+            setSelectedSubCatID([])
+            setSubCatID([])
+        }
+    },[productSuccess])
 
     return [
         images,

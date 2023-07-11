@@ -20,7 +20,7 @@ function AdminAddSubCategory(){
                                 value={nameVal}
                             />
 
-                            {   categoryData.data ? (
+                            {   categoryData && categoryData.data ? (
                                 <>
                                     <select name='category' className="select mt-3 px-2" onChange={onSelectChange}>
                                         <option value='0'>Select the Main Category</option>
