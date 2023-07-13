@@ -13,7 +13,7 @@ function ProductDetailsPage(){
             <CategoryHeader />
             <Container>
                 <ProdudtDetails images={images} product={product}/>
-                <RateContainer />
+                <RateContainer product={product} />
                 {
                     specificProducts.length>0?
                 <CardProductContainer products={specificProducts.slice(0,4)} title={"Products you may like" } pathText="/products"/>:null

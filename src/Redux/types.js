@@ -36,3 +36,10 @@ export const LOGOUT = 'LOGOUT'
 export const FORGET_PASSWORD = 'FORGET_PASSWORD'
 export const VERIFY_RESET_CODE = 'VERIFY_RESET_CODE'
 export const RESET_PASSWORD = 'RESET_PASSWORD'
+
+// Review Types
+
+export const CREATE_REVIEW = 'CREATE_REVIEW'
+export const GET_REVIEW_ERROR = 'GET_REVIEW_ERROR'
+
+
