@@ -3,17 +3,16 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useLayoutEffect} from "react";
 import {getOneProduct, getSpecificProducts} from "../../Redux/actions/productAction";
 import mobile from "../../Assets/images/mobile.png";
-
 const ProductDetailsPageHook = _ =>{
     const {id} = useParams()
     const dispatch = useDispatch()
     const product = useSelector(state => state.allProduct.product)
     let specificProducts = useSelector(state => state.allProduct.specificProducts)
-
+    let createdReview = useSelector(state => state.review.createReview)
     // product text details
     useLayoutEffect( _=> {
         dispatch(getOneProduct(id))
-    },[id])
+    },[id,createdReview])
 
     useEffect( _=> {
         if(product && product.data)
