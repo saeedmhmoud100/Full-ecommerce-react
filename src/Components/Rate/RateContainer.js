@@ -7,7 +7,7 @@ import Pagination from "../Uitily/Pagination";
 import RateContainerHook from "../../hooks/Reviews/rate-container-hook";
 
 const RateContainer = ({product}) => {
-    const []=RateContainerHook()
+    const [reviewsOfProduct,getPage]= RateContainerHook()
     return (
         <Container className='rate-container'>
             <Row>
@@ -19,13 +19,19 @@ const RateContainer = ({product}) => {
                 </Col>
             </Row>
             <RatePost />
-            <RateItem />
-            <RateItem />
-            <RateItem />
-            <RateItem />
-            <RateItem />
-            <RateItem />
-            <Pagination onPress={_=>null}/>
+            {
+                reviewsOfProduct.data ? reviewsOfProduct.data.map(item => <RateItem key={item._id} data={item}/>
+                )
+                    : <h2 className={'text-center'}>there are no reviews</h2>
+            }
+
+
+            {
+                reviewsOfProduct.paginationResult && reviewsOfProduct.paginationResult.numberOfPages >1 ?
+                    <Pagination pagesCount={reviewsOfProduct.paginationResult.numberOfPages} onPress={getPage}/>
+                    : null
+            }
+
 
         </Container>
     )

@@ -1,9 +1,10 @@
-import {CREATE_REVIEW,GET_REVIEW_ERROR} from "../types";
+import {CREATE_REVIEW, GET_ALL_REVIEWS_ON_PRODUCT, GET_REVIEW_ERROR} from "../types";
 import {Notification} from "../../hooks/useNotification";
 
 
 const inital={
     createReview:[],
+    allReviewsOnProduct:[],
 }
 
 const reviewReducer = (state=inital,action) => {
@@ -13,10 +14,16 @@ const reviewReducer = (state=inital,action) => {
                 ...state,
                 createReview: action.payload,
             }
+        case GET_ALL_REVIEWS_ON_PRODUCT:
+            return {
+                ...state,
+                allReviewsOnProduct: action.payload,
+            }
         case GET_REVIEW_ERROR:
             Notification(action.payload,'error')
             return {
-                createReview: action.payload
+                // createReview: action.payload
+                ...state
             }
         default:
             return state
