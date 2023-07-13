@@ -6,6 +6,7 @@ import LoadingSpinner from "../Uitily/LoadingSpinner";
 
 function RatePost(){
     const [user,review,loading,setReview,setRate,onSubmit] = AddRateHook()
+
     const setting = {
         size: 20,
         count: 5,
@@ -41,11 +42,12 @@ function RatePost(){
                 cols="20"
                 placeholder="Add your Comment..."
             />
+                        <div className=" d-flex justify-content-end al">
                         {loading ? <LoadingSpinner className='d-flex justify-content-center align-items-center'></LoadingSpinner>
-                            : <div className=" d-flex justify-content-end al">
+                            :
                                 <div className="product-cart-add px-3  py-2 text-center d-inline" onClick={onSubmit}>Add a comment</div>
-                            </div>
                         }
+                            </div>
 
                     </Col>
                 </Row>

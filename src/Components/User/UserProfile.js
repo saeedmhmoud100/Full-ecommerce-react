@@ -4,7 +4,6 @@ import {useSelector} from "react-redux";
 
 function UserProfile() {
     const userData = useSelector(state => state.auth.getUserData.data)
-    console.log(userData)
     return (
         <div>
             <div className="admin-content-text">Profile</div>
