@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
-import {createReview} from "../../Redux/actions/reviewAction";
+import {createReview, getAllReviewsOnProduct} from "../../Redux/actions/reviewAction";
 import {Notification} from "../useNotification";
 
 const AddRateHook = () => {
@@ -27,21 +27,19 @@ const AddRateHook = () => {
     }
 
     useEffect(_=>{
-            if(!loading && newReview && success){
-                if(newReview.data){
-                    Notification('the review added successfully','success')
-                    setReview('')
-                    setRate(1)
-                }else if(newReview.response && newReview.response.data && newReview.response.data.errors){
-                    newReview.response.data.errors.forEach(item =>{
-                        Notification(item.msg,'warning')
-                    })
-                }else if(newReview.response && newReview.response.data && newReview.response.data.message){
-                    Notification(newReview.response.data.message,'warning')
-                }
-            setSuccess(false)
+        const run = async _=>{
+            await dispatch(getAllReviewsOnProduct(id,1))
+        }
+        if(!loading && newReview && success){
+            if(newReview.data &&  newReview.data.review ){
+                Notification('the review added successfully','success')
+                run()
+                setReview('')
+                setRate(1)
             }
-        },[loading,success,newReview])
+        setSuccess(false)
+        }
+    },[loading])
 
     return [user,review,loading,setReview,setRate,onSubmit]
 }

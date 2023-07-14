@@ -1,6 +1,7 @@
 import {CREATE_REVIEW,GET_REVIEW_ERROR,GET_ALL_REVIEWS_ON_PRODUCT} from "../types";
 import {useInsertData} from "../../AxiosHooks/useInsertData";
 import useGetData from "../../AxiosHooks/useGetData";
+import {Notification} from "../../hooks/useNotification";
 
 export const createReview = (prodID,data) => async dispatch => {
     try {
@@ -10,6 +11,13 @@ export const createReview = (prodID,data) => async dispatch => {
             payload:res,
         })
     }catch (e){
+        if(e.response && e.response.data && e.response.data.errors){
+            e.response.data.errors.forEach(item =>{
+                Notification(item.msg,'warning')
+            })
+        }else if(e.response && e.response.data && e.response.data.message){
+            Notification(e.response.data.message,'warning')
+        }
         dispatch({
             type:GET_REVIEW_ERROR,
             payload:e

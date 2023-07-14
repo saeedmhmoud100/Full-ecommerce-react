@@ -2,7 +2,6 @@ import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 import rate from '../../Assets/images/rate.png'
 const RateItem = ({data}) => {
-    console.log(data)
     return (
         <div>
             <Row className="mt-3">
