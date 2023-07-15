@@ -1,7 +1,13 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import ReactPaginate from "react-paginate";
 
 const Pagination = ({pagesCount,onPress}) => {
+    const [pageNumber,setPageNumber] = useState(0)
+    useEffect(_=>{
+        setPageNumber(0)
+    },[pagesCount])
+
+
     const handlePageClick = (data) => {
         onPress(data.selected + 1)
     };
@@ -26,6 +32,7 @@ const Pagination = ({pagesCount,onPress}) => {
             breakLinkClassName={"page-link"}
             activeClassName={"active"}
             initialPage={0}
+            // forcePage={0}
         />
     )
 }

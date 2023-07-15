@@ -27,7 +27,8 @@ export const createReview = (prodID,data) => async dispatch => {
 
 export const getAllReviewsOnProduct = (prodID,pageNumber =1) => async dispatch => {
     try {
-        const res = await useGetData(`/api/v1/products/${prodID}/reviews?limit=7&page=${pageNumber}`)
+        const res = await useGetData(`/api/v1/products/${prodID}/reviews?limit=1&page=${pageNumber}`)
+
         dispatch({
             type:GET_ALL_REVIEWS_ON_PRODUCT,
             payload:res,

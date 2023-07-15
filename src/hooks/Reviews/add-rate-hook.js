@@ -13,6 +13,7 @@ const AddRateHook = () => {
     const [success,setSuccess]= useState(false)
     const user = useSelector(state => state.auth.getUserData.data)
     const newReview = useSelector(state =>state.review.createReview)
+
     const onSubmit =async _=>{
         if(rate <1 )
             Notification('the rate should be more than 1','error')
