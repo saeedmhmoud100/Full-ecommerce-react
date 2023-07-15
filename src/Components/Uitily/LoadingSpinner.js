@@ -2,7 +2,7 @@ import React from "react";
 import {Spinner} from "react-bootstrap";
 import useRandomNum from "../../hooks/useRandomNum";
 
-function LoadingSpinner({animation, variant,className}){
+function LoadingSpinner({animation, variant,className,style}){
     let anim,vari;
     if(animation === undefined){
         anim =['border','grow']
@@ -15,7 +15,7 @@ function LoadingSpinner({animation, variant,className}){
         vari=[variant]
     }
     return(
-        <Spinner animation={anim[useRandomNum(anim)]} variant={vari[useRandomNum(vari)]} className={`align-self-center ${className}`}></Spinner>
+        <Spinner style={style} animation={anim[useRandomNum(anim)]} variant={vari[useRandomNum(vari)]} className={`align-self-center ${className}`}></Spinner>
     )
 }
 

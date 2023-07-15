@@ -8,7 +8,7 @@ const ProductDetailsPageHook = _ =>{
     const dispatch = useDispatch()
     const product = useSelector(state => state.allProduct.product)
     let specificProducts = useSelector(state => state.allProduct.specificProducts)
-    let createdReview = useSelector(state => state.review.createReview)
+    let createdReview = useSelector(state => state.review)
     // product text details
     useLayoutEffect( _=> {
         dispatch(getOneProduct(id))

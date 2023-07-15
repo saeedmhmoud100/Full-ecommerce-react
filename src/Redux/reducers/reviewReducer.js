@@ -15,6 +15,7 @@ const reviewReducer = (state=inital,action) => {
             }
         case GET_ALL_REVIEWS_ON_PRODUCT:
             return {
+                ...state,
                 allReviewsOnProduct: action.payload,
             }
         case GET_REVIEW_ERROR:

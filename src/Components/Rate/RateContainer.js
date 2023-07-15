@@ -20,12 +20,12 @@ const RateContainer = ({product}) => {
             </Row>
             <RatePost />
             {
-                reviewsOfProduct.data ?
+                reviewsOfProduct && reviewsOfProduct.data ?
 
                     (
                         <>
-                        {reviewsOfProduct.data.filter(item => item.user._id === user._id) ?reviewsOfProduct.data.filter(item => item.user._id === user._id).map(item => <RateItem key={item._id} data={item}/>) : null}
-                        {reviewsOfProduct.data.filter(item => item.user._id !== user._id) ? reviewsOfProduct.data.filter(item => item.user._id !== user._id).map(item => <RateItem key={item._id} data={item}/>) : null}
+                        {reviewsOfProduct.data.filter(item => item.user._id === user._id) ?reviewsOfProduct.data.filter(item => item.user._id === user._id).map(item => <RateItem key={item._id} data={item} owner={true}/>) : null}
+                        {reviewsOfProduct.data.filter(item => item.user._id !== user._id) ? reviewsOfProduct.data.filter(item => item.user._id !== user._id).map(item => <RateItem key={item._id} data={item} owner={false}/>) : null}
                         {/*{reviewsOfProduct.data.map(item => <RateItem key={item._id} data={item}/>) }*/}
                         </>
                     )
@@ -37,7 +37,7 @@ const RateContainer = ({product}) => {
 
 
             {
-                reviewsOfProduct.paginationResult && reviewsOfProduct.paginationResult.numberOfPages >1 ?
+                reviewsOfProduct && reviewsOfProduct.paginationResult && reviewsOfProduct.paginationResult.numberOfPages >1 ?
                     <Pagination pagesCount={reviewsOfProduct.paginationResult.numberOfPages} onPress={getPage}/>
                     : null
             }
