@@ -45,4 +45,11 @@ export const GET_ALL_REVIEWS_ON_PRODUCT = 'GET_ALL_REVIEWS_ON_PRODUCT'
 export const UPDATE_REVIEW = 'UPDATE_REVIEW'
 
 
+// wishList types
+export const ADD_TO_WISHLIST = 'ADD_TO_WISHLIST'
+export const WISHLIST_ERROR = 'WISHLIST_ERROR'
+
+
+
+
 

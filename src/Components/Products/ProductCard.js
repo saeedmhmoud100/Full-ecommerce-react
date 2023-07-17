@@ -41,6 +41,7 @@ const ProductCard = ({product}) => {
                     <Card.Text>
                         <div className="d-flex justify-content-between ">
                             <div className="d-flex">
+                                {/*<i className="fa-regular fa-star"></i>*/}
                                 <img
                                     className=""
                                     src={rate}
@@ -48,7 +49,7 @@ const ProductCard = ({product}) => {
                                     height="16px"
                                     width="16px"
                                 />
-                                <div className="card-rate mx-2">{product.ratingsAverage}</div>
+                                <div className="card-rate mx-2">{product.ratingsAverage || 0}</div>
                             </div>
                             <div className="d-flex">
                                 <div className="card-price">{product.price}</div>

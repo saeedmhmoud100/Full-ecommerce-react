@@ -19,13 +19,16 @@ const RateItemHook = (data) => {
     }
 
     const handleUpdateReview =async _ =>{
-        if(rate>=1){
+        if(rate<1){
+            Notification('the rating should be not less than 1','warning')
+        }else if(review===''){
+            Notification("the review can't be empty",'warning')
+        }
+        else{
             setEditLoading(true)
             await dispatch(updateReview(data._id,{review,rating:rate}))
             setEditLoading(false)
             setEditSuccess(true)
-        }else{
-            Notification('the rating should be not less than 1','warning')
         }
     }
     const updatereview = useSelector(state=> state.review.updateReview)
