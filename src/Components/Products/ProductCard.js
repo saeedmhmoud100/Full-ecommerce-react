@@ -48,7 +48,7 @@ const ProductCard = ({product}) => {
                                     height="16px"
                                     width="16px"
                                 />
-                                <div className="card-rate mx-2">4.5</div>
+                                <div className="card-rate mx-2">{product.ratingsAverage}</div>
                             </div>
                             <div className="d-flex">
                                 <div className="card-price">{product.price}</div>

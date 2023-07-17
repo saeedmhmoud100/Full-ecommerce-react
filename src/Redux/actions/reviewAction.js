@@ -1,8 +1,9 @@
-import {CREATE_REVIEW, GET_REVIEW_ERROR, GET_ALL_REVIEWS_ON_PRODUCT} from "../types";
+import {CREATE_REVIEW, GET_REVIEW_ERROR, GET_ALL_REVIEWS_ON_PRODUCT,UPDATE_REVIEW} from "../types";
 import {useInsertData} from "../../AxiosHooks/useInsertData";
 import useGetData from "../../AxiosHooks/useGetData";
 import {Notification} from "../../hooks/useNotification";
 import useDeleteData from "../../AxiosHooks/useDeleteData";
+import {useUpdateData} from "../../AxiosHooks/useUpdateData";
 
 
 
@@ -59,3 +60,18 @@ export const DeleteReview =  async (reviewID) => {
     }
 }
 
+export const updateReview = (reviewID,data) => async dispatch => {
+    try {
+        const res = await useUpdateData(`/api/v1/reviews/${reviewID}`,data)
+        dispatch({
+            type:UPDATE_REVIEW,
+            payload:res,
+        })
+    }catch (e){
+        handeError(e)
+        dispatch({
+            type:GET_REVIEW_ERROR,
+            payload:e
+        })
+    }
+}

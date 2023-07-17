@@ -1,8 +1,9 @@
-import {CREATE_REVIEW, GET_ALL_REVIEWS_ON_PRODUCT, GET_REVIEW_ERROR} from "../types";
+import {CREATE_REVIEW, GET_ALL_REVIEWS_ON_PRODUCT,UPDATE_REVIEW, GET_REVIEW_ERROR} from "../types";
 
 const inital={
     createReview:[],
     allReviewsOnProduct:[],
+    updateReview:[],
     error:[]
 }
 
@@ -17,6 +18,11 @@ const reviewReducer = (state=inital,action) => {
             return {
                 ...state,
                 allReviewsOnProduct: action.payload,
+            }
+        case UPDATE_REVIEW:
+            return {
+                ...state,
+                updateReview: action.payload,
             }
         case GET_REVIEW_ERROR:
             // Notification(action.payload,'error')
