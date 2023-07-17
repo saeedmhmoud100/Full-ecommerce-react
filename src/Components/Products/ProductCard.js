@@ -1,10 +1,12 @@
 import React from 'react'
 import { Card, Col } from 'react-bootstrap'
 import favoff from "../../Assets/images/fav-off.png";
+import favon from "../../Assets/images/fav-on.png";
 import rate from "../../Assets/images/rate.png";
 import {Link} from "react-router-dom";
+import ProductCardHook from "../../hooks/product/product-card-hook";
 const ProductCard = ({product}) => {
-
+    const [isFav,deleteProductFromWishList,addProductToWishList] = ProductCardHook(product)
     return (
         <Col xs="10" sm="6" md="4" lg="3" className="d-flex">
 
@@ -19,16 +21,32 @@ const ProductCard = ({product}) => {
                     boxShadow: "0 2px 2px 0 rgba(151,151,151,0.5)",
                 }}>
                    <Link to={`/products/${product._id}`} style={{textDecoration:'none'}}> <Card.Img style={{ height: "228px", width: "100%" }} src={product.imageCover} /></Link>
-                <div className="d-flex justify-content-end mx-2">
-                    <img
-                        src={favoff}
-                        alt=""
-                        className="text-center"
-                        style={{
-                            height: "24px",
-                            width: "26px",
-                        }}
-                    />
+                <div className="d-flex justify-content-end mx-2 mt-2">
+                    {
+                        isFav ? <img
+                                src={favon}
+                                alt=""
+                                className="text-center"
+                                style={{
+                                    height: "24px",
+                                    width: "26px",
+                                    cursor:'pointer'
+                                }}
+                                onClick={_=> deleteProductFromWishList(product._id)}
+                            />
+                            :<img
+                                src={favoff}
+                                alt=""
+                                className="text-center"
+                                style={{
+                                    height: "24px",
+                                    width: "26px",
+                                    cursor:'pointer'
+                                }}
+                                onClick={_=> addProductToWishList(product._id)}
+                            />
+                    }
+
                 </div>
                 <Card.Body>
                     <Link to={`/products/${product._id}`} style={{textDecoration:'none'}}>

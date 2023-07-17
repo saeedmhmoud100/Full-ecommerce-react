@@ -48,6 +48,9 @@ export const UPDATE_REVIEW = 'UPDATE_REVIEW'
 // wishList types
 export const ADD_TO_WISHLIST = 'ADD_TO_WISHLIST'
 export const WISHLIST_ERROR = 'WISHLIST_ERROR'
+export const DELETE_FROM_WISHLIST = 'DELETE_FROM_WISHLIST'
+export const GET_ALL_WISHLIST = 'GET_ALL_WISHLIST'
+
 
 
 
