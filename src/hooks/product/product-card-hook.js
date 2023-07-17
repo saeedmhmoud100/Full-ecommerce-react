@@ -10,14 +10,22 @@ const ProductCardHook= product =>{
 
 
     const checkInWishList = (productID,wishList) =>{
-        wishList.forEach(prodID => {
-            if(prodID._id === productID)
-                setIsFave(true)
-        })
+        ///// 1
+        // wishList.forEach(prodID => {
+        //     if(prodID._id === productID)
+        //         setIsFave(true)
+        // })
+        ///// 2
         // if(prodID &&wishList && allWishList.indexOf(product._id) !==-1){
         //         setIsFave(true)
         //}
+        ///// 3
+        setIsFave(wishList.some(prodID => prodID._id === productID))
     }
+
+    useEffect(_=>{
+        checkInWishList(product._id,allWishList)
+    },[allWishList])
 
 
     useEffect(_=>{
@@ -27,9 +35,6 @@ const ProductCardHook= product =>{
         run()
     },[])
 
-    useEffect(_=>{
-        checkInWishList(product._id,allWishList)
-    },[allWishList])
 
 
 
