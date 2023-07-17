@@ -23,8 +23,8 @@ const ProductCard = ({product}) => {
                    <Link to={`/products/${product._id}`} style={{textDecoration:'none'}}> <Card.Img style={{ height: "228px", width: "100%" }} src={product.imageCover} /></Link>
                 <div className="d-flex justify-content-end mx-2 mt-2">
                     {
-                        isFav ? <img
-                                src={favon}
+                        <img
+                                src={isFav ?favon : favoff}
                                 alt=""
                                 className="text-center"
                                 style={{
@@ -32,18 +32,7 @@ const ProductCard = ({product}) => {
                                     width: "26px",
                                     cursor:'pointer'
                                 }}
-                                onClick={_=> deleteProductFromWishList(product._id)}
-                            />
-                            :<img
-                                src={favoff}
-                                alt=""
-                                className="text-center"
-                                style={{
-                                    height: "24px",
-                                    width: "26px",
-                                    cursor:'pointer'
-                                }}
-                                onClick={_=> addProductToWishList(product._id)}
+                                onClick={_=>isFav ? deleteProductFromWishList(product._id):addProductToWishList(product._id)}
                             />
                     }
 

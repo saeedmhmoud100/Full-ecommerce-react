@@ -7,7 +7,7 @@ const ShopProductsPageHook= _ =>{
     const dispatch = useDispatch()
 
     const getProduct =async (page=selectedPage)=>{
-        const limit =9;
+        const limit =8;
         const searchWord = localStorage.getItem('searchWord') || '';
         const catSelected = localStorage.getItem('catSelected') || '';
         const brandSelected = localStorage.getItem('brandSelected') || '';

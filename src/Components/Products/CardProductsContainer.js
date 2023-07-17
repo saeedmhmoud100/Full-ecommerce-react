@@ -5,6 +5,7 @@ import ProductCard from "./ProductCard";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
 
 const CardProductContainer = ({products,title,btntitle,pathText}) => {
+
     return (
         <Container>
             <SubTiltle title={title} btntitle={btntitle} pathText={pathText} />

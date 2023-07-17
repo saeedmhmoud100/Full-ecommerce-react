@@ -11,19 +11,17 @@ const wishListReducer = (state=inital,action) => {
         case GET_ALL_WISHLIST:
             return {
                 ...state,
-                wishList: action.payload,
+                wishList: action.payload.data,
             }
         case ADD_TO_WISHLIST:
             return {
                 ...state,
                 res: action.payload,
-                wishList: action.payload.data,
             }
             case DELETE_FROM_WISHLIST:
             return {
                 ...state,
                 res: action.payload,
-                wishList: action.payload.data,
             }
         case WISHLIST_ERROR:
             // Notification(action.payload,'error')
