@@ -24,12 +24,14 @@ const ProductCardHook= product =>{
     }
 
     useEffect(_=>{
+        if(localStorage.getItem('token'))
         checkInWishList(product._id,allWishList)
     },[allWishList])
 
 
     useEffect(_=>{
         const run =async _=>{
+        if(localStorage.getItem('token'))
             await dispatch(getAllWishList())
         }
         run()

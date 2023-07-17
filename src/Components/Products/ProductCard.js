@@ -5,7 +5,8 @@ import favon from "../../Assets/images/fav-on.png";
 import rate from "../../Assets/images/rate.png";
 import {Link} from "react-router-dom";
 import ProductCardHook from "../../hooks/product/product-card-hook";
-const ProductCard = ({product}) => {
+import baseURL from "../../Api/baseURL";
+const ProductCard = ({product,imgURL}) => {
     const [isFav,deleteProductFromWishList,addProductToWishList] = ProductCardHook(product)
     return (
         <Col xs="10" sm="6" md="4" lg="3" className="d-flex">
@@ -20,7 +21,7 @@ const ProductCard = ({product}) => {
                     backgroundColor: "#FFFFFF",
                     boxShadow: "0 2px 2px 0 rgba(151,151,151,0.5)",
                 }}>
-                   <Link to={`/products/${product._id}`} style={{textDecoration:'none'}}> <Card.Img style={{ height: "228px", width: "100%" }} src={product.imageCover} /></Link>
+                   <Link to={`/products/${product._id}`} style={{textDecoration:'none'}}> <Card.Img style={{ height: "228px", width: "100%" }} src={imgURL ? (baseURL.getUri()+'/products/' +product.imageCover) : product.imageCover} /></Link>
                 <div className="d-flex justify-content-end mx-2 mt-2">
                     {
                         <img

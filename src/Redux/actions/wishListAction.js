@@ -2,6 +2,17 @@ import {WISHLIST_ERROR,ADD_TO_WISHLIST,GET_ALL_WISHLIST,DELETE_FROM_WISHLIST} fr
 import {useInsertData} from "../../AxiosHooks/useInsertData";
 import useDeleteData from "../../AxiosHooks/useDeleteData";
 import useGetData from "../../AxiosHooks/useGetData";
+import {Notification} from "../../hooks/useNotification";
+
+const handeError = e =>{
+    if(e.response && e.response.data && e.response.data.errors){
+        e.response.data.errors.forEach(item =>{
+            Notification(item.msg,'warning')
+        })
+    }else if(e.response && e.response.data && e.response.data.message){
+        Notification(e.response.data.message,'warning')
+    }
+}
 
 export const getAllWishList = () => async dispatch => {
     try {
@@ -11,7 +22,6 @@ export const getAllWishList = () => async dispatch => {
             payload:res,
         })
     }catch (e){
-        console.log(e)
         dispatch({
             type:WISHLIST_ERROR,
             payload:e
@@ -28,7 +38,7 @@ export const addToWishList = (ID) => async dispatch => {
             payload:res,
         })
     }catch (e){
-        console.log(e)
+        handeError(e)
         dispatch({
             type:WISHLIST_ERROR,
             payload:e
@@ -43,7 +53,7 @@ export const deleteFromWishList = (ID) => async dispatch => {
             payload:res,
         })
     }catch (e){
-        console.log(e)
+        handeError(e)
         dispatch({
             type:WISHLIST_ERROR,
             payload:e
