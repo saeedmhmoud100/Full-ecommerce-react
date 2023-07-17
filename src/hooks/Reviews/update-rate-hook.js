@@ -1,23 +1,9 @@
 import {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux";
-import {DeleteReview, getAllReviewsOnProduct, updateReview} from "../../Redux/actions/reviewAction";
+import {getAllReviewsOnProduct, updateReview} from "../../Redux/actions/reviewAction";
 import {Notification} from "../useNotification";
 const RateItemHook = (data) => {
     const dispatch = useDispatch()
-
-
-    // delete the review
-    const [deleteLoading,setDeleteLoading]= useState(false)
-
-    const deleteReview =async reviewID=>{
-        setDeleteLoading(true)
-        await DeleteReview(reviewID)
-        await dispatch(getAllReviewsOnProduct(data.product,1))
-        setDeleteLoading(false)
-    }
-
-
-
     // update review
 
     const [showEdit,setShowEdit]= useState(false)
@@ -43,8 +29,8 @@ const RateItemHook = (data) => {
         }
     }
     const updatereview = useSelector(state=> state.review.updateReview)
-    console.log(updatereview)
-    console.log(editSuccess)
+
+
     useEffect(_=>{
         const run = async _ =>{
             await dispatch(getAllReviewsOnProduct(data.product,1))
@@ -57,7 +43,7 @@ const RateItemHook = (data) => {
         setEditSuccess(false)
     },[editSuccess])
 
-    return [rate,review,setRate,setReview,deleteReview,showEdit,deleteLoading,editLoading,handleCloseEdit,handleShowEdit,handleUpdateReview]
+    return [rate,review,setRate,setReview,showEdit,editLoading,handleCloseEdit,handleShowEdit,handleUpdateReview]
 }
 
 export default RateItemHook

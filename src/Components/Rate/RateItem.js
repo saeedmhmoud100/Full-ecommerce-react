@@ -3,11 +3,13 @@ import {Row, Col, Modal, Button, Container} from 'react-bootstrap'
 import rateImage from '../../Assets/images/rate.png'
 import deleteicon from '../../Assets/images/delete.png'
 import editicon from '../../Assets/images/edit.png'
-import RateItemHook from "../../hooks/Reviews/rate-item-hook";
+import DeleteRateHook from "../../hooks/Reviews/delete-rate-hook";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
 import ReactStars from "react-rating-stars-component";
+import updateRateHook from "../../hooks/Reviews/update-rate-hook";
 const RateItem = ({data,owner}) => {
-    const [rate,review,setRate,setReview,DeleteReview,showEdit,deleteLoading,editLoading,handleCloseEdit,handleShowEdit,handleUpdateReview] = RateItemHook(data)
+    const [DeleteReview,deleteLoading] = DeleteRateHook(data.product)
+    const [rate,review,setRate,setReview,showEdit,editLoading,handleCloseEdit,handleShowEdit,handleUpdateReview] = updateRateHook(data)
 
     const setting = {
         size: 20,
