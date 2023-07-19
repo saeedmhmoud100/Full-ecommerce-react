@@ -5,10 +5,11 @@ const AdminSideBar = () => {
     const sideBarData = [
         {title:'Orders Management',url:'/admin/allorders',},
         {title:'Products Management',url:'/admin/allproducts',},
+        {title:'Add Product',url:'/admin/addproduct',},
         {title:'Add a brand',url:'/admin/addbrand',},
         {title:'Add a Category',url:'/admin/addcategory',},
         {title:'Add a subcategory',url:'/admin/addsubcategory',},
-        {title:'Add Product',url:'/admin/addproduct',},
+        {title:'Coupons Management',url:'/admin/coupons',},
     ]
     return (
         <div className="sidebar">

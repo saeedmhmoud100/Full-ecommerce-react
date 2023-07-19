@@ -9,7 +9,7 @@ import NavbarSearchHook from "../../hooks/search/Navbar-Search-Hook";
 const NavBarLogin = () => {
     const [onChangeSearch,logout,isLogged,userData] = NavbarSearchHook();
     return (
-        <Navbar className="sticky-top" bg="dark" variant="dark" expand="sm">
+        <Navbar className="sticky-top text-center" bg="dark" variant="dark" expand="sm">
             <Container>
                 <Navbar.Brand>
                     <Link to='/'>
