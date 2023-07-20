@@ -6,6 +6,14 @@ import AdminCouponCardHook from "../../hooks/coupon/admin-coupon-card-hook";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
 function AdminCouponCard({coupon}){
     const [handleDeleteCoupon,deleteLoading] = AdminCouponCardHook()
+
+    // convert date from timestamp to custom format
+    const formatDate = dateString =>{
+        // const options = {year:'numeric',month:'long','day':'numeric'}    July 29, 2023
+        const options = {year:'numeric',month:'numeric','day':'numeric'} // 7/29/2023
+        return new Date(dateString).toLocaleDateString(undefined,options)
+    }
+
     return(
             <Row className="justify-content-start flex-column my-3 border-3 pb-3 pt-2" style={{backgroundColor:'white'}}>
                 <Col className={'d-flex justify-content-between'}>
@@ -19,11 +27,11 @@ function AdminCouponCard({coupon}){
                     </div>
                 </Col>
                 <Col className={'my-2'}>
-                    <div className={'d-inline-block'}>Expires: {coupon.expire}</div>
-                    <span className={'mx-2'}>{coupon.discount}</span>
+                    <div className={'d-inline-block'}>Expires: </div>
+                    <span className={'mx-2'}>{formatDate(coupon.expire)}</span>
                 </Col>
                 <Col>
-                    <div>Discount: 20 %</div>
+                    <div>Discount: {coupon.discount} %</div>
 
                 </Col>
                 <div>

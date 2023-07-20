@@ -6,7 +6,6 @@ import AdminCouponsHook from "../../hooks/coupon/admin-coupons-hook";
 
 function AdminCoupons(){
     const [allCoupons]=AdminCouponsHook()
-    console.log(allCoupons)
     return(
         <div>
             <Row className="justify-content-start flex-column">

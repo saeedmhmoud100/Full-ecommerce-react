@@ -11,7 +11,7 @@ function AdminAddCoupon(){
                 <input
                     type="text"
                     className="input-form d-block mt-3 px-3"
-                    placeholder="Coupon Title"
+                    placeholder="Coupon Name"
                     value={couponName}
                     onChange={e => setCouponName(e.target.value)}
                 />
