@@ -1,8 +1,9 @@
-import {COUPON_ERROR,CREATE_COUPON,GET_ALL_COUPONS,DELETE_COUPONS} from "../types";
+import {COUPON_ERROR,CREATE_COUPON,GET_ALL_COUPONS,UPDATE_COUPONS,DELETE_COUPONS} from "../types";
 import {useInsertData} from "../../AxiosHooks/useInsertData";
 import {Notification} from "../../hooks/useNotification";
 import useGetData from "../../AxiosHooks/useGetData";
 import useDeleteData from "../../AxiosHooks/useDeleteData";
+import {useUpdateData} from "../../AxiosHooks/useUpdateData";
 
 const handeError = e =>{
     if(e.response && e.response.data && e.response.data.errors){
@@ -64,4 +65,22 @@ export const deleteCoupon = (ID) => async dispatch => {
             payload:e
         })
     }
+}
+export const updateCoupon = (ID,data) => async dispatch => {
+
+    try {
+        const res = await useUpdateData(`/api/v1/coupons/${ID}`,data)
+        Notification('The coupon has been updated successfully', 'success')
+        dispatch({
+            type: UPDATE_COUPONS,
+            payload: res,
+        })
+    } catch (e) {
+        handeError(e)
+        dispatch({
+            type: COUPON_ERROR,
+            payload: e
+        })
+    }
+
 }

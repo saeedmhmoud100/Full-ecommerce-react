@@ -1,10 +1,12 @@
-import {CREATE_COUPON, COUPON_ERROR, GET_ALL_COUPONS, DELETE_COUPONS} from "../types";
+import {CREATE_COUPON, COUPON_ERROR, GET_ALL_COUPONS, DELETE_COUPONS, UPDATE_COUPONS} from "../types";
 
 const inital={
     createCoupon:[],
     deleteCoupon:[],
+    updateCoupon:[],
     allCoupons:[],
     change:false,
+    error:[],
 }
 
 const couponReducer = (state=inital,action) => {
@@ -26,10 +28,16 @@ const couponReducer = (state=inital,action) => {
                 deleteCoupon: action.payload,
                 change: !state.change,
             }
+        case UPDATE_COUPONS:
+            return {
+                ...state,
+                updateCoupon: action.payload,
+                change: !state.change,
+            }
             case COUPON_ERROR:
             return {
                 ...state,
-                createCoupon: action.payload,
+                error: action.payload,
             }
         default:
                 return state
