@@ -13,7 +13,7 @@ function AdminCouponCard(){
                     </div>
                 </Col>
                 <Col className={'my-2'}>
-                    <div className={'d-inline-block'}>End Time: </div>
+                    <div className={'d-inline-block'}>Expires: </div>
                     <span className={'mx-2'}>2/5</span>
                 </Col>
                 <Col>

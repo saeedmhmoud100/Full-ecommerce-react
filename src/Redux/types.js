@@ -53,6 +53,14 @@ export const GET_ALL_WISHLIST = 'GET_ALL_WISHLIST'
 
 
 
+// Coupon types
+export const CREATE_COUPON = 'CREATE_COUPON'
+export const COUPON_ERROR = 'COUPON_ERROR'
+
+
+
+
+
 
 
 
