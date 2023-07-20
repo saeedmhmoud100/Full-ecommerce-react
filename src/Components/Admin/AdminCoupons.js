@@ -2,7 +2,11 @@ import React from 'react'
 import {Col, Row} from "react-bootstrap";
 import AdminCouponCard from "./AdminCouponCard";
 import AdminAddCoupon from "./AdminAddCoupon";
+import AdminCouponsHook from "../../hooks/coupon/admin-coupons-hook";
+
 function AdminCoupons(){
+    const [allCoupons]=AdminCouponsHook()
+    console.log(allCoupons)
     return(
         <div>
             <Row className="justify-content-start flex-column">
@@ -10,11 +14,10 @@ function AdminCoupons(){
                 <AdminAddCoupon />
 
                 <Col sm={8}>
-                    <AdminCouponCard/>
-                    <AdminCouponCard/>
-                    <AdminCouponCard/>
-                    <AdminCouponCard/>
-                    <AdminCouponCard/>
+                    {
+                        allCoupons.data ? allCoupons.data.map((coupon,i)=> <AdminCouponCard coupon={coupon} key={i}/>)
+                            : null
+                    }
                 </Col>
             </Row>
 
