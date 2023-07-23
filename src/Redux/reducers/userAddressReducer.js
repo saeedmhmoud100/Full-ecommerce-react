@@ -1,8 +1,17 @@
-import {CREATE_ADDRESS, ADDRESS_ERROR, GET_ALL_ADDRESS, DELETE_ADDRESS} from "../types";
+import {
+    CREATE_ADDRESS,
+    ADDRESS_ERROR,
+    GET_ALL_ADDRESS,
+    DELETE_ADDRESS,
+    UPDATE_ADDRESS,
+    GET_SPECIFIC_ADDRESS
+} from "../types";
 
 const inital={
     AllAddresses:[],
     createAddress:[],
+    editAddress:[],
+    specificAddress:[],
     error:[],
     change:false,
 }
@@ -14,10 +23,21 @@ const addressReducer = (state=inital,action) => {
                 ...state,
                 AllAddresses: action.payload,
             }
+        case GET_SPECIFIC_ADDRESS:
+            return {
+                ...state,
+                specificAddress: action.payload,
+            }
         case CREATE_ADDRESS:
             return {
                 ...state,
                 createAddress: action.payload,
+                change: !state.change,
+            }
+        case UPDATE_ADDRESS:
+            return {
+                ...state,
+                editAddress: action.payload,
                 change: !state.change,
             }
         case DELETE_ADDRESS:

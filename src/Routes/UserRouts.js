@@ -15,7 +15,7 @@ const UserRoutes = () => ( // URL is: user/*
         <Route path={'favoriteproducts'} element={<UserFavoriteProductsPage />} />
         <Route path={'addresses'} element={<UserAllAddressesPage />} />
         <Route path={'add-address'} element={<UserAddAddressPage />} />
-        <Route path={'edit-address'} element={<UserEditAddressPage />} />
+        <Route path={'edit-address/:id'} element={<UserEditAddressPage />} />
         <Route path={'profile'} element={<UserProfilePage />} />
         <Route path={'forget-password'} element={<ForgetPasswordPage />} />
         <Route path={'verify-code'} element={<VerifyResetCodePage />} />

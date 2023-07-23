@@ -2,9 +2,11 @@ import {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {Notification} from "../useNotification";
 import {createAddress} from "../../Redux/actions/userAddressAction";
+import {useNavigate} from "react-router-dom";
 
 const AddAddressHook = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const [alias,setAlias]= useState('')
     const [details,setDetails]= useState('')
@@ -24,24 +26,20 @@ const AddAddressHook = () => {
             details,
             phone
         }))
+        setSuccess(true)
         setLoading(false)
     }
 
-    useEffect(_=>{
-        if(!loading){
-            if(createdAddress.status === 'success')
-                setSuccess(true)
-        }
-    },[loading])
-
 
     useEffect(_=>{
-        if(success ){
+        if(success && createdAddress.status === 'success'){
             Notification('The address has been added successfully','success')
             setSuccess(false)
             setAlias('')
             setDetails('')
             setPhone('')
+            navigate('/user/addresses')
+
         }
     },[success])
 
