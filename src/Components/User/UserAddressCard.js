@@ -1,12 +1,12 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-const UserAddressCard = () => {
+const UserAddressCard = ({address}) => {
     return (
         <div className="user-address-card my-3 px-2">
             <Row className="d-flex justify-content-between  ">
                 <Col xs="1">
-                    <div className="pt-2">House</div>
+                    <div className="pt-2">{address.alias}</div>
                 </Col>
                 <Col xs="4" className="d-flex d-flex justify-content-end">
                     <div className="d-flex p-2">
@@ -32,7 +32,7 @@ const UserAddressCard = () => {
                             fontFamily: "Almarai",
                             fontSize: "14px",
                         }}>
-                        Cairo Nasr City Teseen Street Building 14
+                        {address.details}
                     </div>
                 </Col>
             </Row>
@@ -55,7 +55,7 @@ const UserAddressCard = () => {
                             fontSize: "16px",
                         }}
                         className="mx-2">
-                        0021313432423
+                        {address.phone}
                     </div>
                 </Col>
             </Row>

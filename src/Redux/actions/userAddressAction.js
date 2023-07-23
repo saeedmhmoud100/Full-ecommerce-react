@@ -1,5 +1,6 @@
-import {CREATE_ADDRESS, ADDRESS_ERROR} from "../types";
+import {CREATE_ADDRESS, GET_ALL_ADDRESS, ADDRESS_ERROR} from "../types";
 import {useInsertData} from "../../AxiosHooks/useInsertData";
+import useGetData from "../../AxiosHooks/useGetData";
 
 const handeError = e =>{
     if(e.response && e.response.data && e.response.data.errors){
@@ -12,6 +13,22 @@ const handeError = e =>{
 }
 
 
+export const getAllAddress = () => async dispatch => {
+
+    try {
+        const res = await useGetData(`/api/v1/addresses`)
+        dispatch({
+                type:GET_ALL_ADDRESS,
+            payload:res,
+        })
+    }catch (e){
+        handeError(e)
+        dispatch({
+            type:ADDRESS_ERROR,
+            payload:e
+        })
+    }
+}
 export const createAddress = (data) => async dispatch => {
 
     try {

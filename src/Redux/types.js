@@ -64,6 +64,7 @@ export const UPDATE_COUPONS = 'UPDATE_COUPONS'
 // User Address types
 export let CREATE_ADDRESS='CREATE_ADDRESS';
 export let ADDRESS_ERROR='ADDRESS_ERROR';
+export let GET_ALL_ADDRESS='GET_ALL_ADDRESS';
 
 
 

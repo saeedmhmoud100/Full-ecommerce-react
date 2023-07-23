@@ -1,6 +1,7 @@
-import {CREATE_ADDRESS, ADDRESS_ERROR} from "../types";
+import {CREATE_ADDRESS, ADDRESS_ERROR, GET_ALL_ADDRESS} from "../types";
 
 const inital={
+    AllAddresses:[],
     createAddress:[],
     error:[],
     change:false,
@@ -8,6 +9,11 @@ const inital={
 
 const addressReducer = (state=inital,action) => {
     switch (action.type) {
+        case GET_ALL_ADDRESS:
+            return {
+                ...state,
+                AllAddresses: action.payload,
+            }
         case CREATE_ADDRESS:
             return {
                 ...state,
