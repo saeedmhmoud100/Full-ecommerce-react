@@ -6,6 +6,8 @@ const UserAllAddressesHook = () => {
     const dispatch = useDispatch()
 
     const [loading,setLoading]= useState(false)
+    const change = useSelector(state =>state.address.change)
+
 
     useEffect(_=>{
         return async _ =>{
@@ -13,7 +15,7 @@ const UserAllAddressesHook = () => {
             await dispatch(getAllAddress())
             setLoading(false)
         }
-    },[])
+    },[change])
 
 
     const AllAddresses = useSelector(state =>state.address.AllAddresses)

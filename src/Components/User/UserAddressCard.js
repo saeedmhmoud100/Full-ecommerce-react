@@ -1,7 +1,12 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import DeleteAddressHook from "../../hooks/user/delete-address-hook";
+import LoadingSpinner from "../Uitily/LoadingSpinner";
 const UserAddressCard = ({address}) => {
+    const [deleteLoading,onDeleteSubmit] = DeleteAddressHook(address._id)
+
+
     return (
         <div className="user-address-card my-3 px-2">
             <Row className="d-flex justify-content-between  ">
@@ -17,7 +22,11 @@ const UserAddressCard = ({address}) => {
                             </Link>
                         </div>
                         <div className="d-flex ">
-                            <p className="item-delete-edit text-decoration-underline"> Remove</p>
+                            {
+                                deleteLoading ? <LoadingSpinner className={'mx-2'} style={{width:'20px',height:'20px'}}></LoadingSpinner>
+                                    : <p className="item-delete-edit text-decoration-underline" onClick={onDeleteSubmit}> Remove</p>
+
+                            }
 
                         </div>
                     </div>
