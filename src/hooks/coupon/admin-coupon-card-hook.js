@@ -33,6 +33,13 @@ const AdminCouponCardHook = (coupon) => {
 
     const updateRes = useSelector(state =>state.coupon.updateCoupon)
 
+    useEffect(_ =>{
+        setCouponName(coupon.name)
+        setCouponExpire(formatDate(coupon.expire))
+        setCouponDiscount(coupon.discount)
+    },[coupon])
+
+
     const handleEditSubmit =async _=>{
 
         setEditLoading(true)
