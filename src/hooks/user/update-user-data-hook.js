@@ -1,11 +1,11 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {updateUserData} from "../../Redux/actions/userDataAction";
+import {updateUserData} from "../../Redux/actions/authAction";
 
 const UpdateUserDateHook = () => {
     const dispatch = useDispatch()
     const userData = useSelector(state => state.auth.getUserData.data)
-    const userDataRes = useSelector(state => state.userData.updateData)
+    const userDataRes = useSelector(state => state.auth.updateData)
     const [userName,setUserName] = useState('')
     const [phone,setPhone] = useState('')
     const [email,setEmail] = useState('')

@@ -5,7 +5,7 @@ import {
     LOGOUT,
     FORGET_PASSWORD,
     VERIFY_RESET_CODE,
-    RESET_PASSWORD
+    RESET_PASSWORD, UPDATE_USER_DATA, UPDATE_USER_PASSWORD, USER_DATA_ERROR
 } from "../types";
 
 const inital={
@@ -15,6 +15,11 @@ const inital={
     forgetPassword:[],
     verifyResetCode:[],
     resetPassword:[],
+    updateData:[],
+    updatePassword:[],
+    change:false,
+    error:[],
+
 }
 
 const authReducer = (state=inital,action) => {
@@ -40,6 +45,7 @@ const authReducer = (state=inital,action) => {
                 ...state,
                 loginUser: [],
                 getUserData: {data: {name: 'anonymous'}},
+                updatePassword:[]
             }
             case FORGET_PASSWORD:
             return {
@@ -51,10 +57,27 @@ const authReducer = (state=inital,action) => {
                 ...state,
                 verifyResetCode: action.payload,
             }
+            case UPDATE_USER_DATA:
+            return {
+                ...state,
+                updateData: action.payload,
+                change:!state.change
+            }
+            case UPDATE_USER_PASSWORD:
+                return {
+                    ...state,
+                    updatePassword:action.payload,
+                    change:!state.change
+                }
             case RESET_PASSWORD:
             return {
                 ...state,
                 resetPassword: action.payload,
+            }
+            case USER_DATA_ERROR:
+            return {
+                ...state,
+                error: action.payload,
             }
         default:
                 return state

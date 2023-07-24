@@ -2,9 +2,11 @@ import React from "react";
 import {Button, Col, Container, Modal, Row} from "react-bootstrap";
 import UpdateUserDateHook from "../../hooks/user/update-user-data-hook";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
+import UpdateUserPasswordHook from "../../hooks/user/update-user-password-hook";
 
 function UserProfile() {
     const [userData,userName,phone,email,editLoading,showUpdateModal,setShowUpdateModal,setUserName,setPhone,setEmail,handleEditSubmit] = UpdateUserDateHook()
+    const [oldPassword,newPassword,confirmNewPassword,updatePasswordLoading,setOldPassword,setNewPassword,setConfirmNewPassword,handleUpdateSubmit] = UpdateUserPasswordHook()
 
 
     return (
@@ -83,6 +85,7 @@ function UserProfile() {
                         <div className="p-1 item-delete-edit">{userData.email || userData.name}</div>
                     </Col>
                 </Row>
+
                 <Row className="mt-5">
                     <Col xs="10" sm="8" md="6" className="">
                         <div className="admin-content-text">Change Password</div>
@@ -90,18 +93,34 @@ function UserProfile() {
                             type="password"
                             className="input-form d-block mt-1 px-3"
                             placeholder="Enter your old password"
+                            value={oldPassword}
+                            onChange={e => setOldPassword(e.target.value)}
                         />
                         <input
                             type="password"
                             className="input-form d-block mt-3 px-3"
                             placeholder="Enter the new password"
+                            value={newPassword}
+                            onChange={e => setNewPassword(e.target.value)}
+                        />
+                        <input
+                            type="password"
+                            className="input-form d-block mt-3 px-3"
+                            placeholder="Enter the new password"
+                            value={confirmNewPassword}
+                            onChange={e => setConfirmNewPassword(e.target.value)}
                         />
                     </Col>
                 </Row>
 
                 <Row>
                     <Col xs="10" sm="8" md="6" className="d-flex justify-content-end ">
-                        <button className="btn-save d-inline mt-2 ">Save Password</button>
+                        {
+                            updatePasswordLoading ? (<LoadingSpinner></LoadingSpinner>)
+                                :
+                                <button className="btn-save d-inline mt-2 " onClick={handleUpdateSubmit}>update Password</button>
+                        }
+
                     </Col>
                 </Row>
             </div>
