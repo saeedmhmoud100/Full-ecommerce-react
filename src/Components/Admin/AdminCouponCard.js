@@ -13,7 +13,7 @@ function AdminCouponCard({coupon}){
 
                 <Modal show={showUpdateModal} onHide={() => setShowUpdateModal(false)}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Update your review</Modal.Title>
+                        <Modal.Title>Update the Coupon</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <Container>

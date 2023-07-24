@@ -35,11 +35,16 @@ const NavbarSearchHook = _=>{
     const [isLogged,setIsLogged] = useState(false)
     const loginUserData = useSelector(state => state.auth.getUserData.data)
     // login
+
+    // update when change the data
+    const userDataChange = useSelector(state => state.userData.change)
+
+
     useEffect(_=>{
         if(localStorage.getItem('token')){
             dispatch(getUserData(localStorage.getItem('token')))
         }
-    },[])
+    },[userDataChange])
 
     useEffect(_=>{
         if(loginUserData.data && loginUserData.data.status){
