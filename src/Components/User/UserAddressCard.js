@@ -5,7 +5,7 @@ import DeleteAddressHook from "../../hooks/user/delete-address-hook";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
 const UserAddressCard = ({address}) => {
     const [deleteLoading,onDeleteSubmit] = DeleteAddressHook(address._id)
-
+    console.log('yes')
 
     return (
         <div className="user-address-card my-3 px-2">
