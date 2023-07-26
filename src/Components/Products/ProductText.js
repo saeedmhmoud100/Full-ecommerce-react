@@ -1,18 +1,40 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Row,Col } from 'react-bootstrap'
 import '../../Assets/Style/Products.scss'
 import {useSelector} from "react-redux";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
+import {getSubCategoriesNameByProduct} from "../../Redux/actions/subCategoryAction";
 const ProductText = ({product}) => {
 
     const category = useSelector(state => state.allCategory.oneCategory ? state.allCategory.oneCategory.data:[])
     const brand = useSelector(state => state.allBrand.brand)
 
+    const [selectedColor,setSelectedColor] = useState({hasColors:false,color:''})
+    const [subCatsNames,setSubCatsNames] = useState([])
+
+    useEffect(_=>{
+        if(product && product.availableColors && product.availableColors.length>0){
+            setSelectedColor({hasColors: true,color:''})
+        }
+        else
+            setSelectedColor({hasColors: false,color:''})
+
+
+        if(product && product.subcategory){
+            const run = async _=>{
+                const res = await getSubCategoriesNameByProduct(product.subcategory)
+                setSubCatsNames(res)
+            }
+            run()
+        }
+    },[product])
+
+    console.log(selectedColor)
 
     return (
         <div className='med-screen-padding'>
             <Row className="mt-2">
-                <div className="cat-text">{category && category.name} :</div>
+                <div className="cat-text">category : {category&& category.name}</div>
             </Row>
             <Row>
                 <Col md="8">
@@ -38,7 +60,8 @@ const ProductText = ({product}) => {
                     {
                         product?
                         product.availableColors.map((clr,i)=>
-                            <div key={i} className="color ms-2 border" style={{ backgroundColor: `${clr}` }}></div>)
+                            <div onClick={_=> setSelectedColor({hasColors: true,color: clr})} key={i} className="color ms-2"
+                                 style={{ backgroundColor: `${clr}`,border : `${selectedColor.color === clr ? `2px solid #000` : 'none' }`}}></div>)
                             :null
                     }
 
@@ -47,7 +70,31 @@ const ProductText = ({product}) => {
             </Row>
 
             <Row className="mt-4">
-                <div className="cat-text">specifications: </div>
+                {
+                    subCatsNames&& subCatsNames.length > 0 ?
+                        <div className="cat-text d-flex flex-column"><span>specifications: </span>
+                            <Col sm={6} >
+                                {
+                                    subCatsNames.map(sunCat => <div className={'px-1 d-inline-block mt-1'} style={{
+                                            backgroundColor: 'white',
+                                            color: 'black',
+                                            border: '2px solid #CCC',
+                                            borderRadius: '10px',
+                                            marginRight: "2px"
+                                        }}>{sunCat}</div>
+
+                                    )
+
+
+                                }
+                            </Col>
+
+                        </div>
+                        : null
+                }
+
+
+
             </Row>
             <Row className="mt-2">
                 <Col md="10">

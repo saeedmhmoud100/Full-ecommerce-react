@@ -33,3 +33,11 @@ export const getSubCategoryByCategory = (catID) => async dispatch => {
         })
     }
 }
+export const getSubCategoriesNameByProduct =async (catIDs)  => {    // catIDs == subCategories ids
+        const arr=[];
+        for (let i = 0; i < 1; i++) {
+            const res = await UseGetData(`/api/v1/subcategories/${catIDs[i]}`).then(r => r.data)
+                arr.push(res.name)
+        }
+        return arr
+}

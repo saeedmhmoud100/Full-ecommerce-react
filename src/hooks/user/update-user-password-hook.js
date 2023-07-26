@@ -31,7 +31,7 @@ const UpdateUserPasswordHook = () => {
         const run=async _ => {
 
             if(updateUserPasswordRes.token){
-                navigate('/')
+                navigate('/login')
                 setOldPassword('')
                 setNewPassword('')
                 setConfirmNewPassword('')

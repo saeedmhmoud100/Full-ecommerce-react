@@ -115,11 +115,7 @@ function UserProfile() {
 
                 <Row>
                     <Col xs="10" sm="8" md="6" className="d-flex justify-content-end ">
-                        {
-                            updatePasswordLoading ? (<LoadingSpinner></LoadingSpinner>)
-                                :
-                                <button className="btn-save d-inline mt-2 " onClick={handleUpdateSubmit}>update Password</button>
-                        }
+                        <button className={"btn-save d-inline mt-2 " + (updatePasswordLoading ? 'bg-light' : null)} onClick={handleUpdateSubmit}>{updatePasswordLoading ? <LoadingSpinner className={'m-3'}></LoadingSpinner>:'update Password'}</button>
 
                     </Col>
                 </Row>

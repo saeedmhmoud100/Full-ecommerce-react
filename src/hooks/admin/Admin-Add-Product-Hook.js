@@ -124,8 +124,8 @@ const AdminAddProductHook = _ =>{
             Notification('Main Category is required','warning')
         }else if(brandID==='' || brandID==='0'){
             Notification('Brand is required','warning')
-        }else if(selectedColors.length < 1){
-            Notification('Colors are required','warning')
+        // }else if(selectedColors.length < 1){
+            // Notification('Colors are required','warning')
         }else{
 
 
