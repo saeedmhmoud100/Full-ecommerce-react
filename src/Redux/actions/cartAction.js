@@ -1,7 +1,8 @@
-import {ADD_TO_CART,GET_ALL_USER_CART,CART_ERROR} from "../types";
+import {ADD_TO_CART,GET_ALL_USER_CART,CLEAR_ALL_USER_CART,CART_ERROR} from "../types";
 import {useInsertData} from "../../AxiosHooks/useInsertData";
 import {Notification} from "../../hooks/useNotification"
 import useGetData from "../../AxiosHooks/useGetData";
+import useDeleteData from "../../AxiosHooks/useDeleteData";
 
 const handeError = e =>{
     if(e.response && e.response.data && e.response.data.errors){
@@ -42,7 +43,24 @@ export const getAllUserCart = () => async dispatch => {
             payload:res,
         })
     }catch (e){
-        console.log(e)
+        handeError(e)
+        dispatch({
+            type:CART_ERROR,
+            payload:e
+        })
+    }
+}
+export const clearAllUserCart = () => async dispatch => {
+
+    try {
+        const res = await useDeleteData(`/api/v1/cart`)
+        if(res ==='')
+            Notification("your cart has been cleared")
+        dispatch({
+            type:CLEAR_ALL_USER_CART,
+            payload:res,
+        })
+    }catch (e){
         handeError(e)
         dispatch({
             type:CART_ERROR,

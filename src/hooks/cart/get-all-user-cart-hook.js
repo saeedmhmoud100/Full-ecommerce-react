@@ -1,5 +1,4 @@
 import {useEffect} from 'react'
-import '../../Assets/Style/Products.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {getAllUserCart} from "../../Redux/actions/cartAction";
 const GetAllUserCartHook = () => {

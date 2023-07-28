@@ -16,10 +16,10 @@ function CartPage(){
                     {
                         userCartData &&userCartData.status&& userCartData.status==='success' && userCartData.data.products.length>0?
                             userCartData.data.products.map((item,i) => <CartItem key={i} item={item} />)
-                            : <h4 className={'text-center mt-4'}>you haven't added any products to your cart yet</h4>
+                            : <h4 className={'text-center mt-4'}>there are no products in your cart yet</h4>
                     }
                 </Col>
-                <Col xs='12' md='3' className='d-flex justify-content-center align-self-sm-center align-self-md-start'>
+                <Col xs='12' md='3' className='d-flex justify-content-center align-self-sm-center align-self-md-start' style={{minHeight: '246px'}}>
                     <CartCheckout userCartData={userCartData}/>
                 </Col>
             </Row>
