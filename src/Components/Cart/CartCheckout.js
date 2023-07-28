@@ -2,7 +2,7 @@ import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-const CartCheckout = () => {
+const CartCheckout = ({userCartData}) => {
     return (
         <Row className="my-1 d-flex justify-content-center cart-checkout pt-3">
             <Col xs="12" className="d-flex  flex-column  ">
@@ -13,7 +13,7 @@ const CartCheckout = () => {
                     />
                     <button className="copon-btn d-inline ">Apply</button>
                 </div>
-                <div className="product-price d-inline w-100 my-3  border">34000$</div>
+                <div className="product-price d-inline w-100 my-3  border" style={{fontSize: '17px'}}>{userCartData&&userCartData.data&& userCartData.data.totalCartPrice}$</div>
                 <Link
                     to="/order/paymethoud"
                     style={{ textDecoration: "none" }}

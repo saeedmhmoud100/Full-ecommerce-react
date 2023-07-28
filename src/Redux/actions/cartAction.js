@@ -8,7 +8,7 @@ const handeError = e =>{
         e.response.data.errors.forEach(item =>{
             Notification(item.msg,'warning')
         })
-    }else if(e.response && e.response.data && e.response.data.message){
+    }else if(e.response && e.response.data && e.response.data.message && !e.response.data.message.startsWith('No cart exist for this user')){
         Notification(e.response.data.message,'warning')
     }
 }
@@ -42,6 +42,7 @@ export const getAllUserCart = () => async dispatch => {
             payload:res,
         })
     }catch (e){
+        console.log(e)
         handeError(e)
         dispatch({
             type:CART_ERROR,
