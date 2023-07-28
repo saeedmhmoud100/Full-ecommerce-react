@@ -78,6 +78,7 @@ export let USER_DATA_ERROR='USER_DATA_ERROR';
 // Cart types
 export let ADD_TO_CART='ADD_TO_CART';
 export let CART_ERROR='CART_ERROR';
+export let GET_ALL_USER_CART='GET_ALL_USER_CART';
 
 
 

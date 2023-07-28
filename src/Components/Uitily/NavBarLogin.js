@@ -6,8 +6,10 @@ import cart from '../../Assets/images/cart.png'
 import '../../Assets/Style/NavBarLogin.scss'
 import {Link} from "react-router-dom";
 import NavbarSearchHook from "../../hooks/search/Navbar-Search-Hook";
+import GetAllUserCartHook from "../../hooks/cart/get-all-user-cart-hook";
 const NavBarLogin = () => {
     const [onChangeSearch,logout,isLogged,userData] = NavbarSearchHook();
+    const [userCartData] = GetAllUserCartHook();
     return (
         <Navbar className="sticky-top text-center" bg="dark" variant="dark" expand="sm">
             <Container>
@@ -56,7 +58,9 @@ const NavBarLogin = () => {
 
                                 <p style={{ color: "white" }} className={' position-relative'}>Cart
                                 <span className="position-absolute translate-middle badge rounded-pill bg-danger" style={{top:'-12%',right:'-56px'}}>
-                                0
+                                {
+                                    (userCartData && userCartData.status && userCartData.status === "success") ? userCartData.numOfCartItems : 0
+                                }
                               </span></p>
                                 <img src={cart} className="login-img " alt="sfvs" />
 
