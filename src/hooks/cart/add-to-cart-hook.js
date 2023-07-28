@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import '../../Assets/Style/Products.scss'
 import {useDispatch} from "react-redux";
 import {addToCart} from "../../Redux/actions/cartAction";
-
+import {Notification} from "../useNotification";
 const AddToCartHook = (product) => {
     const dispatch = useDispatch()
     const [selectedColor,setSelectedColor] = useState({hasColors:false,color:''})
@@ -18,13 +18,18 @@ const AddToCartHook = (product) => {
     },[product])
 
     const handleAddToCartClick =async _=>{
-
         setAddToCartLoading(true)
-        await dispatch(addToCart({
-            productId:product._id,
-            color:selectedColor.color,
-        }))
+        if(selectedColor.hasColors && !selectedColor.color)
+            Notification('please select a color','warning')
+        else{
+            await dispatch(addToCart({
+                productId:product._id,
+                color:selectedColor.color,
+            }))
+        }
+
         setAddToCartLoading(false)
+
     }
 
     return [selectedColor,addToCartLoading,setSelectedColor,handleAddToCartClick]
