@@ -54,8 +54,13 @@ const NavBarLogin = () => {
                         <Link to={'/cart'} style={{textDecoration:'none'}} className='nav-text d-flex pb-2 justify-content-center nav_icon_container nav-link'>
                         {/*<Nav.Link href='/cart' className="nav-text d-flex pb-2 justify-content-center nav_icon_container" style={{ color: "white" }}>*/}
 
-                            <p style={{ color: "white" }}>Cart</p>
-                            <img src={cart} className="login-img " alt="sfvs" />
+                                <p style={{ color: "white" }} className={' position-relative'}>Cart
+                                <span className="position-absolute translate-middle badge rounded-pill bg-danger" style={{top:'-12%',right:'-56px'}}>
+                                0
+                              </span></p>
+                                <img src={cart} className="login-img " alt="sfvs" />
+
+
 
                         {/*</Nav.Link>*/}
                         </Link>

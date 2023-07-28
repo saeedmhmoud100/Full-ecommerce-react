@@ -61,13 +61,13 @@ export const DELETE_COUPONS = 'DELETE_COUPONS'
 export const UPDATE_COUPONS = 'UPDATE_COUPONS'
 
 
+// User Address types
 export let CREATE_ADDRESS='CREATE_ADDRESS';
 export let ADDRESS_ERROR='ADDRESS_ERROR';
 export let GET_ALL_ADDRESS='GET_ALL_ADDRESS';
 export let DELETE_ADDRESS='DELETE_ADDRESS';
 export let UPDATE_ADDRESS='UPDATE_ADDRESS';
 export let GET_SPECIFIC_ADDRESS='GET_SPECIFIC_ADDRESS';
-// User Address types
 
 
 // User Data types
@@ -75,6 +75,9 @@ export let UPDATE_USER_DATA='UPDATE_USER_DATA';
 export let UPDATE_USER_PASSWORD='UPDATE_USER_PASSWORD';
 export let USER_DATA_ERROR='USER_DATA_ERROR';
 
+// Cart types
+export let ADD_TO_CART='ADD_TO_CART';
+export let CART_ERROR='CART_ERROR';
 
 
 

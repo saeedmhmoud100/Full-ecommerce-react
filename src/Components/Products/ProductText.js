@@ -1,36 +1,12 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import { Row,Col } from 'react-bootstrap'
 import '../../Assets/Style/Products.scss'
-import {useSelector} from "react-redux";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
-import {getSubCategoriesNameByProduct} from "../../Redux/actions/subCategoryAction";
+import ProductTextHook from "../../hooks/product/product-text-hook";
+import AddToCartHook from "../../hooks/cart/add-to-cart-hook";
 const ProductText = ({product}) => {
-
-    const category = useSelector(state => state.allCategory.oneCategory ? state.allCategory.oneCategory.data:[])
-    const brand = useSelector(state => state.allBrand.brand)
-
-    const [selectedColor,setSelectedColor] = useState({hasColors:false,color:''})
-    const [subCatsNames,setSubCatsNames] = useState([])
-
-    useEffect(_=>{
-        if(product && product.availableColors && product.availableColors.length>0){
-            setSelectedColor({hasColors: true,color:''})
-        }
-        else
-            setSelectedColor({hasColors: false,color:''})
-
-
-        if(product && product.subcategory){
-            const run = async _=>{
-                const res = await getSubCategoriesNameByProduct(product.subcategory)
-                setSubCatsNames(res)
-            }
-            run()
-        }
-    },[product])
-
-    console.log(selectedColor)
-
+    const [category,brand,subCatsNames] = ProductTextHook(product)
+    const [selectedColor,addToCartLoading,setSelectedColor,handleAddToCartClick] = AddToCartHook(product)
     return (
         <div className='med-screen-padding'>
             <Row className="mt-2">
@@ -104,9 +80,10 @@ const ProductText = ({product}) => {
                 </Col>
             </Row>
             <Row className="mt-4">
-                <Col md="12">
-                    <div className="product-price d-inline px-3 py-3 border">{product ? product.price : <LoadingSpinner className={"d-flex justify-content-center align-items-center"}></LoadingSpinner>}$</div>
-                    <div className="product-cart-add px-3 py-3 d-inline mx-3">Add to cart</div>
+                <Col md="12" className={'d-flex align-items-center justify-content-start text-center'}>
+                    <div className="product-price d-inline px-3 py-3 border" style={{fontSize:'17px',paddingTop: '1.2%!important'}}>{product ? product.price : <LoadingSpinner className={"d-flex justify-content-center align-items-center"}></LoadingSpinner>}$</div>
+
+                    <div onClick={handleAddToCartClick} className={`product-cart-add px-3 py-3 d-inline-flex mx-3 justify-content-center align-items-center ${addToCartLoading ? 'bg-light pt-2' : null}`}>{addToCartLoading ? <LoadingSpinner className={'m-auto'}  /> :'Add to cart'}</div>
                 </Col>
             </Row>
         </div>
