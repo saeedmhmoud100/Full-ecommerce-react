@@ -20,3 +20,22 @@
   }
 
 
+.price-before-discount{
+  position: absolute;
+  top: 1px;
+  left: 94px;
+  font-size: 14px;
+  transform: rotateZ(-27deg);
+  color: red;
+  font-style: italic;
+  text-decoration: line-through;
+  letter-spacing: 1px;
+}
+
+.applied-coupon-text{
+  margin-bottom: -9px;
+  font-size: 11px;
+  margin-left: 3px;
+  margin-top: 3px;
+  color: red;
+}

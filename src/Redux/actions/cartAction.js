@@ -1,4 +1,4 @@
-import {ADD_TO_CART,GET_ALL_USER_CART,CLEAR_ALL_USER_CART,DELETE_ITEM_FROM_CART,UPDATE_CART_ITEM,CART_ERROR} from "../types";
+import {ADD_TO_CART,GET_ALL_USER_CART,CLEAR_ALL_USER_CART,DELETE_ITEM_FROM_CART,UPDATE_CART_ITEM,APPLY_COUPON,CART_ERROR} from "../types";
 import {useInsertData} from "../../AxiosHooks/useInsertData";
 import {Notification} from "../../hooks/useNotification"
 import useGetData from "../../AxiosHooks/useGetData";
@@ -96,7 +96,24 @@ export const updateCartItem = (ID,data) => async dispatch => {
             payload:res,
         })
     }catch (e){
-        console.log(e)
+        handeError(e)
+        dispatch({
+            type:CART_ERROR,
+            payload:e
+        })
+    }
+}
+
+export const applyCoupon = (data) => async dispatch => {
+
+    try {
+        const res = await useUpdateData(`/api/v1/cart/applyCoupon`,data)
+        Notification("the Coupon applied successfully")
+        dispatch({
+            type:APPLY_COUPON,
+            payload:res,
+        })
+    }catch (e){
         handeError(e)
         dispatch({
             type:CART_ERROR,

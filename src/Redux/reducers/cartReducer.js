@@ -4,7 +4,8 @@ import {
     CLEAR_ALL_USER_CART,
     DELETE_ITEM_FROM_CART,
     GET_ALL_USER_CART,
-    UPDATE_CART_ITEM
+    UPDATE_CART_ITEM,
+    APPLY_COUPON
 } from "../types";
 
 
@@ -14,6 +15,7 @@ const inital={
     clearAllUserCart:[],
     deleteItemFromCart:[],
     updateCartItem:[],
+    applyCoupon:[],
     error:[],
     change:false,
 }
@@ -43,6 +45,14 @@ const cartReducer = (state=inital,action) => {
                 updateCartItem: action.payload,
                 change: !state.change,
             }
+        case APPLY_COUPON:
+            // if(action.payload.status==='success')
+            return {
+                ...state,
+                applyCoupon: action.payload,
+                // getAllUserCart: action.payload.status==='success' ? action.payload.data : state.getAllUserCart,
+                change: !state.change,
+            }
         case DELETE_ITEM_FROM_CART:
             return {
                 ...state,
@@ -51,6 +61,7 @@ const cartReducer = (state=inital,action) => {
             }
         case CART_ERROR:
             return {
+                ...state,
                 error: action.payload
             }
         default:
