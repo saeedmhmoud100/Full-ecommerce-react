@@ -6,7 +6,6 @@ import LoadingSpinner from "../Uitily/LoadingSpinner";
 
 const CartCheckout = ({userCartData}) => {
     const [deleteLoading,handleDeleteCartClick] = ClearCartHook()
-    console.log(userCartData)
     return (
         <Row className="my-1 d-flex justify-content-center cart-checkout pt-3">
             <Col xs="12" className="d-flex  flex-column  ">

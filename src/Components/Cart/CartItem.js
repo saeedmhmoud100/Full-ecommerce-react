@@ -4,7 +4,10 @@ import deleteicon from '../../Assets/images/delete.png'
 import rateImage from '../../Assets/images/rate.png'
 import baseURL from "../../Api/baseURL";
 import '../../Assets/Style/cart.scss'
+import DeleteOneCartItem from "../../hooks/cart/delete-one-cart-hook";
+import LoadingSpinner from "../Uitily/LoadingSpinner";
 const CartItem = ({item}) => {
+    const [deleteLoading,handleDeleteCartClick] = DeleteOneCartItem(item)
     return (
         // <Col xs="12" className="cart-item-body my-2 d-flex px-2 flex-sm-row flex-column" style={window.outerWidth <567 ? {height: '337px',border:'1px solid black',padding:'10px 20px',width:'max-content',margin:'auto',minWidth:'65%'}: {}}>
         <Col xs="12" className="cart-item-body my-2 d-flex px-2 flex-sm-row flex-column cart-item-sm" >
@@ -13,9 +16,16 @@ const CartItem = ({item}) => {
                 <Row className="justify-content-between">
                     <Col sm="12" className=" d-flex flex-row justify-content-between">
                         <div className="d-inline pt-2 cat-text">{item.product.category.name || ''}</div>
-                        <div className="d-flex pt-2 align-items-center" style={{ cursor: "pointer" }}>
-                            <div className="cat-text d-inline me-2">Delete</div>
-                            <img src={deleteicon} alt="" width="20px" height="24px" />
+                        <div className="d-flex pt-2 align-items-center" style={{ cursor: "pointer" }} onClick={handleDeleteCartClick}>
+                            {
+                                deleteLoading ? <LoadingSpinner></LoadingSpinner>
+                                    :<>
+                                        <div className="cat-text d-inline me-2">Delete</div>
+                                        <img src={deleteicon} alt="" width="20px" height="24px" />
+                                    </>
+
+                            }
+
                         </div>
                     </Col>
                 </Row>
