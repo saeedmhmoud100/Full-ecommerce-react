@@ -1,8 +1,9 @@
-import {ADD_TO_CART,GET_ALL_USER_CART,CLEAR_ALL_USER_CART,DELETE_ITEM_FROM_CART,CART_ERROR} from "../types";
+import {ADD_TO_CART,GET_ALL_USER_CART,CLEAR_ALL_USER_CART,DELETE_ITEM_FROM_CART,UPDATE_CART_ITEM,CART_ERROR} from "../types";
 import {useInsertData} from "../../AxiosHooks/useInsertData";
 import {Notification} from "../../hooks/useNotification"
 import useGetData from "../../AxiosHooks/useGetData";
 import useDeleteData from "../../AxiosHooks/useDeleteData";
+import {useUpdateData} from "../../AxiosHooks/useUpdateData";
 
 const handeError = e =>{
     if(e.response && e.response.data && e.response.data.errors){
@@ -77,6 +78,25 @@ export const deleteItemFromCart = (ID) => async dispatch => {
             payload:res,
         })
     }catch (e){
+        handeError(e)
+        dispatch({
+            type:CART_ERROR,
+            payload:e
+        })
+    }
+}
+export const updateCartItem = (ID,data) => async dispatch => {
+
+    try {
+        const res = await useUpdateData(`/api/v1/cart/${ID}`,data)
+        if(res.status && res.status==="success")
+            Notification("the count has been updated")
+        dispatch({
+            type:UPDATE_CART_ITEM,
+            payload:res,
+        })
+    }catch (e){
+        console.log(e)
         handeError(e)
         dispatch({
             type:CART_ERROR,

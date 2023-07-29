@@ -1,4 +1,11 @@
-import {ADD_TO_CART, CART_ERROR, CLEAR_ALL_USER_CART, DELETE_ITEM_FROM_CART, GET_ALL_USER_CART} from "../types";
+import {
+    ADD_TO_CART,
+    CART_ERROR,
+    CLEAR_ALL_USER_CART,
+    DELETE_ITEM_FROM_CART,
+    GET_ALL_USER_CART,
+    UPDATE_CART_ITEM
+} from "../types";
 
 
 const inital={
@@ -6,6 +13,7 @@ const inital={
     getAllUserCart:[],
     clearAllUserCart:[],
     deleteItemFromCart:[],
+    updateCartItem:[],
     error:[],
     change:false,
 }
@@ -27,6 +35,12 @@ const cartReducer = (state=inital,action) => {
             return {
                 ...state,
                 clearAllUserCart: action.payload,
+                change: !state.change,
+            }
+        case UPDATE_CART_ITEM:
+            return {
+                ...state,
+                updateCartItem: action.payload,
                 change: !state.change,
             }
         case DELETE_ITEM_FROM_CART:

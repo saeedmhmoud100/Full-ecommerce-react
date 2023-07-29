@@ -1,7 +1,7 @@
 import {useDispatch} from "react-redux";
 import {deleteItemFromCart} from "../../Redux/actions/cartAction";
 import {useState} from "react";
-const DeleteOneCartItem = (item) => {
+const DeleteOneCartItemHook = (item) => {
     const dispatch = useDispatch()
     const [deleteLoading,setDeleteLoading] = useState(false)
 
@@ -14,4 +14,4 @@ const DeleteOneCartItem = (item) => {
     return [deleteLoading,handleDeleteCartClick]
 }
 
-export default DeleteOneCartItem
+export default DeleteOneCartItemHook
