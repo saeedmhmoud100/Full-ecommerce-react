@@ -1,6 +1,7 @@
 import {GET_ALL_CATEGORY, GET_CATEGORY_ERROR,CREATE_CATEGORY,GET_ONE_CATEGORY} from "../types";
 import {useInsertDataWithImage} from "../../AxiosHooks/useInsertData";
 import useGetData from "../../AxiosHooks/useGetData";
+import handeError from "./handeError";
 
 export const getAllCategory = (limit,page=1) => async dispatch => {
     try {
@@ -10,6 +11,7 @@ export const getAllCategory = (limit,page=1) => async dispatch => {
             payload:res
         })
     }catch (e){
+        handeError(e)
         dispatch({
             type:GET_CATEGORY_ERROR,
             payload:e

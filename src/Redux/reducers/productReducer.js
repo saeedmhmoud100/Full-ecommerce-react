@@ -61,12 +61,12 @@ const productReducer = (state=inital,action) => {
                 loading: false,
             }
         case GET_PRODUCT_ERROR:
-            if(action && action.payload.response.data.errors){
-                action.payload.response.data.errors.forEach(e =>{
-                    Notification(e.msg,'error')
-                })
-            }else
-                Notification(action.payload.response.data.message,'error')
+            // if(action && action.payload.response.data.errors){
+            //     action.payload.response.data.errors.forEach(e =>{
+            //         Notification(e.msg,'error')
+            //     })
+            // }else
+            //     Notification(action.payload.response.data.message,'error')
             return {
                 ...state,
                 loading: true,

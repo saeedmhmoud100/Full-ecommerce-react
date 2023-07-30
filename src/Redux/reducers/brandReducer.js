@@ -30,7 +30,6 @@ const brandReducer = (state=inital,action) => {
             }
         case GET_BRAND_ERROR:
             // Notification('Enter a valid data','error')
-            Notification(action.payload.response.data.message,'error')
             return {
                 loading: true,
                 brands: action.payload

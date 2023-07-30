@@ -1,6 +1,7 @@
 import {GET_BRAND_ERROR, CREATE_BRAND, GET_ALL_BRAND,GET_ONE_BRAND} from "../types";
 import {useInsertDataWithImage} from "../../AxiosHooks/useInsertData";
 import useGetData from "../../AxiosHooks/useGetData";
+import handeError from "./handeError";
 
 export const getAllBrand = (limit,page=1) => async dispatch => {
     try {
@@ -10,6 +11,7 @@ export const getAllBrand = (limit,page=1) => async dispatch => {
             payload:res
         })
     }catch (e){
+        handeError(e)
         dispatch({
             type:GET_BRAND_ERROR,
             payload:e
