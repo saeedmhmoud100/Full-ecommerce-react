@@ -3,18 +3,9 @@ import {useInsertDataWithImage} from "../../AxiosHooks/useInsertData";
 import useGetData from "../../AxiosHooks/useGetData";
 import useDeleteData from "../../AxiosHooks/useDeleteData";
 import {useUpdateDataWithImage} from "../../AxiosHooks/useUpdateData";
-import {Notification} from "../../hooks/useNotification";
+import handeError from "./handeError";
 
 
-const handeError = e =>{
-    if(e.response && e.response.data && e.response.data.errors){
-        e.response.data.errors.forEach(item =>{
-            Notification(item.msg,'warning')
-        })
-    }else if(e.response && e.response.data && e.response.data.message){
-        Notification(e.response.data.message,'warning')
-    }
-}
 
 export const createProduct = (formData) => async dispatch => {
     try {

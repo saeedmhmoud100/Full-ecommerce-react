@@ -33,7 +33,8 @@ const authReducer = (state=inital,action) => {
             return {
                 ...state,
                 loginUser: action.payload,
-                getUserData:action.payload
+                getUserData:action.payload,
+                change:true
             }
             case GET_USER_DATA:
             return {
@@ -45,7 +46,8 @@ const authReducer = (state=inital,action) => {
                 ...state,
                 loginUser: [],
                 getUserData: {data: {name: 'anonymous'}},
-                updatePassword:[]
+                updatePassword:[],
+                change:false
             }
             case FORGET_PASSWORD:
             return {

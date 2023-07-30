@@ -4,16 +4,7 @@ import {Notification} from "../../hooks/useNotification";
 import useGetData from "../../AxiosHooks/useGetData";
 import useDeleteData from "../../AxiosHooks/useDeleteData";
 import {useUpdateData} from "../../AxiosHooks/useUpdateData";
-
-const handeError = e =>{
-    if(e.response && e.response.data && e.response.data.errors){
-        e.response.data.errors.forEach(item =>{
-            Notification(item.msg,'warning')
-        })
-    }else if(e.response && e.response.data && e.response.data.message){
-        Notification(e.response.data.message,'warning')
-    }
-}
+import handeError from "./handeError";
 
 
 export const createCoupon = (data) => async dispatch => {

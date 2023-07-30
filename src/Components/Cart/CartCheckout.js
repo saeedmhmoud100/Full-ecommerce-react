@@ -26,7 +26,7 @@ const CartCheckout = ({userCartData}) => {
                     }
                     </div>
                     {
-                        userCartData && userCartData.data.coupon ? <span className={'applied-coupon-text'}>the { "'"+userCartData.data.coupon + "'"} coupon has been applied</span>
+                        userCartData &&userCartData.data&& userCartData.data.coupon ? <span className={'applied-coupon-text'}>the { "'"+userCartData.data.coupon + "'"} coupon has been applied</span>
                             : null
                     }
 

@@ -4,19 +4,8 @@ import useGetData from "../../AxiosHooks/useGetData";
 import {Notification} from "../../hooks/useNotification";
 import useDeleteData from "../../AxiosHooks/useDeleteData";
 import {useUpdateData} from "../../AxiosHooks/useUpdateData";
+import handeError from "./handeError";
 
-
-
-
-const handeError = e =>{
-    if(e.response && e.response.data && e.response.data.errors){
-        e.response.data.errors.forEach(item =>{
-            Notification(item.msg,'warning')
-        })
-    }else if(e.response && e.response.data && e.response.data.message){
-        Notification(e.response.data.message,'warning')
-    }
-}
 
 export const createReview = (prodID,data) => async dispatch => {
     try {
@@ -54,7 +43,6 @@ export const DeleteReview =  async (reviewID) => {
     try {
         const res = await useDeleteData(`/api/v1/reviews/${reviewID}`)
         Notification('the review deleted successfully',"success")
-
     }catch (e){
         handeError(e)
     }

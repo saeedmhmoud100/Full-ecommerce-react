@@ -1,20 +1,10 @@
-import {ADD_TO_CART,GET_ALL_USER_CART,CLEAR_ALL_USER_CART,DELETE_ITEM_FROM_CART,UPDATE_CART_ITEM,APPLY_COUPON,CART_ERROR} from "../types";
+import {ADD_TO_CART,GET_ALL_USER_CART,CLEAR_ALL_USER_CART,DELETE_ITEM_FROM_CART,UPDATE_CART_ITEM,APPLY_COUPON,LOGOUT_USER_CART,CART_ERROR} from "../types";
 import {useInsertData} from "../../AxiosHooks/useInsertData";
 import {Notification} from "../../hooks/useNotification"
 import useGetData from "../../AxiosHooks/useGetData";
 import useDeleteData from "../../AxiosHooks/useDeleteData";
 import {useUpdateData} from "../../AxiosHooks/useUpdateData";
-
-const handeError = e =>{
-    if(e.response && e.response.data && e.response.data.errors){
-        e.response.data.errors.forEach(item =>{
-            Notification(item.msg,'warning')
-        })
-    }else if(e.response && e.response.data && e.response.data.message && !e.response.data.message.startsWith('No cart exist for this user')){
-        Notification(e.response.data.message,'warning')
-    }
-}
-
+import handeError from "./handeError";
 
 export const addToCart = (data) => async dispatch => {
 
@@ -89,8 +79,8 @@ export const updateCartItem = (ID,data) => async dispatch => {
 
     try {
         const res = await useUpdateData(`/api/v1/cart/${ID}`,data)
-        if(res.status && res.status==="success")
-            Notification("the count has been updated")
+        // if(res.status && res.status==="success")
+        //     Notification("the count has been updated")
         dispatch({
             type:UPDATE_CART_ITEM,
             payload:res,
@@ -112,6 +102,22 @@ export const applyCoupon = (data) => async dispatch => {
         dispatch({
             type:APPLY_COUPON,
             payload:res,
+        })
+    }catch (e){
+        handeError(e)
+        dispatch({
+            type:CART_ERROR,
+            payload:e
+        })
+    }
+}
+
+
+export const logoutUserCart = () => async dispatch => {
+
+    try {
+        dispatch({
+            type:LOGOUT_USER_CART,
         })
     }catch (e){
         handeError(e)

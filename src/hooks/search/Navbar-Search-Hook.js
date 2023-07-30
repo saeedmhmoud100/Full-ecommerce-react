@@ -3,6 +3,7 @@ import ShopProductsPageHook from "../product/Shop-Products-Page-Hook";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getUserData, logoutUser} from "../../Redux/actions/authAction";
+import {logoutUserCart} from "../../Redux/actions/cartAction";
 
 const NavbarSearchHook = _=>{
     const [,,,getProduct] = ShopProductsPageHook()
@@ -61,6 +62,8 @@ const NavbarSearchHook = _=>{
     // logout
     const logout =_=>{
         dispatch(logoutUser())
+        dispatch(logoutUserCart())
+
         localStorage.removeItem('token')
         navigate('/')
     }

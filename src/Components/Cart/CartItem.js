@@ -65,14 +65,15 @@ const CartItem = ({item}) => {
                                 type="number"
                                 style={{ width: "60px", height: "40px" }}
                                 value={cartItemCount}
-                                onChange={e => setCartItemCount(e.target.value)}
+                                // onChange={e => setCartItemCount(e.target.value)}
+                                onChange={e => handleOnChangeCount(e.target.value)}
                                 min={1}
                             />
-                            {
-                                updateLoading ? <LoadingSpinner className={'mx-3'}></LoadingSpinner>
-                                :
-                                    <button className={'btn btn-dark'} onClick={handleOnChangeCount}>Update</button>
-                            }
+                            {/*{*/}
+                            {/*    updateLoading ? <LoadingSpinner className={'mx-3'}></LoadingSpinner>*/}
+                            {/*    :*/}
+                            {/*        <button className={'btn btn-dark'} onClick={handleOnChangeCount}>Update</button>*/}
+                            {/*}*/}
                         </div>
                         <div className="d-inline-flex align-items-center justify-content-center pt-2 barnd-text"><span>{item.price ? `${item.count +' x ' + item.price + ' = ' + item.count*item.price}` : 0}$</span></div>
                     </Col>

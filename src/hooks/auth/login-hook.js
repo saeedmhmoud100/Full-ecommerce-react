@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {Notification} from "../useNotification";
 import {loginUser} from "../../Redux/actions/authAction";
+import {getAllUserCart} from "../../Redux/actions/cartAction";
 
 const LoginHook = _=>{
     const dispatch= useDispatch()
@@ -44,6 +45,7 @@ const LoginHook = _=>{
         if (!loading && user.token && loggedin){
             // Notification(`welcome back ${user.data.name}`,'success')
             localStorage.setItem('token',user.token)
+            dispatch(getAllUserCart())
             navigate('/user/profile')
             setLoggedin(false)
 

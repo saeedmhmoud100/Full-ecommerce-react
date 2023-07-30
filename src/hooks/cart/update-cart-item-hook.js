@@ -6,9 +6,10 @@ const UpdateCartItemHook = (item) => {
     const [cartItemCount,setCartItemCount] = useState(item.count)
     const [updateLoading,setUpdateLoading] = useState(false)
 
-    const handleOnChangeCount =async _=>{
+    const handleOnChangeCount =async count=>{
         setUpdateLoading(true)
-        await dispatch(updateCartItem(item._id,{'count':cartItemCount}))
+        setCartItemCount(count)
+        await dispatch(updateCartItem(item._id,{'count':count}))
         setUpdateLoading(false)
     }
 

@@ -5,7 +5,7 @@ import {
     DELETE_ITEM_FROM_CART,
     GET_ALL_USER_CART,
     UPDATE_CART_ITEM,
-    APPLY_COUPON
+    APPLY_COUPON, LOGOUT_USER_CART
 } from "../types";
 
 
@@ -37,6 +37,7 @@ const cartReducer = (state=inital,action) => {
             return {
                 ...state,
                 clearAllUserCart: action.payload,
+                getAllUserCart:[],
                 change: !state.change,
             }
         case UPDATE_CART_ITEM:
@@ -58,6 +59,10 @@ const cartReducer = (state=inital,action) => {
                 ...state,
                 deleteItemFromCart: action.payload,
                 change: !state.change,
+            }
+        case LOGOUT_USER_CART:
+            return {
+                ...inital
             }
         case CART_ERROR:
             return {
