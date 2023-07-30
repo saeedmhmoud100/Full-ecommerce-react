@@ -67,7 +67,9 @@ const cartReducer = (state=inital,action) => {
         case CART_ERROR:
             return {
                 ...state,
-                error: action.payload
+                error: action.payload,
+                applyCoupon:[],
+
             }
         default:
             return state

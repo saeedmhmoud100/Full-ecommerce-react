@@ -5,7 +5,7 @@ const ApplyCouponHook = () => {
     const dispatch = useDispatch()
     const [loading,setLoading] = useState(false)
     const [couponName,setCouponName] = useState('')
-
+    // const appliedCoupon = useSelector(state => state.cart.applyCoupon)
 
     const handleApplyCouponClick =async _=>{
         setLoading(true)
@@ -16,6 +16,12 @@ const ApplyCouponHook = () => {
         setLoading(false)
         setCouponName('')
     }
+
+    // useEffect(_=>{
+    //     // if(appliedCoupon === [])
+    //     //     dispatch(getAllUserCart())
+    //
+    // },[appliedCoupon])
 
     return [couponName,loading,handleApplyCouponClick,setCouponName]
 }

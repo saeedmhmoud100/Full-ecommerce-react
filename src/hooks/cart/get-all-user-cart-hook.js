@@ -5,11 +5,11 @@ const GetAllUserCartHook = () => {
     const dispatch = useDispatch()
     const cartChange = useSelector(state => state.cart.change)
     const userCartData = useSelector(state => state.cart.getAllUserCart)
-
+    const appliedCoupon = useSelector(state => state.cart.applyCoupon)
 
     useEffect(_=>{
         dispatch(getAllUserCart())
-    },[cartChange])
+    },[cartChange,appliedCoupon])
 
 
 

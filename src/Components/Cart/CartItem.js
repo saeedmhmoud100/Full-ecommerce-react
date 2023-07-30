@@ -75,7 +75,7 @@ const CartItem = ({item}) => {
                             {/*        <button className={'btn btn-dark'} onClick={handleOnChangeCount}>Update</button>*/}
                             {/*}*/}
                         </div>
-                        <div className="d-inline-flex align-items-center justify-content-center pt-2 barnd-text"><span>{item.price ? `${item.count +' x ' + item.price + ' = ' + item.count*item.price}` : 0}$</span></div>
+                        <div className="d-inline-flex align-items-center justify-content-center pt-2 barnd-text"><span>{item.price ? `${item.count +' x ' + item.price+'$' + ' = ' + item.count*item.price}` : 0}$</span></div>
                     </Col>
                 </Row>
             </div>
