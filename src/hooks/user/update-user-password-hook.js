@@ -27,7 +27,6 @@ const UpdateUserPasswordHook = () => {
 
 
     useEffect(_=>{
-        console.log(updateUserPasswordRes)
         const run=async _ => {
 
             if(updateUserPasswordRes.token){

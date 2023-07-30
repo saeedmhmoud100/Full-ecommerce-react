@@ -5,7 +5,6 @@ const ClearCartHook = () => {
     const dispatch = useDispatch()
     const [deleteLoading,setDeleteLoading] = useState(false)
 
-
     const handleDeleteCartClick =async _=>{
         setDeleteLoading(true)
         await dispatch(clearAllUserCart())

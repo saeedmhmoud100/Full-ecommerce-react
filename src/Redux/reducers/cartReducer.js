@@ -62,7 +62,10 @@ const cartReducer = (state=inital,action) => {
             }
         case LOGOUT_USER_CART:
             return {
-                ...inital
+                addToCart:[],
+                getAllUserCart:[],
+                error:[],
+                change:!state.change,
             }
         case CART_ERROR:
             return {

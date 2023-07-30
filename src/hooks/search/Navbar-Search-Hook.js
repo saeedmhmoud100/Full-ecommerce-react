@@ -3,7 +3,7 @@ import ShopProductsPageHook from "../product/Shop-Products-Page-Hook";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getUserData, logoutUser} from "../../Redux/actions/authAction";
-import {logoutUserCart} from "../../Redux/actions/cartAction";
+import {getAllUserCart, logoutUserCart} from "../../Redux/actions/cartAction";
 
 const NavbarSearchHook = _=>{
     const [,,,getProduct] = ShopProductsPageHook()
@@ -44,6 +44,8 @@ const NavbarSearchHook = _=>{
     useEffect(_=>{
         if(localStorage.getItem('token')){
             dispatch(getUserData(localStorage.getItem('token')))
+            dispatch(getAllUserCart())
+
         }
     },[userDataChange])
 

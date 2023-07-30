@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import '../../Assets/Style/Products.scss'
-import {useDispatch} from "react-redux";
-import {addToCart} from "../../Redux/actions/cartAction";
+import {useDispatch, useSelector} from "react-redux";
+import {addToCart, getAllUserCart} from "../../Redux/actions/cartAction";
 import {Notification} from "../useNotification";
 const AddToCartHook = (product) => {
     const dispatch = useDispatch()
@@ -27,10 +27,15 @@ const AddToCartHook = (product) => {
                 color:selectedColor.color,
             }))
         }
-
         setAddToCartLoading(false)
-
     }
+
+    const addToCartRes = useSelector(state => state.cart.addToCart)
+
+    useEffect(_=>{
+        dispatch(getAllUserCart())
+    },[addToCartRes])
+
 
     return [selectedColor,addToCartLoading,setSelectedColor,handleAddToCartClick]
 }
