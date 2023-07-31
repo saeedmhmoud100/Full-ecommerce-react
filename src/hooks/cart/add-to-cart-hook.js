@@ -32,7 +32,10 @@ const AddToCartHook = (product) => {
 
     const addToCartRes = useSelector(state => state.cart.addToCart)
 
+
+    const user= useSelector(state => state.auth.getUserData)
     useEffect(_=>{
+    if(user &&user.data && user.data.role === 'user')
         dispatch(getAllUserCart())
     },[addToCartRes])
 
