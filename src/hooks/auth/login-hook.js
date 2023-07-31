@@ -45,8 +45,9 @@ const LoginHook = _=>{
         if (!loading && user.token && loggedin){
             // Notification(`welcome back ${user.data.name}`,'success')
             localStorage.setItem('token',user.token)
-            dispatch(getAllUserCart())
-            navigate('/user/profile')
+            if(user.data.role === 'user')
+                dispatch(getAllUserCart())
+            navigate(`/${user.data ? user.data.role : 'user'}/profile`)
             setLoggedin(false)
 
         }

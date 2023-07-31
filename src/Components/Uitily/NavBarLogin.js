@@ -32,7 +32,7 @@ const NavBarLogin = () => {
                         {isLogged ?
                             (<NavDropdown title={'welcome '+userData.name} id="basic-nav-dropdown">
 
-                                <NavDropdown.Item as={Link} to={'user/profile'}  >Profile</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to={`${userData.role}/profile`}  >Profile</NavDropdown.Item>
                                 {
                                     userData.role === 'admin' ?
                                         <NavDropdown.Item as={Link} to={'admin/allproducts'}  >control panel</NavDropdown.Item>

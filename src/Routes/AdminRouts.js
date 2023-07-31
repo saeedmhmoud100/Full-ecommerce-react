@@ -8,11 +8,13 @@ import AdminAddSubCategoryPage from "../Pages/Admin/AdminAddSubCategoryPage";
 import AdminAddProductPage from "../Pages/Admin/AdminAddProductPage";
 import AdminUpdateProductPage from "../Pages/Admin/AdminUpdateProductPage";
 import AdminCouponsPage from "../Pages/Admin/AdminCouponsPage";
+import AdminProfilePage from "../Pages/Admin/AdminProfilePage";
 
 const AdminRoutes = ({isAdmin}) => { // URL is: admin/*
     return(
         isAdmin ?
             <Routes>
+                <Route path={'profile'} element={<AdminProfilePage />} />
                 <Route path={'allProducts'} element={<AdminAllProductsPages/>}/>
                 <Route path={'addproduct'} element={<AdminAddProductPage/>}/>
                 <Route path={'updateproduct/:id'} element={<AdminUpdateProductPage/>}/>

@@ -10,6 +10,7 @@ const AdminSideBar = () => {
         {title:'Add a Category',url:'/admin/addcategory',},
         {title:'Add a subcategory',url:'/admin/addsubcategory',},
         {title:'Coupons Management',url:'/admin/coupons',},
+        {title:'Profile',url:'/admin/profile',},
     ]
     return (
         <div className="sidebar">
