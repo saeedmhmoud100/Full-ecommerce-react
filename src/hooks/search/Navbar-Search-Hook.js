@@ -44,6 +44,7 @@ const NavbarSearchHook = _=>{
     useEffect(_=>{
         if(localStorage.getItem('token')){
             dispatch(getUserData(localStorage.getItem('token')))
+        if(loginUserData && loginUserData.role==='user')
             dispatch(getAllUserCart())
 
         }

@@ -8,10 +8,11 @@ const GetAllUserCartHook = () => {
     const appliedCoupon = useSelector(state => state.cart.applyCoupon)
     const loginUserData = useSelector(state => state.auth.getUserData.data)
 
+    // console.log(loginUserData)
     useEffect(_=>{
-            if(loginUserData &&userCartData.data){
+        // console.log(userCartData)
+            if(loginUserData && loginUserData.role === 'user' && userCartData.data){
                 dispatch(getAllUserCart())
-        console.log(userCartData)
 
             }
     },[cartChange,appliedCoupon])
