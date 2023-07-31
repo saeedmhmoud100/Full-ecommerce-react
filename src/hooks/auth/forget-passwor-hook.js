@@ -35,7 +35,7 @@ const ForgetPasswordHook = _=>{
                 Notification(forgetPasswordData.message,'success')
                 localStorage.setItem('reset-password-email',email)
                 setEmail('')
-                navigate('/user/verify-code')
+                navigate('/verify-code')
             }else{
                 Notification('There is an error, try again','warn')
             }

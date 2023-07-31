@@ -33,7 +33,7 @@ const LoginHook = _=>{
     // check if mail exist
     useEffect(_=>{
         if(!localStorage.getItem('reset-password-email')){
-            navigate('/user/forget-password')
+            navigate('/forget-password')
         }
     },[])
 

@@ -1,4 +1,4 @@
-import {Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 import UserAllOrdersPage from "../Pages/User/UserAllOrdersPage";
 import UserFavoriteProductsPage from "../Pages/User/UserFavoriteProductsPage";
 import UserAllAddressesPage from "../Pages/User/UserAllAddressesPage";
@@ -9,19 +9,23 @@ import ForgetPasswordPage from "../Pages/Auth/ForgetPasswordPage";
 import VerifyResetCodePage from "../Pages/Auth/VerifyResetCodePage";
 import ResetPasswordPage from "../Pages/Auth/ResetPasswordPage";
 
-const UserRoutes = () => ( // URL is: user/*
-    <Routes>
-        <Route path={'allorders'} element={<UserAllOrdersPage />} />
-        <Route path={'favoriteproducts'} element={<UserFavoriteProductsPage />} />
-        <Route path={'addresses'} element={<UserAllAddressesPage />} />
-        <Route path={'add-address'} element={<UserAddAddressPage />} />
-        <Route path={'edit-address/:id'} element={<UserEditAddressPage />} />
-        <Route path={'profile'} element={<UserProfilePage />} />
-        <Route path={'forget-password'} element={<ForgetPasswordPage />} />
-        <Route path={'verify-code'} element={<VerifyResetCodePage />} />
-        <Route path={'reset-password'} element={<ResetPasswordPage />} />
-
-    </Routes>
+const UserRoutes = ({isUser}) => ( // URL is: user/*
+    isUser ?
+            <Routes>
+                <Route path={'allorders'} element={<UserAllOrdersPage />} />
+                <Route path={'favoriteproducts'} element={<UserFavoriteProductsPage />} />
+                <Route path={'addresses'} element={<UserAllAddressesPage />} />
+                <Route path={'add-address'} element={<UserAddAddressPage />} />
+                <Route path={'edit-address/:id'} element={<UserEditAddressPage />} />
+                <Route path={'profile'} element={<UserProfilePage />} />
+            </Routes>
+        :
+            <Routes>
+                    <Route
+                        path="*"
+                        element={<Navigate to="/login" replace />}
+                    />
+            </Routes>
 );
 
 export default UserRoutes;

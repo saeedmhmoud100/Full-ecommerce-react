@@ -37,7 +37,7 @@ const LoginPage = () => {
                                         </span>
                                     </Link>
                                     <br/>or<br/>
-                                    <Link to="/user/forget-password" style={{textDecoration:'none',margin:"auto"}}>
+                                    <Link to="/forget-password" style={{textDecoration:'none',margin:"auto"}}>
                                         <span style={{ cursor: "pointer" }} className="text-danger">
                                             forget password
                                         </span>

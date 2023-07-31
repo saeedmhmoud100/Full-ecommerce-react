@@ -14,6 +14,11 @@ import ChoosePayMethoudPage from "./Pages/Checkout/ChoosePayMethoudPage";
 import AdminRoutes from "./Routes/AdminRouts";
 import UserRoutes from "./Routes/UserRouts";
 import {ToastContainer} from "react-toastify";
+import ProtectRoutesHook from "./hooks/protect-routes-hook";
+import ForgetPasswordPage from "./Pages/Auth/ForgetPasswordPage";
+import VerifyResetCodePage from "./Pages/Auth/VerifyResetCodePage";
+import ResetPasswordPage from "./Pages/Auth/ResetPasswordPage";
+import AuthRoutes from "./Routes/AuthRouts";
 
 function App() {
     // Go to in the top when go to another page
@@ -23,26 +28,31 @@ function App() {
     }, [routePath]);
     //
 
-    return (
-    <div className="font">
-        <NavBarLogin />
-        <Routes>
-            <Route index element={<HomePage />} />
-            <Route path={'/login'} element={<LoginPage />} />
-            <Route path={'/register'} element={<RegisterPage />} />
-            <Route path={'/allcategory'} element={<AllCategoryPage />} />
-            <Route path={'/allbrand'} element={<AllBrandPage />} />
-            <Route path={'/products'} element={<ShopProductsPage />} />
-            <Route path={'/products/:id'} element={<ProductDetailsPage />} />
-            <Route path={'/cart'} element={<CartPage />} />
-            <Route path={'/order/paymethoud'} element={<ChoosePayMethoudPage />} />
-            <Route path={'/admin/*'} element={<AdminRoutes />} />
-            <Route path={'/user/*'} element={<UserRoutes />} />
+    const [isUser,isAdmin,loginUserData] = ProtectRoutesHook()
 
-        </Routes>
-        <Footer/>
-        <ToastContainer />
-    </div>
+    console.log(!localStorage.getItem('token') && loginUserData.name === 'Anonymous User')
+    return (
+        <div className="font">
+            <NavBarLogin />
+            <Routes>
+                <Route index element={<HomePage />} />
+                <Route path={'*'} element={<AuthRoutes isLoggedOut={!localStorage.getItem('token') && loginUserData.name === 'Anonymous User'}/>} />
+
+
+                <Route path={'/allcategory'} element={<AllCategoryPage />} />
+                <Route path={'/allbrand'} element={<AllBrandPage />} />
+                <Route path={'/products'} element={<ShopProductsPage />} />
+                <Route path={'/products/:id'} element={<ProductDetailsPage />} />
+                <Route path={'/cart'} element={<CartPage />} />
+                <Route path={'/order/paymethoud'} element={<ChoosePayMethoudPage />} />
+
+                <Route path={'/admin/*'} element={<AdminRoutes isAdmin={isAdmin} />} />
+                <Route path={'/user/*'} element={<UserRoutes isUser={isUser}/>} />
+
+            </Routes>
+            <Footer/>
+            <ToastContainer />
+        </div>
   );
 }
 
