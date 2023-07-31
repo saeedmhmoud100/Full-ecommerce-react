@@ -3,7 +3,6 @@ import HomePage from "./Pages/Home/HomePage";
 import {Routes, Route, useLocation} from "react-router-dom";
 import NavBarLogin from "./Components/Uitily/NavBarLogin";
 import Footer from "./Components/Uitily/Footer";
-import LoginPage from "./Pages/Auth/LoginPage";
 import RegisterPage from "./Pages/Auth/RegisterPage";
 import AllCategoryPage from "./Pages/Category/AllCategoryPage";
 import AllBrandPage from "./Pages/Brand/AllBrandPage";
@@ -30,15 +29,17 @@ function App() {
 
     const [isUser,isAdmin,loginUserData] = ProtectRoutesHook()
 
-    console.log(!localStorage.getItem('token') && loginUserData.name === 'Anonymous User')
     return (
         <div className="font">
             <NavBarLogin />
             <Routes>
                 <Route index element={<HomePage />} />
-                <Route path={'*'} element={<AuthRoutes isLoggedOut={!localStorage.getItem('token') && loginUserData.name === 'Anonymous User'}/>} />
-
-
+                <Route path={'/auth/*'} element={<AuthRoutes isLoggedOut={!localStorage.getItem('token')}/>} />
+                {/*<Route path={'/auth/login/'} element={<LoginPage />} />*/}
+                <Route path={'register/'} element={<RegisterPage />} />
+                <Route path={'forget-password/'} element={<ForgetPasswordPage />} />
+                <Route path={'verify-code/'} element={<VerifyResetCodePage />} />
+                <Route path={'reset-password/'} element={<ResetPasswordPage />} />
                 <Route path={'/allcategory'} element={<AllCategoryPage />} />
                 <Route path={'/allbrand'} element={<AllBrandPage />} />
                 <Route path={'/products'} element={<ShopProductsPage />} />
@@ -46,7 +47,7 @@ function App() {
                 <Route path={'/cart'} element={<CartPage />} />
                 <Route path={'/order/paymethoud'} element={<ChoosePayMethoudPage />} />
 
-                <Route path={'/admin/*'} element={<AdminRoutes isAdmin={isAdmin} />} />
+                <Route path={'/admin/*'} element={<AdminRoutes isAdmin={isAdmin } />} />
                 <Route path={'/user/*'} element={<UserRoutes isUser={isUser}/>} />
 
             </Routes>

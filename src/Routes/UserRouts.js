@@ -5,9 +5,6 @@ import UserAllAddressesPage from "../Pages/User/UserAllAddressesPage";
 import UserAddAddressPage from "../Pages/User/UserAddAdressPage";
 import UserEditAddressPage from "../Pages/User/UserEditAddressPage";
 import UserProfilePage from "../Pages/User/UserProfilePage";
-import ForgetPasswordPage from "../Pages/Auth/ForgetPasswordPage";
-import VerifyResetCodePage from "../Pages/Auth/VerifyResetCodePage";
-import ResetPasswordPage from "../Pages/Auth/ResetPasswordPage";
 
 const UserRoutes = ({isUser}) => ( // URL is: user/*
     isUser ?
@@ -23,7 +20,7 @@ const UserRoutes = ({isUser}) => ( // URL is: user/*
             <Routes>
                     <Route
                         path="*"
-                        element={<Navigate to="/login" replace />}
+                        element={<Navigate to={localStorage.getItem('token') ? '/' : "/auth/login"} replace />}
                     />
             </Routes>
 );

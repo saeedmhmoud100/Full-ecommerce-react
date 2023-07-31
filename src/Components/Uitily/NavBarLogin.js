@@ -45,7 +45,7 @@ const NavBarLogin = () => {
                                 </NavDropdown.Item>
                             </NavDropdown>)
                             :
-                            (<Link to={'/login'} style={{textDecoration:'none'}} className='nav-text d-flex pb-2 justify-content-center nav_icon_container nav-link'>
+                            (<Link to={'/auth/login'} style={{textDecoration:'none'}} className='nav-text d-flex pb-2 justify-content-center nav_icon_container nav-link'>
                             {/*<Nav.Link href={'/login'} className="nav-text d-flex pb-2 justify-content-center nav_icon_container">*/}
                             <p style={{ color: "white" }}>Login</p>
                             <img src={login} className="login-img" alt="sfvs" />

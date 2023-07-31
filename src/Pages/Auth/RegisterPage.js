@@ -51,7 +51,7 @@ const RegisterPage = () => {
                                 <button className="btn-login mx-auto mt-4" onClick={onSubmit}>Register</button>
                                 <label className="mx-auto my-4">
                                     You already have an account?{" "}
-                                    <Link to="/login" style={{ textDecoration: "none" }}>
+                                    <Link to="/auth/login" style={{ textDecoration: "none" }}>
                                     <span style={{ cursor: "pointer" }} className="text-danger">
                                       click here
                                     </span>

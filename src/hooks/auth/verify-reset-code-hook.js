@@ -28,7 +28,7 @@ const VerifyResetCodeHook = _=>{
     useEffect(_=>{
         if (!loading && verifyResetCodeData.length!==0 && isSuccess){
             if(verifyResetCodeData.status==='Success'){
-                navigate('/reset-password')
+                navigate('/auth/reset-password')
             }else{
                 Notification("Reset code is invalid or has expired",'error')
             }

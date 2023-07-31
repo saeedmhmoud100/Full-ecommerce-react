@@ -31,13 +31,13 @@ const LoginPage = () => {
                                 <button className="btn-login mx-auto mt-4" onClick={onSubmit}>Login</button>
                                 <label className="mx-auto my-4 text-center">
                                     You don't have an account?{" "}
-                                    <Link to="/register" style={{textDecoration:'none'}}>
+                                    <Link to="/auth/register" style={{textDecoration:'none'}}>
                                         <span style={{ cursor: "pointer" }} className="text-danger">
                                             click here
                                         </span>
                                     </Link>
                                     <br/>or<br/>
-                                    <Link to="/forget-password" style={{textDecoration:'none',margin:"auto"}}>
+                                    <Link to="/auth/forget-password" style={{textDecoration:'none',margin:"auto"}}>
                                         <span style={{ cursor: "pointer" }} className="text-danger">
                                             forget password
                                         </span>

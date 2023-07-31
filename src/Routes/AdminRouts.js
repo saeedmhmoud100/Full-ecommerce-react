@@ -14,21 +14,21 @@ const AdminRoutes = ({isAdmin}) => { // URL is: admin/*
         isAdmin ?
             <Routes>
                 <Route path={'allProducts'} element={<AdminAllProductsPages/>}/>
+                <Route path={'addproduct'} element={<AdminAddProductPage/>}/>
+                <Route path={'updateproduct/:id'} element={<AdminUpdateProductPage/>}/>
+                {/*<Route path={'updateproduct/:id'} element={<AdminUpdateProductPage/>}/>*/}
                 <Route path={'allorders'} element={<AdminAllOrdersPages/>}/>
                 <Route path={'allorders/:id'} element={<AdminOrderDetailsPage/>}/>
                 <Route path={'addbrand'} element={<AdminAddBrandPage/>}/>
                 <Route path={'addcategory'} element={<AdminAddCategoryPage/>}/>
                 <Route path={'addsubcategory'} element={<AdminAddSubCategoryPage/>}/>
-                <Route path={'addproduct'} element={<AdminAddProductPage/>}/>
-                <Route path={'updateproduct/:id'} element={<AdminUpdateProductPage/>}/>
-                <Route path={'updateproduct/:id'} element={<AdminUpdateProductPage/>}/>
                 <Route path={'coupons'} element={<AdminCouponsPage/>}/>
             </Routes>
             :
             <Routes>
                 <Route
                     path="*"
-                    element={<Navigate to="/login" replace />}
+                    element={<Navigate to={localStorage.getItem('token') ? '/' : "/auth/login"} replace />}
                 />
             </Routes>
     )

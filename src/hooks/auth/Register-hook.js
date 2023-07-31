@@ -88,7 +88,7 @@ const RegisterHook = _=>{
     useEffect(_=>{
         if(created){
             setCreated(false)
-            navigate('/login')
+            navigate('/auth/login')
         }
     },[created])
     return [username,email,phone,password,rePassword,loading,onChangeUsername,onChangeEmail,onChangePhone,onChangePassword,onChangeRePassword,onSubmit]

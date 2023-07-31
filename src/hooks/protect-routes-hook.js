@@ -1,27 +1,22 @@
-import {Notification} from "./useNotification";
 import {useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {Navigate} from "react-router-dom";
 
 
 
 const ProtectRoutesHook = () =>{
     const loginUserData = useSelector(state => state.auth.getUserData.data)
 
-    const [userData,setUserData] = useState(localStorage.getItem('token'))
-    const [isUser,serIsUser] = useState(Boolean)
-    const [isAdmin,serIsAdmin] = useState(Boolean)
-
+    const [isUser,serIsUser] = useState()
+    const [isAdmin,serIsAdmin] = useState()
 
     useEffect(_=> {
-            if(userData){
-                if(loginUserData.role === 'user'){
-                    serIsAdmin(false)
-                    serIsUser(true)
-                }else if(loginUserData.role === 'admin'){
-                    serIsAdmin(true)
-                    serIsUser(false)
-                }
+
+            if(loginUserData.role === 'user'){
+                serIsAdmin(false)
+                serIsUser(true)
+            }else if(loginUserData.role === 'admin'){
+                serIsAdmin(true)
+                serIsUser(false)
             }else{
                 serIsUser(false)
                 serIsAdmin(false)
