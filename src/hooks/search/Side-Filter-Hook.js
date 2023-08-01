@@ -58,6 +58,14 @@ const SideFilterHook =_ =>{
 
     }
 
+    const categoryHeaderClick = id =>{
+        let catVal=[id];
+        localStorage.setItem('catSelected',catVal.map(item => "&category[in][]="+item).join(''))
+        setTimeout(async _=>{ await getProduct()},200)
+        setCategorySelected(catVal);
+
+    }
+
     const clearCat = _=>{
         localStorage.setItem('catSelected','')
         setTimeout(async _=>{ await getProduct()},200)
@@ -105,7 +113,7 @@ const SideFilterHook =_ =>{
         setTimeout(async _=> await run(),200)
 
     },[to,from])
-    return [allCat,allBrand,categorySelected,categoryClick,clearCat,brandSelected,brandClick,clearBrand,priceFrom,priceTo,getProduct]
+    return [allCat,allBrand,categorySelected,categoryClick,clearCat,brandSelected,brandClick,clearBrand,priceFrom,priceTo,getProduct,categoryHeaderClick]
 }
 
 export default SideFilterHook

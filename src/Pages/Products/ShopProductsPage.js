@@ -6,20 +6,23 @@ import SideFilter from "../../Components/Uitily/SideFilter";
 import CardProductContainer from "../../Components/Products/CardProductsContainer";
 import Pagination from "../../Components/Uitily/Pagination";
 import ShopProductsPageHook from "../../hooks/product/Shop-Products-Page-Hook";
+import SideFilterHook from "../../hooks/search/Side-Filter-Hook";
 
 
 const ShopProductsPage = () => {
     const [allProducts,pagination,onPress,getProduct] = ShopProductsPageHook()
+    const [allCat,allBrand,categorySelected,categoryClick,clearCat,brandSelected,brandClick,clearBrand,priceFrom,priceTo,getProducts,categoryHeaderClick]=SideFilterHook()
 
     return (
         <div style={{minHeight:'670px'}}>
-            <CategoryHeader />
+            <CategoryHeader cats={allCat} categorySelected={categorySelected} clearCat={clearCat} categoryHeaderClick={categoryHeaderClick}/>
             <Container>
             <SearchCountResult onClick={getProduct} title={`(${allProducts && allProducts.data ?allProducts.data.length : 0}) form (${allProducts.results || 0}) results`}/>
 
                 <Row className={'d-flex justify-content-between xm-flex-dir-column'}>
                     <Col sm={1} xs={1} md={1} lg={1} className={'d-flex'}>
-                        <SideFilter />
+                        <SideFilter allCat={allCat} allBrand={allBrand} categorySelected={categorySelected} categoryClick={categoryClick} clearCat={clearCat}
+                                    brandSelected={brandSelected} brandClick={brandClick} clearBrand={clearBrand} priceFrom={priceFrom} priceTo={priceTo} getProduct={getProducts}/>
                     </Col>
                     <Col sm={10} xs={10} md={10}>
                         <CardProductContainer products={allProducts.data ? allProducts.data : []}/>

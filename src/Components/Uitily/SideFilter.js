@@ -1,9 +1,7 @@
 import React from 'react'
 import { Row } from 'react-bootstrap'
-import SideFilterHook from "../../hooks/search/Side-Filter-Hook";
 
-const SideFilter = () => {
-    const [allCat,allBrand,categorySelected,categoryClick,clearCat,brandSelected,brandClick,clearBrand,priceFrom,priceTo,getProduct]=SideFilterHook()
+const SideFilter = ({allCat,allBrand,categorySelected,categoryClick,clearCat,brandSelected,brandClick,clearBrand,priceFrom,priceTo,getProduct}) => {
 
     return (
         <div className="mt-3">
