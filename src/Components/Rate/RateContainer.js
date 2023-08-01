@@ -18,7 +18,12 @@ const RateContainer = ({product}) => {
                     <div className="rate-count d-inline p-1 pt-2">({product.data && (product.data.ratingsQuantity || 0)} reviews)</div>
                 </Col>
             </Row>
-            <RatePost />
+            {
+                user.role === 'user'?
+                <RatePost />
+                : null
+
+            }
             {
                 reviewsOfProduct && reviewsOfProduct.data ?
 

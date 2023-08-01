@@ -59,7 +59,7 @@ function UserProfile() {
                 </Modal.Footer>
             </Modal>
 
-            <div className="admin-content-text">Profile</div>
+            <div className="admin-content-text">{userData.role === 'admin' ? 'Admin ' : null}Profile</div>
             <div className="user-address-card my-3 px-2">
                 <Row className="d-flex justify-content-between pt-2">
                     <Col xs="6" className="d-flex align-items-center">
