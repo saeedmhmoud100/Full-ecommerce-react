@@ -3,8 +3,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {getAllCategory} from "../../Redux/actions/categoryAction";
 import {getAllBrand} from "../../Redux/actions/brandAction";
 import ShopProductsPageHook from "../product/Shop-Products-Page-Hook";
+import {useNavigate} from "react-router-dom";
 
-const SideFilterHook =_ =>{
+const SideFilterHook =(navig=false) =>{
 
     useEffect(_=>{
         if(!localStorage.getItem('catSelected')){
@@ -57,12 +58,14 @@ const SideFilterHook =_ =>{
         setCategorySelected(catVal);
 
     }
-
+    const navigate = useNavigate()
     const categoryHeaderClick = id =>{
         let catVal=[id];
         localStorage.setItem('catSelected',catVal.map(item => "&category[in][]="+item).join(''))
         setTimeout(async _=>{ await getProduct()},200)
         setCategorySelected(catVal);
+        if(navig)
+            navigate('/products')
 
     }
 

@@ -9,3 +9,18 @@
     width: 100%;
   }
 }
+
+
+
+.price-before-discount-product{
+  position: absolute;
+  top: -12px;
+  left: -18px;
+  font-size: 14px;
+  transform: rotateZ(-27deg);
+  color: red;
+  font-style: italic;
+  text-decoration: line-through;
+  letter-spacing: 1px;
+  z-index: 100;
+}

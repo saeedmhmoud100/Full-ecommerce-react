@@ -50,8 +50,13 @@ const AdminAllProductsCard = ({product}) => {
                             <div className="d-flex justify-content-between">
                                 <div className="card-rate">{product.rate}</div>
                                 <div className="d-flex">
-                                    <div className="card-currency mx-1">$</div>
-                                    <div className="card-price">{product.price}</div>
+                                    {product && product.priceAfterDiscount && product.priceAfterDiscount>0 && product.priceAfterDiscount<product.price
+                                        ?<div className="card-price"><span className={'price-before-discount-product'} style={{
+                                            top: '83%',
+                                            left: '80%'
+                                        }}>{product ? product.price : 0}</span>{product.priceAfterDiscount}$</div>
+                                        :<div className="card-price">{product && product.price}$</div>
+                                    }
                                 </div>
                             </div>
                         </Card.Text>

@@ -60,7 +60,11 @@ const ProductCard = ({product,imgURL}) => {
                                 <div className="card-rate mx-2">{product.ratingsAverage || 0}</div>
                             </div>
                             <div className="d-flex">
-                                <div className="card-price">{product.price}</div>
+                                {
+                                    product.priceAfterDiscount && product.priceAfterDiscount > 0 && product.priceAfterDiscount < product.price ?
+                                        <div className="card-price position-relative"><span className={'price-before-discount-product'}>{product.price}</span>{product.priceAfterDiscount}</div>
+                                        : <div className="card-price">{product.price}</div>
+                                }
                                 <div className="card-currency mx-1">$</div>
                             </div>
                         </div>

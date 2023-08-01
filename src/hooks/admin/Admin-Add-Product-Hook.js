@@ -135,6 +135,7 @@ const AdminAddProductHook = _ =>{
             formData.append('description',prodDescription)
             formData.append('quantity',qty)
             formData.append('price',priceBefore)
+            formData.append('priceAfterDiscount',priceAfter)
             formData.append('category',catID)
             formData.append('brand',brandID)
             selectedColors.map(color => formData.append('availableColors', color))
