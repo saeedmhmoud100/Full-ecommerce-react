@@ -1,7 +1,7 @@
 import {
     CREATE_PRODUCT,
     DELETE_PRODUCTS,
-    GET_ALL_PRODUCTS,
+    GET_ALL_PRODUCTS, GET_ALL_PRODUCTS_WITHOUT_FILTER,
     GET_ONE_PRODUCT,
     GET_PRODUCT_ERROR,
     GET_SPECIFIC_PRODUCTS, UPDATE_PRODUCT
@@ -12,6 +12,7 @@ import {Notification} from "../../hooks/useNotification";
 const inital={
     products:[],
     allProducts:[],
+    allProductWithoutFilter:[],
     product:[],
     specificProducts:[],
     deleteProduct:[],
@@ -39,6 +40,12 @@ const productReducer = (state=inital,action) => {
             return {
                 ...state,
                 allProducts: action.payload,
+                loading: false,
+            }
+        case GET_ALL_PRODUCTS_WITHOUT_FILTER:
+            return {
+                ...state,
+                allProductWithoutFilter: action.payload,
                 loading: false,
             }
         case GET_ONE_PRODUCT:

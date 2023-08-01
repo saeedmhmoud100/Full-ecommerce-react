@@ -25,7 +25,7 @@ const RateContainer = ({product}) => {
 
             }
             {
-                reviewsOfProduct && reviewsOfProduct.data ?
+                reviewsOfProduct && reviewsOfProduct.results >0 ?
 
                     (
                         <>

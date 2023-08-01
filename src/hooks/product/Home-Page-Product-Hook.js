@@ -1,13 +1,13 @@
 import {useEffect} from 'react'
 import {useDispatch, useSelector} from "react-redux";
-import {getAllProducts} from "../../Redux/actions/productAction";
+import {getAllProductsWithoutFilter} from "../../Redux/actions/productAction";
 
 const HomePageProductHook= _  =>{
     const dispatch = useDispatch()
     useEffect(_=>{
-        dispatch(getAllProducts())
+        dispatch(getAllProductsWithoutFilter())
     },[])
-    const allProducts = useSelector(state => state.allProduct.allProducts)
+    const allProducts = useSelector(state => state.allProduct.allProductWithoutFilter)
     let moreSalesProducts = []
     let topRateProducts = []
     if(allProducts && allProducts.data){

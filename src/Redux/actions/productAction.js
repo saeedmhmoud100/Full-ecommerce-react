@@ -1,4 +1,4 @@
-import {CREATE_PRODUCT,UPDATE_PRODUCT,DELETE_PRODUCTS, GET_ALL_PRODUCTS,GET_ONE_PRODUCT,GET_SPECIFIC_PRODUCTS, GET_PRODUCT_ERROR} from "../types";
+import {CREATE_PRODUCT,UPDATE_PRODUCT,DELETE_PRODUCTS, GET_ALL_PRODUCTS,GET_ONE_PRODUCT,GET_SPECIFIC_PRODUCTS,GET_ALL_PRODUCTS_WITHOUT_FILTER, GET_PRODUCT_ERROR} from "../types";
 import {useInsertDataWithImage} from "../../AxiosHooks/useInsertData";
 import useGetData from "../../AxiosHooks/useGetData";
 import useDeleteData from "../../AxiosHooks/useDeleteData";
@@ -55,6 +55,23 @@ export const getAllProducts = (page = 1,limit=9) => async dispatch => {
         })
     }
 }
+
+export const getAllProductsWithoutFilter = () => async dispatch => {
+    try {
+        const res = await useGetData(`/api/v1/products`)
+        dispatch({
+            type:GET_ALL_PRODUCTS_WITHOUT_FILTER,
+            payload:res,
+            loading:true
+        })
+    }catch (e){
+        dispatch({
+            type:GET_PRODUCT_ERROR,
+            payload:e
+        })
+    }
+}
+
 
 export const getProductsSearch = (q) => async dispatch => {
     try {
