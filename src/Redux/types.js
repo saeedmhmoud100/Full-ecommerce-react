@@ -15,6 +15,7 @@ export const GET_ALL_BRAND = 'GET_ALL_BRAND'
 export const CREATE_BRAND = 'CREATE_BRAND'
 export const GET_BRAND_ERROR = 'GET_BRAND_ERROR'
 export const GET_ONE_BRAND = 'GET_ONE_BRAND'
+export const DELETE_BRAND = 'DELETE_BRAND'
 
 // ProductsTypes
 

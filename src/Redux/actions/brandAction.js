@@ -1,7 +1,8 @@
-import {GET_BRAND_ERROR, CREATE_BRAND, GET_ALL_BRAND,GET_ONE_BRAND} from "../types";
+import {GET_BRAND_ERROR, CREATE_BRAND, GET_ALL_BRAND, GET_ONE_BRAND, DELETE_BRAND} from "../types";
 import {useInsertDataWithImage} from "../../AxiosHooks/useInsertData";
 import useGetData from "../../AxiosHooks/useGetData";
 import handeError from "./handeError";
+import useDeleteData from "../../AxiosHooks/useDeleteData";
 
 export const getAllBrand = (limit,page=1) => async dispatch => {
     try {
@@ -40,6 +41,22 @@ export const createBrand = (formData) => async dispatch => {
         const res = await useInsertDataWithImage(`/api/v1/brands`,formData)
         dispatch({
             type:CREATE_BRAND,
+            payload:res,
+            loading:true
+        })
+    }catch (e){
+        dispatch({
+            type:GET_BRAND_ERROR,
+            payload:e
+        })
+    }
+}
+export const deleteBrand = (ID) => async dispatch => {
+        console.log(ID)
+    try {
+        const res = await useDeleteData(`/api/v1/brands/${ID}`)
+        dispatch({
+            type:DELETE_BRAND,
             payload:res,
             loading:true
         })

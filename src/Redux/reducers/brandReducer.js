@@ -1,4 +1,4 @@
-import {CREATE_BRAND, GET_ALL_BRAND, GET_BRAND_ERROR,GET_ONE_BRAND} from "../types";
+import {CREATE_BRAND, GET_ALL_BRAND,DELETE_BRAND, GET_BRAND_ERROR,GET_ONE_BRAND} from "../types";
 import {Notification} from "../../hooks/useNotification";
 
 
@@ -29,6 +29,12 @@ const brandReducer = (state=inital,action) => {
                 ...state,
                 brand: action.payload,
                 loading: false,
+                change: !state.change
+            }
+        case DELETE_BRAND:
+            return {
+                ...state,
+                deleteBrand: action.payload,
                 change: !state.change
             }
         case GET_BRAND_ERROR:
