@@ -45,6 +45,7 @@ export const createBrand = (formData) => async dispatch => {
             loading:true
         })
     }catch (e){
+        handeError(e)
         dispatch({
             type:GET_BRAND_ERROR,
             payload:e

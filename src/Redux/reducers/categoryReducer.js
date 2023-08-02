@@ -6,6 +6,7 @@ const inital={
     category:[],
     loading:true,
     oneCategory:{},
+    chage:false,
 }
 
 const categoryReducer = (state=inital,action) => {
@@ -25,14 +26,16 @@ const categoryReducer = (state=inital,action) => {
         case CREATE_CATEGORY:
             Notification('Category added successfully','success')
             return {
+                ...state,
                 oneCategory: action.payload,
                 loading: false,
+                chage:!state.chage
             }
         case GET_CATEGORY_ERROR:
             // Notification('Enter a valid data','error')
             return {
+            ...state,
                 loading: true,
-                category: action.payload
             }
         default:
             return state

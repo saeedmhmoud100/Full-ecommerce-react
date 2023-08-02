@@ -42,7 +42,6 @@ const brandReducer = (state=inital,action) => {
             return {
                 ...state,
                 loading: true,
-                brands: action.payload
             }
         default:
             return state

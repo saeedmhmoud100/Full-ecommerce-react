@@ -41,6 +41,7 @@ export const createCategory = (formData) => async dispatch => {
             loading:true
         })
     }catch (e){
+        handeError(e)
         dispatch({
             type:GET_CATEGORY_ERROR,
             payload:e
