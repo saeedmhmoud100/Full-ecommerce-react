@@ -4,7 +4,7 @@ import CategoryCard from './../Category/CategoryCard';
 import LoadingSpinner from "../Uitily/LoadingSpinner";
 import useRandomNum from "../../hooks/useRandomNum";
 
-const CategoryContainer = ({data,loading}) => {
+const CategoryContainer = ({data,loading,isAdmin}) => {
     const colors = ["#F4DBA4","#F4DBA4","#0034FF","#F4DBA4","#FF6262","#F4DBA4"]
     const randNum = useRandomNum
 
@@ -15,7 +15,7 @@ const CategoryContainer = ({data,loading}) => {
             <Row className={`my-2 d-flex ${!loading ? 'justify-content-start' : 'justify-content-center'}`}>{
                 !loading ?(
                         data.length
-                            ? data.map((item,i) => <CategoryCard key={i} itle={item.name} img={item.image} item={item} background={colors[randNum(colors)]} />)
+                            ? data.map((item,i) => <CategoryCard isAdmin={isAdmin} key={i} itle={item.name} img={item.image} item={item} background={colors[randNum(colors)]} />)
                             : <h2 className='align-self-center m-auto w-auto'>There is no category</h2>)
                     : <LoadingSpinner animation='border' />
 

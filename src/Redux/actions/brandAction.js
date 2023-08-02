@@ -3,6 +3,7 @@ import {useInsertDataWithImage} from "../../AxiosHooks/useInsertData";
 import useGetData from "../../AxiosHooks/useGetData";
 import handeError from "./handeError";
 import useDeleteData from "../../AxiosHooks/useDeleteData";
+import {Notification} from "../../hooks/useNotification";
 
 export const getAllBrand = (limit,page=1) => async dispatch => {
     try {
@@ -53,9 +54,10 @@ export const createBrand = (formData) => async dispatch => {
     }
 }
 export const deleteBrand = (ID) => async dispatch => {
-        console.log(ID)
     try {
         const res = await useDeleteData(`/api/v1/brands/${ID}`)
+        if(res==='')
+            Notification('The brand has been deleted')
         dispatch({
             type:DELETE_BRAND,
             payload:res,

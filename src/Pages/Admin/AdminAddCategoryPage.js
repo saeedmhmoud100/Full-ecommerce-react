@@ -23,7 +23,7 @@ function AdminAddCategoryPage() {
                     <AdminAddCategory />
                     {
                         categoriesData && categoriesData.data ?
-                    <CategoryContainer data={categoriesData && categoriesData.data}/>
+                    <CategoryContainer data={categoriesData && categoriesData.data} isAdmin={true}/>
                             : null
                     }
                 </Col>

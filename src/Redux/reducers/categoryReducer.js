@@ -1,4 +1,4 @@
-import {CREATE_CATEGORY, GET_ALL_CATEGORY, GET_CATEGORY_ERROR,GET_ONE_CATEGORY} from "../types";
+import {CREATE_CATEGORY, DELETE_CATEGORY, GET_ALL_CATEGORY, GET_CATEGORY_ERROR, GET_ONE_CATEGORY} from "../types";
 import {Notification} from "../../hooks/useNotification";
 
 
@@ -6,6 +6,7 @@ const inital={
     category:[],
     loading:true,
     oneCategory:{},
+    deleteCategory:{},
     chage:false,
 }
 
@@ -22,6 +23,13 @@ const categoryReducer = (state=inital,action) => {
                 ...state,
                 oneCategory: action.payload,
                 loading: false,
+            }
+        case DELETE_CATEGORY:
+            return {
+                ...state,
+                deleteCategory: action.payload,
+                loading: false,
+                chage:!state.chage
             }
         case CREATE_CATEGORY:
             Notification('Category added successfully','success')
