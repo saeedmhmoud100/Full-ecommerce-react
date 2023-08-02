@@ -6,6 +6,7 @@ const inital={
     brands:[],
     brand:[],
     loading:true,
+    change:false,
 }
 
 const brandReducer = (state=inital,action) => {
@@ -25,12 +26,15 @@ const brandReducer = (state=inital,action) => {
         case CREATE_BRAND:
             Notification('The Brant added successfully','success')
             return {
+                ...state,
                 brand: action.payload,
                 loading: false,
+                change: !state.change
             }
         case GET_BRAND_ERROR:
             // Notification('Enter a valid data','error')
             return {
+                ...state,
                 loading: true,
                 brands: action.payload
             }
