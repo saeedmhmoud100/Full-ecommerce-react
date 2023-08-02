@@ -10,7 +10,6 @@ function AdminAddCategoryPage() {
     const dispatch = useDispatch()
     const categoriesData = useSelector(state => state.allCategory.category)
     const categoriesChange = useSelector(state => state.allCategory.chage)
-    console.log(categoriesData)
     useEffect(_=>{
         dispatch(getAllCategory())
     },[categoriesChange])

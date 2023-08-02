@@ -6,7 +6,7 @@ const AdminSideBar = () => {
         {title:'Orders Management',url:'/admin/allorders',},
         {title:'Products Management',url:'/admin/allproducts',},
         {title:'Add Product',url:'/admin/addproduct',},
-        {title:'Add a brand',url:'/admin/addbrand',},
+        {title:'brands Management',url:'/admin/addbrand',},
         {title:'Add a Category',url:'/admin/addcategory',},
         {title:'Add a subcategory',url:'/admin/addsubcategory',},
         {title:'Coupons Management',url:'/admin/coupons',},

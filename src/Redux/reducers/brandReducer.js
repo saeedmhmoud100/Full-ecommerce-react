@@ -35,7 +35,8 @@ const brandReducer = (state=inital,action) => {
             return {
                 ...state,
                 deleteBrand: action.payload,
-                change: !state.change
+                change: !state.change,
+                loading: false,
             }
         case GET_BRAND_ERROR:
             // Notification('Enter a valid data','error')
