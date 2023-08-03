@@ -1,4 +1,10 @@
-import {GET_SUBCATEGORY_ERROR, CREATE_SUBCATEGORY,DELETE_SUBCATEGORY, GET_SUBCATEGORY_BY_CATEGORY} from "../types";
+import {
+    GET_SUBCATEGORY_ERROR,
+    CREATE_SUBCATEGORY,
+    DELETE_SUBCATEGORY,
+    GET_SUBCATEGORY_BY_CATEGORY,
+    GET_ALL_SUBCATEGORY
+} from "../types";
 import {useInsertData} from "../../AxiosHooks/useInsertData";
 import UseGetData from "../../AxiosHooks/useGetData";
 import handeError from "./handeError";
@@ -27,6 +33,23 @@ export const getSubCategoryByCategory = (catID) => async dispatch => {
         const res = await UseGetData(`/api/v1/categories/${catID}/subcategories`)
         dispatch({
             type:GET_SUBCATEGORY_BY_CATEGORY,
+            payload:res,
+            loading:true
+        })
+    }catch (e){
+        dispatch({
+            type:GET_SUBCATEGORY_ERROR,
+            payload:e
+        })
+    }
+}
+
+export const getAllSubCategory = () => async dispatch => {
+    try {
+        const res = await UseGetData(`/api/v1/subcategories`)
+        console.log(res)
+        dispatch({
+            type:GET_ALL_SUBCATEGORY,
             payload:res,
             loading:true
         })
