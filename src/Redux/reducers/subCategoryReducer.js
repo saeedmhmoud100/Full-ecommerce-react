@@ -1,4 +1,4 @@
-import {CREATE_SUBCATEGORY, GET_SUBCATEGORY_ERROR,GET_SUBCATEGORY_BY_CATEGORY} from "../types";
+import {CREATE_SUBCATEGORY, GET_SUBCATEGORY_ERROR, GET_SUBCATEGORY_BY_CATEGORY} from "../types";
 import {Notification} from "../../hooks/useNotification";
 
 
