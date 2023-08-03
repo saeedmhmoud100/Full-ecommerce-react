@@ -5,6 +5,7 @@ import {Notification} from "../../hooks/useNotification";
 const inital={
     subCategory:[],
     loading:true,
+    change:false,
 }
 
 const subCategoryReducer = (state=inital,action) => {
@@ -14,6 +15,7 @@ const subCategoryReducer = (state=inital,action) => {
             return {
                 subCategory: action.payload,
                 loading: false,
+                change: !state.change
             }
         case GET_SUBCATEGORY_BY_CATEGORY:
             return {
