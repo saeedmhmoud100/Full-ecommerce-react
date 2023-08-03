@@ -6,6 +6,7 @@ import {getSubCategoryByCategory} from "../../Redux/actions/subCategoryAction";
 
 const SubCategoriesContainer = _=>{
     const dispatch = useDispatch()
+    const [loading,setLoading] = useState(false)
     const [categories,setCategories] = useState([])
     const [currCategory,setCurrCategory] = useState('')
     const [subCategories,setSubCategories] = useState([])
@@ -18,7 +19,12 @@ const SubCategoriesContainer = _=>{
 
     // load all categories
     useEffect(_=>{
+        console.log(allData)
             const run =async _=>{
+                setCategories([])
+                setCurrCategory('')
+                setSubCategories([])
+                // setAllData({})
                 await dispatch(getAllCategory())
             }
             run()
@@ -42,13 +48,15 @@ const SubCategoriesContainer = _=>{
     // load subCategories
     useEffect(_=>{
             const run =async item=>{
+
                 await dispatch(getSubCategoryByCategory(item._id))
                 setCurrCategory(item)
             }
             if(categories && categories.length > 0)
+                setLoading(true)
                 categories.map(async item =>{
-
                     await run(item)
+
                 })
         }
         ,[categories])
@@ -57,12 +65,15 @@ const SubCategoriesContainer = _=>{
     useEffect(_=>{
             if(subCategoriesData && subCategoriesData.data && subCategoriesData.data.length >0 && subCategoriesData !==subCategories)
                 setSubCategories(subCategoriesData.data)
+            setLoading(false)
+
         }
         ,[subCategoriesData])
 
     // set subCategories
     useEffect(_=>{
-            if(subCategories&&subCategories.length>0){
+        // console.log(currCategory)
+            if(subCategories&&subCategories.length>0 && currCategory.name){
                 setAllData({...allData,[currCategory.name]:subCategories})
             }
             // console.log(allData)
@@ -71,7 +82,7 @@ const SubCategoriesContainer = _=>{
         }
         ,[subCategories])
 
-    return [allData]
+    return [allData,loading]
 }
 
 export default SubCategoriesContainer

@@ -1,11 +1,13 @@
 import {Col, Container, Row} from "react-bootstrap";
 import SubCategoriesContainerHook from "../../hooks/subCategory/subCategories-container-hook";
 import React from "react";
+import LoadingSpinner from "../Uitily/LoadingSpinner";
 
 
 const SubCategoriesContainer = _=>{
-    const [allData] = SubCategoriesContainerHook()
+    const [allData,loading] = SubCategoriesContainerHook()
     const keys = Array.from(Object.keys(allData))
+    // console.log(allData)
     return (
         <Container className={'mt-3'}>
             <div className={'admin-content-text'} >All SubCategories</div>
@@ -35,6 +37,14 @@ const SubCategoriesContainer = _=>{
 
                         </Col>
                     )
+                        : null
+                }
+                {
+                    loading ?
+                        <Col sm={8} className={' py-3 d-flex'}>
+
+                            <LoadingSpinner animation={'border'} variant={'primary'} className={'m-auto'}></LoadingSpinner>
+                        </Col>
                         : null
                 }
 

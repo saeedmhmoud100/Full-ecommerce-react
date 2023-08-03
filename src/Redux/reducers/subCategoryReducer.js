@@ -1,5 +1,6 @@
 import {CREATE_SUBCATEGORY, GET_SUBCATEGORY_ERROR, GET_SUBCATEGORY_BY_CATEGORY} from "../types";
 import {Notification} from "../../hooks/useNotification";
+import handeError from "../actions/handeError";
 
 
 const inital={
@@ -24,10 +25,10 @@ const subCategoryReducer = (state=inital,action) => {
             }
         case GET_SUBCATEGORY_ERROR:
             // Notification('Enter a valid data','error')
-            Notification(action.payload.response.data.message,'error')
+            handeError(action.payload)
             return {
                 loading: true,
-                subCategory: action.payload
+                // subCategory: action.payload
             }
         default:
             return state
