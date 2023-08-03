@@ -2,15 +2,23 @@ import {Col, Container, Row} from "react-bootstrap";
 import SubCategoriesContainerHook from "../../hooks/subCategory/subCategories-container-hook";
 import React from "react";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
+import DeleteSubCategoriesHook from "../../hooks/subCategory/delete-subCategoty-hook";
+import SubCategoriesCard from "./SubCategorisCard";
 
 
 const SubCategoriesContainer = _=>{
     const [allData,loading] = SubCategoriesContainerHook()
+    console.log(allData)
+
     const keys = Array.from(Object.keys(allData))
     // console.log(allData)
     return (
         <Container className={'mt-3'}>
-            <div className={'admin-content-text'} >All SubCategories</div>
+            {
+                keys.length >0 ?
+                    <div className={'admin-content-text'} >All SubCategories</div>
+                    : null
+            }
             <Row className={`my-2 d-flex justify-content-center justify-content-sm-start`}>
                 {
                     keys.length>0 ? keys.map((key,i) =>
@@ -21,15 +29,7 @@ const SubCategoriesContainer = _=>{
                                 {
                                     allData[key] && allData[key].length>0 ?
                                         allData[key].map((subCat,ii) =>
-                                            <div key={ii} className={'px-1 d-inline-block'} style={{
-                                            backgroundColor: 'white',
-                                            color: 'black',
-                                            border: '2px solid #CCC',
-                                            borderRadius: '10px',
-                                            marginRight: "2px"
-                                        }}>{subCat.name}
-                                            <i className="fa-solid fa-xmark" style={{marginLeft:'7px',marginRight:'2px',cursor:'pointer'}}></i>
-                                        </div>
+                                            <SubCategoriesCard subCat={subCat} ii={ii}/>
                                         ): <span>This Category has No SubCategorise</span>
                                 }
 

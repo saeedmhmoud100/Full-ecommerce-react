@@ -8,7 +8,7 @@ const AdminSideBar = () => {
         {title:'Add a New Product',url:'/admin/addproduct',},
         {title:'brands Management',url:'/admin/addbrand',},
         {title:'Categories Management',url:'/admin/addcategory',},
-        {title:'Add a subcategory',url:'/admin/addsubcategory',},
+        {title:'subcategory Management',url:'/admin/addsubcategory',},
         {title:'Coupons Management',url:'/admin/coupons',},
         {title:'Profile',url:'/admin/profile',},
     ]

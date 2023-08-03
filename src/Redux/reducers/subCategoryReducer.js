@@ -1,10 +1,12 @@
-import {CREATE_SUBCATEGORY, GET_SUBCATEGORY_ERROR, GET_SUBCATEGORY_BY_CATEGORY} from "../types";
+import {CREATE_SUBCATEGORY, GET_SUBCATEGORY_ERROR, GET_SUBCATEGORY_BY_CATEGORY, DELETE_SUBCATEGORY} from "../types";
 import {Notification} from "../../hooks/useNotification";
 import handeError from "../actions/handeError";
 
 
 const inital={
     subCategory:[],
+    deleteSubCat:false,
+    error:[],
     loading:true,
     change:false,
 }
@@ -16,10 +18,18 @@ const subCategoryReducer = (state=inital,action) => {
             return {
                 subCategory: action.payload,
                 loading: false,
+                deleteSubCat:false,
+                change: !state.change
+            }
+        case DELETE_SUBCATEGORY:
+            return {
+                deleteSubCat:true,
+                loading: false,
                 change: !state.change
             }
         case GET_SUBCATEGORY_BY_CATEGORY:
             return {
+                deleteSubCat:false,
                 subCategory: action.payload,
                 loading: false,
             }
@@ -29,6 +39,8 @@ const subCategoryReducer = (state=inital,action) => {
             return {
                 loading: true,
                 // subCategory: action.payload
+                deleteSubCat:false,
+                error:action.payload,
             }
         default:
             return state

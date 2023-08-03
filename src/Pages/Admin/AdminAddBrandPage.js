@@ -10,7 +10,7 @@ function AdminAddBrandPage() {
     const dispatch = useDispatch()
     const brandsData = useSelector(state=> state.allBrand.brands)
     const brandChange = useSelector(state=> state.allBrand.change)
-    console.log(brandsData)
+    // console.log(brandsData)
     useEffect(_=>{
         dispatch(getAllBrand())
     },[brandChange])
