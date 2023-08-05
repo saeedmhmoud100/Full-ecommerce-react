@@ -17,7 +17,7 @@ const CartItem = ({item}) => {
             <div className="w-100">
                 <Row className="justify-content-between">
                     <Col sm="12" className=" d-flex flex-row justify-content-between">
-                        <div className="d-inline pt-2 cat-text">{item.product.category.name || ''}</div>
+                        <div className="d-inline pt-2 cat-text">{item.product.category && item.product.category.name || ''}</div>
                         <div className="d-flex pt-2 align-items-center" style={{ cursor: "pointer" }} onClick={handleDeleteCartClick}>
                             {
                                 deleteLoading ? <LoadingSpinner></LoadingSpinner>

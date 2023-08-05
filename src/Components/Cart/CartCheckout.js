@@ -1,13 +1,23 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import ClearCartHook from "../../hooks/cart/clear-cart-hook";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
 import ApplyCouponHook from "../../hooks/cart/apply-coupon-hook";
-
+import {Notification} from "../../hooks/useNotification";
 const CartCheckout = ({userCartData}) => {
     const [deleteLoading,handleDeleteCartClick] = ClearCartHook()
     const [couponName,loading,handleApplyCouponClick,setCouponName] = ApplyCouponHook()
+    const navigate = useNavigate()
+    const handleCheckoutClick = _=>{
+        console.log(userCartData)
+        if (userCartData && userCartData.numOfCartItems > 0){
+            navigate('/user/order/paymethoud')
+        }else{
+            Notification('you dont have any products in your cart!!!','error')
+        }
+    }
+
     return (
         <Row className="my-1 d-flex justify-content-center cart-checkout pt-3">
             <Col xs="12" className="d-flex  flex-column  ">
@@ -44,12 +54,12 @@ const CartCheckout = ({userCartData}) => {
                         : null
                 }
 
-                <Link
-                    to="/order/paymethoud"
-                    style={{ textDecoration: "none" }}
-                    className="product-cart-add  d-inline ">
-                    <button className="product-cart-add w-100 px-2">Checkout</button>
-                </Link>
+                {/*<Link*/}
+                {/*    to="/order/paymethoud"*/}
+                {/*    style={{ textDecoration: "none" }}*/}
+                {/*    className="product-cart-add  d-inline ">*/}
+                    <button onClick={handleCheckoutClick} className="product-cart-add w-100 px-2">Checkout</button>
+                {/*</Link>*/}
             </Col>
         </Row>
     )

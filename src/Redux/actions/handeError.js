@@ -2,11 +2,12 @@ import {Notification} from "../../hooks/useNotification";
 
 
 const handeError = e =>{
+    // console.log(e)
     if(e.response && e.response.data && e.response.data.errors){
         e.response.data.errors.forEach(item =>{
             Notification(item.msg,'warning')
         })
-    }else if(e.response && e.response.data && e.response.data.message){
+    }else if(e.response && e.response.data && e.response.data.message && !e.response.data.message.startsWith('No cart exist for this user:')){
         Notification(e.response.data.message,'warning')
     }
 }

@@ -10,7 +10,7 @@ const ProductText = ({product}) => {
     return (
         <div className='med-screen-padding'>
             <Row className="mt-2">
-                <div className="cat-text">category : {category&& category.name}</div>
+                <div className="cat-text">category : {category&& category.name || 'unknown'}</div>
             </Row>
             <Row>
                 <Col md="8">
@@ -25,7 +25,7 @@ const ProductText = ({product}) => {
                         brand?
                             <>
                                 <div className="cat-text d-inline">Brand: </div>
-                                <div className="barnd-text d-inline mx-1">{brand.data && brand.data.name} </div>
+                                <div className="barnd-text d-inline mx-1">{brand.data && brand.data.name || "unknown"} </div>
                             </> : null
                     }
 

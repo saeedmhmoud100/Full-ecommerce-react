@@ -5,6 +5,8 @@ import UserAllAddressesPage from "../Pages/User/UserAllAddressesPage";
 import UserAddAddressPage from "../Pages/User/UserAddAdressPage";
 import UserEditAddressPage from "../Pages/User/UserEditAddressPage";
 import UserProfilePage from "../Pages/User/UserProfilePage";
+import ChoosePayMethoudPage from "../Pages/Checkout/ChoosePayMethoudPage";
+import React from "react";
 
 const UserRoutes = ({isUser}) => ( // URL is: user/*
     isUser ?
@@ -14,6 +16,7 @@ const UserRoutes = ({isUser}) => ( // URL is: user/*
                 <Route path={'addresses'} element={<UserAllAddressesPage />} />
                 <Route path={'add-address'} element={<UserAddAddressPage />} />
                 <Route path={'edit-address/:id'} element={<UserEditAddressPage />} />
+                <Route path={'/order/paymethoud'} element={<ChoosePayMethoudPage />} />
                 <Route path={'profile'} element={<UserProfilePage />} />
             </Routes>
         :
