@@ -93,6 +93,13 @@ export let LOGOUT_USER_CART='LOGOUT_USER_CART';
 
 
 
+// Cart types
+export let ORDER_ERROR='ORDER_ERROR';
+export let CREATE_CASH_ORDER='CREATE_CASH_ORDER';
+
+
+
+
 
 
 

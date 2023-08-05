@@ -3,10 +3,10 @@ import { Row,Col } from 'react-bootstrap'
 import UserAllAddressesHook from "../../hooks/user/user-all-addresses-hook";
 import {Link} from "react-router-dom";
 import OrderPayCashHook from "../../hooks/checkout/order-pay-cash-hook";
+import LoadingSpinner from "../Uitily/LoadingSpinner";
 const ChoosePayMethoud = () => {
     const [AllAddresses] = UserAllAddressesHook()
-    const [setAddress,handleOnClick] = OrderPayCashHook()
-
+    const [loading,setAddress,handleOnClick] = OrderPayCashHook()
     return (
         <div>
             <div className="admin-content-text pt-5">Choose the payment method</div>
@@ -59,7 +59,16 @@ const ChoosePayMethoud = () => {
             <Row>
                 <Col xs="12" className="d-flex justify-content-end">
                     <div className="product-price d-inline border mx-2" style={{height:'39px'}}>34000$</div>
+
+                    {
+                        loading ?
+                            <div className={'d-flex justify-content-center'} style={{minWidth:'90px'}}>
+
+                            <LoadingSpinner></LoadingSpinner>
+                            </div>
+                            :
                     <div className="product-cart-add px-3 pt-2 d-inline me-2" style={{height:'39px'}} onClick={handleOnClick}> Checkout</div>
+                    }
                 </Col>
             </Row>
         </div>
