@@ -102,4 +102,12 @@ export let CREATE_CASH_ORDER='CREATE_CASH_ORDER';
 
 
 
+// Orders types
+export let GET_ALL_USER_ORDER='GET_ALL_USER_ORDER';
+
+
+
+
+
+
 
