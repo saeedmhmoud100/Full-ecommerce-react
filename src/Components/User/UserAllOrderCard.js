@@ -30,6 +30,7 @@ const UserAllOrderCard = ({item}) => {
                             />
                         </div>
                         {
+                            item.color &&
                         <div className="color mx-2"
                              style={{ backgroundColor: `${item.color}`}}></div>
                         }

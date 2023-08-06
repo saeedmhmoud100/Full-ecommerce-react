@@ -9,11 +9,15 @@ const UserAllUserOrdersHook  = _=>{
     const userData = useSelector(state => state.auth.getUserData)
 
     useEffect(_=>{
-        dispatch(getAllOrders())
+        getOrdersData()
     },[])
 
+    const getOrdersData =async page =>{
+        await dispatch(getAllOrders(page,5))
+    }
 
-    return [OrdersData,userData]
+
+    return [OrdersData,userData,getOrdersData]
 }
 
 export default UserAllUserOrdersHook
