@@ -4,9 +4,12 @@ import UserAllAddressesHook from "../../hooks/user/user-all-addresses-hook";
 import {Link} from "react-router-dom";
 import OrderPayCashHook from "../../hooks/checkout/order-pay-cash-hook";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
+import CartPageHook from "../../hooks/cart/cart-page-hook";
 const ChoosePayMethoud = () => {
     const [AllAddresses] = UserAllAddressesHook()
     const [loading,setAddress,handleOnClick] = OrderPayCashHook()
+    const [userCartData] = CartPageHook()
+
     return (
         <div>
             <div className="admin-content-text pt-5">Choose the payment method</div>
@@ -58,7 +61,10 @@ const ChoosePayMethoud = () => {
 
             <Row>
                 <Col xs="12" className="d-flex justify-content-end">
-                    <div className="product-price d-inline border mx-2" style={{height:'39px'}}>34000$</div>
+                    <div className="product-price d-inline border mx-2 position-relative" style={{fontSize: '17px'}}>
+                        <span className={'price-before-discount'} style={{left:"37px"}}>{userCartData && userCartData.data && userCartData.data.totalAfterDiscount ? userCartData.data.totalCartPrice : null}</span>
+                        {userCartData&& userCartData.data ? (userCartData.data.totalAfterDiscount||userCartData.data.totalCartPrice ): 0}$
+                    </div>
 
                     {
                         loading ?

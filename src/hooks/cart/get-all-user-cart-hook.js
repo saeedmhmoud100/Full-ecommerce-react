@@ -11,13 +11,15 @@ const GetAllUserCartHook = () => {
     // console.log(loginUserData)
     useEffect(_=>{
         // console.log(userCartData)
-            if(loginUserData && loginUserData.role === 'user' && userCartData.data){
+            if(loginUserData && loginUserData.role === 'user' && userCartData.data ){
                 dispatch(getAllUserCart())
 
             }
     },[cartChange,appliedCoupon])
 
-
+    useEffect(_=>{
+        dispatch(getAllUserCart())
+    },[])
 
 
     return [userCartData]

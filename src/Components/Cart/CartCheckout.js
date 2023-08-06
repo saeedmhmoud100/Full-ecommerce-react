@@ -10,7 +10,6 @@ const CartCheckout = ({userCartData}) => {
     const [couponName,loading,handleApplyCouponClick,setCouponName] = ApplyCouponHook()
     const navigate = useNavigate()
     const handleCheckoutClick = _=>{
-        console.log(userCartData)
         if (userCartData && userCartData.numOfCartItems > 0){
             navigate('/user/order/paymethoud')
         }else{
