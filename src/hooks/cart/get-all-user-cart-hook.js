@@ -20,7 +20,7 @@ const GetAllUserCartHook = () => {
     useEffect(_=>{
         if(loginUserData && loginUserData.role === 'user')
         dispatch(getAllUserCart())
-    },[])
+    },[loginUserData])
 
 
     return [userCartData]

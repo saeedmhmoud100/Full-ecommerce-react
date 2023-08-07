@@ -4,8 +4,8 @@ import UserAllOrderCard from './UserAllOrderCard'
 const UserAllOrderItem = ({orderData}) => {
 
     const formatDate = dateString =>{
-        // const options = {year:'numeric',month:'long','day':'numeric'}    July 29, 2023
-        const options = {year:'numeric',month:'numeric','day':'numeric'} // 7/29/2023
+        const options = {year:'numeric',month:'long','day':'numeric'}    //July 29, 2023
+        // const options = {year:'numeric',month:'numeric','day':'numeric'} // 7/29/2023
         return new Date(dateString).toLocaleDateString(undefined,options)
     }
 
