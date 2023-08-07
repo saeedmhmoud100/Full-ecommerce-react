@@ -18,6 +18,7 @@ const GetAllUserCartHook = () => {
     },[cartChange,appliedCoupon])
 
     useEffect(_=>{
+        if(loginUserData && loginUserData.role === 'user')
         dispatch(getAllUserCart())
     },[])
 
