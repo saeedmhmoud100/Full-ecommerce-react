@@ -7,24 +7,27 @@ import '../../Assets/Style/cart.scss'
 import DeleteOneCartItemHook from "../../hooks/cart/delete-one-cart-item-hook";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
 import UpdateCartItemHook from "../../hooks/cart/update-cart-item-hook";
-const CartItem = ({item}) => {
+import {Link} from "react-router-dom";
+const CartItem = ({item,admin}) => {
     const [deleteLoading,handleDeleteCartClick] = DeleteOneCartItemHook(item)
     const [cartItemCount,updateLoading,setCartItemCount,handleOnChangeCount] = UpdateCartItemHook(item)
     return (
         // <Col xs="12" className="cart-item-body my-2 d-flex px-2 flex-sm-row flex-column" style={window.outerWidth <567 ? {height: '337px',border:'1px solid black',padding:'10px 20px',width:'max-content',margin:'auto',minWidth:'65%'}: {}}>
         <Col xs="12" className="cart-item-body my-2 d-flex px-2 flex-sm-row flex-column cart-item-sm" >
+            <Link to={`/products/${item._id}`}>
             <img width="160px" height="197px" src={baseURL.getUri() + '/products/' + (item &&item.product.imageCover || '')} alt="product image" />
-            <div className="w-100">
+            </Link>
+            <div className="w-100 mx-3">
                 <Row className="justify-content-between">
                     <Col sm="12" className=" d-flex flex-row justify-content-between">
                         <div className="d-inline pt-2 cat-text">{item &&item.product.category && item.product.category.name || ''}</div>
                         <div className="d-flex pt-2 align-items-center" style={{ cursor: "pointer" }} onClick={handleDeleteCartClick}>
                             {
                                 deleteLoading ? <LoadingSpinner></LoadingSpinner>
-                                    :<>
+                                    : !admin ? <>
                                         <div className="cat-text d-inline me-2">Delete</div>
                                         <img src={deleteicon} alt="" width="20px" height="24px" />
-                                    </>
+                                    </> : null
 
                             }
 
@@ -43,10 +46,18 @@ const CartItem = ({item}) => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col sm="12" className="mt-1">
-                        <div className="cat-text d-inline">Brand: </div>
-                        <div className="barnd-text d-inline mx-1">{item &&item.product.brand &&(item.product.brand.name || '')} </div>
-                    </Col>
+
+
+                        <Col sm="12" className="mt-1">
+                            {item &&item.product.brand &&
+                                <>
+                                    <div className="cat-text d-inline">Brand: </div>
+                                    <div className="barnd-text d-inline mx-1">{(item.product.brand.name || '')} </div>
+                                </>
+                            }
+                        </Col>
+
+
                 </Row>
                 <Row>
                     <Col sm="12" className="mt-1 d-flex">
@@ -68,6 +79,7 @@ const CartItem = ({item}) => {
                                 // onChange={e => setCartItemCount(e.target.value)}
                                 onChange={e => handleOnChangeCount(e.target.value)}
                                 min={1}
+                                disabled={admin}
                             />
                             {/*{*/}
                             {/*    updateLoading ? <LoadingSpinner className={'mx-3'}></LoadingSpinner>*/}

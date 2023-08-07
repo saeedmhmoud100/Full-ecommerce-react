@@ -8,7 +8,7 @@ const AdminAllOrdersItem = ({OrdersData}) => {
     const item = OrdersData.cartItems[0];
     return (
         <Col xs="12" className="cart-item-body my-2 d-flex px-2 h-auto p-sm-30px">
-            <Link to='/admin/allorders/27' className='cart-item-body my-2 px-1 d-flex text-decoration-none h-auto flex-column flex-md-row align-items-center'>
+            <Link to={`/admin/allorders/${OrdersData._id}`} className='cart-item-body my-2 px-1 d-flex text-decoration-none h-auto flex-column flex-md-row align-items-center'>
                 <img width="160px" height="197px"  src={BaseURL.getUri() + "/products/" + item.product.imageCover} alt="" />
                 <div className="w-100 mx-2">
                     <Row className="justify-content-between">
