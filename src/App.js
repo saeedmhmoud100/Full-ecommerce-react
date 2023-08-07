@@ -11,7 +11,7 @@ import CartPage from "./Pages/Cart/CartPage";
 import AdminRoutes from "./Routes/AdminRouts";
 import UserRoutes from "./Routes/UserRouts";
 import {ToastContainer} from "react-toastify";
-import ProtectRoutesHook from "./hooks/protect-routes-hook";
+import ProtectRoutesHook, {NotFound} from "./hooks/protect-routes-hook";
 import AuthRoutes from "./Routes/AuthRouts";
 
 function App() {
@@ -40,6 +40,9 @@ function App() {
                 <Route path={'/products'} element={<ShopProductsPage />} />
                 <Route path={'/products/:id'} element={<ProductDetailsPage />} />
                 <Route path={'/cart'} element={<CartPage />} />
+
+
+                <Route path={'*'} element={<NotFound />} />
 
 
 

@@ -1,7 +1,10 @@
 import {useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 
-
+export const NotFound =({location} )=>{
+    // console.log(location)
+    return <h3>404 - Page Not Found</h3>
+}
 
 const ProtectRoutesHook = () =>{
     const loginUserData = useSelector(state => state.auth.getUserData.data)
