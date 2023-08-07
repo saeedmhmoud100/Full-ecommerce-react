@@ -5,11 +5,11 @@ import AdminOrderDetailsHook from "../../hooks/admin/Admin-Order-Details-Hook";
 
 function AdminOrderDetails() {
     const [OrderData] = AdminOrderDetailsHook()
-    const items = OrderData.data.cartItems;
+    const items = OrderData.data && OrderData.data.cartItems;
     console.log(OrderData)
     return (
         <div>
-            <div className='admin-content-text mb-3'>Details of Order No. #{OrderData.data.id}</div>
+            <div className='admin-content-text mb-3'>Details of Order No. #{OrderData.data && OrderData.data.id}</div>
             {
                 items && items.length >0 ?  items.map(item => <CartItem item={item} admin={true}/>)
                     : null
@@ -36,7 +36,7 @@ function AdminOrderDetails() {
                             fontSize: "16px",
                         }}
                         className="mx-2">
-                        {OrderData.data.user.name}
+                        {OrderData.data && OrderData.data.user.name}
                     </div>
                 </Col>
 
@@ -57,7 +57,7 @@ function AdminOrderDetails() {
                             fontSize: "16px",
                         }}
                         className="mx-2">
-                        {OrderData.data.user.phone}
+                        {OrderData.data && OrderData.data.user.phone}
                     </div>
                 </Col>
                 <Col xs="12" className="d-flex">
@@ -77,11 +77,11 @@ function AdminOrderDetails() {
                             fontSize: "16px",
                         }}
                         className="mx-2">
-                        {OrderData.data.user.email}
+                        {OrderData.data && OrderData.data.user.email}
                     </div>
                 </Col>
                 <div className=" d-inline px-4 border text-center pt-2">
-                    Total {OrderData.data.totalOrderPrice}$
+                    Total {OrderData.data && OrderData.data.totalOrderPrice}$
                 </div>
                 <div className="d-flex mt-2 justify-content-center">
                     <select
@@ -90,8 +90,8 @@ function AdminOrderDetails() {
                         className="select input-form-area mt-1  text-center px-2 w-50">
                         <option value="0">Order Status</option>
 
-                        <option selected={!OrderData.data.isDelivered} value="val2">In progress</option>
-                        <option selected={OrderData.data.isDelivered} value="val2">Finished</option>
+                        <option selected={OrderData.data && !OrderData.data.isDelivered} value="val2">In progress</option>
+                        <option selected={OrderData.data && OrderData.data.isDelivered} value="val2">Finished</option>
                         <option value="val2">cancel</option>
                     </select>
                     <button className="btn-a px-3 d-inline mx-2 ">Save </button>

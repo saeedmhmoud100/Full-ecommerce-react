@@ -8,7 +8,10 @@ const AdminOrderDetailsHook= _ =>{
     const {id} = useParams()
     const OrderData = useSelector(state => state.order.oneOrderDetails)
     useEffect(_ =>{
-        dispatch(getOrderDetails(id))
+        const run =async _=>{
+        await dispatch(getOrderDetails(id))
+        }
+        run()
     },[])
 
     return [OrderData]
