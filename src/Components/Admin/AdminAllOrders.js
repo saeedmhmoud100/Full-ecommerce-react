@@ -6,7 +6,6 @@ import Pagination from "../Uitily/Pagination";
 
 function AdminAllOrders(){
     const [OrdersData,,getOrdersData] = UserAllUserOrdersHook()
-    console.log(OrdersData)
     return(
         <div>
             <div className='admin-content-text'>Management all Orders #{OrdersData.results || 0}</div>

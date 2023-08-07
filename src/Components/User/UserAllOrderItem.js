@@ -2,10 +2,17 @@ import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 import UserAllOrderCard from './UserAllOrderCard'
 const UserAllOrderItem = ({orderData}) => {
+
+    const formatDate = dateString =>{
+        // const options = {year:'numeric',month:'long','day':'numeric'}    July 29, 2023
+        const options = {year:'numeric',month:'numeric','day':'numeric'} // 7/29/2023
+        return new Date(dateString).toLocaleDateString(undefined,options)
+    }
+
     return (
         <div className="user-order mt-2">
             <Row>
-                <div className="py-2 order-title">Dial #{orderData.id}</div>
+                <div className="py-2 order-title">Dial #{orderData.id} -----> at {formatDate(orderData.createdAt)}</div>
             </Row>
             {
                 orderData && orderData.cartItems && orderData.cartItems.map( item => <UserAllOrderCard item={item}/>)

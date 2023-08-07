@@ -7,10 +7,16 @@ import LoadingSpinner from "../Uitily/LoadingSpinner";
 function AdminOrderDetails() {
     const [OrderData,paidLoading,deliveredLoading,handlePaidClick,handleDeliveredClick] = AdminOrderDetailsHook()
     const items = OrderData.data && OrderData.data.cartItems;
-    console.log(OrderData.data)
+
+    const formatDate = dateString =>{
+        const options = {year:'numeric',month:'long','day':'numeric'}    //July 29, 2023
+        // const options = {year:'numeric','day':'numeric',month:'numeric'} // 7/29/2023
+        return new Date(dateString).toLocaleDateString(undefined,options)
+    }
+
     return (
         <div>
-            <div className='admin-content-text mb-3'>Details of Order No. #{OrderData.data && OrderData.data.id}</div>
+            <div className='admin-content-text mb-3'>Details of Order No. #{OrderData.data && OrderData.data.id} at ----> {OrderData.data && formatDate(OrderData.data.createdAt)}</div>
             {
                 items && items.length >0 ?  items.map(item => <CartItem item={item} admin={true}/>)
                     : null
