@@ -1,8 +1,9 @@
-import {GET_ALL_USER_ORDER, GET_ORDER_DETAILS, ORDER_ERROR} from "../types";
+import {CHANGE_ORDER_TO_PAID, GET_ALL_USER_ORDER, GET_ORDER_DETAILS, ORDER_ERROR} from "../types";
 
 const inital={
     allOrders:[],
     oneOrderDetails:[],
+    res:[],
     change:false,
     error:[],
 }
@@ -18,6 +19,12 @@ const orderReducer = (state=inital,action) => {
             return {
                 ...state,
                 oneOrderDetails: action.payload,
+            }
+        case CHANGE_ORDER_TO_PAID:
+            return {
+                ...state,
+                res: action.payload,
+                change:!state.change
             }
             case ORDER_ERROR:
             return {
