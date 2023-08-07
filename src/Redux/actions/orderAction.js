@@ -1,4 +1,4 @@
-import {GET_ALL_USER_ORDER,CHANGE_ORDER_TO_PAID,GET_ORDER_DETAILS,ORDER_ERROR} from "../types";
+import {GET_ALL_USER_ORDER,CHANGE_ORDER_TO_PAID,CHANGE_ORDER_TO_DELIVERED,GET_ORDER_DETAILS,ORDER_ERROR} from "../types";
 import handeError from "./handeError";
 import useGetData from "../../AxiosHooks/useGetData";
 import {useUpdateData} from "../../AxiosHooks/useUpdateData";
@@ -45,6 +45,25 @@ export const changeOrderToPaid = (id) => async dispatch => {
             Notification('the paid status changed successfully')
         dispatch({
             type:CHANGE_ORDER_TO_PAID,
+            payload:res,
+        })
+    }catch (e){
+        handeError(e)
+        dispatch({
+            type:ORDER_ERROR,
+            payload:e
+        })
+    }
+}
+
+export const changeOrderToDelivered = (id) => async dispatch => {
+
+    try {
+        const res = await useUpdateData(`api/v1/orders/${id}/deliver`)
+        if(res.status==="Success")
+            Notification('the delivering status changed successfully')
+        dispatch({
+            type:CHANGE_ORDER_TO_DELIVERED,
             payload:res,
         })
     }catch (e){

@@ -5,8 +5,9 @@ import AdminOrderDetailsHook from "../../hooks/admin/Admin-Order-Details-Hook";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
 
 function AdminOrderDetails() {
-    const [OrderData,paidLoading,handlePaidClick] = AdminOrderDetailsHook()
+    const [OrderData,paidLoading,deliveredLoading,handlePaidClick,handleDeliveredClick] = AdminOrderDetailsHook()
     const items = OrderData.data && OrderData.data.cartItems;
+    console.log(OrderData.data)
     return (
         <div>
             <div className='admin-content-text mb-3'>Details of Order No. #{OrderData.data && OrderData.data.id}</div>
@@ -116,10 +117,13 @@ function AdminOrderDetails() {
                     {/*</select>*/}
                     {
                         paidLoading? <LoadingSpinner style={{marginRight:'111px'}}/> :
-                    <button onClick={OrderData.data && !OrderData.data.isPaid ? handlePaidClick :null} className={`${OrderData.data &&OrderData.data.isPaid ? "btn-success btn": 'btn-a' } px-3 d-inline mx-2 `} disabled={OrderData.data && OrderData.data.isPaid}>{`${OrderData.data && OrderData.data.isPaid ? "paid successfully" : "click here if this order is paid"} `} </button>
+                    <button onClick={OrderData.data && !OrderData.data.isPaid ? handlePaidClick :null} className={`${OrderData.data &&OrderData.data.isPaid ? "btn-success btn": 'btn-a' } px-3 d-inline mx-2 `} disabled={OrderData.data && OrderData.data.isPaid}>{`${OrderData.data && OrderData.data.isPaid ? "paid successfully" : "click here to make this order is paid"} `} </button>
                     }
                     <span>&&</span>
-                    <button className={`" ${OrderData.data &&OrderData.data.isDelivered ? "btn-success btn" :'btn-a' } px-3 d-inline mx-2 "`}>{" click here if this order is delivered"} </button>
+                    {
+                        deliveredLoading? <LoadingSpinner style={{marginLeft:'111px'}}/> :
+                            <button onClick={OrderData.data && !OrderData.data.isDelivered ? handleDeliveredClick :null} className={`" ${OrderData.data &&OrderData.data.isDelivered ? "btn-success btn" :'btn-a' } px-3 d-inline mx-2 "`} disabled={OrderData.data && OrderData.data.isDelivered}>{`${OrderData.data && OrderData.data.isDelivered ? "delivered successfully" : "click here to make this order is delivered"} `} </button>
+                    }
                 </div>
             </Row>
         </div>
