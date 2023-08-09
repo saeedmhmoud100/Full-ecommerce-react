@@ -7,10 +7,7 @@ function AdminAddCategory(){
     const [image,text,loading,setTextState,onImageChange,onSubmit] = AdminAddCategoryHook()
     return(
         <div>
-            {
-                loading ? <div className='d-flex justify-content-center align-items-center pt-5'><LoadingSpinner></LoadingSpinner> </div>
-                : (
-                <><Row className="justify-content-start ">
+                <Row className="justify-content-start ">
                     <div className="admin-content-text pb-4">Add New Category</div>
                     <Col sm="8">
                         <div className="text-form pb-2">Category Image</div>
@@ -31,11 +28,14 @@ function AdminAddCategory(){
                     </Col>
                 </Row>
                 <Row>
-                <Col sm="8" className="d-flex justify-content-end ">
-                <button className="btn-save d-inline mt-2 " onClick={onSubmit}>Save Changes</button>
+                <Col sm="8" className="d-flex justify-content-end " style={loading ? {paddingRight:'70px'} : {}}>
+                    {
+                        loading ? <div className='d-flex justify-content-center align-items-center pt-3'><LoadingSpinner></LoadingSpinner> </div>
+                        : (
+                            <button className="btn-save d-inline mt-2 " onClick={onSubmit}>Save Changes</button>
+                        )}
                 </Col>
-                </Row></>)
-            }
+                </Row>
 
         </div>
     )

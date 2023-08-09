@@ -22,7 +22,7 @@ function AdminAddCategoryPage() {
                 <Col sm='9' xs='12' md='10'>
                     <AdminAddCategory />
                     {
-                        categoriesData && categoriesData.data ?
+                        categoriesData && categoriesData.data  && categoriesData.data.length > 0?
                     <CategoryContainer data={categoriesData && categoriesData.data} isAdmin={true}/>
                             : null
                     }

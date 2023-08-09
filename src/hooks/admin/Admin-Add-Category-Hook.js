@@ -28,11 +28,11 @@ const AdminAddCategoryHook = _ => {
             const formData = new FormData()
             formData.append('name', text)
             formData.append('image', selectedFile)
+            setloading(true)
+            await dispatch(createCategory(formData))
             settext('')
             setImage(avatar)
             setSelectedFile(null)
-            setloading(true)
-            await dispatch(createCategory(formData))
             setloading(false)
         } else {
             Notification('Enter a valid Data!!!', 'warning')
