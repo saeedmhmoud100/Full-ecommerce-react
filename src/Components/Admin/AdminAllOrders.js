@@ -13,7 +13,7 @@ function AdminAllOrders(){
                 {
                     OrdersData&& OrdersData.results > 0 && OrdersData.data ?
                         OrdersData.data.map( item => <AdminAllOrdersItem OrdersData={item} admin={true}/>)
-                        : null
+                        : <h3 className={'text-center mt-2'}>there are no orders yet</h3>
                 }
                 {
                     OrdersData&& OrdersData.results > 0 && OrdersData.paginationResult.numberOfPages > 1 &&

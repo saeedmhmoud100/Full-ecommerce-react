@@ -13,9 +13,11 @@ function HomePage(){
         <div className={'font'}>
             <Slider />
             <HomeCategory />
-            <CardProductContainer products={moreSalesProducts} title={"Best Sellers" } btntitle={'More'} pathText="/products"/>
+            {moreSalesProducts && moreSalesProducts.length > 0 && <CardProductContainer products={moreSalesProducts} title={"Best Sellers" } btntitle={'More'} pathText="/products"/>}
+
             <DiscountSection />
-            <CardProductContainer products={topRateProducts} title={"Top Rated" } btntitle={'More'} pathText="/products"/>
+            {topRateProducts && topRateProducts.length > 0 &&<CardProductContainer products={topRateProducts} title={"Top Rated" } btntitle={'More'} pathText="/products"/>}
+
             <BrandFeature title={"Famous Brands" } btntitle={'More'} />
         </div>
 

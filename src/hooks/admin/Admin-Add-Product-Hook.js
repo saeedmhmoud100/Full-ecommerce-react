@@ -108,6 +108,7 @@ const AdminAddProductHook = _ =>{
         return new File([uBarr],filename,{type:mime})
     }
 
+    const [submit,setSubmit] = useState(false)
     const productSuccess = useSelector(state => state.allProduct.products)
     const onSubmit = async _ => {
         if(images.length < 1){
@@ -148,19 +149,18 @@ const AdminAddProductHook = _ =>{
             // selectedSubCatID.map(subCat => {
             //     formData.append('subcategory',JSON.stringify(subCat._id))
             // })
-
+            // console.log('yu')
             setFormLoading(true)
             await dispatch(createProduct(formData))
             setFormLoading(false)
-
+            setSubmit(true)
             setSubCategoriesLoading(true)
             setTimeout(_ => setSubCategoriesLoading(false),50)
         }
     }
 
     useEffect(_=>{
-        console.log(productSuccess)
-        if(productSuccess){
+        if(productSuccess && submit){
             setImages({})
             setProdName('')
             setProdDescription('')
@@ -172,8 +172,9 @@ const AdminAddProductHook = _ =>{
             setSelectedColors([])
             setSelectedSubCatID([])
             setSubCatID([])
+            setSubmit(false)
         }
-    },[productSuccess])
+    },[submit])
 
     return [
         images,
