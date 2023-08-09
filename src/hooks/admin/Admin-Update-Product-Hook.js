@@ -163,8 +163,7 @@ const AdminAddProductHook = _ =>{
         const updatedProduct=useSelector(state=> state.allProduct.updateProduct)
 
     useEffect(_=>{
-        if(updatedProduct.status==200 && redirect==false){
-        setRedirect(true)
+        if(updatedProduct.status===200 && redirect===true){
             setRed()
         }
     },[updatedProduct])
@@ -172,9 +171,9 @@ const AdminAddProductHook = _ =>{
     const navigate = useNavigate()
 
     const setRed = _=>{
+        navigate(`/products/${id}`)
         setRedirect(false)
-        // return navigate(`/products/${id}`)
-        setTimeout(_=> window.location = `/products/${id}`,1000)
+        // setTimeout(_=> window.location = `/products/${id}`,1000)
 
     }
 
@@ -189,9 +188,9 @@ const AdminAddProductHook = _ =>{
             Notification('Product Price is required','warning')
         }else if(qty===null || qty===0 || !qty){
             Notification('Product Quantity is required','warning')
-        }else if(catID==='' || catID==='0'){
+        }else if(catID==='' || catID==='0' || !catID){
             Notification('Main Category is required','warning')
-        }else if(brandID==='' || brandID==='0'){
+        }else if(brandID==='' || brandID==='0' || !brandID){
             Notification('Brand is required','warning')
         }else if(selectedColors.length < 1){
             Notification('Colors are required','warning')
@@ -223,10 +222,11 @@ const AdminAddProductHook = _ =>{
                 image=dataURLToFile(image, Math.random() + '.png')
                 formData.append('images',image)
             }
+                setRedirect(true)
                 setFormLoading(true)
                 await dispatch(updateProduct(id,formData))
+                await dispatch(getOneProduct(id))
                 setFormLoading(false)
-
 
             // window.location.(`/products/${product.data._id}`)
         }
