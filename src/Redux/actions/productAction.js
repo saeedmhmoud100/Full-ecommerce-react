@@ -16,6 +16,7 @@ export const createProduct = (formData) => async dispatch => {
             loading:true
         })
     }catch (e){
+        handeError(e)
         dispatch({
             type:GET_PRODUCT_ERROR,
             payload:e
@@ -31,15 +32,17 @@ export const updateProduct = (id,formData) => async dispatch => {
             loading:true
         })
     }catch (e){
-        for(const entry of formData){
-            console.log(entry); // Array: ['entryName', 'entryValue']
-        }
+        // for(const entry of formData){
+        //     console.log(entry); // Array: ['entryName', 'entryValue']
+        handeError(e)
+
         dispatch({
             type:GET_PRODUCT_ERROR,
             payload:e
         })
     }
 }
+
 export const getAllProducts = (page = 1,limit=9) => async dispatch => {
     try {
         const res = await useGetData(`/api/v1/products?limit=${limit}&page=${page}`)
@@ -131,6 +134,7 @@ export const deleteProduct = (id) => async dispatch => {
             loading:true
         })
     }catch (e){
+        handeError(e)
         dispatch({
             type:GET_PRODUCT_ERROR,
             payload:e

@@ -6,7 +6,7 @@ import MultiImageInput from "react-multiple-image-input";
 import AdminAddProductHook from "../../hooks/admin/Admin-Add-Product-Hook";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
 import {CompactPicker} from "react-color";
-
+import '../../Assets/Style/Products.scss'
 function AdminAddProduct(){
    const [images,setImages,crop,prodName,prodDescription,priceBefore,priceAfter,qty,catID,brandID,subCatID,showColors,selectedColors,formLoading,
 
@@ -44,6 +44,7 @@ function AdminAddProduct(){
                         cropConfig={{crop,ruleOfThirds: true}}
                         max={5}
                         // allowCrop={false}
+                        style={{width:"370px"}}
                     />
                     <input
                         type="text"

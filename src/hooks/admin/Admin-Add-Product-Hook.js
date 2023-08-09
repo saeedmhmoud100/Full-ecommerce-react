@@ -9,12 +9,13 @@ import {createProduct} from "../../Redux/actions/productAction";
 const AdminAddProductHook = _ =>{
     const [images,setImages] = useState([])
     const crop = {
-        unit:'px',
+        unit:'%',
         // aspect: 4/3,
-        x: 100,
-        y: 100,
-        width: 200,
-        height: 200
+        x: 20,
+        // y: 265,
+        width: 100,
+        // height: 900,
+        aspect: 9/16,
     }
     const dispatch = useDispatch()
     const [prodName,setProdName] = useState('')
@@ -109,6 +110,7 @@ const AdminAddProductHook = _ =>{
     }
 
     const [submit,setSubmit] = useState(false)
+
     const productSuccess = useSelector(state => state.allProduct.products)
     const onSubmit = async _ => {
         if(images.length < 1){
@@ -160,7 +162,8 @@ const AdminAddProductHook = _ =>{
     }
 
     useEffect(_=>{
-        if(productSuccess && submit){
+        if(productSuccess.data && submit &&productSuccess.data._id){
+            console.log('tes')
             setImages({})
             setProdName('')
             setProdDescription('')
@@ -172,8 +175,9 @@ const AdminAddProductHook = _ =>{
             setSelectedColors([])
             setSelectedSubCatID([])
             setSubCatID([])
-            setSubmit(false)
         }
+        if(submit)
+        setSubmit(false)
     },[submit])
 
     return [
