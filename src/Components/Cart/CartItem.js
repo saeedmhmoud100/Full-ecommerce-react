@@ -15,7 +15,7 @@ const CartItem = ({item,admin}) => {
         // <Col xs="12" className="cart-item-body my-2 d-flex px-2 flex-sm-row flex-column" style={window.outerWidth <567 ? {height: '337px',border:'1px solid black',padding:'10px 20px',width:'max-content',margin:'auto',minWidth:'65%'}: {}}>
         <Col xs="12" className="cart-item-body my-2 d-flex px-2 flex-sm-row flex-column cart-item-sm" >
             <Link to={`/products/${item._id}`}>
-            <img width="160px" height="197px" src={baseURL.getUri() + '/products/' + (item &&item.product.imageCover || '')} alt="product image" />
+            <img width="160px" height="197px" src={baseURL.getUri() + '/products/' + (item && item.product && item.product.imageCover || '')} alt="product image" />
             </Link>
             <div className="w-100 mx-3">
                 <Row className="justify-content-between">

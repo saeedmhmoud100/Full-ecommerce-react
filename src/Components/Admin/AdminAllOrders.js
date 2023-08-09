@@ -12,7 +12,7 @@ function AdminAllOrders(){
             <Row className={'p-sm-30px'} >
                 {
                     OrdersData&& OrdersData.results > 0 && OrdersData.data ?
-                        OrdersData.data.map( item => <AdminAllOrdersItem OrdersData={item}/>)
+                        OrdersData.data.map( item => <AdminAllOrdersItem OrdersData={item} admin={true}/>)
                         : null
                 }
                 {

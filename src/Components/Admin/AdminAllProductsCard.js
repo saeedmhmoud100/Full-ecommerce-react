@@ -2,8 +2,9 @@ import React from 'react'
 import {Col, Card, Row, Modal, Button} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import AdminAllProductsCardHook from "../../hooks/admin/Admin-All-Product-Card-Hook";
+import LoadingSpinner from "../Uitily/LoadingSpinner";
 const AdminAllProductsCard = ({product}) => {
-    const [onDeleteProduct,show,handleShow,handleClose] = AdminAllProductsCardHook()
+    const [onDeleteProduct,show,handleShow,handleClose,deleteLoading] = AdminAllProductsCardHook()
     return (
         <Col xs="12" sm="6" md="5" lg="4" className="d-flex">
             <Modal show={show} onHide={handleClose}>
@@ -15,9 +16,13 @@ const AdminAllProductsCard = ({product}) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Cancel
                     </Button>
-                    <Button variant="danger" onClick={_=>onDeleteProduct(product._id)}>
-                        Remove
-                    </Button>
+                    {
+                        deleteLoading ? <LoadingSpinner className={'mx-4'}></LoadingSpinner>
+                            :<Button variant="danger" onClick={_=>onDeleteProduct(product._id)}>
+                                Remove
+                            </Button>
+                    }
+
                 </Modal.Footer>
             </Modal>
 
