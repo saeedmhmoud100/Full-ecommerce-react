@@ -29,7 +29,7 @@ const AdminAddSubCategoryHook = _ =>{
 
 
     const onSubmit = async _ =>{
-        console.log(subcategory)
+        // console.log(subcategory)
         if(nameVal !=='' && selectVal !== '0' ){
 
             setSubmitLoading(true)

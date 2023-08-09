@@ -47,7 +47,6 @@ export const getSubCategoryByCategory = (catID) => async dispatch => {
 export const getAllSubCategory = () => async dispatch => {
     try {
         const res = await UseGetData(`/api/v1/subcategories`)
-        console.log(res)
         dispatch({
             type:GET_ALL_SUBCATEGORY,
             payload:res,
