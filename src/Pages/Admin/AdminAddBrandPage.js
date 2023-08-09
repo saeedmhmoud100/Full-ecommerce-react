@@ -23,7 +23,10 @@ function AdminAddBrandPage() {
                 </Col>
                 <Col sm='9' xs='12' md='10'>
                     <AdminAddBrand />
-                    <BrandContainer data={brandsData ? brandsData.data : []} isAdmin={true}/>
+                    {
+                        brandsData &&  brandsData.data && brandsData.data.length > 0 &&
+                            <BrandContainer data={brandsData ? brandsData.data : []} isAdmin={true}/>
+                    }
                 </Col>
             </Row>
         </Container>

@@ -55,20 +55,24 @@ const SubCategoriesContainer = _=>{
                     <div className={'admin-content-text'} >All SubCategories Contains WithOut  Main Category:</div>
                     : null
             }
-            <Row className={`my-2 d-flex justify-content-center justify-content-sm-start`}>
-                <Col sm={8} className={'border-bottom pb-2 mt-2'}>
-                    <div  className={'d-inline-flex flex-wrap gap-1'} style={{marginLeft:'7px'}}>
-                        {
-                            allSubCategories &&allSubCategories.data && allSubCategories.data.length>0 ? allSubCategories.data.map((subCat,ii) =>
-                                <SubCategoriesCard subCat={subCat} ii={ii}/>
-                            ) : null
-                        }
+            {
+                allSubCategories && allSubCategories.results  >0 &&
+                <Row className={`my-2 d-flex justify-content-center justify-content-sm-start`}>
+                    <Col sm={8} className={'border-bottom pb-2 mt-2'}>
+                        <div  className={'d-inline-flex flex-wrap gap-1'} style={{marginLeft:'7px'}}>
+                            {
+                                allSubCategories &&allSubCategories.data && allSubCategories.data.length>0 ? allSubCategories.data.map((subCat,ii) =>
+                                    <SubCategoriesCard subCat={subCat} ii={ii}/>
+                                ) : null
+                            }
 
-                    </div>
+                        </div>
 
-                </Col>
+                    </Col>
 
-            </Row>
+                </Row>
+
+            }
         </Container>
     )
 }
