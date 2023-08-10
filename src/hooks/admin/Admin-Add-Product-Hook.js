@@ -15,7 +15,7 @@ const AdminAddProductHook = _ =>{
         // y: 265,
         width: 100,
         // height: 900,
-        aspect: 9/16,
+        // aspect: 9/16,
     }
     const dispatch = useDispatch()
     const [prodName,setProdName] = useState('')

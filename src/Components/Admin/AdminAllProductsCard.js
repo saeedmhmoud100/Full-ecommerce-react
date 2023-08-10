@@ -44,7 +44,8 @@ const AdminAllProductsCard = ({product}) => {
                     </Col>
                 </Row>
                 <Link to={`/products/${product._id}`} style={{ textDecoration: "none" }}>
-                    <Card.Img style={{ height: "228px", width: "100%",/*transform: 'scaleX(-1)' */}} src={product.imageCover} />
+                    {/*<Card.Img style={{ height: "228px", width: "100%",/*transform: 'scaleX(-1)' *!/} src={product.imageCover} />*/}
+                    <div  style={{ height: "228px", width: "100%",backgroundImage:"url("+product.imageCover +")",backgroundSize:"cover"}}></div>
                     <Card.Body>
                         <Card.Title>
                             <div className="card-title">
@@ -57,8 +58,8 @@ const AdminAllProductsCard = ({product}) => {
                                 <div className="d-flex">
                                     {product && product.priceAfterDiscount && product.priceAfterDiscount>0 && product.priceAfterDiscount<product.price
                                         ?<div className="card-price"><span className={'price-before-discount-product'} style={{
-                                            top: '83%',
-                                            left: '80%'
+                                            top: '89%',
+                                            left: '74%'
                                         }}>{product ? product.price : 0}</span>{product.priceAfterDiscount}$</div>
                                         :<div className="card-price">{product && product.price}$</div>
                                     }

@@ -30,13 +30,29 @@
   > .image-gallery[aria-live]{
       width: 100%!important;
   }
-  .image-gallery-slide[tabindex].center{
+  .image-gallery-slide[tabindex]{
+    >img{
+      height: 100% !important;
+      max-height: initial;
+    }
+
+    &.center{
       display: flex!important;
       align-items: center!important;
-    transition: all 450ms ease-out 0s,flex 1s cubic-bezier(1,-0.26, 1, 1.49)!important;
+      transition: all 450ms ease-out 0s,flex 1s cubic-bezier(1,-0.26, 1, 1.49)!important;
+    }
+
   }
 
   //.image-gallery-slide[tabindex] .image-gallery-image{
   //  transform: translateY(50%) !important;
   //}
+}
+
+
+.image-gallery-thumbnail-inner{
+  > .image-gallery-thumbnail-image{
+    height: 50px;
+    //aspect-ratio: 16/9;
+  }
 }
