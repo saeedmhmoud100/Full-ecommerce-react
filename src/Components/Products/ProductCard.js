@@ -44,7 +44,7 @@ const ProductCard = ({product,imgURL}) => {
                 <Card.Body>
                     <Link to={`/products/${product._id}`} style={{textDecoration:'none'}}>
                     <Card.Title>
-                        <div className="card-title">
+                        <div className="card-title" style={{minHeight:'80px'}}>
                             {product.title}
                         </div>
                     </Card.Title>
