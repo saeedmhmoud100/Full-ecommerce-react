@@ -43,7 +43,7 @@ export const updateProduct = (id,formData) => async dispatch => {
     }
 }
 
-export const getAllProducts = (page = 1,limit=9) => async dispatch => {
+export const getAllProducts = (page = 1,limit=12) => async dispatch => {
     try {
         const res = await useGetData(`/api/v1/products?limit=${limit}&page=${page}`)
         dispatch({

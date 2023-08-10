@@ -7,7 +7,7 @@ const ShopProductsPageHook= _ =>{
     const dispatch = useDispatch()
 
     const getProduct =async (page=selectedPage)=>{
-        const limit =8;
+        const limit =12;
         const searchWord = localStorage.getItem('searchWord') || '';
         const catSelected = localStorage.getItem('catSelected') || '';
         const brandSelected = localStorage.getItem('brandSelected') || '';
@@ -25,9 +25,10 @@ const ShopProductsPageHook= _ =>{
     let pagination=[];
     if(allProducts && allProducts.paginationResult)
         pagination=allProducts.paginationResult.numberOfPages;
-    const onPress = page=>{
+    const onPress =async page=>{
         setSelectedPage(page)
-        getProduct(page)
+        await getProduct(page)
+        window.scrollTo(0, 0);
     }
 
 

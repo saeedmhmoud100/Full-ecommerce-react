@@ -4,10 +4,10 @@ import {Row} from "react-bootstrap";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
 
 function AdminAllProducts({products}){
-
+    // console.log(products)
     return(
         <div>
-            <div className='admin-content-text'>Management all products</div>
+            <div className='admin-content-text'>Management all products ----> ({(products.results > 0 && products.data && products.data.length) || 0}) from ({products.results})</div>
         <Row>
             {
                 products && products.data && products.data.length > 0 ?

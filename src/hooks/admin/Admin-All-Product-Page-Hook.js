@@ -13,8 +13,9 @@ const AdminAllProductPageHook= _ =>{
     if(products && products.paginationResult){
         pagesCount =products.paginationResult.numberOfPages
     }
-    const getPage = (page) =>{
-        dispatch(getAllProducts(page))
+    const getPage = async (page) =>{
+       await dispatch(getAllProducts(page))
+        window.scrollTo(0, 0);
     }
 
 
