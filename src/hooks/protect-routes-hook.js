@@ -1,23 +1,31 @@
 import {useSelector} from "react-redux";
 import {useEffect, useState} from "react";
+import {Outlet} from "react-router-dom";
 
 export const NotFound =({location} )=>{
     // console.log(location)
     return <h3>404 - Page Not Found</h3>
 }
 
+export const CheckInternetConnection =({internet,component,noInternetComponent})=>{
+    if(internet)
+        return component ? component :<Outlet/>
+    else if(!component)
+        return noInternetComponent
+}
+
 const ProtectRoutesHook = () =>{
-    const loginUserData = useSelector(state => state.auth.getUserData.data)
+    const loginUserData = useSelector(state =>(state.auth && state.auth.getUserData && state.auth.getUserData.data)|| [])
 
     const [isUser,serIsUser] = useState()
     const [isAdmin,serIsAdmin] = useState()
 
     useEffect(_=> {
 
-            if(loginUserData.role === 'user'){
+            if(loginUserData && loginUserData.role === 'user'){
                 serIsAdmin(false)
                 serIsUser(true)
-            }else if(loginUserData.role === 'admin'){
+            }else if(loginUserData && loginUserData.role === 'admin'){
                 serIsAdmin(true)
                 serIsUser(false)
             }else{

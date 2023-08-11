@@ -11,8 +11,9 @@ import CartPage from "./Pages/Cart/CartPage";
 import AdminRoutes from "./Routes/AdminRouts";
 import UserRoutes from "./Routes/UserRouts";
 import {ToastContainer} from "react-toastify";
-import ProtectRoutesHook, {NotFound} from "./hooks/protect-routes-hook";
+import ProtectRoutesHook, {CheckInternetConnection, NotFound} from "./hooks/protect-routes-hook";
 import AuthRoutes from "./Routes/AuthRouts";
+import NoInternetPage from "./Pages/Offline/NoInternetPage";
 
 function App() {
     // Go to in the top when go to another page
@@ -26,25 +27,30 @@ function App() {
 
     return (
         <div className="font">
-            <NavBarLogin />
+
+            <CheckInternetConnection internet={navigator.onLine} component={<NavBarLogin />} noInternetComponent={<NoInternetPage />}/>
             <Routes>
-                <Route index element={<HomePage />} />
+                <Route element={<CheckInternetConnection internet={navigator.onLine} noInternetComponent={<NoInternetPage />}/>}>
 
-                <Route path={'/auth/*'} element={<AuthRoutes isLoggedOut={!localStorage.getItem('token')}/>} />
-                <Route path={'/admin/*'} element={<AdminRoutes isAdmin={isAdmin } />} />
-                <Route path={'/user/*'} element={<UserRoutes isUser={isUser}/>} />
+                    <Route index element={<HomePage />} />
 
-
-                <Route path={'/allcategory'} element={<AllCategoryPage />} />
-                <Route path={'/allbrand'} element={<AllBrandPage />} />
-                <Route path={'/products'} element={<ShopProductsPage />} />
-                <Route path={'/products/:id'} element={<ProductDetailsPage />} />
-                <Route path={'/cart'} element={<CartPage />} />
+                    <Route path={'/auth/*'} element={<AuthRoutes isLoggedOut={!localStorage.getItem('token')}/>} />
+                    <Route path={'/admin/*'} element={<AdminRoutes isAdmin={isAdmin } />} />
+                    <Route path={'/user/*'} element={<UserRoutes isUser={isUser}/>} />
 
 
-                <Route path={'*'} element={<NotFound />} />
+                    <Route path={'/allcategory'} element={<AllCategoryPage />} />
+                    <Route path={'/allbrand'} element={<AllBrandPage />} />
+                    <Route path={'/products'} element={<ShopProductsPage />} />
+                    <Route path={'/products/:id'} element={<ProductDetailsPage />} />
+                    <Route path={'/cart'} element={<CartPage />} />
 
 
+                    <Route path={'*'} element={<NotFound />} />
+                </Route>
+
+
+                {/*<Route path={'/nointernet'} element={<NoInternetPage />} />*/}
 
             </Routes>
             <Footer/>
