@@ -51,7 +51,7 @@ const LoginHook = _=>{
             setLoggedin(false)
 
         }
-    },[loading])
+    },[loggedin])
     return [email,password,loading,onChangeEmail,onChangePassword,onSubmit]
 }
 

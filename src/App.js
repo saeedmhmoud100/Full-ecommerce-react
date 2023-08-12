@@ -14,6 +14,7 @@ import {ToastContainer} from "react-toastify";
 import ProtectRoutesHook, {CheckInternetConnection, NotFound} from "./hooks/protect-routes-hook";
 import AuthRoutes from "./Routes/AuthRouts";
 import NoInternetPage from "./Pages/Offline/NoInternetPage";
+import OfflineHook from "./hooks/offline-hook";
 
 function App() {
     // Go to in the top when go to another page
@@ -24,13 +25,14 @@ function App() {
     //
 
     const [isUser,isAdmin,loginUserData] = ProtectRoutesHook()
+    const [isOnline] = OfflineHook()
 
     return (
         <div className="font">
 
-            <CheckInternetConnection internet={navigator.onLine} component={<NavBarLogin />} noInternetComponent={<NoInternetPage />}/>
+            <CheckInternetConnection internet={isOnline} component={<NavBarLogin />} noInternetComponent={<NoInternetPage />}/>
             <Routes>
-                <Route element={<CheckInternetConnection internet={navigator.onLine} noInternetComponent={<NoInternetPage />}/>}>
+                <Route element={<CheckInternetConnection internet={isOnline} noInternetComponent={<NoInternetPage />}/>}>
 
                     <Route index element={<HomePage />} />
 

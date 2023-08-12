@@ -34,7 +34,7 @@ export const getAllUserCart = () => async dispatch => {
             payload:res,
         })
     }catch (e){
-        handeError(e)
+        // handeError(e)
         dispatch({
             type:CART_ERROR,
             payload:e
