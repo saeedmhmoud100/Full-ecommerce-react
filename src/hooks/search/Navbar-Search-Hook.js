@@ -4,12 +4,23 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getUserData, logoutUser} from "../../Redux/actions/authAction";
 import {getAllUserCart, logoutUserCart} from "../../Redux/actions/cartAction";
+import {getAllCategory} from "../../Redux/actions/categoryAction";
+import {getAllBrand} from "../../Redux/actions/brandAction";
+import {getAllProducts} from "../../Redux/actions/productAction";
 
 const NavbarSearchHook = _=>{
     const [,,,getProduct] = ShopProductsPageHook()
     const [searchWord,setSearchWord] = useState('')
     const [prevPage,setPrevPage] = useState(window.location.pathname)
     const navigate = useNavigate();
+
+
+    useEffect(_=>{
+       dispatch(getAllCategory())
+       dispatch(getAllBrand)
+       dispatch(getAllProducts())
+    },[])
+
 
     const onChangeSearch = e =>{
         setSearchWord(e.target.value)
