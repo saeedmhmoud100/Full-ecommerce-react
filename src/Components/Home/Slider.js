@@ -19,7 +19,7 @@ const Silder = () => {
                     <img
                         style={{ height: "296px", width: "313.53px" }}
                         className=""
-                        src={slider4}
+                        src={'https://saeedmhmoud100.github.io/Full-ecommerce-react'+slider4}
                         alt="First slide"
                     />
                     <div className="">
