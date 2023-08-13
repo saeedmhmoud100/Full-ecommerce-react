@@ -18,7 +18,7 @@ const AuthRoutes = ({isLoggedOut}) => ( // URL is: user/*
         <Routes>
             <Route
                 path="*"
-                element={<Navigate to="/" replace />}
+                element={<Navigate to="/Full-ecommerce-react" replace />}
             />
         </Routes>
 );

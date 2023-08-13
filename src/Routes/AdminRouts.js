@@ -30,7 +30,7 @@ const AdminRoutes = ({isAdmin}) => { // URL is: admin/*
             <Routes>
                 <Route
                     path="*"
-                    element={<Navigate to={localStorage.getItem('token') ? '/' : "/auth/login"} replace />}
+                    element={<Navigate to={localStorage.getItem('token') ? '/Full-ecommerce-react' : "Full-ecommerce-react/auth/login"} replace />}
                 />
             </Routes>
     )

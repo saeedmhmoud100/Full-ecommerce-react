@@ -13,6 +13,7 @@ const LoginHook = _=>{
     const [loading,setLoading]=useState(false)
     const [loggedin,setLoggedin]=useState(false)
     const user= useSelector(state => state.auth.loginUser)
+    const userdata= useSelector(state => state.auth.getUserData)
     const onChangeEmail = e=>{
         setEmail(e.target.value)
     }
@@ -42,7 +43,7 @@ const LoginHook = _=>{
     }
 
     useEffect(_=>{
-        if (!loading && user.token && loggedin){
+        if (user.token){
             // Notification(`welcome back ${user.data.name}`,'success')
             localStorage.setItem('token',user.token)
             if(user.data.role === 'user')
@@ -51,7 +52,8 @@ const LoginHook = _=>{
             setLoggedin(false)
 
         }
-    },[loggedin])
+    },[userdata])
+
     return [email,password,loading,onChangeEmail,onChangePassword,onSubmit]
 }
 
