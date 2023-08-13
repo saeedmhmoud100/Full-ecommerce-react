@@ -33,7 +33,7 @@ const Silder = () => {
                     <img
                         style={{ height: "296px", width: "313.53px" }}
                         className=""
-                        src={sliderimg}
+                        src={'https://saeedmhmoud100.github.io/Full-ecommerce-react'+sliderimg}
                         alt="First slide"
                     />
                     <div className="">
@@ -48,7 +48,7 @@ const Silder = () => {
                     <img
                         style={{ height: "296px", width: "373.53px" }}
                         className=""
-                        src={prod3}
+                        src={'https://saeedmhmoud100.github.io/Full-ecommerce-react'+prod3}
                         alt="First slide"
                     />
                     <div className="">
@@ -63,7 +63,7 @@ const Silder = () => {
                     <img
                         style={{ height: "296px", width: "373.53px" }}
                         className=""
-                        src={prod4}
+                        src={'https://saeedmhmoud100.github.io/Full-ecommerce-react'+prod4}
                         alt="First slide"
                     />
                     <div className="">

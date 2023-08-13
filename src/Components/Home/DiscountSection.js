@@ -11,7 +11,7 @@ const DiscountSection = () => {
                     </div>
                 </Col>
                 <Col sm="6">
-                    <img className="dicount-img" src={laptops} alt="" />
+                    <img className="dicount-img" src={'https://saeedmhmoud100.github.io/Full-ecommerce-react'+laptops} alt="" />
                 </Col>
             </Row>
         </Container>
