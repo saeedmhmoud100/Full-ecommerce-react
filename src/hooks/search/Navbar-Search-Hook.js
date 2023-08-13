@@ -16,9 +16,13 @@ const NavbarSearchHook = _=>{
 
 
     useEffect(_=>{
-       dispatch(getAllCategory())
-       dispatch(getAllBrand)
-       dispatch(getAllProducts())
+        const run = async _=>{
+           await dispatch(getAllProducts())
+           await dispatch(getAllCategory())
+           await dispatch(getAllBrand)
+
+        }
+        run()
     },[])
 
 

@@ -8,7 +8,6 @@ const ProductCardHook= product =>{
 
     const allWishList = useSelector(state => state.wishList.wishList)
 
-
     const checkInWishList = (productID,wishList) =>{
         ///// 1
         // wishList.forEach(prodID => {
@@ -42,13 +41,27 @@ const ProductCardHook= product =>{
 
 
     const deleteProductFromWishList = async id=>{
-        await dispatch(deleteFromWishList(id))
-        setIsFave(false)
+        if(localStorage.getItem('token'))
+        {
+            setIsFave(false)
+            await dispatch(deleteFromWishList(id))
+        }else{
+            await dispatch(deleteFromWishList(id))
+            setIsFave(false)
+        }
     }
     const addProductToWishList = async id=>{
-        await dispatch(addToWishList({productId:id}))
-        setIsFave(true)
+        if(localStorage.getItem('token')){
+            setIsFave(true)
+            await dispatch(addToWishList({productId:id}))
+        }else{
+            await dispatch(addToWishList({productId:id}))
+            setIsFave(true)
+        }
+
     }
+
+
 
 
     return [isFav,deleteProductFromWishList,addProductToWishList]
