@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import BaseURL from "../Api/baseURL";
 
 
 const OfflineHook =_=>{
@@ -8,14 +9,16 @@ const OfflineHook =_=>{
     useEffect(_=>{
         const run =async _=>{
             try {
-            const res =await fetch('https://jsonplaceholder.typicode.com/users')
-                // console.log(res)
-                setIsOnline(res.status >= 200 && res.status <= 300)
+                const resProd =await BaseURL.get('/api/v1/products')
+                const resCat =await BaseURL.get('/api/v1/categories')
+                const resBrand =await BaseURL.get('/api/v1/brands')
+                        setIsOnline((resProd.status >= 200 && resProd.status <= 300) &&(resCat.status >= 200 && resCat.status <= 300) &&(resBrand.status >= 200 && resBrand.status <= 300)  )
             }catch (e){
                 setIsOnline(false)
             }
         }
         run()
+                // console.log(isOnline)
     })
 
     // useEffect(() => {
@@ -39,7 +42,7 @@ const OfflineHook =_=>{
 
     // console.log(isOnline)
 
-    return [isOnline===true]
+    return [isOnline]
 }
 
 export default OfflineHook

@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import HomePage from "./Pages/Home/HomePage";
 import {Routes, Route, useLocation, Navigate} from "react-router-dom";
 import NavBarLogin from "./Components/Uitily/NavBarLogin";
@@ -27,10 +27,12 @@ function App() {
     const [isUser,isAdmin,loginUserData] = ProtectRoutesHook()
     const [isOnline] = OfflineHook()
 
+
     return (
         <div className="font">
 
             <CheckInternetConnection internet={isOnline} component={<NavBarLogin />} noInternetComponent={<NoInternetPage />}/>
+
             <Routes>
                 <Route element={<CheckInternetConnection internet={isOnline} noInternetComponent={<NoInternetPage />}/>}>
 

@@ -12,7 +12,7 @@ const NoInternetPage =_=>{
                 <Navbar className="sticky-top text-center" bg="dark" variant="dark" expand="sm">
                     <Container>
                         <Navbar.Brand>
-                            <Link to='/'>
+                            <Link to='Full-ecommerce-react/'>
                                 <img src={logo} className='logo' alt='logo'/>
                             </Link>
                         </Navbar.Brand>

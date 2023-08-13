@@ -9,30 +9,27 @@ export const NotFound =({location} )=>{
 }
 
 export const CheckInternetConnection =({internet,component,noInternetComponent})=>{
-    const [isOnline,setIsOnline] = useState(true)
+    // const [isOnline,setIsOnline] = useState(internet)
+    //
+    // useState(_=>{
+    //     setIsOnline(internet)
+    // },[internet])
 
-    const run =async _=>{
-        try {
-            const resProd =await BaseURL.get('/api/v1/products')
-            const resCat =await BaseURL.get('/api/v1/categories')
-            const resBrand =await BaseURL.get('/api/v1/brands')
-            setIsOnline((resProd.status >= 200 && resProd.status <= 300) &&(resCat.status >= 200 && resCat.status <= 300) &&(resBrand.status >= 200 && resBrand.status <= 300)  )
-        }catch (e){
-            setIsOnline(false)
-        }
-    }
+    // const run =async _=>{
+    //     try {
+    //         const resProd =await BaseURL.get('/api/v1/products')
+    //         const resCat =await BaseURL.get('/api/v1/categories')
+    //         const resBrand =await BaseURL.get('/api/v1/brands')
+    //         setIsOnline((resProd.status >= 200 && resProd.status <= 300) &&(resCat.status >= 200 && resCat.status <= 300) &&(resBrand.status >= 200 && resBrand.status <= 300)  )
+    //     }catch (e){
+    //         setIsOnline(false)
+    //     }
+    // }
+    // run()
 
-    useEffect(_=>{
-
-    },[])
-    run()
-
-    if(isOnline)
+    if(internet)
     {
-        if(component)
-             return component
-        else
-            return  <Outlet/>
+        return component ? component :  <Outlet/>
     }else if(!component)
         return noInternetComponent
 }
