@@ -9,7 +9,7 @@ const OfflineHook =_=>{
         const run =async _=>{
             try {
             const res =await fetch('https://jsonplaceholder.typicode.com/users')
-                console.log(res)
+                // console.log(res)
                 setIsOnline(res.status >= 200 && res.status <= 300)
             }catch (e){
                 setIsOnline(false)
@@ -37,7 +37,7 @@ const OfflineHook =_=>{
     //     };
     // }, [isOnline]);
 
-    console.log(isOnline)
+    // console.log(isOnline)
 
     return [isOnline===true]
 }

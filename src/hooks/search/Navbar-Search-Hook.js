@@ -45,7 +45,7 @@ const NavbarSearchHook = _=>{
     // logged user
     const dispatch = useDispatch()
     const [isLogged,setIsLogged] = useState(false)
-    const loginUserData = useSelector(state => state.auth.getUserData.data)
+    const loginUserData = useSelector(state =>( state.auth.getUserData && state.auth.getUserData.data) || [])
     // login
 
     // update when change the data

@@ -58,7 +58,7 @@ function App() {
             <Footer/>
             <ToastContainer />
         </div>
-  );
+    );
 }
 
 export default App;

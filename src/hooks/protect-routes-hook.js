@@ -1,6 +1,7 @@
 import {useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {Outlet} from "react-router-dom";
+import BaseURL from "../Api/baseURL";
 
 export const NotFound =({location} )=>{
     // console.log(location)
@@ -8,9 +9,31 @@ export const NotFound =({location} )=>{
 }
 
 export const CheckInternetConnection =({internet,component,noInternetComponent})=>{
-    if(internet)
-        return component ? component :<Outlet/>
-    else if(!component)
+    const [isOnline,setIsOnline] = useState(true)
+
+    const run =async _=>{
+        try {
+            const resProd =await BaseURL.get('/api/v1/products')
+            const resCat =await BaseURL.get('/api/v1/categories')
+            const resBrand =await BaseURL.get('/api/v1/brands')
+            setIsOnline((resProd.status >= 200 && resProd.status <= 300) &&(resCat.status >= 200 && resCat.status <= 300) &&(resBrand.status >= 200 && resBrand.status <= 300)  )
+        }catch (e){
+            setIsOnline(false)
+        }
+    }
+
+    useEffect(_=>{
+
+    },[])
+    run()
+
+    if(isOnline)
+    {
+        if(component)
+             return component
+        else
+            return  <Outlet/>
+    }else if(!component)
         return noInternetComponent
 }
 

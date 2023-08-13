@@ -6,7 +6,7 @@ const GetAllUserCartHook = () => {
     const cartChange = useSelector(state => state.cart.change)
     const userCartData = useSelector(state => state.cart.getAllUserCart)
     const appliedCoupon = useSelector(state => state.cart.applyCoupon)
-    const loginUserData = useSelector(state => state.auth.getUserData.data)
+    const loginUserData = useSelector(state => (state.auth.getUserData&&state.auth.getUserData.data) || [])
 
     // console.log(loginUserData)
     useEffect(_=>{
