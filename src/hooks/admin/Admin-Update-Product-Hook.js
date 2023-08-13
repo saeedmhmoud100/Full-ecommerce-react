@@ -228,7 +228,7 @@ const AdminAddProductHook = _ =>{
                 await dispatch(getOneProduct(id))
                 setFormLoading(false)
 
-            // window.location.(`/products/${product.data._id}`)
+            // window.location.(`/Full-ecommerce-react/products/${product.data._id}`)
         }
     }
 

@@ -30,12 +30,12 @@ const LoginHook = _=>{
 
     const onSubmit =async _=>{
         setLoading(true)
+        // localStorage.removeItem('token')
         if(validation()){
             await dispatch(loginUser({
                 email,
                 password
             }))
-            localStorage.removeItem('token')
             setLoggedin(true)
         }
         setLoading(false)
@@ -47,7 +47,7 @@ const LoginHook = _=>{
             localStorage.setItem('token',user.token)
             if(user.data.role === 'user')
                 dispatch(getAllUserCart())
-            navigate(`/${user.data ? user.data.role : 'user'}/profile`)
+            navigate(`/Full-ecommerce-react/${user.data ? user.data.role : 'user'}/profile`)
             setLoggedin(false)
 
         }

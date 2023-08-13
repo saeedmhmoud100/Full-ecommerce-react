@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 
 const AdminSideBar = () => {
     const sideBarData = [
-        {title:'Orders Management',url:'/admin/allorders',},
-        {title:'Products Management',url:'/admin/allproducts',},
-        {title:'Add a New Product',url:'/admin/addproduct',},
-        {title:'brands Management',url:'/admin/addbrand',},
-        {title:'Categories Management',url:'/admin/addcategory',},
-        {title:'subcategory Management',url:'/admin/addsubcategory',},
-        {title:'Coupons Management',url:'/admin/coupons',},
-        {title:'Profile',url:'/admin/profile',},
+        {title:'Orders Management',url:'/Full-ecommerce-react/admin/allorders',},
+        {title:'Products Management',url:'/Full-ecommerce-react/admin/allproducts',},
+        {title:'Add a New Product',url:'/Full-ecommerce-react/admin/addproduct',},
+        {title:'brands Management',url:'/Full-ecommerce-react/admin/addbrand',},
+        {title:'Categories Management',url:'/Full-ecommerce-react/admin/addcategory',},
+        {title:'subcategory Management',url:'/Full-ecommerce-react/admin/addsubcategory',},
+        {title:'Coupons Management',url:'/Full-ecommerce-react/admin/coupons',},
+        {title:'Profile',url:'/Full-ecommerce-react/admin/profile',},
     ]
     return (
         <div className="sidebar">

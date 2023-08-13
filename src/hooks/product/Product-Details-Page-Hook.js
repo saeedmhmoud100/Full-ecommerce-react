@@ -27,7 +27,7 @@ const ProductDetailsPageHook = _ =>{
     if(specificProducts && specificProducts.data && product.data){
         specificProducts=specificProducts.data.filter(item => item._id!==product.data._id)
     }//Product Gallery
-    let images = [{original:"https://placehold.co/300x460/ffffff/cccccc"}]
+    let images = [{original:"https://placehold.co/300x460/ffffff/ffffff"}]
     if(product && product.data){
         images = product.data.images.map(img => ({original:img,thumbnail:img}))
     }

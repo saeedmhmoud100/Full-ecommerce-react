@@ -38,12 +38,12 @@ const AdminAllProductsCard = ({product}) => {
                 <Row className="d-flex justify-content-center px-2">
                     <Col className=" d-flex justify-content-between">
                         <div className="d-inline item-delete-edit" onClick={handleShow}>Remove</div>
-                        <Link to={`/admin/updateproduct/${product._id}`} className={'text-decoration-none'}>
+                        <Link to={`/Full-ecommerce-react/admin/updateproduct/${product._id}`} className={'text-decoration-none'}>
                         <div className="d-inline item-delete-edit pointer-event">modulation</div>
                         </Link>
                     </Col>
                 </Row>
-                <Link to={`/products/${product._id}`} style={{ textDecoration: "none" }}>
+                <Link to={`/Full-ecommerce-react/products/${product._id}`} style={{ textDecoration: "none" }}>
                     {/*<Card.Img style={{ height: "228px", width: "100%",/*transform: 'scaleX(-1)' *!/} src={product.imageCover} />*/}
                     <div  style={{ height: "228px", width: "100%",backgroundImage:"url("+product.imageCover +")",backgroundSize:"cover"}}></div>
                     <Card.Body>

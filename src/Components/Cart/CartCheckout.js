@@ -11,7 +11,7 @@ const CartCheckout = ({userCartData}) => {
     const navigate = useNavigate()
     const handleCheckoutClick = _=>{
         if (userCartData && userCartData.numOfCartItems > 0){
-            navigate('/user/order/paymethoud')
+            navigate('/Full-ecommerce-react/user/order/paymethoud')
         }else{
             Notification('you dont have any products in your cart!!!','error')
         }

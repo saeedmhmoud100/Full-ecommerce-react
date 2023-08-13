@@ -65,7 +65,7 @@ const SideFilterHook =(navig=false) =>{
         setTimeout(async _=>{ await getProduct()},200)
         setCategorySelected(catVal);
         if(navig)
-            navigate('/products')
+            navigate('/Full-ecommerce-react/products')
 
     }
 

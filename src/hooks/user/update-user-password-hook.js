@@ -30,7 +30,7 @@ const UpdateUserPasswordHook = () => {
         const run=async _ => {
 
             if(updateUserPasswordRes.token){
-                navigate('/login')
+                navigate('/Full-ecommerce-react/login')
                 setOldPassword('')
                 setNewPassword('')
                 setConfirmNewPassword('')

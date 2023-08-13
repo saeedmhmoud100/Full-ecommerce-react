@@ -46,7 +46,7 @@ const EditAddressHook = () => {
         if(success && editAddressRes.status === 'success'){
             setLoading(false)
             setSuccess(false)
-            navigate('/user/addresses')
+            navigate('/Full-ecommerce-react/user/addresses')
         }
     },[success])
 

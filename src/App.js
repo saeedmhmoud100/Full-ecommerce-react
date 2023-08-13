@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import HomePage from "./Pages/Home/HomePage";
-import {Routes, Route, useLocation} from "react-router-dom";
+import {Routes, Route, useLocation, Navigate} from "react-router-dom";
 import NavBarLogin from "./Components/Uitily/NavBarLogin";
 import Footer from "./Components/Uitily/Footer";
 import AllCategoryPage from "./Pages/Category/AllCategoryPage";
@@ -34,18 +34,19 @@ function App() {
             <Routes>
                 <Route element={<CheckInternetConnection internet={isOnline} noInternetComponent={<NoInternetPage />}/>}>
 
-                    <Route index element={<HomePage />} />
+                    <Route path={'Full-ecommerce-react/'} element={<HomePage />} />
+                    {/*<Route index element={<Navigate to={'/Full-ecommerce-react/'} replace={true} /> } />*/}
 
-                    <Route path={'/auth/*'} element={<AuthRoutes isLoggedOut={!localStorage.getItem('token')}/>} />
-                    <Route path={'/admin/*'} element={<AdminRoutes isAdmin={isAdmin } />} />
-                    <Route path={'/user/*'} element={<UserRoutes isUser={isUser}/>} />
+                    <Route path={'Full-ecommerce-react/auth/*'} element={<AuthRoutes isLoggedOut={!localStorage.getItem('token')}/>} />
+                    <Route path={'Full-ecommerce-react/admin/*'} element={<AdminRoutes isAdmin={isAdmin } />} />
+                    <Route path={'Full-ecommerce-react/user/*'} element={<UserRoutes isUser={isUser}/>} />
 
 
-                    <Route path={'/allcategory'} element={<AllCategoryPage />} />
-                    <Route path={'/allbrand'} element={<AllBrandPage />} />
-                    <Route path={'/products'} element={<ShopProductsPage />} />
-                    <Route path={'/products/:id'} element={<ProductDetailsPage />} />
-                    <Route path={'/cart'} element={<CartPage />} />
+                    <Route path={'Full-ecommerce-react/allcategory'} element={<AllCategoryPage />} />
+                    <Route path={'Full-ecommerce-react/allbrand'} element={<AllBrandPage />} />
+                    <Route path={'Full-ecommerce-react/products'} element={<ShopProductsPage />} />
+                    <Route path={'Full-ecommerce-react/products/:id'} element={<ProductDetailsPage />} />
+                    <Route path={'Full-ecommerce-react/cart'} element={<CartPage />} />
 
 
                     <Route path={'*'} element={<NotFound />} />

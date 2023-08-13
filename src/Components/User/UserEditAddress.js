@@ -37,7 +37,7 @@ function UserEditAddress() {
             </Row>
             <Row>
                 <Col sm="8" className="d-flex justify-content-between align-items-center ">
-                    <Link to={'/user/addresses'} className='text-decoration-none'>{'<<'}Back</Link>
+                    <Link to={'/Full-ecommerce-react/user/addresses'} className='text-decoration-none'>{'<<'}Back</Link>
 
 
                              <button className={"btn-save d-inline mt-2 " + (loading ? 'bg-light' : null)} onClick={onSubmit}>{loading ? <LoadingSpinner className={'m-3'}></LoadingSpinner>:'Update'}</button>

@@ -14,7 +14,7 @@ const NavBarLogin = () => {
         <Navbar className="sticky-top text-center" bg="dark" variant="dark" expand="sm">
             <Container>
                 <Navbar.Brand>
-                    <Link to='/'>
+                    <Link to='Full-ecommerce-react/'>
                         <img src={logo} className='logo' alt='logo'/>
                     </Link>
                 </Navbar.Brand>
@@ -32,10 +32,10 @@ const NavBarLogin = () => {
                         {isLogged ?
                             (<NavDropdown title={'welcome '+userData.name} id="basic-nav-dropdown">
 
-                                <NavDropdown.Item as={Link} to={`${userData.role}/profile`}  >Profile</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to={`Full-ecommerce-react/${userData.role}/profile`}  >Profile</NavDropdown.Item>
                                 {
                                     userData.role === 'admin' ?
-                                        <NavDropdown.Item as={Link} to={'admin/allproducts'}  >control panel</NavDropdown.Item>
+                                        <NavDropdown.Item as={Link} to={'Full-ecommerce-react/admin/allproducts'}  >control panel</NavDropdown.Item>
                                         : null
                                 }
                                 {/*<NavDropdown.Item as={Link} to={'user/profile'} /!*onClick={event => event.stopPropagation()}*!/ >Profile</NavDropdown.Item>*/}
@@ -45,7 +45,7 @@ const NavBarLogin = () => {
                                 </NavDropdown.Item>
                             </NavDropdown>)
                             :
-                            (<Link to={'/auth/login'} style={{textDecoration:'none'}} className='nav-text d-flex pb-2 justify-content-center nav_icon_container nav-link'>
+                            (<Link to={'Full-ecommerce-react/auth/login'} style={{textDecoration:'none'}} className='nav-text d-flex pb-2 justify-content-center nav_icon_container nav-link'>
                             {/*<Nav.Link href={'/login'} className="nav-text d-flex pb-2 justify-content-center nav_icon_container">*/}
                             <p style={{ color: "white" }}>Login</p>
                             <img src={login} className="login-img" alt="sfvs" />
@@ -53,7 +53,7 @@ const NavBarLogin = () => {
                             {/*</Nav.Link>*/}
                         </Link>)}
 
-                        <Link to={'/cart'} style={{textDecoration:'none'}} className='nav-text d-flex pb-2 justify-content-center nav_icon_container nav-link'>
+                        <Link to={'Full-ecommerce-react/cart'} style={{textDecoration:'none'}} className='nav-text d-flex pb-2 justify-content-center nav_icon_container nav-link'>
                         {/*<Nav.Link href='/cart' className="nav-text d-flex pb-2 justify-content-center nav_icon_container" style={{ color: "white" }}>*/}
 
                                 <p style={{ color: "white" }} className={' position-relative'}>Cart

@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 
 const UserSideBar = () => {
     const sideBarData = [
-        {title:'Orders Management',url:'/user/allorders',},
-        {title:'Favorite Products',url:'/user/favoriteproducts',},
-        {title:'Personal Addresses',url:'/user/addresses',},
-        {title:'Profile',url:'/user/profile',},
+        {title:'Orders Management',url:'/Full-ecommerce-react/user/allorders',},
+        {title:'Favorite Products',url:'/Full-ecommerce-react/user/favoriteproducts',},
+        {title:'Personal Addresses',url:'/Full-ecommerce-react/user/addresses',},
+        {title:'Profile',url:'/Full-ecommerce-react/user/profile',},
     ]
     return (
         <div className="sidebar">

@@ -20,7 +20,7 @@ function UserAllAddresses() {
 
             <Row className="justify-content-center">
                 <Col sm="5" className="d-flex justify-content-center">
-                    <Link to="/user/add-address" style={{ textDecoration: "none" }}>
+                    <Link to="/Full-ecommerce-react/user/add-address" style={{ textDecoration: "none" }}>
                         <button className="btn-add-address">Add New Addresses</button>
                     </Link>
                 </Col>

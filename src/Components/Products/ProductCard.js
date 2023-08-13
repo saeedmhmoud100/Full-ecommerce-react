@@ -21,7 +21,7 @@ const ProductCard = ({product,imgURL}) => {
                     backgroundColor: "#FFFFFF",
                     boxShadow: "0 2px 2px 0 rgba(151,151,151,0.5)",
                 }}>
-                   <Link to={`/products/${product._id}`} style={{textDecoration:'none'}}>
+                   <Link to={`/Full-ecommerce-react/products/${product._id}`} style={{textDecoration:'none'}}>
                        {/*<Card.Img style={{ height: "228px", width: "100%" }} src={imgURL ? (baseURL.getUri()+'/products/' +product.imageCover) : product.imageCover} />*/}
                        <div  style={{borderRadius:"4px 4px 0 0", height: "228px", width: "100%",backgroundImage:"url("+ (imgURL ? (baseURL.getUri()+'/products/' +product.imageCover) : product.imageCover) +")",backgroundSize: 'cover'}}></div>
                    </Link>
@@ -42,7 +42,7 @@ const ProductCard = ({product,imgURL}) => {
 
                 </div>
                 <Card.Body>
-                    <Link to={`/products/${product._id}`} style={{textDecoration:'none'}}>
+                    <Link to={`/Full-ecommerce-react/products/${product._id}`} style={{textDecoration:'none'}}>
                     <Card.Title>
                         <div className="card-title" style={{minHeight:'80px'}}>
                             {product.title}

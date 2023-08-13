@@ -33,7 +33,7 @@ const LoginHook = _=>{
     // check if mail exist
     useEffect(_=>{
         if(!localStorage.getItem('reset-password-email')){
-            navigate('/forget-password')
+            navigate('/Full-ecommerce-react/forget-password')
         }
     },[])
 
@@ -55,12 +55,12 @@ const LoginHook = _=>{
             if(resetPasswordData.token){
                 Notification(`The password updated successfully`,'success')
                 localStorage.removeItem('reset-password-email')
-                navigate('/auth/login')
+                navigate('/Full-ecommerce-react/auth/login')
             }else if(resetPasswordData.data){
                 if(resetPasswordData.data.message.startsWith('There is no user with this email')){
                     Notification('enter a valid email','error')
                     localStorage.removeItem('reset-password-email')
-                    navigate('/auth/forget-password')
+                    navigate('/Full-ecommerce-react/auth/forget-password')
                 }else
                 Notification(resetPasswordData.data.message,'error')
             }else{

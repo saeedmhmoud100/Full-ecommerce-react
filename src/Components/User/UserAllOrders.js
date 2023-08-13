@@ -9,7 +9,7 @@ function UserAllOrders() {
     return (
         <div>
             <div className='admin-content-text pb-2'>Welcome, {userData.data && userData.data.name}</div>
-            <div className='admin-content-text pb-2'>You have ({OrdersData.results || 0}) Order</div>
+            <div className='admin-content-text pb-2'>You have ({OrdersData.results || 0}) Orders</div>
             {
                 OrdersData&& OrdersData.results > 0 ?
                     <Row className='justify-content-between'>

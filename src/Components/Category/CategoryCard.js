@@ -12,7 +12,7 @@ const CategoryCard = ({ background, img, title,item ,isAdmin}) => {
     const brandClick =_=>{
         localStorage.clear();
         localStorage.setItem('catSelected',`&category[in][]=${item._id}`)
-        navigate('/products')
+        navigate('/Full-ecommerce-react/allcategory')
     }
 
     const handleDeleteCategory =async e=>{

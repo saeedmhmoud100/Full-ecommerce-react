@@ -28,13 +28,13 @@ const NavbarSearchHook = _=>{
     }
 
     useEffect(_=>{
-        if(window.location.pathname!=='/products')
+        if(window.location.pathname!=='/Full-ecommerce-react/products')
             setPrevPage(window.location.pathname)
     },[window.location.pathname])
 
     useEffect(_=>{
         setTimeout(_=>{
-            navigate(searchWord===''?prevPage:'/products')
+            navigate(searchWord===''?prevPage:'/Full-ecommerce-react/products')
         },80)
         setTimeout(_=>{
         getProduct({searchWord})
@@ -79,7 +79,7 @@ const NavbarSearchHook = _=>{
         dispatch(logoutUserCart())
 
         localStorage.removeItem('token')
-        navigate('/')
+        navigate('Full-ecommerce-react/')
     }
     ////////////////
     return [onChangeSearch,logout,isLogged,loginUserData]

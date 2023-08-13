@@ -52,7 +52,7 @@ const ChoosePayMethoud = () => {
                             }
                         </select>
                     </Col>
-                     <span className={'mx-2'}>or <Link to={'/user/add-address'}> add a new address</Link></span>
+                     <span className={'mx-2'}>or <Link to={'/Full-ecommerce-react/user/add-address'}> add a new address</Link></span>
                 </Row>
 
             </div>

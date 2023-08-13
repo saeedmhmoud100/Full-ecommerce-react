@@ -38,7 +38,7 @@ const AddAddressHook = () => {
             setAlias('')
             setDetails('')
             setPhone('')
-            navigate('/user/addresses')
+            navigate('/Full-ecommerce-react/user/addresses')
 
         }
     },[success])

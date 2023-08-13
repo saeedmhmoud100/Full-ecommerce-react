@@ -31,13 +31,13 @@ const LoginPage = () => {
                                 <button className="btn-login mx-auto mt-4" onClick={onSubmit}>Login</button>
                                 <label className="mx-auto my-4 text-center">
                                     You don't have an account?{" "}
-                                    <Link to="/auth/register" style={{textDecoration:'none'}}>
+                                    <Link to="/Full-ecommerce-react/auth/register" style={{textDecoration:'none'}}>
                                         <span style={{ cursor: "pointer" }} className="text-danger">
                                             click here
                                         </span>
                                     </Link>
                                     <br/>or<br/>
-                                    <Link to="/auth/forget-password" style={{textDecoration:'none',margin:"auto"}}>
+                                    <Link to="/Full-ecommerce-react/auth/forget-password" style={{textDecoration:'none',margin:"auto"}}>
                                         <span style={{ cursor: "pointer" }} className="text-danger">
                                             forget password
                                         </span>
@@ -52,19 +52,19 @@ const LoginPage = () => {
                 </Col>
 
 
-                <label className="my-4">
-                    <Link to="/admin/allproducts" style={{textDecoration:'none'}}>
-                        <span style={{ cursor: "pointer" }} className="text-danger">
-                            Login as an Admin
-                        </span>
-                    </Link>
-                    <br/>
-                    <Link to="/user/allorders" style={{textDecoration:'none'}}>
-                        <span style={{ cursor: "pointer" }} className="text-danger">
-                            Login as a user
-                        </span>
-                    </Link>
-                </label>
+                {/*<label className="my-4">*/}
+                {/*    <Link to="/admin/allproducts" style={{textDecoration:'none'}}>*/}
+                {/*        <span style={{ cursor: "pointer" }} className="text-danger">*/}
+                {/*            Login as an Admin*/}
+                {/*        </span>*/}
+                {/*    </Link>*/}
+                {/*    <br/>*/}
+                {/*    <Link to="/user/allorders" style={{textDecoration:'none'}}>*/}
+                {/*        <span style={{ cursor: "pointer" }} className="text-danger">*/}
+                {/*            Login as a user*/}
+                {/*        </span>*/}
+                {/*    </Link>*/}
+                {/*</label>*/}
             </Row>
         </Container>
     )

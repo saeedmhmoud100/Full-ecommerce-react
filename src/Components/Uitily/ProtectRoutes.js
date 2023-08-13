@@ -10,7 +10,7 @@ const ProtectRoutes = ({condition,component}) =>{
     },[condition])
 
     if(!cond)
-        return <Navigate to={'/'} replace />
+        return <Navigate to={'Full-ecommerce-react/'} replace />
 
     return component ? component : <Outlet />
 }

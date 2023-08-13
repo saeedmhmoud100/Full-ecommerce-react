@@ -32,7 +32,7 @@ const OrderPayCashHook= _  =>{
         console.log(success)
         console.log(createOrderData)
         if(createOrderData.status==='success' && success){
-            navigate('/user/allorders')
+            navigate('/Full-ecommerce-react/user/allorders')
             setSuccess(false)
         }
     },[createOrderData])
