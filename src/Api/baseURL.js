@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = axios.create({baseURL:'http://127.0.0.1:8000'})
+const baseURL = axios.create({baseURL:'https://react-full-ecommerce-api.onrender.com'})
 
 
 
@@ -11,7 +11,7 @@ const baseURL = axios.create({baseURL:'http://127.0.0.1:8000'})
 // const baseURL = axios.create({
 //     baseURL:
 //         env === 'production'
-//             ? 'http://example.com/api/' // production
+//             ? 'https://react-full-ecommerce-api.onrender.com//' // production
 //             : 'http://localhost:5000/api/', // development
 // });
 

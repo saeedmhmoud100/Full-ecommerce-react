@@ -6,6 +6,7 @@ import DiscountSection from "../../Components/Home/DiscountSection";
 import BrandFeature from "../../Components/Brand/BrandFeatured";
 import '../../Assets/Style/HomePage.scss'
 import HomePageProductHook from "../../hooks/product/Home-Page-Product-Hook";
+import baseURL from "../../Api/baseURL";
 function HomePage(){
     const [moreSalesProducts,topRateProducts] = HomePageProductHook()
 

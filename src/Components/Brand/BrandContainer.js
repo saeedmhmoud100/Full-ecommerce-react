@@ -2,10 +2,10 @@ import React from 'react'
 import { Container, Row } from 'react-bootstrap';
 import BrandCard from "./BrandCard";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
+import baseURL from "../../Api/baseURL";
 
 
 const BrandContainer = ({data,loading,isAdmin}) => {
-
     return (
         <Container className={'mt-3'}>
             <div className={'admin-content-text'} >All Brands</div>
