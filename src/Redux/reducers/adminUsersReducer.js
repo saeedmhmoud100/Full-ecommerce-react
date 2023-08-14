@@ -1,4 +1,4 @@
-import {GET_ALL_USERS, ADMIN_USERS_ERROR, CHANGE_USER_ROLE} from "../types";
+import {GET_ALL_USERS, ADMIN_USERS_ERROR, CHANGE_USER_ROLE, DELETE_USER} from "../types";
 
 const inital={
     allUsers:[],
@@ -15,6 +15,12 @@ const adminUsersReducer = (state=inital,action) => {
                 allUsers: action.payload,
             }
         case CHANGE_USER_ROLE:
+            return {
+                ...state,
+                res:action.payload,
+                change: !state.change,
+            }
+        case DELETE_USER:
             return {
                 ...state,
                 res:action.payload,
