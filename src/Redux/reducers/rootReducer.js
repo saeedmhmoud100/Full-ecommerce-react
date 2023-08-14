@@ -11,6 +11,7 @@ import addressReducer from "./userAddressReducer";
 import cartReducer from "./cartReducer";
 import checkoutReducer from "./checkoutReducer";
 import orderReducer from "./orderReducer";
+import adminUsersReducer from "./adminUsersReducer";
 export default combineReducers({
     allCategory:categoryReducer,
     allSubCategory:subCategoryReducer,
@@ -24,4 +25,5 @@ export default combineReducers({
     cart:cartReducer,
     checkout:checkoutReducer,
     order:orderReducer,
+    users:adminUsersReducer,
 })

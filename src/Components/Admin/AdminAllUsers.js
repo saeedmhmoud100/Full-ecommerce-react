@@ -1,17 +1,19 @@
 import React from 'react'
 import {Row} from "react-bootstrap";
 import AdminAllUsersCard from "./AdminAllUsersCard";
+import AdminAllUsersHook from "../../hooks/admin/Admin-All-Users-Hook";
 
 function AdminAllUsers(){
-    // const [OrdersData,,getOrdersData] = AdminAllUsersHook()
+    const [allUsersData,loading] = AdminAllUsersHook()
     return(
         <div>
             <div className='admin-content-text'>Management all Users #{'OrdersData.results || 0'}</div>
             <Row className={'p-sm-30px'} >
-                <AdminAllUsersCard />
-                <AdminAllUsersCard />
-                <AdminAllUsersCard />
-                <AdminAllUsersCard />
+                {
+                    allUsersData && allUsersData.results > 0 ? allUsersData.data.map(item => <AdminAllUsersCard userData={item}/>)
+                        : <></>
+                }
+
 
                 {/*{*/}
                 {/*    OrdersData&& OrdersData.results > 0 && OrdersData.data ?*/}
