@@ -1,8 +1,11 @@
 import {Col, Row} from "react-bootstrap";
 import React from "react";
+import AdminAllUsersCardHook from "../../hooks/admin/Admin-All-Users-Card-Hook";
+import LoadingSpinner from "../Uitily/LoadingSpinner";
 
 
 const AdminAllUsersCard = ({userData})=>{
+    const [handleChangeUserRole,loading]= AdminAllUsersCardHook(userData)
     const formatDate = dateString =>{
         const options = {year:'numeric',month:'long','day':'numeric'}   // July 29, 2023
         // const options = {year:'numeric',month:'numeric','day':'numeric'} // 7/29/2023
@@ -38,11 +41,15 @@ const AdminAllUsersCard = ({userData})=>{
                             <div className={'d-flex flex-wrap gap-1 align-items-center '}>
                                 <p className={'my-1 fw-bold'}>password change at : </p> <span>{userData.passwordChangedAt ? formatDate(userData.passwordChangedAt) : "Not Changed"}</span>
                             </div>
-                            <div className={'d-flex flex-column '}>
+                            <div className={'d-flex flex-column '} style={ loading ? {width:'185px'} : {} }>
                                 <div className={'d-flex flex-wrap gap-1 align-items-center '}>
-                                    <p className={'my-1 fw-bold'}>active : </p> <span>{userData.active.toString()}</span>
+                                    <p className={'my-1 fw-bold'}>role : </p> <span>{userData.role}</span>
                                 </div>
-                                <button className={'btn btn-dark b-0'} style={{maxWidth:"254.5px"}}>deactivate the user</button>
+                                {
+                                    loading ? <LoadingSpinner style={{alignSelf:"flex-start !important "}} className={"align-self-start mx-5"} ></LoadingSpinner>
+                                        :
+                                <button onClick={handleChangeUserRole} className={'btn btn-dark b-0'} style={{maxWidth:"254.5px"}}>{userData.role === "admin"? "make this user as a user" : "make this user as an admin"}</button>
+                                }
                             </div>
                         </Col>
                     </Row>

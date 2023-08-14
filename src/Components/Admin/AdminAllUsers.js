@@ -7,7 +7,7 @@ function AdminAllUsers(){
     const [allUsersData,loading] = AdminAllUsersHook()
     return(
         <div>
-            <div className='admin-content-text'>Management all Users #{'OrdersData.results || 0'}</div>
+            <div className='admin-content-text'>Management all Users #{(allUsersData && allUsersData.results) || 0}</div>
             <Row className={'p-sm-30px'} >
                 {
                     allUsersData && allUsersData.results > 0 ? allUsersData.data.map(item => <AdminAllUsersCard userData={item}/>)
