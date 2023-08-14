@@ -12,7 +12,7 @@ const BrandCard = ({img,item,isAdmin}) => {
     const brandClick =_=>{
         localStorage.clear();
         localStorage.setItem('brandSelected',`&brand[in][]=${item._id}`)
-        navigate('/Full-ecommerce-react/allbrand')
+        navigate('/Full-ecommerce-react/products')
     }
     const handleDeleteBrand =async e=>{
         e.stopPropagation()
