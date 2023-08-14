@@ -14,7 +14,7 @@ function AdminAddCategory(){
                         {/*<img src={avatar} alt="" height="100px" width="120px" />*/}
                         <div>
                             <label htmlFor='upload-photo'>
-                                <img src={image} alt='fzx' height='100px' width='120px' style={{cursor:'pointer'}}/>
+                                <img src={"https://saeedmhmoud100.github.io/Full-ecommerce-react"+image} alt='fzx' height='100px' width='120px' style={{cursor:'pointer'}}/>
                             </label>
                             <input type='file' id='upload-photo' name='photo' onChange={onImageChange}/>
                         </div>
