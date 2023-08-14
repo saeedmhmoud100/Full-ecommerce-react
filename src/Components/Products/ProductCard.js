@@ -25,7 +25,7 @@ const ProductCard = ({product,imgURL}) => {
                        {/*<Card.Img style={{ height: "228px", width: "100%" }} src={imgURL ? (baseURL.getUri()+'/products/' +product.imageCover) : product.imageCover} />*/}
                        <div  style={{borderRadius:"4px 4px 0 0", height: "228px", width: "100%",backgroundImage:"url("+ (imgURL ? (baseURL.getUri()+'/products/' +product.imageCover) : product.imageCover) +")",backgroundSize: 'cover'}}></div>
                    </Link>
-                <div className="d-flex justify-content-end mx-2 mt-2">
+                <div className="d-flex justify-content-start mx-2 mt-2">
                     {
                         <img
                                 src={isFav ?favon : favoff}
@@ -51,17 +51,7 @@ const ProductCard = ({product,imgURL}) => {
                 </Link>
                     <Card.Text>
                         <div className="d-flex justify-content-between ">
-                            <div className="d-flex">
-                                {/*<i className="fa-regular fa-star"></i>*/}
-                                <img
-                                    className=""
-                                    src={rate}
-                                    alt=""
-                                    height="16px"
-                                    width="16px"
-                                />
-                                <div className="card-rate mx-2">{product.ratingsAverage || 0}</div>
-                            </div>
+
                             <div className="d-flex">
                                 {
                                     product.priceAfterDiscount && product.priceAfterDiscount > 0 && product.priceAfterDiscount < product.price ?
@@ -70,6 +60,17 @@ const ProductCard = ({product,imgURL}) => {
                                 }
                                 <div className="card-currency mx-1">$</div>
                             </div>
+                            <div className="d-flex">
+                            {/*<i className="fa-regular fa-star"></i>*/}
+                            <img
+                                className=""
+                                src={rate}
+                                alt=""
+                                height="16px"
+                                width="16px"
+                            />
+                            <div className="card-rate mx-2">{product.ratingsAverage || 0}</div>
+                        </div>
                         </div>
                     </Card.Text>
                 </Card.Body>
