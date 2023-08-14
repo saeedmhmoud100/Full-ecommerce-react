@@ -56,3 +56,11 @@
     //aspect-ratio: 16/9;
   }
 }
+
+
+.card-hove:hover{
+  transition: 1s background linear !important;
+  background-size:contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}

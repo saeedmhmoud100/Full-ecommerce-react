@@ -45,7 +45,7 @@ const AdminAllProductsCard = ({product}) => {
                 </Row>
                 <Link to={`/Full-ecommerce-react/products/${product._id}`} style={{ textDecoration: "none" }}>
                     {/*<Card.Img style={{ height: "228px", width: "100%",/*transform: 'scaleX(-1)' *!/} src={product.imageCover} />*/}
-                    <div  style={{ height: "228px", width: "100%",backgroundImage:"url("+product.imageCover +")",backgroundSize:"cover"}}></div>
+                    <div  className={'card-hove'} style={{ height: "228px", width: "100%",backgroundImage:"url("+product.imageCover +")",backgroundSize:"cover"}}></div>
                     <Card.Body>
                         <Card.Title>
                             <div className="card-title">
