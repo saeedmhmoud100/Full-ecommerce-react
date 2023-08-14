@@ -4,6 +4,7 @@ import SubTiltle from '../Uitily/SubTiltle';
 import BrandCard from "./BrandCard";
 import LoadingSpinner from "../Uitily/LoadingSpinner";
 import HomeBrandHook from "../../hooks/Brand/home-brand-hook";
+import BrandCardPlaceholder from "../Placeholders/BrandCardPlaceholder";
 // import HomeBrandHook from "../../hooks/category/Home-Category-Hook";
 
 
@@ -12,13 +13,14 @@ const BrandFeature = ({title,btntitle}) => {
 
     return (
         <Container>
+
             {
-                BrandDataLength > 0 ? (
+                !loading ? (
                 <>
                     <SubTiltle title={title} btntitle={btntitle} pathText="/allbrand" />
                     <Row className='my-2 d-flex justify-content-center'>
                         {
-                            !loading ?(
+                            BrandDataLength > 0 ?(
                                 BrandData.data.slice(0,6).map((item,i) => <BrandCard key={i} img={item.image} item={item}/>)
                             ): <LoadingSpinner />
 
@@ -26,7 +28,15 @@ const BrandFeature = ({title,btntitle}) => {
 
                     </Row>
                 </>
-                ) : null
+                ) : <Row>
+                    <SubTiltle title={title} />
+                    <BrandCardPlaceholder />
+                    <BrandCardPlaceholder />
+                    <BrandCardPlaceholder />
+                    <BrandCardPlaceholder />
+                    <BrandCardPlaceholder />
+                    <BrandCardPlaceholder />
+                </Row>
             }
 
         </Container>

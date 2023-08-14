@@ -1,6 +1,6 @@
 import React from 'react'
 import {Card, Col, Placeholder} from 'react-bootstrap'
-const ProductCardOffline = () => {
+const ProductCardPlaceholder = () => {
     return (
         <Col xs="10" sm="6" md="4" lg="3" className="d-flex">
 
@@ -41,4 +41,4 @@ const ProductCardOffline = () => {
     )
 }
 
-export default ProductCardOffline
+export default ProductCardPlaceholder
