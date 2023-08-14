@@ -5,8 +5,8 @@ const AdminSideBar = () => {
     const sideBarData = [
         {title:'Users Management',url:'/Full-ecommerce-react/admin/allusers',},
         {title:'Orders Management',url:'/Full-ecommerce-react/admin/allorders',},
-        {title:'Products Management',url:'/Full-ecommerce-react/admin/allproducts',},
         {title:'Add a New Product',url:'/Full-ecommerce-react/admin/addproduct',},
+        {title:'Products Management',url:'/Full-ecommerce-react/admin/allproducts',},
         {title:'brands Management',url:'/Full-ecommerce-react/admin/addbrand',},
         {title:'Categories Management',url:'/Full-ecommerce-react/admin/addcategory',},
         {title:'subcategory Management',url:'/Full-ecommerce-react/admin/addsubcategory',},
