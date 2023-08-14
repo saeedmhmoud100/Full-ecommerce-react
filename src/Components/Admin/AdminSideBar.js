@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 const AdminSideBar = () => {
     const sideBarData = [
+        {title:'Users Management',url:'/Full-ecommerce-react/admin/allusers',},
         {title:'Orders Management',url:'/Full-ecommerce-react/admin/allorders',},
         {title:'Products Management',url:'/Full-ecommerce-react/admin/allproducts',},
         {title:'Add a New Product',url:'/Full-ecommerce-react/admin/addproduct',},

@@ -9,6 +9,7 @@ import AdminAddProductPage from "../Pages/Admin/AdminAddProductPage";
 import AdminUpdateProductPage from "../Pages/Admin/AdminUpdateProductPage";
 import AdminCouponsPage from "../Pages/Admin/AdminCouponsPage";
 import AdminProfilePage from "../Pages/Admin/AdminProfilePage";
+import AdminAllUsersPage from "../Pages/Admin/AdminAllUsersPage";
 
 const AdminRoutes = ({isAdmin}) => { // URL is: admin/*
     return(
@@ -25,6 +26,7 @@ const AdminRoutes = ({isAdmin}) => { // URL is: admin/*
                 <Route path={'addcategory'} element={<AdminAddCategoryPage/>}/>
                 <Route path={'addsubcategory'} element={<AdminAddSubCategoryPage/>}/>
                 <Route path={'coupons'} element={<AdminCouponsPage/>}/>
+                <Route path={'allusers'} element={<AdminAllUsersPage/>}/>
             </Routes>
             :
             <Routes>
