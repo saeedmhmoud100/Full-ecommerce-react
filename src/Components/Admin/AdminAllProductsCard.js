@@ -49,7 +49,8 @@ const AdminAllProductsCard = ({product}) => {
                     <Card.Body>
                         <Card.Title>
                             <div className="card-title">
-                                {product.title}
+                                {product.title.slice(0,76)}
+                                {product.title.length > 76 && "..."}
                             </div>
                         </Card.Title>
                         <Card.Text>
