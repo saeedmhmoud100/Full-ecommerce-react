@@ -8,7 +8,7 @@ import ProductDetailsPageHook from "../../hooks/product/Product-Details-Page-Hoo
 import SideFilterHook from "../../hooks/search/Side-Filter-Hook";
 
 function ProductDetailsPage(){
-    const [product,images,specificProducts,loading] = ProductDetailsPageHook()
+    const [product,images,specificProducts,loading,specificLoading] = ProductDetailsPageHook()
     const [allCat,,categorySelected,,clearCat,,,,,,,categoryHeaderClick]=SideFilterHook(true)
     return(
         <div style={{minHeight:'670px'}}>
@@ -17,8 +17,11 @@ function ProductDetailsPage(){
                 <ProdudtDetails loading={loading} images={images} product={product}/>
                 <RateContainer product={product} />
                 {
-                    specificProducts.length>0?
-                <CardProductContainer products={specificProducts.slice(0,4)} title={"Products you may like" } pathText="/products"/>:null
+                    specificLoading ?(<CardProductContainer products={[]} title={"Products you may like" } />)
+
+                        :
+                    (specificProducts.length>0?
+                <CardProductContainer products={specificProducts.slice(0,4)} title={"Products you may like" } pathText="/products"/>:null)
                 }
             </Container>
         </div>

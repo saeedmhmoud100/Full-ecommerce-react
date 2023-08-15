@@ -11,6 +11,7 @@ const ProductDetailsPageHook = _ =>{
     let specificProducts = useSelector(state => state.allProduct.specificProducts)
     let createdReview = useSelector(state => state.review)
     const [loading,setLoading] = useState(false)
+    const [specificLoading,setSpecificLoading] = useState(false)
     // product text details
     useLayoutEffect( _=> {
         const run =async _=>{
@@ -22,11 +23,15 @@ const ProductDetailsPageHook = _ =>{
     },[id,createdReview])
 
     useEffect( _=> {
+        const run =async _=>{
+            setSpecificLoading(true)
+            await dispatch(getSpecificProducts(product.data.category))
+            setSpecificLoading(false)
+        }
         if(product && product.data){
-            dispatch(getSpecificProducts(product.data.category))
+            run()
             dispatch(getOneBrand(product.data.brand))
             dispatch(getOneCategory(product.data.category))
-
         }
     },[product])
 
@@ -38,6 +43,6 @@ const ProductDetailsPageHook = _ =>{
         images = product.data.images.map(img => ({original:img,thumbnail:img}))
     }
 
-    return [product,images,specificProducts,loading]
+    return [product,images,specificProducts,loading,specificLoading]
 }
 export default ProductDetailsPageHook
