@@ -30,7 +30,7 @@ const AdminAllProductsCard = ({product}) => {
                 className="my-2"
                 style={{
                     width: "100%",
-                    height: "350px",
+                    // height: "350px",
                     borderRadius: "8px",
                     border: "none",
                     backgroundColor: "#FFFFFF",
@@ -43,10 +43,10 @@ const AdminAllProductsCard = ({product}) => {
                         </Link>
                     </Col>
                 </Row>
-                <Link to={`/Full-ecommerce-react/products/${product._id}`} style={{ textDecoration: "none" }}>
+                <Link to={`/Full-ecommerce-react/products/${product._id}`} style={{ textDecoration: "none",height:'100%',display: 'flex',flexDirection: 'column',justifyContent: 'space-between' }}>
                     {/*<Card.Img style={{ height: "228px", width: "100%",/*transform: 'scaleX(-1)' *!/} src={product.imageCover} />*/}
                     <div  className={'card-hove'} style={{ height: "228px", width: "100%",backgroundImage:"url("+product.imageCover +")",backgroundSize:"cover"}}></div>
-                    <Card.Body>
+                    <div className={"card-body"} style={{justifyContent: "space-between", display: 'flex',flexDirection: 'column'}}>
                         <Card.Title>
                             <div className="card-title">
                                 {product.title.slice(0,76)}
@@ -54,20 +54,23 @@ const AdminAllProductsCard = ({product}) => {
                             </div>
                         </Card.Title>
                         <Card.Text>
-                            <div className="d-flex justify-content-between">
-                                <div className="card-rate">{product.rate}</div>
-                                <div className="d-flex">
-                                    {product && product.priceAfterDiscount && product.priceAfterDiscount>0 && product.priceAfterDiscount<product.price
-                                        ?<div className="card-price"><span className={'price-before-discount-product'} style={{
-                                            top: '89%',
-                                            left: '74%'
-                                        }}>{product ? product.price : 0}</span>{product.priceAfterDiscount}$</div>
-                                        :<div className="card-price">{product && product.price}$</div>
-                                    }
+                            <div className={'d-flex flex-column justify-content-between'}>
+
+                                <div className="d-flex justify-content-between">
+                                    <div className="card-rate">{product.ratingsAverage || 0}</div>
+                                    <div className="d-flex">
+                                        {product && product.priceAfterDiscount && product.priceAfterDiscount>0 && product.priceAfterDiscount<product.price
+                                            ?<div className="card-price"><span className={'price-before-discount-product'} style={{
+                                                top: '89%',
+                                                left: '74%'
+                                            }}>{product ? product.price : 0}</span>{product.priceAfterDiscount}$</div>
+                                            :<div className="card-price">{product && product.price}$</div>
+                                        }
+                                    </div>
                                 </div>
                             </div>
                         </Card.Text>
-                    </Card.Body>
+                    </div>
                 </Link>
             </Card>
         </Col>
