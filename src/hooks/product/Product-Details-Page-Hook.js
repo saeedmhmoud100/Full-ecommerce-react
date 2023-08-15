@@ -1,6 +1,6 @@
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useLayoutEffect} from "react";
+import {useEffect, useLayoutEffect, useState} from "react";
 import {getOneProduct, getSpecificProducts} from "../../Redux/actions/productAction";
 import {getOneBrand} from "../../Redux/actions/brandAction";
 import {getOneCategory} from "../../Redux/actions/categoryAction";
@@ -10,9 +10,15 @@ const ProductDetailsPageHook = _ =>{
     const product = useSelector(state => state.allProduct.product)
     let specificProducts = useSelector(state => state.allProduct.specificProducts)
     let createdReview = useSelector(state => state.review)
+    const [loading,setLoading] = useState(false)
     // product text details
     useLayoutEffect( _=> {
-        dispatch(getOneProduct(id))
+        const run =async _=>{
+        setLoading(true)
+        await dispatch(getOneProduct(id))
+        setLoading(false)
+        }
+        run()
     },[id,createdReview])
 
     useEffect( _=> {
@@ -32,6 +38,6 @@ const ProductDetailsPageHook = _ =>{
         images = product.data.images.map(img => ({original:img,thumbnail:img}))
     }
 
-    return [product,images,specificProducts]
+    return [product,images,specificProducts,loading]
 }
 export default ProductDetailsPageHook

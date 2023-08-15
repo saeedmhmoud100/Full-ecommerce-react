@@ -5,7 +5,7 @@ import ProductCard from "./ProductCard";
 import ProductCardPlaceholder from "../Placeholders/ProductCardPlaceholder";
 
 const CardProductContainer = ({products,title,btntitle,pathText,imgURL}) => {
-    console.log(products)
+    // console.log(products)
     return (
         <Container>
             <SubTiltle title={title} btntitle={products && products.length > 0 && btntitle} pathText={pathText} />

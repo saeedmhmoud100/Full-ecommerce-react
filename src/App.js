@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import HomePage from "./Pages/Home/HomePage";
-import {Routes, Route, useLocation, Navigate} from "react-router-dom";
+import {Routes, Route, useLocation} from "react-router-dom";
 import NavBarLogin from "./Components/Uitily/NavBarLogin";
 import Footer from "./Components/Uitily/Footer";
 import AllCategoryPage from "./Pages/Category/AllCategoryPage";
@@ -22,6 +22,10 @@ function App() {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [routePath]);
+    useEffect(_=>{
+        // console.clear()
+
+    })
     //
 
     const [isUser,isAdmin,loginUserData] = ProtectRoutesHook()
