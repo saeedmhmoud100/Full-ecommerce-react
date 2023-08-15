@@ -5,9 +5,10 @@ import RateItem from "./RateItem";
 import RatePost from "./RatePost";
 import Pagination from "../Uitily/Pagination";
 import RateContainerHook from "../../hooks/Reviews/rate-container-hook";
+import RateItemPlaceholder from "../Placeholders/RateItemPlaceholder";
 
 const RateContainer = ({product}) => {
-    const [reviewsOfProduct,user,getPage]= RateContainerHook()
+    const [reviewsOfProduct,user,getPage,loading]= RateContainerHook()
     return (
         <Container className='rate-container'>
             <Row>
@@ -25,6 +26,13 @@ const RateContainer = ({product}) => {
 
             }
             {
+                loading ? (<>
+                    <RateItemPlaceholder />
+                    <RateItemPlaceholder />
+                    <RateItemPlaceholder />
+                    <RateItemPlaceholder />
+                    </>)
+                    :(
                 reviewsOfProduct && reviewsOfProduct.results >0 ?
 
                     (
@@ -36,6 +44,7 @@ const RateContainer = ({product}) => {
                     )
 
                      : <h2 className={'text-center'}>there are no reviews</h2>
+                    )
 
             }
 

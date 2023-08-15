@@ -10,11 +10,14 @@ const RateContainerHook = () => {
     const createReview = useSelector(state => state.review.createReview)
     const user = useSelector(state => state.auth.getUserData.data)
     const [page,setPage] = useState(1)
+    const [loading,setLoading] = useState(false)
 
     useEffect(_=>{
         // console.log(page)
         const run = async _ =>{
+            setLoading(true)
             await dispatch(getAllReviewsOnProduct(id,1))
+            setLoading(false)
         }
         run()
     },[id])
@@ -31,7 +34,7 @@ const RateContainerHook = () => {
     },[reviewsOfProduct,id])
 
     // console.log(product && product._id)
-    return [reviewsOfProduct,user,getPage]
+    return [reviewsOfProduct,user,getPage,loading]
 }
 
 export default RateContainerHook

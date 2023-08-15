@@ -33,7 +33,7 @@ const ProductDetailsPageHook = _ =>{
             dispatch(getOneBrand(product.data.brand))
             dispatch(getOneCategory(product.data.category))
         }
-    },[product])
+    },[id])
 
     if(specificProducts && specificProducts.data && product.data){
         specificProducts=specificProducts.data.filter(item => item._id!==product.data._id)
