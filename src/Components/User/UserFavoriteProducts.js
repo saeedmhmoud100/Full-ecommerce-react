@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Row } from 'react-bootstrap'
 import {useDispatch, useSelector} from "react-redux";
 import {getAllWishList} from "../../Redux/actions/wishListAction";
@@ -7,8 +7,14 @@ const UserFavoriteProducts = () => {
     const dispatch = useDispatch()
     const wishListProducts = useSelector(state=> state.wishList.wishList)
     const deletewishListProduct = useSelector(state=> state.wishList.res)
+    const [lad,setLoad] = useState(false)
     useEffect(_=>{
-        dispatch(getAllWishList())
+        const run = async _=>{
+            setLoad(true)
+           await dispatch(getAllWishList())
+            setLoad(false)
+        }
+        run()
     },[deletewishListProduct])
 
     return (
@@ -17,8 +23,9 @@ const UserFavoriteProducts = () => {
 
             <Row className={ 'justify-content-md-start'+ wishListProducts.length > 0 ?'' :' text-center'}>
                 {
-                    wishListProducts.length > 0 ? <CardProductContainer products={wishListProducts} imgURL={true}/>
-                    : <h3 className={'m-auto my-4'}>you haven't added any products to wishList yet</h3>
+                    lad?(<><CardProductContainer products={[]}/> <CardProductContainer products={[]}/></>) :
+                    (wishListProducts.length > 0 ? <CardProductContainer products={wishListProducts} imgURL={true}/>
+                    : <h3 className={'m-auto my-4'}>you haven't added any products to wishList yet</h3>)
 
                 }
             </Row>
