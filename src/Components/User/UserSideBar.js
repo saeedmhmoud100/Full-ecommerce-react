@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const UserSideBar = () => {
     const sideBarData = [
-        {title:'Orders Management',url:'/Full-ecommerce-react/user/allorders',},
+        {title:'All Management',url:'/Full-ecommerce-react/user/allorders',},
         {title:'Favorite Products',url:'/Full-ecommerce-react/user/favoriteproducts',},
         {title:'Personal Addresses',url:'/Full-ecommerce-react/user/addresses',},
         {title:'Profile',url:'/Full-ecommerce-react/user/profile',},
