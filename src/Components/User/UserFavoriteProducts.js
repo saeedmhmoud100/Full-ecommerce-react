@@ -23,9 +23,11 @@ const UserFavoriteProducts = () => {
 
             <Row className={ 'justify-content-md-start'+ wishListProducts.length > 0 ?'' :' text-center'}>
                 {
-                    lad?(<><CardProductContainer products={[]}/> <CardProductContainer products={[]}/></>) :
-                    (wishListProducts.length > 0 ? <CardProductContainer products={wishListProducts} imgURL={true}/>
-                    : <h3 className={'m-auto my-4'}>you haven't added any products to wishList yet</h3>)
+                    wishListProducts.length > 0 ? <CardProductContainer products={wishListProducts} imgURL={true}/>
+                        :
+                    lad?(<><CardProductContainer products={[]}/> <CardProductContainer products={[]}/></>)
+
+                    : <h3 className={'m-auto my-4'}>you haven't added any products to wishList yet</h3>
 
                 }
             </Row>
