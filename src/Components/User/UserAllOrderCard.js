@@ -6,7 +6,7 @@ const UserAllOrderCard = ({item}) => {
     return (
         <div>
             <Row className="d-flex mb-2 align-items-center">
-                <Col xs="3" md="2" className="d-flex justify-content-start">
+                <Col xs="3" md="2" className="d-flex justify-content-center">
                     <Link to={`/Full-ecommerce-react/products/${item.product._id}`}>
                         <img width="93px" height="120px" src={BaseURL.getUri() + "/products/" + item.product.imageCover} alt="" />
                     </Link>
