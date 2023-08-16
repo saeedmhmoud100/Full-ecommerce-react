@@ -9,7 +9,7 @@ const AdminSideBar = () => {
         {title:'Products Management',url:'/Full-ecommerce-react/admin/allproducts',},
         {title:'brands Management',url:'/Full-ecommerce-react/admin/addbrand',},
         {title:'Categories Management',url:'/Full-ecommerce-react/admin/addcategory',},
-        {title:'subcategory Management',url:'/Full-ecommerce-react/admin/addsubcategory',},
+        {title:'subcategories Management',url:'/Full-ecommerce-react/admin/addsubcategory',},
         {title:'Coupons Management',url:'/Full-ecommerce-react/admin/coupons',},
         {title:'Profile',url:'/Full-ecommerce-react/admin/profile',},
     ]
