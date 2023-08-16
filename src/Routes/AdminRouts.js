@@ -27,6 +27,19 @@ const AdminRoutes = ({isAdmin}) => { // URL is: admin/*
                 <Route path={'addsubcategory'} element={<AdminAddSubCategoryPage/>}/>
                 <Route path={'coupons'} element={<AdminCouponsPage/>}/>
                 <Route path={'allusers'} element={<AdminAllUsersPage/>}/>
+
+
+                {/* ////////////  using Outlet //////////// */}
+                {/*<Route path='' element={<AdminMainContainerPage />} >*/}
+                {/*    <Route path={'addproduct'} element={<AdminAddProduct/>}/>*/}
+                {/*    <Route path={'updateproduct/:id'} element={<AdminUpdateProduct/>}/>*/}
+                {/*    <Route path={'allorders'} element={<AdminAllOrders/>}/>*/}
+                {/*    <Route path={'allorders/:id'} element={<AdminOrderDetails/>}/>*/}
+                {/*    <Route path={'coupons'} element={<AdminCoupons/>}/>*/}
+                {/*    <Route path={'allusers'} element={<AdminAllUsers/>}/>*/}
+                {/*</Route>*/}
+
+
             </Routes>
             :
             <Routes>

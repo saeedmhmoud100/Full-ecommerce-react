@@ -7,7 +7,7 @@ const handeError = e =>{
         e.response.data.errors.forEach(item =>{
             Notification(item.msg,'warning')
         })
-    }else if(e.response && e.response.data && e.response.data.message && !e.response.data.message.startsWith('No') && !e.response.data.message.startsWith('Could not connect') && !e.response.data.message.startsWith("connection <monitor>")){
+    }else if(e.response && e.response.data && e.response.data.message && !e.response.data.message.startsWith('No') && !e.response.data.message.startsWith('could not connect') && !e.response.data.message.startsWith('Could not connect') && !e.response.data.message.startsWith("connection <monitor>")){
         Notification(e.response.data.message,'warning')
     }
 }
