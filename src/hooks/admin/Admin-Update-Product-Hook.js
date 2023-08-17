@@ -171,7 +171,8 @@ const AdminAddProductHook = _ =>{
     const navigate = useNavigate()
 
     const setRed = _=>{
-        navigate(`/products/${id}`)
+        navigate(`/Full-ecommerce-react/admin/allproducts`)
+        // navigate(`Full-ecommerce-react/products/${id}`)
         setRedirect(false)
         // setTimeout(_=> window.location = `/products/${id}`,1000)
 
@@ -192,8 +193,8 @@ const AdminAddProductHook = _ =>{
             Notification('Main Category is required','warning')
         }else if(brandID==='' || brandID==='0' || !brandID){
             Notification('Brand is required','warning')
-        }else if(selectedColors.length < 1){
-            Notification('Colors are required','warning')
+        // }else if(selectedColors.length < 1){
+        //     Notification('Colors are required','warning')
         }else{
 
 

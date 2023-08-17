@@ -10,7 +10,7 @@ import SideFilterHook from "../../hooks/search/Side-Filter-Hook";
 
 
 const ShopProductsPage = () => {
-    const [allProducts,pagination,onPress,getProduct] = ShopProductsPageHook()
+    const [allProducts,pagination,onPress,getProduct,loading] = ShopProductsPageHook()
     const [allCat,allBrand,categorySelected,categoryClick,clearCat,brandSelected,brandClick,clearBrand,priceFrom,priceTo,getProducts,categoryHeaderClick]=SideFilterHook()
 
     return (
@@ -25,7 +25,12 @@ const ShopProductsPage = () => {
                                     brandSelected={brandSelected} brandClick={brandClick} clearBrand={clearBrand} priceFrom={priceFrom} priceTo={priceTo} getProduct={getProducts}/>
                     </Col>
                     <Col sm={10} xs={10} md={10}>
-                        <CardProductContainer products={allProducts.data ? allProducts.data : []}/>
+                        {
+                            loading ?<><CardProductContainer products={[]}/> <CardProductContainer products={[]}/></>
+                                : allProducts.data && allProducts.data.length >0 ? <CardProductContainer products={allProducts.data}/>
+                                :null
+                        }
+
                         {
                         pagination > 1 ?
                             <Pagination pagesCount={pagination} onPress={onPress}/>

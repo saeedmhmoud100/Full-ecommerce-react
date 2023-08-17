@@ -5,7 +5,7 @@ import {getProductsSearch} from "../../Redux/actions/productAction";
 const ShopProductsPageHook= _ =>{
     const [selectedPage,setSelectedPage] = useState(1)
     const dispatch = useDispatch()
-
+    const [loading,setLoading] = useState(false)
     const getProduct =async (page=selectedPage)=>{
         const limit =12;
         const searchWord = localStorage.getItem('searchWord') || '';
@@ -14,7 +14,9 @@ const ShopProductsPageHook= _ =>{
         const sorting = localStorage.getItem('sorting') || ''
         const priceFrom = localStorage.getItem('priceFrom') || 0
         const priceTo = localStorage.getItem('priceTo') || 9999999
+        setLoading(true)
         await dispatch(getProductsSearch(`page=${page}&limit=${limit}&keyword=${searchWord}&sort=${sorting}${catSelected}${brandSelected}&price[gte]=${priceFrom}&price[lte]=${priceTo}`))
+        setLoading(false)
     }
 
     useEffect(_=>{
@@ -32,7 +34,7 @@ const ShopProductsPageHook= _ =>{
     }
 
 
-    return [allProducts,pagination,onPress,getProduct]
+    return [allProducts,pagination,onPress,getProduct,loading]
 }
 
 export default ShopProductsPageHook
