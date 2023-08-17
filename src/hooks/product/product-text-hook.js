@@ -11,11 +11,12 @@ const ProductTextHook = (product) => {
     const [subCatsNames,setSubCatsNames] = useState([])
 
     useEffect(_=>{
-        if(product && product.subcategory){
+
             const run = async _=>{
                 const res = await getSubCategoriesNameByProduct(product.subcategory)
                 setSubCatsNames(res)
             }
+        if(product && product.subcategory&& product.subcategory.length>0){
             run()
         }
     },[product])

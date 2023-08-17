@@ -14,6 +14,7 @@ const inital={
     allProducts:[],
     allProductWithoutFilter:[],
     product:[],
+    productChange:false,
     specificProducts:[],
     deleteProduct:[],
     updateProduct:[],
@@ -53,6 +54,8 @@ const productReducer = (state=inital,action) => {
                 ...state,
                 product : action.payload,
                 loading: false,
+                productChange: !state.productChange,
+                specificProducts:[],
             }
         case GET_SPECIFIC_PRODUCTS:
             return {

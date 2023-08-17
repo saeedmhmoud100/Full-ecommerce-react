@@ -5,7 +5,6 @@ import ProductText from "./ProductText";
 import ProductTextPlaceholder from "../Placeholders/ProductTextPlaceholder";
 
 function ProdudtDetails({images,product,loading}){
-    console.log(loading)
     return(
         <div className='my-3'>
             <Row style={{justifyContent:'space-between'}}>

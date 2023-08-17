@@ -8,36 +8,40 @@ const ProductDetailsPageHook = _ =>{
     const {id} = useParams()
     const dispatch = useDispatch()
     const product = useSelector(state => state.allProduct.product)
-    let specificProducts = useSelector(state => state.allProduct.specificProducts)
-    let createdReview = useSelector(state => state.review)
+    const specificProducts = useSelector(state => (state.allProduct.specificProducts && state.allProduct.specificProducts.data &&state.allProduct.specificProducts.data.filter(item => item._id!==product.data._id)) || [] )
+
+    const createdReview = useSelector(state => state.review)
     const [loading,setLoading] = useState(false)
     const [specificLoading,setSpecificLoading] = useState(false)
+
     // product text details
     useLayoutEffect( _=> {
         const run =async _=>{
         setLoading(true)
         await dispatch(getOneProduct(id))
-        setLoading(false)
+        setSpecificLoading(true)
         }
         run()
     },[id,createdReview])
 
+
     useEffect( _=> {
         const run =async _=>{
-            setSpecificLoading(true)
+            await dispatch(getOneBrand(product.data.brand))
+            await dispatch(getOneCategory(product.data.category))
+            setLoading(false)
             await dispatch(getSpecificProducts(product.data.category))
             setSpecificLoading(false)
         }
         if(product && product.data){
             run()
-            dispatch(getOneBrand(product.data.brand))
-            dispatch(getOneCategory(product.data.category))
-        }
-    },[id])
 
-    if(specificProducts && specificProducts.data && product.data){
-        specificProducts=specificProducts.data.filter(item => item._id!==product.data._id)
-    }//Product Gallery
+        }
+    },[product])
+    //
+    // if(specificProducts && specificProducts.data && product.data){
+    //     specificProducts=specificProducts.data.filter(item => item._id!==product.data._id)
+    // }//Product Gallery
     let images = [{original:"https://placehold.co/300x460/ffffff/ffffff"}]
     if(product && product.data){
         images = product.data.images.map(img => ({original:img,thumbnail:img}))
