@@ -5,7 +5,7 @@ import BaseURL from "../Api/baseURL";
 const OfflineHook =_=>{
     // Online state
     const [isOnline, setIsOnline] = useState(true);
-
+    console.clear()
     useEffect(_=>{
         const run =async _=>{
             try {
