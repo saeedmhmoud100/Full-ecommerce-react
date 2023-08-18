@@ -26,7 +26,7 @@ export const changeUserRole = (id,data) => async dispatch => {
     try {
         const res = await useUpdateData(`/api/v1/users/${id}`,data)
         if(res.data && res.data._id)
-            Notification("the user role have been changed successfully")
+            Notification("the user role has been changed successfully")
         // console.log(res)
         dispatch({
             type:CHANGE_USER_ROLE,
@@ -46,7 +46,7 @@ export const deleteUser = (id) => async dispatch => {
     try {
         const res = await useDeleteData(`/api/v1/users/${id}`)
         if(res==='')
-            Notification("the user have been removed successfully")
+            Notification("the user has been removed successfully")
         dispatch({
             type:DELETE_USER,
             payload:res,
