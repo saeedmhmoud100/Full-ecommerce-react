@@ -19,7 +19,7 @@ const UserFavoriteProducts = () => {
 
     return (
         <div>
-            <div className='admin-content-text pb-2'>Favorites Products</div>
+            <div className='admin-content-text pb-2'>Favorite Products</div>
 
             <Row className={ 'justify-content-md-start'+ wishListProducts.length > 0 ?'' :' text-center'}>
                 {

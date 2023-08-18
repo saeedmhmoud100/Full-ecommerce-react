@@ -6,7 +6,7 @@ import {getUserData, logoutUser} from "../../Redux/actions/authAction";
 import {getAllUserCart, logoutUserCart} from "../../Redux/actions/cartAction";
 import {getAllCategory} from "../../Redux/actions/categoryAction";
 import {getAllBrand} from "../../Redux/actions/brandAction";
-import {getAllProducts} from "../../Redux/actions/productAction";
+import {getAllProducts, getAllProductsWithoutFilter} from "../../Redux/actions/productAction";
 
 const NavbarSearchHook = _=>{
     const [,,,getProduct] = ShopProductsPageHook()
@@ -14,6 +14,7 @@ const NavbarSearchHook = _=>{
     const [prevPage,setPrevPage] = useState(window.location.pathname)
     const navigate = useNavigate();
 
+    const [isSearch,setIsSearch] = useState(Boolean(localStorage.getItem('searchWord')))
 
     useEffect(_=>{
         const run = async _=>{
@@ -32,14 +33,15 @@ const NavbarSearchHook = _=>{
     }
 
     useEffect(_=>{
-        if(window.location.pathname!=='/Full-ecommerce-react/products')
+        if(!isSearch)
             setPrevPage(window.location.pathname)
     },[window.location.pathname])
 
     useEffect(_=>{
+        setIsSearch(Boolean(searchWord))
         setTimeout(_=>{
             navigate(searchWord===''?prevPage:'/Full-ecommerce-react/products')
-        },80)
+        },200)
         setTimeout(_=>{
         getProduct({searchWord})
 
@@ -81,9 +83,11 @@ const NavbarSearchHook = _=>{
     const logout =_=>{
         dispatch(logoutUser())
         dispatch(logoutUserCart())
+        dispatch(getAllProductsWithoutFilter())
+        dispatch(getAllProducts())
 
         localStorage.removeItem('token')
-        navigate('Full-ecommerce-react/')
+        navigate('Full-ecommerce-react/auth/login')
     }
     ////////////////
     return [onChangeSearch,logout,isLogged,loginUserData]

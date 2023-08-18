@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import {updateUserPassword} from "../../Redux/actions/authAction";
 import {logoutUser} from "../../Redux/actions/authAction";
 import {useNavigate} from "react-router-dom";
+import {logoutUserCart} from "../../Redux/actions/cartAction";
 
 const UpdateUserPasswordHook = () => {
     const dispatch = useDispatch()
@@ -30,11 +31,14 @@ const UpdateUserPasswordHook = () => {
         const run=async _ => {
 
             if(updateUserPasswordRes.token){
-                navigate('/Full-ecommerce-react/login')
+                navigate('/Full-ecommerce-react/auth/login')
                 setOldPassword('')
                 setNewPassword('')
                 setConfirmNewPassword('')
+                await  dispatch(logoutUserCart())
                 await  dispatch(logoutUser())
+                localStorage.removeItem('token')
+
                 //     .then(_=>{
                 //     // localStorage.removeItem('token')
                 // })

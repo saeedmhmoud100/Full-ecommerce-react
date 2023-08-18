@@ -6,13 +6,14 @@ import Pagination from "../Uitily/Pagination";
 
 function AdminAllOrders(){
     const [OrdersData,,getOrdersData] = UserAllUserOrdersHook()
+    // console.log(OrdersData)
     return(
         <div>
-            <div className='admin-content-text'>Management all Orders #{OrdersData.results || 0}</div>
+            <div className='admin-content-text'>Management all Orders #{OrdersData.length || 0}</div>
             <Row className={'p-sm-30px'} >
                 {
-                    OrdersData&& OrdersData.results > 0 && OrdersData.data ?
-                        OrdersData.data.map( item => <AdminAllOrdersItem OrdersData={item} admin={true}/>)
+                    OrdersData&& OrdersData.length > 0 ?
+                        OrdersData.map( item => <AdminAllOrdersItem OrdersData={item} admin={true}/>)
                         : <h3 className={'text-center mt-2'}>there are no orders yet</h3>
                 }
                 {

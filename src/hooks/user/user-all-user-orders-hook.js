@@ -5,13 +5,19 @@ import {useDispatch, useSelector} from "react-redux";
 
 const UserAllUserOrdersHook  = _=>{
     const dispatch = useDispatch()
-    const OrdersData = useSelector(state => state.order.allOrders)
+    const OrdersDataRes = useSelector(state => state.order.allOrders)
     const userData = useSelector(state => state.auth.getUserData)
+    const [OrdersData,setOrdersData] = useState([])
     const [lod,setLoad] = useState(false)
 
     useEffect(_=>{
         getOrdersData()
     },[])
+
+    useEffect(_=>{
+        if(OrdersDataRes && OrdersDataRes.data)
+            setOrdersData(OrdersDataRes.data.filter(item => item.user !=null))
+    },[OrdersDataRes])
 
     const getOrdersData =async page =>{
         setLoad(true)

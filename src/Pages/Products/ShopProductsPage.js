@@ -26,7 +26,7 @@ const ShopProductsPage = () => {
                     </Col>
                     <Col sm={10} xs={10} md={10}>
                         {
-                            loading ?<><CardProductContainer products={[]}/> <CardProductContainer products={[]}/></>
+                            loading ?<><CardProductContainer products={[]}/> <CardProductContainer products={[]}/> <CardProductContainer products={[]}/></>
                                 : allProducts.data && allProducts.data.length >0 ? <CardProductContainer products={allProducts.data}/>
                                 :null
                         }

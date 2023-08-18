@@ -6,7 +6,7 @@ import {createBrand} from "../../Redux/actions/brandAction";
 
 
 const AdminAddBrandHook = _ => {
-    const [image, setImage] = useState(avatar)
+    const [image, setImage] = useState("https://saeedmhmoud100.github.io/Full-ecommerce-react"+avatar)
     const [selectedFile, setSelectedFile] = useState(null)
     const [text, settext] = useState('')
     const [loading, setloading] = useState(false)
@@ -31,7 +31,7 @@ const AdminAddBrandHook = _ => {
             setloading(true)
             await dispatch(createBrand(formData))
             settext('')
-            setImage(avatar)
+            setImage("https://saeedmhmoud100.github.io/Full-ecommerce-react"+avatar)
             setSelectedFile(null)
             setloading(false)
         } else {

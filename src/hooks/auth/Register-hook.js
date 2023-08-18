@@ -80,7 +80,7 @@ const RegisterHook = _=>{
                 setPhone('')
                 setPassword('')
                 setRePassword('')
-                localStorage.setItem('token',newUser.token)
+                // localStorage.setItem('token',newUser.token)
             }
         }
     },[loading])

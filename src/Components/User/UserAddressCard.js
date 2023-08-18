@@ -16,7 +16,7 @@ const UserAddressCard = ({address}) => {
                     <div className="d-flex p-2">
                         <div className="d-flex mx-2">
 
-                            <Link to={`/user/edit-address/`+ address._id} style={{ textDecoration: "none" }}>
+                            <Link to={`/Full-ecommerce-react/user/edit-address/`+ address._id} style={{ textDecoration: "none" }}>
                                 <p className="item-delete-edit text-decoration-underline">Edit </p>
                             </Link>
                         </div>

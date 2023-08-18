@@ -10,6 +10,8 @@ import AdminUpdateProductPage from "../Pages/Admin/AdminUpdateProductPage";
 import AdminCouponsPage from "../Pages/Admin/AdminCouponsPage";
 import AdminProfilePage from "../Pages/Admin/AdminProfilePage";
 import AdminAllUsersPage from "../Pages/Admin/AdminAllUsersPage";
+import {NotFound} from "../hooks/protect-routes-hook";
+import React from "react";
 
 const AdminRoutes = ({isAdmin}) => { // URL is: admin/*
     return(
@@ -39,13 +41,14 @@ const AdminRoutes = ({isAdmin}) => { // URL is: admin/*
                 {/*    <Route path={'allusers'} element={<AdminAllUsers/>}/>*/}
                 {/*</Route>*/}
 
+                <Route path={'*'} element={<NotFound />} />
 
             </Routes>
             :
             <Routes>
                 <Route
                     path="*"
-                    element={<Navigate to={localStorage.getItem('token') ? '/Full-ecommerce-react' : "Full-ecommerce-react/auth/login"} replace />}
+                    element={<Navigate to={localStorage.getItem('token') ? '/Full-ecommerce-react' : "/Full-ecommerce-react/auth/login"} replace />}
                 />
             </Routes>
     )

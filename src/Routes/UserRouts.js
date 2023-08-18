@@ -7,6 +7,7 @@ import UserEditAddressPage from "../Pages/User/UserEditAddressPage";
 import UserProfilePage from "../Pages/User/UserProfilePage";
 import ChoosePayMethoudPage from "../Pages/Checkout/ChoosePayMethoudPage";
 import React from "react";
+import {NotFound} from "../hooks/protect-routes-hook";
 
 const UserRoutes = ({isUser}) => ( // URL is: user/*
     isUser ?
@@ -18,6 +19,11 @@ const UserRoutes = ({isUser}) => ( // URL is: user/*
                 <Route path={'edit-address/:id'} element={<UserEditAddressPage />} />
                 <Route path={'/order/paymethoud'} element={<ChoosePayMethoudPage />} />
                 <Route path={'profile'} element={<UserProfilePage />} />
+
+
+                <Route path={'*'} element={<NotFound />} />
+
+
             </Routes>
         :
             <Routes>
