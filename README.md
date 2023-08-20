@@ -1,4 +1,4 @@
-## `💻Live version: [https://saeedmhmoud100.github.io/Full-ecommerce-react/]`(https://saeedmhmoud100.github.io/Full-ecommerce-react/)
+## 💻Live version: [https://saeedmhmoud100.github.io/Full-ecommerce-react/](https://saeedmhmoud100.github.io/Full-ecommerce-react/)
 
 # `🎖️Project features`
 
