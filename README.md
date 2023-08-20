@@ -31,10 +31,10 @@
  ### -- Checkout to make an order with a payment methods [Cash on Delivery].
 
 ## 📌User Features
- ### -- User profile page  
-    - show all user info  
-    - update the your data  
-    - Change Password  
+ ### -- User profile page 
+    - show all user info    
+    - update the your data    
+    - Change Password     
  ### -- All orders page  
     - see his/her orders and their status [In Progress, Delivered,  paid or not yet]  
  ### -- Personal addresses page  
