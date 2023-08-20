@@ -31,54 +31,54 @@
  ### -- Checkout to make an order with a payment methods [Cash on Delivery].
 
 ## 📌User Features
- ### -- User profile page 
-    - show all user info    
-    - update the your data   
-    - Change Password   
+ ### -- User profile page
+   - show all user info  
+   - update the your data   
+   - Change Password   
  ### -- All orders page  
-    - see his/her orders and their status [In Progress, Delivered,  paid or not yet]
+   - see his/her orders and their status [In Progress, Delivered,  paid or not yet]
  ### -- Personal addresses page  
    - view all addresses  
    - Add a new address  
    - [update, remove] the address
  ### -- Favorite products page  
-    - show all products that you have added to wishlist  
+   - show all products that you have added to wishlist  
     - remove the product from wishlist  
 
 
 ## 📌Admin Features
  ### -- Admin profile
-    - can see his/her own information through the profile page
-    - can update his/her own information
-    - change password
+   - can see his/her own information through the profile page
+   - can update his/her own information
+   - change password
  ### -- Users management
-    - show all users and user's details
-    - delete the user
-    - change user role[user or admin]
+   - show all users and user's details
+   - delete the user
+   - change user role[user or admin]
  ### -- Order management
-    - show all orders
+   - show all orders
     - show order's details
     - change delivery status [Delivered or not]
     - change payment status [has paid or not]
  ### -- Product management
-    - add a new product
+   - add a new product
     - view all products 
     - [update or delete] the products
  ### -- Brands management
-    - show all brands
+   - show all brands
     - add a new brand
     - [update or delete] the brand
  ### -- Categories management
-    - show all categories
+   - show all categories
     - add a new category
     - [update or delete] the category
  ### -- SubCategories management
-    - add a new subCategory
+   - add a new subCategory
     - [update or delete] the Category
     - show all subCategories as a tags
     - show all main categories followed by its subCategories
  ### -- Coupons management
-    - show all coupons
+   - show all coupons
     - add a new coupon
     - [update or delete] the coupon
  ### -- Admin cannot track any processes performed or view anything before logging in.
@@ -86,14 +86,14 @@
 
 ## 📌Protected Routes System
  ### -- Authentication pages
-    - only the non-logged user can see these pages [login, register, forget password,verify code, reset password ]
+   - only the non-logged user can see these pages [login, register, forget password, verify code, reset password ]
  ### -- User pages
-    - only the loggedin user can see these pages [user profile, user all orders, user all address,[add,update] an address, select payment method ]
+   - only the logged in user can see these pages [user profile, user all orders, user all address, [add, update] an address, select payment method]
  ### -- Admin pages
-    - only the admin can see these pages [admin profile, users management, brands management, categories management,
+   - only the admin can see these pages [admin profile, users management, brands management, categories management,
       subCategories management, coupons management, all orders, orders details, admin all products, [add,update] a product]
  ### -- Available pages
-    - anyone can see these pages [Home, all categories, all brands, all products, product details, cart, 404, no interntet page]
+   - anyone can see these pages [Home, all categories, all brands, all products, product details, cart, 404, no interntet page]
 
 ## 📌Extra Features
  ### -- Auto redirect to shop page when search on product in navbar search and return to the previous page when deleting the search
@@ -102,5 +102,3 @@
  ### -- The website is fully responsive for all devices
 
 ## 📌The project has been built entirely with respect to the SPA(Single Page Application) concept, eliminating the need for page refreshes throughout the website.
-
-
