@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+## 💻Live version: [https://saeedmhmoud100.github.io/Full-ecommerce-react/](https://saeedmhmoud100.github.io/Full-ecommerce-react/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# `🎖️Project features`
 
-## Available Scripts
+## 📌Full Authentication System
+ ### -- Login with email & password
+ ### -- Register with (username, email, and password)
+ ### -- Forget password
+   - enter your email ---> send a code to your Email   
+   - enter the code   
+   - reset Password    
+ ### -- Logout
 
-In the project directory, you can run:
+## 📌Shop Page Features
+ ### -- Advanced Search and Filtering products by [brand, Category, Price, word search]
+ ### -- Sorting the products by [price from [lowest or highest ], best sellers, top rating]
+ ### -- The filters are saved even after refreshing the page 
+ ### -- Add Product to Wishlist
+ ### -- Remove Product from Wishlist
+ ### -- Add product to the cart
+ ### -- Remove product from the cart
 
-### `npm start`
+## 📌 Products Reviews System
+ ### -- Show all reviews on the product
+ ### -- Can add a review if you are logged in
+ ### -- [Update, Delete] your own review
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 📌Cart Page Features
+ ### -- View all products that you have added to your cart
+ ### -- Can use coupon code to get a discount
+ ### -- Checkout to make an order with a payment methods [Cash on Delivery].
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📌User Features
+ ### -- User profile page
+   - show all user info  
+   - update the your data   
+   - Change Password   
+ ### -- All orders page  
+   - see his/her orders and their status [In Progress, Delivered,  paid or not yet]
+ ### -- Personal addresses page  
+   - view all addresses  
+   - Add a new address  
+   - [update, remove] the address
+ ### -- Favorite products page  
+   - show all products that you have added to wishlist  
+    - remove the product from wishlist  
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📌Admin Features
+ ### -- Admin profile
+   - can see his/her own information through the profile page
+   - can update his/her own information
+   - change password
+ ### -- Users management
+   - show all users and user's details
+   - delete the user
+   - change user role[user or admin]
+ ### -- Order management
+   - show all orders
+    - show order's details
+    - change delivery status [Delivered or not]
+    - change payment status [has paid or not]
+ ### -- Product management
+   - add a new product
+    - view all products 
+    - [update or delete] the products
+ ### -- Brands management
+   - show all brands
+    - add a new brand
+    - [update or delete] the brand
+ ### -- Categories management
+   - show all categories
+    - add a new category
+    - [update or delete] the category
+ ### -- SubCategories management
+   - add a new subCategory
+    - [update or delete] the Category
+    - show all subCategories as a tags
+    - show all main categories followed by its subCategories
+ ### -- Coupons management
+   - show all coupons
+    - add a new coupon
+    - [update or delete] the coupon
+ ### -- Admin cannot track any processes performed or view anything before logging in.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📌Protected Routes System
+ ### -- Authentication pages
+   - only the non-logged user can see these pages [login, register, forget password, verify code, reset password ]
+ ### -- User pages
+   - only the logged in user can see these pages [user profile, user all orders, user all address, [add, update] an address, select payment method]
+ ### -- Admin pages
+   - only the admin can see these pages [admin profile, users management, brands management, categories management,
+      subCategories management, coupons management, all orders, orders details, admin all products, [add,update] a product]
+ ### -- Available pages
+   - anyone can see these pages [Home, all categories, all brands, all products, product details, cart, 404, no interntet page]
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📌Extra Features
+ ### -- Auto redirect to shop page when search on product in navbar search and return to the previous page when deleting the search
+ ### -- 404 page for any wrong route
+ ### -- Check if there is no internet then auto redirect to the noInternet page
+ ### -- The website is fully responsive for all devices
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📌The project has been built entirely with respect to the SPA(Single Page Application) concept, eliminating the need for page refreshes throughout the website.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
