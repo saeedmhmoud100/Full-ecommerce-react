@@ -3,7 +3,7 @@
 # `🎖️Project features`
 
 ## 📌Full Authentication System
-  ### -- Login with email & password
+  ###   -- Login with email & password
   ### -- Register with (username, email, and password)
   ### -- Forget password
     - enter your email ---> send a code to your Email   
