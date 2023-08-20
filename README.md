@@ -31,19 +31,19 @@
  ### -- Checkout to make an order with a payment methods [Cash on Delivery].
 
 ## 📌User Features
- ### -- User profile page
-    - show all user info
-    - update the your data
-    - Change Password
- ### -- All orders page
-    - see his/her orders and their status [In Progress, Delivered,  paid or not yet]
- ### -- Personal addresses page
-   - view all addresses
-   - Add a new address
+ ### -- User profile page  
+    - show all user info  
+    - update the your data  
+    - Change Password  
+ ### -- All orders page  
+    - see his/her orders and their status [In Progress, Delivered,  paid or not yet]  
+ ### -- Personal addresses page  
+   - view all addresses  
+   - Add a new address  
    - [update, remove] the address
- ### -- Favorite products page
-    - show all products that you have added to wishlist
-    - remove the product from wishlist
+ ### -- Favorite products page  
+    - show all products that you have added to wishlist  
+    - remove the product from wishlist  
 
 
 ## 📌Admin Features
