@@ -33,10 +33,10 @@
 ## 📌User Features
  ### -- User profile page 
     - show all user info    
-    - update the your data    
-    - Change Password     
+    - update the your data   
+    - Change Password   
  ### -- All orders page  
-    - see his/her orders and their status [In Progress, Delivered,  paid or not yet]  
+    - see his/her orders and their status [In Progress, Delivered,  paid or not yet]
  ### -- Personal addresses page  
    - view all addresses  
    - Add a new address  
