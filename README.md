@@ -104,10 +104,3 @@
 ## 📌The project has been built entirely with respect to the SPA(Single Page Application) concept, eliminating the need for page refreshes throughout the website.
 
 
-The libraries I have used
- #axios #bootstrap #react-bootstrap #react-paginate #react-toastify #react-color #multiselect-react-dropdown #react-image-gallery
- #react-multiple-image-input #react-rating-stars-component #redux #redux-devtools-extension #redux-thunk #unop-react-dropdown 
-I welcome any feedback or comments you may have. Your insights are greatly valued and will be incorporated into my ongoing efforts to enhance my skills. Thank you for your time.
-----------------------
-#react-dom #react-redux #react-router-dom #gh-pages #web-vitals #react #api #webdevelopment #ecommerce #redux #E-commerce #scss #node-sass #bootstrap #react-bootstrap #SPA #responsive #reactjshiring #eCommerce #NodeJS #LinkedIn #Front_End_developer #ui #webdesign #github #learning #projects #javascript #frontend #html #css #deploy #deploying #frontenddev #javascriptdeveloper #project #freelancers #reactdeveloper #shopping #developer #ecommercedevelopment #ecommercewebsite  #restfulapi #design #frontenddeveloper #frontenddevelopment
-
