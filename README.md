@@ -5,12 +5,11 @@
 ## 📌Full Authentication System
   ###   -- Login with email & password
   ### -- Register with (username, email, and password)
+  ### -- Logout
   ### -- Forget password
     - enter your email ---> send a code to your Email   
     - enter the code   
     - reset Password    
-  ### -- Logout
-
 ## 📌Shop Page Features
   ### -- Advanced Search and Filtering products by [brand, Category, Price, word search]
   ### -- Sorting the products by [price from [lowest or highest ], best sellers, top rating]
@@ -19,7 +18,6 @@
   ### -- Remove Product from Wishlist
   ### -- Add product to the cart
   ### -- Remove product from the cart
-
 ## 📌 Products Reviews System
   ### -- Show all reviews on the product
   ### -- Can add a review if you are logged in
