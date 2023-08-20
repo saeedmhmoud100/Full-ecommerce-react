@@ -6,9 +6,9 @@
  ### -- Login with email & password
  ### -- Register with (username, email, and password)
  ### -- Forget password
-   `- enter your email ---> send a code to your Email`
-   `- enter the code`
-   `- reset Password`
+   `- enter your email ---> send a code to your Email`   
+   `- enter the code`   
+   `- reset Password`   
  ### -- Logout
 
 ## 📌Shop Page Features
