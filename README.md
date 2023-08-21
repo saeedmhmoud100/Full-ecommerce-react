@@ -100,9 +100,10 @@
  ### -- 404 page for any wrong route
  ### -- Check if there is no internet then auto redirect to the noInternet page
  ### -- The website is fully responsive for all devices
-
-**📌The project has been built entirely with respect to the SPA(Single Page Application) concept, eliminating the need for page refreshes throughout the website.**
-
+ 
+ ### -- **The project has been built entirely with respect to the SPA(Single Page Application) concept, eliminating the need for page refreshes throughout the website.**
+   
+--------------------------------------------------------
 ### **video**
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/lJhEFtqhnCM)](https://youtu.be/lJhEFtqhnCM)
