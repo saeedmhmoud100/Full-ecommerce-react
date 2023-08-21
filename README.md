@@ -103,4 +103,19 @@
 
 ## 📌The project has been built entirely with respect to the SPA(Single Page Application) concept, eliminating the need for page refreshes throughout the website.
 
+### **video**
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/lJhEFtqhnCM)](https://youtu.be/lJhEFtqhnCM)
+
+### **website images**
+[![](https://github.com/saeedmhmoud100/Full-ecommerce-react/blob/main/public/site%20images/1.png)](https://github.com/saeedmhmoud100/Full-ecommerce-react/blob/main/public/site%20images/1.png)
+---------------------------------------------------------------------------
+[![](https://github.com/saeedmhmoud100/Full-ecommerce-react/blob/main/public/site%20images/2.png)](https://github.com/saeedmhmoud100/Full-ecommerce-react/blob/main/public/site%20images/2.png)
+---------------------------------------------------------------------------
+[![](https://github.com/saeedmhmoud100/Full-ecommerce-react/blob/main/public/site%20images/3.png)](https://github.com/saeedmhmoud100/Full-ecommerce-react/blob/main/public/site%20images/3.png)
+---------------------------------------------------------------------------
+[![](https://github.com/saeedmhmoud100/Full-ecommerce-react/blob/main/public/site%20images/4.png)](https://github.com/saeedmhmoud100/Full-ecommerce-react/blob/main/public/site%20images/4.png)
+---------------------------------------------------------------------------
+[![](https://github.com/saeedmhmoud100/Full-ecommerce-react/blob/main/public/site%20images/5.png)](https://github.com/saeedmhmoud100/Full-ecommerce-react/blob/main/public/site%20images/5.png)
+---------------------------------------------------------------------------
 
