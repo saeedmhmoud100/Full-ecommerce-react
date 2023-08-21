@@ -28,7 +28,7 @@ const BrandFeature = ({title,btntitle}) => {
 
                     </Row>
                 </>
-                ) : <Row>
+                ) : <Row className={'justify-content-center'}>
                     <SubTiltle title={title} />
                     <BrandCardPlaceholder />
                     <BrandCardPlaceholder />
